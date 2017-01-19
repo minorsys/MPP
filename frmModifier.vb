@@ -5,9 +5,11 @@
     'TableAdapter.FillByCode(table,code)
 
     '###レコードの組み合わせの変更(コンボボックス)
+    '三つの操作パターンがある。すなわち
+
     '3つのテーブルに対応する各コンボボックスの(cmbPhonenumChangeほか)のSelectedValueChangedイベントが発生すると、
     '(各テーブルにデータバインドしている)lblphonenum,lblstaffID,lblcarnumに値が入る。
-    'このとき、電話番号、社員番号、車番の組み合わせの変更を一時記録するため、以下の5変数(連結用データ変数と呼称する)にコンボボックスの値を保存する。
+    'このとき、電話番号、社員番号、車番の組み合わせの変更を一時記録するため、以下の2変数(連結用データ変数と呼称する)にコンボボックスの値を保存する。
 
     'Private tblPhonenumStaffID As String
     Private tblStaffPhonenum As String
@@ -138,27 +140,26 @@
     End Sub
 
 
-
     '###電話番号変更コンボボックスの値が変更されたら###
     Private Sub cmbPhonenumChange_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbPhonenumChange.SelectedValueChanged
+        'コンボボックスの変更後の値をクエリにしてfrmModifierに値をフィルしたあと、
         If cmbPhonenumChange.SelectedIndex > 0 Then
-            '    lblPhonenum.Text = cmbPhonenumChange.Text
-
             Dim pcode As String = cmbPhonenumChange.Text
             Me.Tbl_PhoneNumTableAdapter.FillByPcode(Me.PhoneNumDBDataSet.tbl_PhoneNum, pcode)
-
-            '    Call lblRefresh()
-
-            '    lblStaffPhonenum.Text = lblPhonenum.Text
-            '    lblPhoneStaffID.Text = lblstaffID.Text
-
         End If
-        ' tblStaffPhonenum = cmbPhonenumChange.Text
-
 
 
     End Sub
 
+    '###車番変更コンボボックスの値が変更されたら###
+    Private Sub cmbCarnumChange_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbCarnumChange.SelectedValueChanged
+        '車番コンボボックスの変更後の値をクエリにしてfrmModifierに値をフィルした後、
+        If cmbCarnumChange.SelectedIndex > 0 Then
+            Dim carcode As String = cmbCarnumChange.Text
+            Me.Tbl_carTableAdapter.FillByCcode(Me.PhoneNumDBDataSet.tbl_car, carcode)
+        End If
+
+    End Sub
 
     '###氏名変更コンボボックスの値が変更されたら###
     Private Sub cmbStaffNameChange_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbStaffNameChange.SelectedValueChanged
@@ -167,7 +168,6 @@
 
             Dim scode As String = Strings.Left(cmbStaffNameChange.Text, 5)
             Me.Tbl_staffTableAdapter.FillByScode(Me.PhoneNumDBDataSet.tbl_staff, scode)
-            '    'Call lblRefresh()
 
             '    lblCarStaffId.Text = lblstaffID.Text
             '    lblPhoneStaffID.Text = lblstaffID.Text
@@ -176,36 +176,13 @@
 
             ' tblCarStaffID = Strings.Left(cmbStaffNameChange.Text, 5)
 
-
-            'その社員に対応する電話番号データをフィルする
-            ' If lblStaffPhonenum.Text <> "" Then
-            Me.Tbl_PhoneNumTableAdapter.FillByPcode(Me.PhoneNumDBDataSet.tbl_PhoneNum, scode)
+            Me.Tbl_PhoneNumTableAdapter.FillByStaffPhonenum(Me.PhoneNumDBDataSet.tbl_PhoneNum, scode)
             ' tblStaffPhonenum = lblPhonenum.Text
         End If
 
     End Sub
 
-    '###車番変更コンボボックスの値が変更されたら###
-    Private Sub cmbCarnumChange_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbCarnumChange.SelectedValueChanged
-        If cmbCarnumChange.SelectedIndex > 0 Then
-            'lblCarnum.Text = cmbCarnumChange.Text
 
-            Dim carcode As String = cmbCarnumChange.Text
-            Me.Tbl_carTableAdapter.FillByCcode(Me.PhoneNumDBDataSet.tbl_car, carcode)
-
-            '    Call lblRefresh()
-            '    lblStaffCarnum.Text = lblCarnum.Text
-            '    '###車番テーブルのスタッフIDも更新する
-            '    lblCarStaffId.Text = lblstaffID.Text
-
-            'tblStaffCarnum = cmbCarnumChange.Text
-            'tblCarStaffID = lblstaffID.Text
-            'tblStaffPhonenum = lblPhonenum.Text
-        End If
-
-
-
-    End Sub
 
 
 
@@ -221,6 +198,18 @@
 
     '[登録]ボタンを押すと、現在表示されている内容で各テーブルのレコードを更新する
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
+        '社員情報、車両情報がともに空欄ならキャンセルする
+        If lblstaffID.Text = "" And lblCarnum.Text = "" Then
+            MsgBox("編集するレコードがありません")
+            Return
+        End If
+
+        '社員情報が空欄で、電話番号だけある場合、キャンセルする
+        If lblstaffID.Text = "" And lblPhonenum.Text <> "" Then
+            MsgBox("電話番号と社員の対応がありません")
+            Return
+        End If
+
         '登録する内容がデータ型と一致しているかチェック
         If Not CheckEditData() Then
             Return
@@ -229,30 +218,54 @@
         '保存確認と保存処理
         If MsgBox("これまでの修正内容をデータベースに保存しますか？", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
+            '変数tblStaffPhonenumに変更後のコンボボックス値を代入する。
+            tblStaffPhonenum = lblPhonenum.Text
+            '変数tblStaffCarnumに変更後のコンボボックスの値を代入する。
+            tblStaffCarnum = lblCarnum.Text
+
+            '###テーブルアダプタを介して、レコードを更新する###
+
+            '三つの処理：
+            '1.EndEdit&Update
+            '2.UpdateStaffPhonenum/Carnum
+            '3.ClearPreviousPhonenum/Carnum
+            'あばばばばば
+
             '編集状態を確定する
-            'Me.Tbl_IntegrateBindingSource.EndEdit()
+            'その後、現在表示されているレコードを、表示されている内容で更新する。
+
             Me.TblPhoneNumBindingSource.EndEdit()
-            Me.TblstaffBindingSource.EndEdit()
-            Me.TblcarBindingSource.EndEdit()
-
-            'テーブルアダプタを介して、レコードを更新する
-            'Me.Tbl_IntegrateTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_Integrate)
-
             Me.Tbl_PhoneNumTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_PhoneNum)
+
+            Me.TblstaffBindingSource.EndEdit()
             Me.Tbl_staffTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_staff)
+
+            Me.TblcarBindingSource.EndEdit()
             Me.Tbl_carTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_car)
 
-            'If Not lblstaffID.Text = "" Then
-            Me.Tbl_staffTableAdapter.UpdateStaffPhonenum(tblStaffPhonenum, lblstaffID.Text)
-            'End If
+            'lblStaffIDが空欄なら(このとき、冒頭のifブロックのためにlblCarnumは必ず値をもっているはず) 、
+            'lblCarnumと等しい値をもつstaffCarnum列をもつstaffレコードを探し、staff_Carnum列をクリアする。
+            If lblstaffID.Text = "" Then
+                Me.Tbl_staffTableAdapter.ClearStaffPhonenum(lblCarnum.Text)
+            Else
+                'lblStaffIDが値を持つなら、現在表示されているレコードのstaff_phonenum列に変数tblStaffPhonenumを代入する。
+                Me.Tbl_staffTableAdapter.UpdateStaffPhonenum(tblStaffPhonenum, lblstaffID.Text)
+                'StaffCarnumについても同様。
+                Me.Tbl_staffTableAdapter.UpdateStaffCarnum(tblStaffCarnum, lblstaffID.Text)
+            End If
 
-            'If Not lblCarnum.Text = "" Then
-            'Me.Tbl_carTableAdapter.UpdateCarStaffID(tblCarStaffID, lblCarnum.Text)
-            'End If
+            'tblStaffの外部キーの整合性をとる。(複数のstaffレコードが、同一のstaff_phonenumないしstaff_Carnumをもってはならない。)
+            '変数tblStaffPhonenumをもつtbl_staff内のレコードを探し、そのstaff_phonenum列をクリアする。
+            'このとき、現在表示されているレコードのstaff_carnum/phonenumも消えるが、後段のUpdateStaffCarnum/Phonenumで登録する。
 
-            'If Not lblstaffID.Text = "" Then
-            Me.Tbl_staffTableAdapter.UpdateStaffCarnum(tblStaffCarnum, lblstaffID.Text)
-            'End If
+            If Not lblPhonenum.Text = "" Then
+                Me.Tbl_staffTableAdapter.ClearPreviousStaffPhonenum(tblStaffPhonenum)
+            End If
+
+            'tblCarnumについても同様。
+            If Not lblCarnum.Text = "" Then
+                Me.Tbl_staffTableAdapter.ClearPreviousStaffCarnum(tblStaffCarnum)
+            End If
 
             'フォームを閉じる
             Me.Close()
@@ -269,9 +282,6 @@
         Dim pcode As String = lblPhonenum.Text
         Me.Tbl_PhoneNumTableAdapter.FillByPcode(Me.PhoneNumDBDataSet.tbl_PhoneNum, pcode)
 
-        '外部キーをクリアする
-        'tblStaffPhonenum = ""
-
     End Sub
 
     '社員クリアボタン
@@ -286,10 +296,6 @@
         Dim pcode As String = lblPhonenum.Text
         Me.Tbl_PhoneNumTableAdapter.FillByPcode(Me.PhoneNumDBDataSet.tbl_PhoneNum, pcode)
 
-        '外部キーもクリアする
-        ' tblCarStaffID = ""
-        ' tblStaffCarnum = ""
-
     End Sub
 
     '車両クリアボタン
@@ -299,11 +305,6 @@
         Dim carcode As String = lblCarnum.Text
         Me.Tbl_carTableAdapter.FillByCcode(Me.PhoneNumDBDataSet.tbl_car, carcode)
 
-        '外部キーもクリアする
-        '  tblCarStaffID = ""
-        '  tblStaffCarnum = ""
-        ' lblStaffCarnum.Text = ""
-        ' lblCarStaffId.Text = ""
     End Sub
 
     Private Function CheckEditData() As Boolean

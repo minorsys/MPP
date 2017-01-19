@@ -88,7 +88,9 @@
         sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
               "From tbl_car INNER Join tbl_branch On tbl_car.branch_id = tbl_branch.id_branch FULL OUTER Join " &
               "tbl_staff INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch LEFT OUTER Join " &
-              "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum ON tbl_car.staff_id = tbl_staff.id_staff "
+              "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum " &
+              "ON tbl_car.carnum1 = tbl_staff.staff_carnum "
+        'ON tbl_car.staff_id = tbl_staff.id_staff "
 
         '条件が指定されているときには、WHERE句を追加する
         If fs <> "" Then
@@ -149,7 +151,12 @@
         sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
               "From tbl_car INNER Join tbl_branch On tbl_car.branch_id = tbl_branch.id_branch FULL OUTER Join " &
               "tbl_staff INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch LEFT OUTER Join " &
-              "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum ON tbl_car.staff_id = tbl_staff.id_staff "
+              "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum " &
+              "ON tbl_car.carnum1 = tbl_staff.staff_carnum "
+        'sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
+        '      "From tbl_car INNER Join tbl_branch On tbl_car.branch_id = tbl_branch.id_branch FULL OUTER Join " &
+        '      "tbl_staff INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch LEFT OUTER Join " &
+        '      "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum ON tbl_car.staff_id = tbl_staff.id_staff "
 
         sql &= " WHERE "
 
@@ -183,7 +190,7 @@
 
         'データテーブルをクリアする
         Me.PhoneNumDBDataSet.dtMain.Clear()
-
+        'Me.PhoneNumDBDataSet.dtMain.OrderBy(PhoneNumDBDataSet.dtMain.musenColumn)
         'データテーブルにデータアダプタを介してデータをセットする
         da.Fill(Me.PhoneNumDBDataSet.dtMain)
 
@@ -547,7 +554,7 @@
     '[全車両]ボタン 
     Private Sub btnAllCar_Click(sender As Object, e As EventArgs) Handles btnAllCar.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '%[0-9]%' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car.carnum1 like '%[0-9]%' ORDER BY tbl_car.musen"
 
         shiboriDatabase(fs)
     End Sub

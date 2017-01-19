@@ -24,12 +24,10 @@ Partial Class frmGrd
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGrd))
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
-        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
-        Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
         Me.DtMainBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -107,39 +105,15 @@ Partial Class frmGrd
         Me.txtFilterPhonenum = New System.Windows.Forms.TextBox()
         Me.lblHowManyRecords = New System.Windows.Forms.Label()
         Me.btnModify = New System.Windows.Forms.Button()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
+        Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DtMainBindingNavigator.SuspendLayout()
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'PhoneNumDBDataSet
-        '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DtMainBindingSource
-        '
-        Me.DtMainBindingSource.DataMember = "dtMain"
-        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
-        'DtMainTableAdapter
-        '
-        Me.DtMainTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.tbl_branchTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_carTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_feeTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_IntegrateTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_PhoneNumTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'DtMainBindingNavigator
         '
@@ -168,6 +142,16 @@ Partial Class frmGrd
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "新規追加"
+        '
+        'DtMainBindingSource
+        '
+        Me.DtMainBindingSource.DataMember = "dtMain"
+        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
+        '
+        'PhoneNumDBDataSet
+        '
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -505,14 +489,14 @@ Partial Class frmGrd
         Me.GroupBox1.Controls.Add(Me.txtFilterPhonenum)
         Me.GroupBox1.Location = New System.Drawing.Point(13, 68)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(153, 449)
+        Me.GroupBox1.Size = New System.Drawing.Size(153, 478)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "絞り込み"
         '
         'btnFilterClear
         '
-        Me.btnFilterClear.Location = New System.Drawing.Point(63, 416)
+        Me.btnFilterClear.Location = New System.Drawing.Point(63, 447)
         Me.btnFilterClear.Name = "btnFilterClear"
         Me.btnFilterClear.Size = New System.Drawing.Size(84, 23)
         Me.btnFilterClear.TabIndex = 36
@@ -521,7 +505,7 @@ Partial Class frmGrd
         '
         'btn15tU
         '
-        Me.btn15tU.Location = New System.Drawing.Point(95, 300)
+        Me.btn15tU.Location = New System.Drawing.Point(95, 326)
         Me.btn15tU.Name = "btn15tU"
         Me.btn15tU.Size = New System.Drawing.Size(52, 23)
         Me.btn15tU.TabIndex = 35
@@ -530,7 +514,7 @@ Partial Class frmGrd
         '
         'btn10tU
         '
-        Me.btn10tU.Location = New System.Drawing.Point(95, 271)
+        Me.btn10tU.Location = New System.Drawing.Point(95, 297)
         Me.btn10tU.Name = "btn10tU"
         Me.btn10tU.Size = New System.Drawing.Size(52, 23)
         Me.btn10tU.TabIndex = 34
@@ -539,7 +523,7 @@ Partial Class frmGrd
         '
         'btn7tU
         '
-        Me.btn7tU.Location = New System.Drawing.Point(95, 242)
+        Me.btn7tU.Location = New System.Drawing.Point(95, 268)
         Me.btn7tU.Name = "btn7tU"
         Me.btn7tU.Size = New System.Drawing.Size(52, 23)
         Me.btn7tU.TabIndex = 33
@@ -548,7 +532,7 @@ Partial Class frmGrd
         '
         'btn4tU
         '
-        Me.btn4tU.Location = New System.Drawing.Point(95, 213)
+        Me.btn4tU.Location = New System.Drawing.Point(95, 239)
         Me.btn4tU.Name = "btn4tU"
         Me.btn4tU.Size = New System.Drawing.Size(52, 23)
         Me.btn4tU.TabIndex = 32
@@ -557,7 +541,7 @@ Partial Class frmGrd
         '
         'btn3tU
         '
-        Me.btn3tU.Location = New System.Drawing.Point(95, 184)
+        Me.btn3tU.Location = New System.Drawing.Point(95, 210)
         Me.btn3tU.Name = "btn3tU"
         Me.btn3tU.Size = New System.Drawing.Size(52, 23)
         Me.btn3tU.TabIndex = 31
@@ -566,7 +550,7 @@ Partial Class frmGrd
         '
         'btn2tU
         '
-        Me.btn2tU.Location = New System.Drawing.Point(95, 155)
+        Me.btn2tU.Location = New System.Drawing.Point(95, 181)
         Me.btn2tU.Name = "btn2tU"
         Me.btn2tU.Size = New System.Drawing.Size(52, 23)
         Me.btn2tU.TabIndex = 30
@@ -575,7 +559,7 @@ Partial Class frmGrd
         '
         'btn2tHira
         '
-        Me.btn2tHira.Location = New System.Drawing.Point(95, 126)
+        Me.btn2tHira.Location = New System.Drawing.Point(95, 152)
         Me.btn2tHira.Name = "btn2tHira"
         Me.btn2tHira.Size = New System.Drawing.Size(52, 23)
         Me.btn2tHira.TabIndex = 29
@@ -584,16 +568,16 @@ Partial Class frmGrd
         '
         'btnAllCar
         '
-        Me.btnAllCar.Location = New System.Drawing.Point(95, 329)
+        Me.btnAllCar.Location = New System.Drawing.Point(82, 121)
         Me.btnAllCar.Name = "btnAllCar"
-        Me.btnAllCar.Size = New System.Drawing.Size(52, 23)
+        Me.btnAllCar.Size = New System.Drawing.Size(65, 23)
         Me.btnAllCar.TabIndex = 28
-        Me.btnAllCar.Text = "全車両"
+        Me.btnAllCar.Text = "車両のみ"
         Me.btnAllCar.UseVisualStyleBackColor = True
         '
         'btn8000
         '
-        Me.btn8000.Location = New System.Drawing.Point(38, 358)
+        Me.btn8000.Location = New System.Drawing.Point(38, 384)
         Me.btn8000.Name = "btn8000"
         Me.btn8000.Size = New System.Drawing.Size(51, 23)
         Me.btn8000.TabIndex = 27
@@ -602,7 +586,7 @@ Partial Class frmGrd
         '
         'btn7000
         '
-        Me.btn7000.Location = New System.Drawing.Point(38, 329)
+        Me.btn7000.Location = New System.Drawing.Point(38, 355)
         Me.btn7000.Name = "btn7000"
         Me.btn7000.Size = New System.Drawing.Size(51, 23)
         Me.btn7000.TabIndex = 26
@@ -611,7 +595,7 @@ Partial Class frmGrd
         '
         'btn6000
         '
-        Me.btn6000.Location = New System.Drawing.Point(38, 300)
+        Me.btn6000.Location = New System.Drawing.Point(38, 326)
         Me.btn6000.Name = "btn6000"
         Me.btn6000.Size = New System.Drawing.Size(51, 23)
         Me.btn6000.TabIndex = 25
@@ -620,7 +604,7 @@ Partial Class frmGrd
         '
         'btn5000
         '
-        Me.btn5000.Location = New System.Drawing.Point(38, 271)
+        Me.btn5000.Location = New System.Drawing.Point(38, 297)
         Me.btn5000.Name = "btn5000"
         Me.btn5000.Size = New System.Drawing.Size(51, 23)
         Me.btn5000.TabIndex = 24
@@ -629,7 +613,7 @@ Partial Class frmGrd
         '
         'btn4000
         '
-        Me.btn4000.Location = New System.Drawing.Point(38, 242)
+        Me.btn4000.Location = New System.Drawing.Point(38, 268)
         Me.btn4000.Name = "btn4000"
         Me.btn4000.Size = New System.Drawing.Size(51, 23)
         Me.btn4000.TabIndex = 23
@@ -638,7 +622,7 @@ Partial Class frmGrd
         '
         'btn3000
         '
-        Me.btn3000.Location = New System.Drawing.Point(38, 213)
+        Me.btn3000.Location = New System.Drawing.Point(38, 239)
         Me.btn3000.Name = "btn3000"
         Me.btn3000.Size = New System.Drawing.Size(51, 23)
         Me.btn3000.TabIndex = 22
@@ -647,7 +631,7 @@ Partial Class frmGrd
         '
         'btn2000
         '
-        Me.btn2000.Location = New System.Drawing.Point(38, 184)
+        Me.btn2000.Location = New System.Drawing.Point(38, 210)
         Me.btn2000.Name = "btn2000"
         Me.btn2000.Size = New System.Drawing.Size(51, 23)
         Me.btn2000.TabIndex = 21
@@ -656,7 +640,7 @@ Partial Class frmGrd
         '
         'btn1000
         '
-        Me.btn1000.Location = New System.Drawing.Point(38, 155)
+        Me.btn1000.Location = New System.Drawing.Point(38, 181)
         Me.btn1000.Name = "btn1000"
         Me.btn1000.Size = New System.Drawing.Size(51, 23)
         Me.btn1000.TabIndex = 20
@@ -665,7 +649,7 @@ Partial Class frmGrd
         '
         'btn1
         '
-        Me.btn1.Location = New System.Drawing.Point(38, 126)
+        Me.btn1.Location = New System.Drawing.Point(38, 152)
         Me.btn1.Name = "btn1"
         Me.btn1.Size = New System.Drawing.Size(51, 23)
         Me.btn1.TabIndex = 19
@@ -674,7 +658,7 @@ Partial Class frmGrd
         '
         'btn9000
         '
-        Me.btn9000.Location = New System.Drawing.Point(38, 387)
+        Me.btn9000.Location = New System.Drawing.Point(38, 413)
         Me.btn9000.Name = "btn9000"
         Me.btn9000.Size = New System.Drawing.Size(51, 23)
         Me.btn9000.TabIndex = 18
@@ -683,7 +667,7 @@ Partial Class frmGrd
         '
         'btnWa
         '
-        Me.btnWa.Location = New System.Drawing.Point(6, 387)
+        Me.btnWa.Location = New System.Drawing.Point(6, 413)
         Me.btnWa.Name = "btnWa"
         Me.btnWa.Size = New System.Drawing.Size(26, 23)
         Me.btnWa.TabIndex = 17
@@ -692,7 +676,7 @@ Partial Class frmGrd
         '
         'btnRa
         '
-        Me.btnRa.Location = New System.Drawing.Point(6, 358)
+        Me.btnRa.Location = New System.Drawing.Point(6, 384)
         Me.btnRa.Name = "btnRa"
         Me.btnRa.Size = New System.Drawing.Size(26, 23)
         Me.btnRa.TabIndex = 16
@@ -701,7 +685,7 @@ Partial Class frmGrd
         '
         'btnYa
         '
-        Me.btnYa.Location = New System.Drawing.Point(6, 329)
+        Me.btnYa.Location = New System.Drawing.Point(6, 355)
         Me.btnYa.Name = "btnYa"
         Me.btnYa.Size = New System.Drawing.Size(26, 23)
         Me.btnYa.TabIndex = 15
@@ -710,7 +694,7 @@ Partial Class frmGrd
         '
         'btnMa
         '
-        Me.btnMa.Location = New System.Drawing.Point(6, 300)
+        Me.btnMa.Location = New System.Drawing.Point(6, 326)
         Me.btnMa.Name = "btnMa"
         Me.btnMa.Size = New System.Drawing.Size(26, 23)
         Me.btnMa.TabIndex = 14
@@ -719,7 +703,7 @@ Partial Class frmGrd
         '
         'btnHa
         '
-        Me.btnHa.Location = New System.Drawing.Point(6, 271)
+        Me.btnHa.Location = New System.Drawing.Point(6, 297)
         Me.btnHa.Name = "btnHa"
         Me.btnHa.Size = New System.Drawing.Size(26, 23)
         Me.btnHa.TabIndex = 13
@@ -728,7 +712,7 @@ Partial Class frmGrd
         '
         'btnNa
         '
-        Me.btnNa.Location = New System.Drawing.Point(6, 242)
+        Me.btnNa.Location = New System.Drawing.Point(6, 268)
         Me.btnNa.Name = "btnNa"
         Me.btnNa.Size = New System.Drawing.Size(26, 23)
         Me.btnNa.TabIndex = 12
@@ -737,7 +721,7 @@ Partial Class frmGrd
         '
         'btnTa
         '
-        Me.btnTa.Location = New System.Drawing.Point(6, 213)
+        Me.btnTa.Location = New System.Drawing.Point(6, 239)
         Me.btnTa.Name = "btnTa"
         Me.btnTa.Size = New System.Drawing.Size(26, 23)
         Me.btnTa.TabIndex = 11
@@ -746,7 +730,7 @@ Partial Class frmGrd
         '
         'btnSa
         '
-        Me.btnSa.Location = New System.Drawing.Point(6, 184)
+        Me.btnSa.Location = New System.Drawing.Point(6, 210)
         Me.btnSa.Name = "btnSa"
         Me.btnSa.Size = New System.Drawing.Size(26, 23)
         Me.btnSa.TabIndex = 10
@@ -755,7 +739,7 @@ Partial Class frmGrd
         '
         'btnKa
         '
-        Me.btnKa.Location = New System.Drawing.Point(6, 155)
+        Me.btnKa.Location = New System.Drawing.Point(6, 181)
         Me.btnKa.Name = "btnKa"
         Me.btnKa.Size = New System.Drawing.Size(26, 23)
         Me.btnKa.TabIndex = 9
@@ -764,7 +748,7 @@ Partial Class frmGrd
         '
         'btnA
         '
-        Me.btnA.Location = New System.Drawing.Point(6, 126)
+        Me.btnA.Location = New System.Drawing.Point(6, 152)
         Me.btnA.Name = "btnA"
         Me.btnA.Size = New System.Drawing.Size(26, 23)
         Me.btnA.TabIndex = 8
@@ -848,32 +832,49 @@ Partial Class frmGrd
         '
         'btnModify
         '
-        Me.btnModify.Location = New System.Drawing.Point(686, 524)
+        Me.btnModify.Location = New System.Drawing.Point(864, 523)
         Me.btnModify.Name = "btnModify"
         Me.btnModify.Size = New System.Drawing.Size(89, 23)
         Me.btnModify.TabIndex = 5
         Me.btnModify.Text = "選択行の編集"
         Me.btnModify.UseVisualStyleBackColor = True
         '
+        'DtMainTableAdapter
+        '
+        Me.DtMainTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.tbl_branchTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_carTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_feeTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_IntegrateTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_PhoneNumTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'frmGrd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(975, 568)
+        Me.ClientSize = New System.Drawing.Size(969, 555)
         Me.Controls.Add(Me.btnModify)
         Me.Controls.Add(Me.lblHowManyRecords)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnAdmin)
         Me.Controls.Add(Me.grdMain)
         Me.Controls.Add(Me.DtMainBindingNavigator)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmGrd"
         Me.Text = "MinoriPhone+"
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DtMainBindingNavigator.ResumeLayout(False)
         Me.DtMainBindingNavigator.PerformLayout()
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

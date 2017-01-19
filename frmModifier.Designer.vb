@@ -59,10 +59,6 @@ Partial Class frmModifier
         Me.btnClearStaff = New System.Windows.Forms.Button()
         Me.cmbStaffBranch = New System.Windows.Forms.ComboBox()
         Me.TblbranchBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.lblStaffName = New System.Windows.Forms.Label()
-        Me.cmbStaffNameChange = New System.Windows.Forms.ComboBox()
-        Me.lblstaffID = New System.Windows.Forms.Label()
-        Me.txtStaffKana = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnClearPhone = New System.Windows.Forms.Button()
         Me.cmbPhonenumChange = New System.Windows.Forms.ComboBox()
@@ -71,6 +67,10 @@ Partial Class frmModifier
         Me.lblPhonenum = New System.Windows.Forms.Label()
         Me.txtBikoPhone = New System.Windows.Forms.TextBox()
         Me.txtModel = New System.Windows.Forms.TextBox()
+        Me.lblStaffName = New System.Windows.Forms.Label()
+        Me.cmbStaffNameChange = New System.Windows.Forms.ComboBox()
+        Me.lblstaffID = New System.Windows.Forms.Label()
+        Me.txtStaffKana = New System.Windows.Forms.TextBox()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnOK = New System.Windows.Forms.Button()
         Me.lblCarBranch = New System.Windows.Forms.Label()
@@ -82,8 +82,6 @@ Partial Class frmModifier
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblStaffPhonenum = New System.Windows.Forms.Label()
         Branch_idLabel2 = New System.Windows.Forms.Label()
         Carnum1Label = New System.Windows.Forms.Label()
         MusenLabel = New System.Windows.Forms.Label()
@@ -429,7 +427,7 @@ Partial Class frmModifier
         Me.txtBikoStaff.Location = New System.Drawing.Point(80, 135)
         Me.txtBikoStaff.Multiline = True
         Me.txtBikoStaff.Name = "txtBikoStaff"
-        Me.txtBikoStaff.Size = New System.Drawing.Size(139, 147)
+        Me.txtBikoStaff.Size = New System.Drawing.Size(139, 169)
         Me.txtBikoStaff.TabIndex = 20
         '
         'TblstaffBindingSource
@@ -463,46 +461,6 @@ Partial Class frmModifier
         '
         Me.TblbranchBindingSource.DataMember = "tbl_branch"
         Me.TblbranchBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
-        'lblStaffName
-        '
-        Me.lblStaffName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_name", True))
-        Me.lblStaffName.Location = New System.Drawing.Point(80, 59)
-        Me.lblStaffName.Name = "lblStaffName"
-        Me.lblStaffName.Size = New System.Drawing.Size(100, 16)
-        Me.lblStaffName.TabIndex = 19
-        Me.lblStaffName.Text = "lblStaffName"
-        '
-        'cmbStaffNameChange
-        '
-        Me.cmbStaffNameChange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbStaffNameChange.DropDownWidth = 180
-        Me.cmbStaffNameChange.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.cmbStaffNameChange.FormattingEnabled = True
-        Me.cmbStaffNameChange.Location = New System.Drawing.Point(147, 30)
-        Me.cmbStaffNameChange.MaxDropDownItems = 50
-        Me.cmbStaffNameChange.MaxLength = 50
-        Me.cmbStaffNameChange.Name = "cmbStaffNameChange"
-        Me.cmbStaffNameChange.Size = New System.Drawing.Size(17, 23)
-        Me.cmbStaffNameChange.TabIndex = 6
-        '
-        'lblstaffID
-        '
-        Me.lblstaffID.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "id_staff", True))
-        Me.lblstaffID.Location = New System.Drawing.Point(80, 34)
-        Me.lblstaffID.Name = "lblstaffID"
-        Me.lblstaffID.Size = New System.Drawing.Size(100, 12)
-        Me.lblstaffID.TabIndex = 17
-        Me.lblstaffID.Text = "StaffID"
-        '
-        'txtStaffKana
-        '
-        Me.txtStaffKana.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_kana", True))
-        Me.txtStaffKana.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf
-        Me.txtStaffKana.Location = New System.Drawing.Point(80, 81)
-        Me.txtStaffKana.Name = "txtStaffKana"
-        Me.txtStaffKana.Size = New System.Drawing.Size(99, 19)
-        Me.txtStaffKana.TabIndex = 8
         '
         'GroupBox1
         '
@@ -588,10 +546,50 @@ Partial Class frmModifier
         Me.txtModel.Size = New System.Drawing.Size(110, 19)
         Me.txtModel.TabIndex = 3
         '
+        'lblStaffName
+        '
+        Me.lblStaffName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_name", True))
+        Me.lblStaffName.Location = New System.Drawing.Point(80, 59)
+        Me.lblStaffName.Name = "lblStaffName"
+        Me.lblStaffName.Size = New System.Drawing.Size(100, 16)
+        Me.lblStaffName.TabIndex = 19
+        Me.lblStaffName.Text = "lblStaffName"
+        '
+        'cmbStaffNameChange
+        '
+        Me.cmbStaffNameChange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbStaffNameChange.DropDownWidth = 180
+        Me.cmbStaffNameChange.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbStaffNameChange.FormattingEnabled = True
+        Me.cmbStaffNameChange.Location = New System.Drawing.Point(147, 30)
+        Me.cmbStaffNameChange.MaxDropDownItems = 50
+        Me.cmbStaffNameChange.MaxLength = 50
+        Me.cmbStaffNameChange.Name = "cmbStaffNameChange"
+        Me.cmbStaffNameChange.Size = New System.Drawing.Size(17, 23)
+        Me.cmbStaffNameChange.TabIndex = 6
+        '
+        'lblstaffID
+        '
+        Me.lblstaffID.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "id_staff", True))
+        Me.lblstaffID.Location = New System.Drawing.Point(80, 34)
+        Me.lblstaffID.Name = "lblstaffID"
+        Me.lblstaffID.Size = New System.Drawing.Size(100, 12)
+        Me.lblstaffID.TabIndex = 17
+        Me.lblstaffID.Text = "StaffID"
+        '
+        'txtStaffKana
+        '
+        Me.txtStaffKana.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_kana", True))
+        Me.txtStaffKana.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf
+        Me.txtStaffKana.Location = New System.Drawing.Point(80, 81)
+        Me.txtStaffKana.Name = "txtStaffKana"
+        Me.txtStaffKana.Size = New System.Drawing.Size(99, 19)
+        Me.txtStaffKana.TabIndex = 8
+        '
         'btnCancel
         '
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(634, 370)
+        Me.btnCancel.Location = New System.Drawing.Point(676, 370)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 30
@@ -600,7 +598,7 @@ Partial Class frmModifier
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(553, 370)
+        Me.btnOK.Location = New System.Drawing.Point(595, 370)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 23)
         Me.btnOK.TabIndex = 28
@@ -643,15 +641,13 @@ Partial Class frmModifier
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.lblStaffPhonenum)
-        Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label9)
         Me.GroupBox4.Controls.Add(Me.Label7)
         Me.GroupBox4.Controls.Add(Me.lblStaffBranch)
         Me.GroupBox4.Controls.Add(Me.lblCarBranch)
-        Me.GroupBox4.Location = New System.Drawing.Point(14, 381)
+        Me.GroupBox4.Location = New System.Drawing.Point(28, 408)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(230, 106)
+        Me.GroupBox4.Size = New System.Drawing.Size(230, 50)
         Me.GroupBox4.TabIndex = 37
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "temp data"
@@ -674,36 +670,18 @@ Partial Class frmModifier
         Me.Label7.TabIndex = 41
         Me.Label7.Text = "tblStaff-branchID"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 42)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 12)
-        Me.Label1.TabIndex = 44
-        Me.Label1.Text = "TblStaff-Phonenum"
-        '
-        'lblStaffPhonenum
-        '
-        Me.lblStaffPhonenum.AutoSize = True
-        Me.lblStaffPhonenum.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_phonenum", True))
-        Me.lblStaffPhonenum.Location = New System.Drawing.Point(123, 42)
-        Me.lblStaffPhonenum.Name = "lblStaffPhonenum"
-        Me.lblStaffPhonenum.Size = New System.Drawing.Size(94, 12)
-        Me.lblStaffPhonenum.TabIndex = 45
-        Me.lblStaffPhonenum.Text = "lblStaffPhonenum"
-        '
         'frmModifier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(770, 508)
+        Me.ClientSize = New System.Drawing.Size(770, 402)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnOK)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmModifier"
         Me.Text = "選択行の編集"
         Me.GroupBox3.ResumeLayout(False)
@@ -770,6 +748,4 @@ Partial Class frmModifier
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents lblStaffPhonenum As Label
-    Friend WithEvents Label1 As Label
 End Class
