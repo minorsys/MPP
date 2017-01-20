@@ -344,6 +344,7 @@ Partial Class frmModifier
         'txtCarnum2
         '
         Me.txtCarnum2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "carnum2", True))
+        Me.txtCarnum2.Enabled = False
         Me.txtCarnum2.ImeMode = System.Windows.Forms.ImeMode.Hiragana
         Me.txtCarnum2.Location = New System.Drawing.Point(71, 59)
         Me.txtCarnum2.Name = "txtCarnum2"
@@ -353,6 +354,7 @@ Partial Class frmModifier
         'txtCarnum3
         '
         Me.txtCarnum3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "carnum3", True))
+        Me.txtCarnum3.Enabled = False
         Me.txtCarnum3.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.txtCarnum3.Location = New System.Drawing.Point(130, 59)
         Me.txtCarnum3.Name = "txtCarnum3"
@@ -362,6 +364,7 @@ Partial Class frmModifier
         'txtCarnum4
         '
         Me.txtCarnum4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "carnum4", True))
+        Me.txtCarnum4.Enabled = False
         Me.txtCarnum4.ImeMode = System.Windows.Forms.ImeMode.Hiragana
         Me.txtCarnum4.Location = New System.Drawing.Point(175, 59)
         Me.txtCarnum4.Name = "txtCarnum4"
@@ -371,6 +374,7 @@ Partial Class frmModifier
         'txtMusen
         '
         Me.txtMusen.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "musen", True))
+        Me.txtMusen.Enabled = False
         Me.txtMusen.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.txtMusen.Location = New System.Drawing.Point(71, 85)
         Me.txtMusen.Name = "txtMusen"
@@ -507,6 +511,7 @@ Partial Class frmModifier
         'txtMail
         '
         Me.txtMail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblPhoneNumBindingSource, "mail", True))
+        Me.txtMail.Enabled = False
         Me.txtMail.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.txtMail.Location = New System.Drawing.Point(55, 86)
         Me.txtMail.Name = "txtMail"
@@ -540,6 +545,7 @@ Partial Class frmModifier
         'txtModel
         '
         Me.txtModel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblPhoneNumBindingSource, "model", True))
+        Me.txtModel.Enabled = False
         Me.txtModel.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.txtModel.Location = New System.Drawing.Point(55, 62)
         Me.txtModel.Name = "txtModel"
@@ -580,6 +586,7 @@ Partial Class frmModifier
         'txtStaffKana
         '
         Me.txtStaffKana.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_kana", True))
+        Me.txtStaffKana.Enabled = False
         Me.txtStaffKana.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf
         Me.txtStaffKana.Location = New System.Drawing.Point(80, 81)
         Me.txtStaffKana.Name = "txtStaffKana"

@@ -1,4 +1,6 @@
-﻿Public Class frmModifier
+﻿Imports System.Text.RegularExpressions
+
+Public Class frmModifier
 
     '###起動###
     'public sub SetSelectedRecordが実行されると、frmGrdから受け取ったpcode,scode,ccodeをもとに、Tbl_phonenum,tbl_staff,tbl_carにデータソースをセットする
@@ -12,8 +14,8 @@
     'このとき、電話番号、社員番号、車番の組み合わせの変更を一時記録するため、以下の2変数(連結用データ変数と呼称する)にコンボボックスの値を保存する。
 
     'Private tblPhonenumStaffID As String
-    Private tblStaffPhonenum As String
-    Private tblStaffCarnum As String
+    'Private tblStaffPhonenum As String
+    'Private tblStaffCarnum As String
     'Private tblStaffBranchID As String
     'Private tblCarBranchID As String
     'Private tblCarStaffID As String
@@ -218,60 +220,50 @@
         '保存確認と保存処理
         If MsgBox("これまでの修正内容をデータベースに保存しますか？", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
-            '変数tblStaffPhonenumに変更後のコンボボックス値を代入する。
-            tblStaffPhonenum = lblPhonenum.Text
-            '変数tblStaffCarnumに変更後のコンボボックスの値を代入する。
-            tblStaffCarnum = lblCarnum.Text
-
             '###テーブルアダプタを介して、レコードを更新する###
 
             '三つの処理：
-            '1.EndEdit&Update
-            '2.UpdateStaffPhonenum/Carnum
-            '3.ClearPreviousPhonenum/Carnum
-            'あばばばばば
+            '1.備考をUpdate
+            '2.ClearPreviousPhonenum/Carnumで外部キーをクリア
+            '3.UpdateStaffPhonenum/Carnumで外部キーをUpdate
 
-            '編集状態を確定する
-            'その後、現在表示されているレコードを、表示されている内容で更新する。
+            '備考をUpdateする
+            If Not lblPhonenum.Text = "" Then
+                Me.Tbl_PhoneNumTableAdapter.UpdatePhonenumBiko(txtBikoPhone.Text, lblPhonenum.Text)
+            End If
 
-            Me.TblPhoneNumBindingSource.EndEdit()
-            Me.Tbl_PhoneNumTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_PhoneNum)
+            If Not lblstaffID.Text = "" Then
+                Me.Tbl_staffTableAdapter.UpdateStaffBiko(txtBikoStaff.Text, lblstaffID.Text)
+            End If
 
-            Me.TblstaffBindingSource.EndEdit()
-            Me.Tbl_staffTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_staff)
-
-            Me.TblcarBindingSource.EndEdit()
-            Me.Tbl_carTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_car)
-
-            'lblStaffIDが空欄なら(このとき、冒頭のifブロックのためにlblCarnumは必ず値をもっているはず) 、
-            'lblCarnumと等しい値をもつstaffCarnum列をもつstaffレコードを探し、staff_Carnum列をクリアする。
-            If lblstaffID.Text = "" Then
-                Me.Tbl_staffTableAdapter.ClearStaffPhonenum(lblCarnum.Text)
-            Else
-                'lblStaffIDが値を持つなら、現在表示されているレコードのstaff_phonenum列に変数tblStaffPhonenumを代入する。
-                Me.Tbl_staffTableAdapter.UpdateStaffPhonenum(tblStaffPhonenum, lblstaffID.Text)
-                'StaffCarnumについても同様。
-                Me.Tbl_staffTableAdapter.UpdateStaffCarnum(tblStaffCarnum, lblstaffID.Text)
+            If lblCarnum.Text = "" Then
+                Me.Tbl_carTableAdapter.UpdateCarBiko(txtBikoCar.Text, lblCarnum.Text)
             End If
 
             'tblStaffの外部キーの整合性をとる。(複数のstaffレコードが、同一のstaff_phonenumないしstaff_Carnumをもってはならない。)
-            '変数tblStaffPhonenumをもつtbl_staff内のレコードを探し、そのstaff_phonenum列をクリアする。
-            'このとき、現在表示されているレコードのstaff_carnum/phonenumも消えるが、後段のUpdateStaffCarnum/Phonenumで登録する。
-
+            '変数tblStaffPhonenumをもつtbl_staff内のレコードをすべて探し、そのstaff_phonenum列をクリアする。
+            'このとき、現在表示されているレコードのstaff_carnum/phonenumも消えるが、後段のUpdateStaffCarnum/Phonenumで再登録する。
             If Not lblPhonenum.Text = "" Then
-                Me.Tbl_staffTableAdapter.ClearPreviousStaffPhonenum(tblStaffPhonenum)
+                Me.Tbl_staffTableAdapter.ClearPreviousStaffPhonenum(lblPhonenum.Text)
             End If
 
             'tblCarnumについても同様。
             If Not lblCarnum.Text = "" Then
-                Me.Tbl_staffTableAdapter.ClearPreviousStaffCarnum(tblStaffCarnum)
+                Me.Tbl_staffTableAdapter.ClearPreviousStaffCarnum(lblCarnum.Text)
+            End If
+
+            '現在表示されているレコードのstaff_phonenum列に変数tblStaffPhonenumを代入する。
+            If Not lblstaffID.Text = "" Then
+                Me.Tbl_staffTableAdapter.UpdateStaffPhonenum(lblPhonenum.Text, lblstaffID.Text)
+                'StaffCarnumについても同様。
+                Me.Tbl_staffTableAdapter.UpdateStaffCarnum(lblCarnum.Text, lblstaffID.Text)
             End If
 
             'フォームを閉じる
             Me.Close()
 
-        End If
 
+            End If
     End Sub
 
     '[クリア]ボタンを押すと、lblIPhonenum,lblStaffID,lblCarnumを空白にする。
@@ -313,23 +305,23 @@
         If lblPhonenum.Text <> "" Then
 
 
-            'データの検査(機種名)
-            With txtModel
-                If Not CheckMaxLengthPhone("model", .Text) Then
-                    MsgBox("機種名は半角20字以内で入力してください")
-                    .Select()
-                    Return False
-                End If
-            End With
+            ''データの検査(機種名)
+            'With txtModel
+            '    If Not CheckMaxLengthPhone("model", .Text) Then
+            '        MsgBox("機種名は半角20字以内で入力してください")
+            '        .Select()
+            '        Return False
+            '    End If
+            'End With
 
-            With txtMail
-                'データの検査(メール)
-                If Not CheckMaxLengthPhone("mail", .Text) Then
-                    MsgBox("メールアドレスは半角50字以内で入力してください")
-                    .Select()
-                    Return False
-                End If
-            End With
+            'With txtMail
+            '    'データの検査(メール)
+            '    If Not CheckMaxLengthPhone("mail", .Text) Then
+            '        MsgBox("メールアドレスは半角50字以内で入力してください")
+            '        .Select()
+            '        Return False
+            '    End If
+            'End With
 
             'データの検査(備考)
             With txtBikoPhone
@@ -345,14 +337,25 @@
         '社員情報の検査　社員が選択されていなければスキップ
         If lblstaffID.Text <> "" Then
             'データの検査(氏名ｶﾅ)
-            With txtStaffKana
-                If Not CheckMaxLengthStaff("staff_kana", .Text) Then
-                    MsgBox("氏名ｶﾅは半角20字以内で入力してください")
+            'With txtStaffKana
+            '    If Not CheckMaxLengthStaff("staff_kana", .Text) Then
+            '        MsgBox("氏名ｶﾅは半角20字以内で入力してください")
+            '        .Select()
+            '        Return False
+            '    End If
+            'End With
+
+            'データの検査(備考)
+            With txtBikoStaff
+                If Not CheckMaxLengthStaff("biko", .Text) Then
+                    MsgBox("備考は全角50字以内で入力してください")
                     .Select()
                     Return False
-                End If
-            End With
 
+                End If
+
+
+            End With
             ''データの検査(所属)
             'With cmbStaffBranch
             '    If .SelectedIndex = -1 Then
@@ -366,51 +369,51 @@
 
         '車両情報の検査　車両が選択されていなければスキップ
         If lblCarnum.Text <> "" Then
-            'データの検査(車番2)
-            With txtCarnum2
-                If Not CheckMaxLengthCar("carnum2", .Text) Then
-                    MsgBox("車番2は全角4字以内で入力してください")
-                    .Select()
-                    Return False
-                End If
-            End With
+            ''データの検査(車番2)
+            'With txtCarnum2
+            '    If Not CheckMaxLengthCar("carnum2", .Text) Then
+            '        MsgBox("車番2は全角4字以内で入力してください")
+            '        .Select()
+            '        Return False
+            '    End If
+            'End With
 
-            'データの検査(車番3)
-            With txtCarnum3
-                If Not CheckMaxLengthCar("carnum3", .Text) Then
-                    MsgBox("車番3は半角3字以内で入力してください")
-                    .Select()
-                    Return False
-                End If
-            End With
+            ''データの検査(車番3)
+            'With txtCarnum3
+            '    If Not CheckMaxLengthCar("carnum3", .Text) Then
+            '        MsgBox("車番3は半角3字以内で入力してください")
+            '        .Select()
+            '        Return False
+            '    End If
+            'End With
 
-            'データの検査(車番4)
-            With txtCarnum4
-                If Not CheckMaxLengthCar("carnum4", .Text) Then
-                    MsgBox("車番4は全角1文字で入力してください")
-                    .Select()
-                    Return False
-                End If
-            End With
+            ''データの検査(車番4)
+            'With txtCarnum4
+            '    If Not CheckMaxLengthCar("carnum4", .Text) Then
+            '        MsgBox("車番4は全角1文字で入力してください")
+            '        .Select()
+            '        Return False
+            '    End If
+            'End With
 
-            'データの検査(無線)
-            With txtMusen
-                If Not CheckMaxLengthCar("musen", .Text) Then
+            ''データの検査(無線)
+            'With txtMusen
+            '    If Not CheckInteger(.Text) Then
 
-                    MsgBox("無線番号は半角4字以内で入力してください")
-                    .Select()
-                    Return False
-                End If
-            End With
+            '        MsgBox("無線番号は1~9999の範囲で入力してください")
+            '        .Select()
+            '        Return False
+            '    End If
+            'End With
 
-            'データの検査(車格)
-            With txtTon
-                If Not CheckMaxLengthCar("ton", .Text) Then
-                    MsgBox("車格は半角4字以内で入力してください")
-                    .Select()
-                    Return False
-                End If
-            End With
+            ''データの検査(車格)
+            'With txtTon
+            '    If Not CheckMaxLengthCar("ton", .Text) Then
+            '        MsgBox("車格は半角4字以内で入力してください")
+            '        .Select()
+            '        Return False
+            '    End If
+            'End With
 
             'データの検査(備考)
             With txtBikoCar
@@ -436,6 +439,19 @@
         Return True
 
     End Function
+
+    'musen用integerチェック
+    'Private Function CheckInteger(ByVal value As String)
+
+
+    '    If Not Regex.IsMatch(value, "^[0-9]{1,4}$") Then
+    '        Return False
+
+    '    Else
+    '        Return True
+    '    End If
+
+    'End Function
 
     '桁数チェック-電話番号(指定された列のサイズと文字列の比較)
     Private Function CheckMaxLengthPhone(ByVal fieldname As String, ByVal value As String)
