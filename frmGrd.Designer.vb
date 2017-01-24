@@ -26,8 +26,6 @@ Partial Class frmGrd
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGrd))
         Me.DtMainBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -81,8 +79,9 @@ Partial Class frmGrd
         Me.txtFilterPhonenum = New System.Windows.Forms.TextBox()
         Me.lblHowManyRecords = New System.Windows.Forms.Label()
         Me.btnModify = New System.Windows.Forms.Button()
-        Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
-        Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
+        Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.limit_menkyo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -107,15 +106,16 @@ Partial Class frmGrd
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.limit_menkyo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
+        Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
+        Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DtMainBindingNavigator.SuspendLayout()
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DtMainBindingNavigator
@@ -145,16 +145,6 @@ Partial Class frmGrd
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "新規追加"
-        '
-        'DtMainBindingSource
-        '
-        Me.DtMainBindingSource.DataMember = "dtMain"
-        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
-        'PhoneNumDBDataSet
-        '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -650,27 +640,33 @@ Partial Class frmGrd
         '
         'btnModify
         '
-        Me.btnModify.Location = New System.Drawing.Point(864, 523)
+        Me.btnModify.Location = New System.Drawing.Point(172, 39)
         Me.btnModify.Name = "btnModify"
-        Me.btnModify.Size = New System.Drawing.Size(89, 23)
+        Me.btnModify.Size = New System.Drawing.Size(143, 23)
         Me.btnModify.TabIndex = 5
-        Me.btnModify.Text = "選択行の編集"
+        Me.btnModify.Text = "選択行の詳細表示/編集"
         Me.btnModify.UseVisualStyleBackColor = True
         '
-        'DtMainTableAdapter
+        'max_load
         '
-        Me.DtMainTableAdapter.ClearBeforeFill = True
+        Me.max_load.DataPropertyName = "max_load"
+        Me.max_load.HeaderText = "最大積載量"
+        Me.max_load.Name = "max_load"
+        Me.max_load.ReadOnly = True
         '
-        'TableAdapterManager
+        'limit_syaken
         '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.tbl_branchTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_carTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_feeTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_PhoneNumTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.limit_syaken.DataPropertyName = "limit_syaken"
+        Me.limit_syaken.HeaderText = "車検証期限"
+        Me.limit_syaken.Name = "limit_syaken"
+        Me.limit_syaken.ReadOnly = True
+        '
+        'limit_menkyo
+        '
+        Me.limit_menkyo.DataPropertyName = "limit_menkyo"
+        Me.limit_menkyo.HeaderText = "免許証期限"
+        Me.limit_menkyo.Name = "limit_menkyo"
+        Me.limit_menkyo.ReadOnly = True
         '
         'DataGridViewTextBoxColumn1
         '
@@ -725,6 +721,7 @@ Partial Class frmGrd
         Me.DataGridViewTextBoxColumn7.HeaderText = "所属"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 50
         '
         'DataGridViewTextBoxColumn8
         '
@@ -779,6 +776,7 @@ Partial Class frmGrd
         Me.DataGridViewTextBoxColumn14.HeaderText = "車番"
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
         Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        Me.DataGridViewTextBoxColumn14.Width = 50
         '
         'DataGridViewTextBoxColumn15
         '
@@ -810,6 +808,7 @@ Partial Class frmGrd
         Me.DataGridViewTextBoxColumn18.HeaderText = "無線"
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.ReadOnly = True
+        Me.DataGridViewTextBoxColumn18.Width = 50
         '
         'DataGridViewTextBoxColumn19
         '
@@ -817,6 +816,7 @@ Partial Class frmGrd
         Me.DataGridViewTextBoxColumn19.HeaderText = "車格"
         Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
         Me.DataGridViewTextBoxColumn19.ReadOnly = True
+        Me.DataGridViewTextBoxColumn19.Width = 50
         '
         'DataGridViewTextBoxColumn20
         '
@@ -856,27 +856,32 @@ Partial Class frmGrd
         Me.DataGridViewTextBoxColumn24.HeaderText = "車庫"
         Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
         Me.DataGridViewTextBoxColumn24.ReadOnly = True
+        Me.DataGridViewTextBoxColumn24.Width = 50
         '
-        'max_load
+        'DtMainBindingSource
         '
-        Me.max_load.DataPropertyName = "max_load"
-        Me.max_load.HeaderText = "最大積載量"
-        Me.max_load.Name = "max_load"
-        Me.max_load.ReadOnly = True
+        Me.DtMainBindingSource.DataMember = "dtMain"
+        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
         '
-        'limit_syaken
+        'PhoneNumDBDataSet
         '
-        Me.limit_syaken.DataPropertyName = "limit_syaken"
-        Me.limit_syaken.HeaderText = "車検証期限"
-        Me.limit_syaken.Name = "limit_syaken"
-        Me.limit_syaken.ReadOnly = True
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'limit_menkyo
+        'DtMainTableAdapter
         '
-        Me.limit_menkyo.DataPropertyName = "limit_menkyo"
-        Me.limit_menkyo.HeaderText = "免許証期限"
-        Me.limit_menkyo.Name = "limit_menkyo"
-        Me.limit_menkyo.ReadOnly = True
+        Me.DtMainTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.tbl_branchTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_carTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_feeTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_PhoneNumTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'frmGrd
         '
@@ -896,11 +901,11 @@ Partial Class frmGrd
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DtMainBindingNavigator.ResumeLayout(False)
         Me.DtMainBindingNavigator.PerformLayout()
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

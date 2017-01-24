@@ -110,6 +110,18 @@
     <Compile Include="frmMasterCar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMasterCarEdit.Designer.vb">
+      <DependentUpon>frmMasterCarEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasterCarEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMasterCarNew.Designer.vb">
+      <DependentUpon>frmMasterCarNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasterCarNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmModifier.Designer.vb">
       <DependentUpon>frmModifier.vb</DependentUpon>
     </Compile>
@@ -149,6 +161,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMasterCar.resx">
       <DependentUpon>frmMasterCar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasterCarEdit.resx">
+      <DependentUpon>frmMasterCarEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasterCarNew.resx">
+      <DependentUpon>frmMasterCarNew.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifier.resx">
       <DependentUpon>frmModifier.vb</DependentUpon>

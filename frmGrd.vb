@@ -143,6 +143,10 @@
 
 
     Private Sub shiboriDatabase(ByVal fs As String)
+        'データグリッドビューのソート（列名をクリックすると△ボタン表示されるやつ）が効いていると、そっちが優先されてしまうので、解除する。
+        DtMainBindingSource.Sort = ""
+
+
         Dim sql As String
 
 
@@ -497,7 +501,7 @@
     '[2t平]ボタン
     Private Sub btn2tHira_Click(sender As Object, e As EventArgs) Handles btn2tHira.Click
         Dim fs As String
-        fs = "tbl_car.ton like '2t平%' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car.ton like '2t平%' ORDER BY tbl_car.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -506,7 +510,7 @@
     '[2tU]ボタン
     Private Sub btn2tU_Click(sender As Object, e As EventArgs) Handles btn2tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '2tU' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car.ton = '2tU' ORDER BY tbl_car.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -514,7 +518,7 @@
     '[3tu]ボタン
     Private Sub btn3tU_Click(sender As Object, e As EventArgs) Handles btn3tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '3tU' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car.ton = '3tU' ORDER BY tbl_car.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -522,7 +526,7 @@
     '[4tu]ボタン
     Private Sub btn4tU_Click(sender As Object, e As EventArgs) Handles btn4tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '4tU' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car.ton = '4tU' ORDER BY tbl_car.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -530,7 +534,7 @@
     '[7tu]ボタン
     Private Sub btn7tU_Click(sender As Object, e As EventArgs) Handles btn7tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '7tU' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car.ton = '7tU' ORDER BY tbl_car.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -538,7 +542,7 @@
     '[10tU]
     Private Sub btn10tU_Click(sender As Object, e As EventArgs) Handles btn10tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '10tU' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car.ton = '10tU' ORDER BY tbl_car.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -546,7 +550,7 @@
     '[15tU]ボタン
     Private Sub btn15tU_Click(sender As Object, e As EventArgs) Handles btn15tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '15tU' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car.ton = '15tU' ORDER BY tbl_car.musen"
 
         shiboriDatabase(fs)
     End Sub

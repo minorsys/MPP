@@ -4657,8 +4657,8 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_branch] ([id_branch], [branch_name]) VALUES (@id_branch, @"& _ 
-                "branch_name);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_branch, branch_name FROM tbl_branch WHERE (id_branch = @"& _ 
-                "id_branch)"
+                "branch_name);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_branch, branch_name FROM tbl_branch WHERE (id_branch = "& _ 
+                "@id_branch)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_branch", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_branch", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@branch_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "branch_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4666,8 +4666,8 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tbl_branch] SET [id_branch] = @id_branch, [branch_name] = @branch_n"& _ 
                 "ame WHERE (([id_branch] = @Original_id_branch) AND ((@IsNull_branch_name = 1 AND"& _ 
-                " [branch_name] IS NULL) OR ([branch_name] = @Original_branch_name)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_"& _ 
-                "branch, branch_name FROM tbl_branch WHERE (id_branch = @id_branch)"
+                " [branch_name] IS NULL) OR ([branch_name] = @Original_branch_name)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id"& _ 
+                "_branch, branch_name FROM tbl_branch WHERE (id_branch = @id_branch)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_branch", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_branch", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@branch_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "branch_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5796,8 +5796,8 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_fee] ([id_fee], [fee_phonenum], [fee_date], [fee]) VALUES "& _ 
-                "(@id_fee, @fee_phonenum, @fee_date, @fee);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_fee, fee_phonenum, fee_date"& _ 
-                ", fee FROM tbl_fee WHERE (id_fee = @id_fee)"
+                "(@id_fee, @fee_phonenum, @fee_date, @fee);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_fee, fee_phonenum, fee_dat"& _ 
+                "e, fee FROM tbl_fee WHERE (id_fee = @id_fee)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_fee", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_fee", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fee_phonenum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fee_phonenum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5808,8 +5808,8 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tbl_fee] SET [id_fee] = @id_fee, [fee_phonenum] = @fee_phonenum, [f"& _ 
                 "ee_date] = @fee_date, [fee] = @fee WHERE (([id_fee] = @Original_id_fee) AND ([fe"& _ 
                 "e_phonenum] = @Original_fee_phonenum) AND ([fee_date] = @Original_fee_date) AND "& _ 
-                "([fee] = @Original_fee));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_fee, fee_phonenum, fee_date, fee FROM tbl_fe"& _ 
-                "e WHERE (id_fee = @id_fee)"
+                "([fee] = @Original_fee));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_fee, fee_phonenum, fee_date, fee FROM tbl_f"& _ 
+                "ee WHERE (id_fee = @id_fee)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_fee", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_fee", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fee_phonenum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fee_phonenum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -6160,8 +6160,8 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_PhoneNum] ([phonenum], [mail], [biko], [model], [staff_id]"& _ 
-                ") VALUES (@phonenum, @mail, @biko, @model, @staff_id);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT phonenum, mail, bi"& _ 
-                "ko, model, staff_id FROM tbl_PhoneNum WHERE (phonenum = @phonenum)"
+                ") VALUES (@phonenum, @mail, @biko, @model, @staff_id);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT phonenum, mail, b"& _ 
+                "iko, model, staff_id FROM tbl_PhoneNum WHERE (phonenum = @phonenum)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@phonenum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "phonenum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@mail", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "mail", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -6176,8 +6176,8 @@ Namespace PhoneNumDBDataSetTableAdapters
                 ") AND ((@IsNull_biko = 1 AND [biko] IS NULL) OR ([biko] = @Original_biko)) AND ("& _ 
                 "(@IsNull_model = 1 AND [model] IS NULL) OR ([model] = @Original_model)) AND ((@I"& _ 
                 "sNull_staff_id = 1 AND [staff_id] IS NULL) OR ([staff_id] = @Original_staff_id))"& _ 
-                ");"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT phonenum, mail, biko, model, staff_id FROM tbl_PhoneNum WHERE (phonenu"& _ 
-                "m = @phonenum)"
+                ");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT phonenum, mail, biko, model, staff_id FROM tbl_PhoneNum WHERE (phonen"& _ 
+                "um = @phonenum)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@phonenum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "phonenum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@mail", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "mail", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -6212,8 +6212,8 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT phonenum, mail, biko, model, staff_id FROM dbo.tbl_PhoneNum"&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE phonenum"& _ 
-                " = @filtercode"
+            Me._commandCollection(1).CommandText = "SELECT phonenum, mail, biko, model, staff_id FROM dbo.tbl_PhoneNum"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE phonenu"& _ 
+                "m = @filtercode"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@filtercode", Global.System.Data.SqlDbType.VarChar, 13, Global.System.Data.ParameterDirection.Input, 0, 0, "phonenum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()

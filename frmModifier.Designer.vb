@@ -37,13 +37,18 @@ Partial Class frmModifier
         Dim BikoLabel As System.Windows.Forms.Label
         Dim ModelLabel As System.Windows.Forms.Label
         Dim Label3 As System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label()
+        Dim Label1 As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
+        Dim Label4 As System.Windows.Forms.Label
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.dtpSyakenLimit = New System.Windows.Forms.DateTimePicker()
+        Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
+        Me.txtMaxLoad = New System.Windows.Forms.TextBox()
         Me.cmbTon = New System.Windows.Forms.ComboBox()
         Me.btnClearCar = New System.Windows.Forms.Button()
         Me.cmbCarBranch = New System.Windows.Forms.ComboBox()
-        Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.TblbranchBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.cmbCarnumChange = New System.Windows.Forms.ComboBox()
         Me.lblCarnum = New System.Windows.Forms.Label()
@@ -54,8 +59,9 @@ Partial Class frmModifier
         Me.txtTon = New System.Windows.Forms.TextBox()
         Me.txtBikoCar = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.txtBikoStaff = New System.Windows.Forms.TextBox()
+        Me.dtpMenkyoLimit = New System.Windows.Forms.DateTimePicker()
         Me.TblstaffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.txtBikoStaff = New System.Windows.Forms.TextBox()
         Me.btnClearStaff = New System.Windows.Forms.Button()
         Me.cmbStaffBranch = New System.Windows.Forms.ComboBox()
         Me.TblbranchBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -96,6 +102,9 @@ Partial Class frmModifier
         BikoLabel = New System.Windows.Forms.Label()
         ModelLabel = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
+        Label1 = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
+        Label4 = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,7 +120,7 @@ Partial Class frmModifier
         'Branch_idLabel2
         '
         Branch_idLabel2.AutoSize = True
-        Branch_idLabel2.Location = New System.Drawing.Point(11, 275)
+        Branch_idLabel2.Location = New System.Drawing.Point(13, 323)
         Branch_idLabel2.Name = "Branch_idLabel2"
         Branch_idLabel2.Size = New System.Drawing.Size(29, 12)
         Branch_idLabel2.TabIndex = 18
@@ -147,7 +156,7 @@ Partial Class frmModifier
         'BikoLabel1
         '
         BikoLabel1.AutoSize = True
-        BikoLabel1.Location = New System.Drawing.Point(11, 138)
+        BikoLabel1.Location = New System.Drawing.Point(13, 186)
         BikoLabel1.Name = "BikoLabel1"
         BikoLabel1.Size = New System.Drawing.Size(29, 12)
         BikoLabel1.TabIndex = 12
@@ -183,7 +192,7 @@ Partial Class frmModifier
         'Branch_idLabel
         '
         Branch_idLabel.AutoSize = True
-        Branch_idLabel.Location = New System.Drawing.Point(12, 109)
+        Branch_idLabel.Location = New System.Drawing.Point(12, 113)
         Branch_idLabel.Name = "Branch_idLabel"
         Branch_idLabel.Size = New System.Drawing.Size(29, 12)
         Branch_idLabel.TabIndex = 6
@@ -228,25 +237,47 @@ Partial Class frmModifier
         'Label3
         '
         Label3.AutoSize = True
-        Label3.Location = New System.Drawing.Point(12, 138)
+        Label3.Location = New System.Drawing.Point(12, 169)
         Label3.Name = "Label3"
         Label3.Size = New System.Drawing.Size(29, 12)
         Label3.TabIndex = 20
         Label3.Text = "備考"
         '
+        'Label1
+        '
+        Label1.AutoSize = True
+        Label1.Location = New System.Drawing.Point(11, 138)
+        Label1.Name = "Label1"
+        Label1.Size = New System.Drawing.Size(65, 12)
+        Label1.TabIndex = 20
+        Label1.Text = "最大積載量"
+        '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label2.Location = New System.Drawing.Point(10, 6)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 24)
-        Me.Label2.TabIndex = 32
-        Me.Label2.Text = "編集"
+        Label2.AutoSize = True
+        Label2.Location = New System.Drawing.Point(11, 161)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(65, 12)
+        Label2.TabIndex = 22
+        Label2.Text = "車検証期限"
+        '
+        'Label4
+        '
+        Label4.AutoSize = True
+        Label4.Location = New System.Drawing.Point(12, 136)
+        Label4.Name = "Label4"
+        Label4.Size = New System.Drawing.Size(65, 12)
+        Label4.TabIndex = 24
+        Label4.Text = "免許証期限"
         '
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.dtpSyakenLimit)
+        Me.GroupBox3.Controls.Add(Label2)
+        Me.GroupBox3.Controls.Add(Me.txtMaxLoad)
+        Me.GroupBox3.Controls.Add(Label1)
         Me.GroupBox3.Controls.Add(Me.cmbTon)
         Me.GroupBox3.Controls.Add(Me.btnClearCar)
         Me.GroupBox3.Controls.Add(Branch_idLabel2)
@@ -263,19 +294,57 @@ Partial Class frmModifier
         Me.GroupBox3.Controls.Add(Me.txtTon)
         Me.GroupBox3.Controls.Add(BikoLabel1)
         Me.GroupBox3.Controls.Add(Me.txtBikoCar)
-        Me.GroupBox3.Location = New System.Drawing.Point(519, 42)
+        Me.GroupBox3.Location = New System.Drawing.Point(542, 12)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(232, 322)
+        Me.GroupBox3.Size = New System.Drawing.Size(284, 352)
         Me.GroupBox3.TabIndex = 25
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "車両情報"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(188, 140)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(17, 12)
+        Me.Label5.TabIndex = 24
+        Me.Label5.Text = "kg"
+        '
+        'dtpSyakenLimit
+        '
+        Me.dtpSyakenLimit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "limit_syaken", True))
+        Me.dtpSyakenLimit.Enabled = False
+        Me.dtpSyakenLimit.Location = New System.Drawing.Point(86, 158)
+        Me.dtpSyakenLimit.Name = "dtpSyakenLimit"
+        Me.dtpSyakenLimit.Size = New System.Drawing.Size(141, 19)
+        Me.dtpSyakenLimit.TabIndex = 23
+        '
+        'TblcarBindingSource
+        '
+        Me.TblcarBindingSource.DataMember = "tbl_car"
+        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
+        '
+        'PhoneNumDBDataSet
+        '
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'txtMaxLoad
+        '
+        Me.txtMaxLoad.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "max_load", True))
+        Me.txtMaxLoad.Enabled = False
+        Me.txtMaxLoad.Location = New System.Drawing.Point(86, 136)
+        Me.txtMaxLoad.Name = "txtMaxLoad"
+        Me.txtMaxLoad.Size = New System.Drawing.Size(100, 19)
+        Me.txtMaxLoad.TabIndex = 21
         '
         'cmbTon
         '
         Me.cmbTon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbTon.DropDownWidth = 120
+        Me.cmbTon.Enabled = False
         Me.cmbTon.FormattingEnabled = True
-        Me.cmbTon.Location = New System.Drawing.Point(175, 110)
+        Me.cmbTon.Location = New System.Drawing.Point(190, 110)
         Me.cmbTon.MaxDropDownItems = 30
         Me.cmbTon.MaxLength = 50
         Me.cmbTon.Name = "cmbTon"
@@ -284,7 +353,7 @@ Partial Class frmModifier
         '
         'btnClearCar
         '
-        Me.btnClearCar.Location = New System.Drawing.Point(161, 30)
+        Me.btnClearCar.Location = New System.Drawing.Point(176, 30)
         Me.btnClearCar.Name = "btnClearCar"
         Me.btnClearCar.Size = New System.Drawing.Size(49, 20)
         Me.btnClearCar.TabIndex = 11
@@ -297,22 +366,13 @@ Partial Class frmModifier
         Me.cmbCarBranch.DataSource = Me.TblbranchBindingSource1
         Me.cmbCarBranch.DisplayMember = "branch_name"
         Me.cmbCarBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCarBranch.Enabled = False
         Me.cmbCarBranch.FormattingEnabled = True
-        Me.cmbCarBranch.Location = New System.Drawing.Point(71, 272)
+        Me.cmbCarBranch.Location = New System.Drawing.Point(88, 320)
         Me.cmbCarBranch.Name = "cmbCarBranch"
         Me.cmbCarBranch.Size = New System.Drawing.Size(100, 20)
         Me.cmbCarBranch.TabIndex = 19
         Me.cmbCarBranch.ValueMember = "id_branch"
-        '
-        'TblcarBindingSource
-        '
-        Me.TblcarBindingSource.DataMember = "tbl_car"
-        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
-        'PhoneNumDBDataSet
-        '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TblbranchBindingSource1
         '
@@ -325,7 +385,7 @@ Partial Class frmModifier
         Me.cmbCarnumChange.DropDownWidth = 120
         Me.cmbCarnumChange.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.cmbCarnumChange.FormattingEnabled = True
-        Me.cmbCarnumChange.Location = New System.Drawing.Point(140, 30)
+        Me.cmbCarnumChange.Location = New System.Drawing.Point(155, 30)
         Me.cmbCarnumChange.MaxDropDownItems = 50
         Me.cmbCarnumChange.MaxLength = 50
         Me.cmbCarnumChange.Name = "cmbCarnumChange"
@@ -335,7 +395,7 @@ Partial Class frmModifier
         'lblCarnum
         '
         Me.lblCarnum.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "carnum1", True))
-        Me.lblCarnum.Location = New System.Drawing.Point(71, 34)
+        Me.lblCarnum.Location = New System.Drawing.Point(86, 34)
         Me.lblCarnum.Name = "lblCarnum"
         Me.lblCarnum.Size = New System.Drawing.Size(100, 12)
         Me.lblCarnum.TabIndex = 18
@@ -346,7 +406,7 @@ Partial Class frmModifier
         Me.txtCarnum2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "carnum2", True))
         Me.txtCarnum2.Enabled = False
         Me.txtCarnum2.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtCarnum2.Location = New System.Drawing.Point(71, 59)
+        Me.txtCarnum2.Location = New System.Drawing.Point(86, 59)
         Me.txtCarnum2.Name = "txtCarnum2"
         Me.txtCarnum2.Size = New System.Drawing.Size(53, 19)
         Me.txtCarnum2.TabIndex = 12
@@ -356,7 +416,7 @@ Partial Class frmModifier
         Me.txtCarnum3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "carnum3", True))
         Me.txtCarnum3.Enabled = False
         Me.txtCarnum3.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txtCarnum3.Location = New System.Drawing.Point(130, 59)
+        Me.txtCarnum3.Location = New System.Drawing.Point(145, 59)
         Me.txtCarnum3.Name = "txtCarnum3"
         Me.txtCarnum3.Size = New System.Drawing.Size(39, 19)
         Me.txtCarnum3.TabIndex = 13
@@ -366,7 +426,7 @@ Partial Class frmModifier
         Me.txtCarnum4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "carnum4", True))
         Me.txtCarnum4.Enabled = False
         Me.txtCarnum4.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtCarnum4.Location = New System.Drawing.Point(175, 59)
+        Me.txtCarnum4.Location = New System.Drawing.Point(190, 59)
         Me.txtCarnum4.Name = "txtCarnum4"
         Me.txtCarnum4.Size = New System.Drawing.Size(35, 19)
         Me.txtCarnum4.TabIndex = 14
@@ -376,16 +436,16 @@ Partial Class frmModifier
         Me.txtMusen.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "musen", True))
         Me.txtMusen.Enabled = False
         Me.txtMusen.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txtMusen.Location = New System.Drawing.Point(71, 85)
+        Me.txtMusen.Location = New System.Drawing.Point(86, 85)
         Me.txtMusen.Name = "txtMusen"
-        Me.txtMusen.Size = New System.Drawing.Size(100, 19)
+        Me.txtMusen.Size = New System.Drawing.Size(53, 19)
         Me.txtMusen.TabIndex = 15
         '
         'txtTon
         '
         Me.txtTon.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "ton", True))
         Me.txtTon.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txtTon.Location = New System.Drawing.Point(71, 110)
+        Me.txtTon.Location = New System.Drawing.Point(86, 110)
         Me.txtTon.Name = "txtTon"
         Me.txtTon.ReadOnly = True
         Me.txtTon.Size = New System.Drawing.Size(100, 19)
@@ -395,7 +455,7 @@ Partial Class frmModifier
         '
         Me.txtBikoCar.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "biko", True))
         Me.txtBikoCar.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtBikoCar.Location = New System.Drawing.Point(71, 135)
+        Me.txtBikoCar.Location = New System.Drawing.Point(88, 183)
         Me.txtBikoCar.Multiline = True
         Me.txtBikoCar.Name = "txtBikoCar"
         Me.txtBikoCar.Size = New System.Drawing.Size(139, 131)
@@ -404,6 +464,8 @@ Partial Class frmModifier
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.dtpMenkyoLimit)
+        Me.GroupBox2.Controls.Add(Label4)
         Me.GroupBox2.Controls.Add(Me.txtBikoStaff)
         Me.GroupBox2.Controls.Add(Label3)
         Me.GroupBox2.Controls.Add(Me.btnClearStaff)
@@ -417,31 +479,40 @@ Partial Class frmModifier
         Me.GroupBox2.Controls.Add(Staff_kanaLabel)
         Me.GroupBox2.Controls.Add(Me.txtStaffKana)
         Me.GroupBox2.Controls.Add(Branch_idLabel)
-        Me.GroupBox2.Location = New System.Drawing.Point(14, 42)
+        Me.GroupBox2.Location = New System.Drawing.Point(14, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(499, 322)
+        Me.GroupBox2.Size = New System.Drawing.Size(522, 352)
         Me.GroupBox2.TabIndex = 24
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "社員情報"
         '
-        'txtBikoStaff
+        'dtpMenkyoLimit
         '
-        Me.txtBikoStaff.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "biko", True))
-        Me.txtBikoStaff.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtBikoStaff.Location = New System.Drawing.Point(80, 135)
-        Me.txtBikoStaff.Multiline = True
-        Me.txtBikoStaff.Name = "txtBikoStaff"
-        Me.txtBikoStaff.Size = New System.Drawing.Size(139, 169)
-        Me.txtBikoStaff.TabIndex = 20
+        Me.dtpMenkyoLimit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "limit_menkyo", True))
+        Me.dtpMenkyoLimit.Enabled = False
+        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(103, 136)
+        Me.dtpMenkyoLimit.Name = "dtpMenkyoLimit"
+        Me.dtpMenkyoLimit.Size = New System.Drawing.Size(139, 19)
+        Me.dtpMenkyoLimit.TabIndex = 25
         '
         'TblstaffBindingSource
         '
         Me.TblstaffBindingSource.DataMember = "tbl_staff"
         Me.TblstaffBindingSource.DataSource = Me.PhoneNumDBDataSet
         '
+        'txtBikoStaff
+        '
+        Me.txtBikoStaff.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "biko", True))
+        Me.txtBikoStaff.ImeMode = System.Windows.Forms.ImeMode.Hiragana
+        Me.txtBikoStaff.Location = New System.Drawing.Point(103, 166)
+        Me.txtBikoStaff.Multiline = True
+        Me.txtBikoStaff.Name = "txtBikoStaff"
+        Me.txtBikoStaff.Size = New System.Drawing.Size(139, 169)
+        Me.txtBikoStaff.TabIndex = 20
+        '
         'btnClearStaff
         '
-        Me.btnClearStaff.Location = New System.Drawing.Point(170, 30)
+        Me.btnClearStaff.Location = New System.Drawing.Point(193, 30)
         Me.btnClearStaff.Name = "btnClearStaff"
         Me.btnClearStaff.Size = New System.Drawing.Size(49, 20)
         Me.btnClearStaff.TabIndex = 7
@@ -454,8 +525,9 @@ Partial Class frmModifier
         Me.cmbStaffBranch.DataSource = Me.TblbranchBindingSource
         Me.cmbStaffBranch.DisplayMember = "branch_name"
         Me.cmbStaffBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbStaffBranch.Enabled = False
         Me.cmbStaffBranch.FormattingEnabled = True
-        Me.cmbStaffBranch.Location = New System.Drawing.Point(80, 106)
+        Me.cmbStaffBranch.Location = New System.Drawing.Point(103, 106)
         Me.cmbStaffBranch.Name = "cmbStaffBranch"
         Me.cmbStaffBranch.Size = New System.Drawing.Size(99, 20)
         Me.cmbStaffBranch.TabIndex = 9
@@ -479,9 +551,9 @@ Partial Class frmModifier
         Me.GroupBox1.Controls.Add(Me.txtBikoPhone)
         Me.GroupBox1.Controls.Add(ModelLabel)
         Me.GroupBox1.Controls.Add(Me.txtModel)
-        Me.GroupBox1.Location = New System.Drawing.Point(254, 30)
+        Me.GroupBox1.Location = New System.Drawing.Point(277, 51)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(230, 274)
+        Me.GroupBox1.Size = New System.Drawing.Size(230, 284)
         Me.GroupBox1.TabIndex = 23
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "電話情報"
@@ -555,7 +627,7 @@ Partial Class frmModifier
         'lblStaffName
         '
         Me.lblStaffName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_name", True))
-        Me.lblStaffName.Location = New System.Drawing.Point(80, 59)
+        Me.lblStaffName.Location = New System.Drawing.Point(103, 59)
         Me.lblStaffName.Name = "lblStaffName"
         Me.lblStaffName.Size = New System.Drawing.Size(100, 16)
         Me.lblStaffName.TabIndex = 19
@@ -567,7 +639,7 @@ Partial Class frmModifier
         Me.cmbStaffNameChange.DropDownWidth = 180
         Me.cmbStaffNameChange.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.cmbStaffNameChange.FormattingEnabled = True
-        Me.cmbStaffNameChange.Location = New System.Drawing.Point(147, 30)
+        Me.cmbStaffNameChange.Location = New System.Drawing.Point(170, 30)
         Me.cmbStaffNameChange.MaxDropDownItems = 50
         Me.cmbStaffNameChange.MaxLength = 50
         Me.cmbStaffNameChange.Name = "cmbStaffNameChange"
@@ -577,7 +649,7 @@ Partial Class frmModifier
         'lblstaffID
         '
         Me.lblstaffID.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "id_staff", True))
-        Me.lblstaffID.Location = New System.Drawing.Point(80, 34)
+        Me.lblstaffID.Location = New System.Drawing.Point(103, 34)
         Me.lblstaffID.Name = "lblstaffID"
         Me.lblstaffID.Size = New System.Drawing.Size(100, 12)
         Me.lblstaffID.TabIndex = 17
@@ -588,7 +660,7 @@ Partial Class frmModifier
         Me.txtStaffKana.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_kana", True))
         Me.txtStaffKana.Enabled = False
         Me.txtStaffKana.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf
-        Me.txtStaffKana.Location = New System.Drawing.Point(80, 81)
+        Me.txtStaffKana.Location = New System.Drawing.Point(103, 81)
         Me.txtStaffKana.Name = "txtStaffKana"
         Me.txtStaffKana.Size = New System.Drawing.Size(99, 19)
         Me.txtStaffKana.TabIndex = 8
@@ -596,7 +668,7 @@ Partial Class frmModifier
         'btnCancel
         '
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(676, 370)
+        Me.btnCancel.Location = New System.Drawing.Point(751, 370)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 30
@@ -605,7 +677,7 @@ Partial Class frmModifier
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(595, 370)
+        Me.btnOK.Location = New System.Drawing.Point(670, 370)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 23)
         Me.btnOK.TabIndex = 28
@@ -681,16 +753,15 @@ Partial Class frmModifier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(770, 402)
+        Me.ClientSize = New System.Drawing.Size(838, 402)
         Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnOK)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmModifier"
-        Me.Text = "選択行の編集"
+        Me.Text = "選択行の詳細/編集"
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -706,11 +777,8 @@ Partial Class frmModifier
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label2 As Label
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents cmbTon As ComboBox
     Friend WithEvents btnClearCar As Button
@@ -755,4 +823,8 @@ Partial Class frmModifier
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents dtpSyakenLimit As DateTimePicker
+    Friend WithEvents txtMaxLoad As TextBox
+    Friend WithEvents dtpMenkyoLimit As DateTimePicker
 End Class
