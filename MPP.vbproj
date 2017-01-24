@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -22,9 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>車両・電話番号・人</ProductName>
+    <PublisherName>minorsys</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -52,7 +54,7 @@
     <OptionExplicit>On</OptionExplicit>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionCompare>Binary</OptionCompare>
+    <OptionCompare>Text</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
     <OptionStrict>Off</OptionStrict>
@@ -65,6 +67,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>M.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -122,6 +127,24 @@
     <Compile Include="frmMasterCarNew.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMasterStaff.Designer.vb">
+      <DependentUpon>frmMasterStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasterStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMasterStaffEdit.Designer.vb">
+      <DependentUpon>frmMasterStaffEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasterStaffEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMasterStaffNew.Designer.vb">
+      <DependentUpon>frmMasterStaffNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasterStaffNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmModifier.Designer.vb">
       <DependentUpon>frmModifier.vb</DependentUpon>
     </Compile>
@@ -167,6 +190,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMasterCarNew.resx">
       <DependentUpon>frmMasterCarNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasterStaff.resx">
+      <DependentUpon>frmMasterStaff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasterStaffEdit.resx">
+      <DependentUpon>frmMasterStaffEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasterStaffNew.resx">
+      <DependentUpon>frmMasterStaffNew.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifier.resx">
       <DependentUpon>frmModifier.vb</DependentUpon>

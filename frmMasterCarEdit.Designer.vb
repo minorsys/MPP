@@ -369,8 +369,8 @@ Partial Class frmMasterCarEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(306, 431)
+        Me.BackColor = System.Drawing.Color.LightBlue
+        Me.ClientSize = New System.Drawing.Size(301, 421)
         Me.Controls.Add(Me.dtpSyaken)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label6)
@@ -402,7 +402,7 @@ Partial Class frmMasterCarEdit
         Me.Controls.Add(Me.Branch_idLabel)
         Me.Controls.Add(Me.cmbBranch)
         Me.Name = "frmMasterCarEdit"
-        Me.Text = "frmMasterCarEdit"
+        Me.Text = "車両マスタ編集"
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

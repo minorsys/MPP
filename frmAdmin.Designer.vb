@@ -23,28 +23,57 @@ Partial Class frmAdmin
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btnMasterCar = New System.Windows.Forms.Button()
+        Me.btnMasterStaff = New System.Windows.Forms.Button()
+        Me.btnMasterPhone = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnMasterCar
         '
+        Me.btnMasterCar.BackColor = System.Drawing.Color.LightBlue
+        Me.btnMasterCar.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnMasterCar.Location = New System.Drawing.Point(13, 13)
         Me.btnMasterCar.Name = "btnMasterCar"
         Me.btnMasterCar.Size = New System.Drawing.Size(75, 23)
         Me.btnMasterCar.TabIndex = 0
         Me.btnMasterCar.Text = "車両マスタ"
-        Me.btnMasterCar.UseVisualStyleBackColor = True
+        Me.btnMasterCar.UseVisualStyleBackColor = False
+        '
+        'btnMasterStaff
+        '
+        Me.btnMasterStaff.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.btnMasterStaff.Location = New System.Drawing.Point(13, 43)
+        Me.btnMasterStaff.Name = "btnMasterStaff"
+        Me.btnMasterStaff.Size = New System.Drawing.Size(75, 23)
+        Me.btnMasterStaff.TabIndex = 1
+        Me.btnMasterStaff.Text = "社員マスタ"
+        Me.btnMasterStaff.UseVisualStyleBackColor = False
+        '
+        'btnMasterPhone
+        '
+        Me.btnMasterPhone.BackColor = System.Drawing.Color.LightSalmon
+        Me.btnMasterPhone.Location = New System.Drawing.Point(13, 73)
+        Me.btnMasterPhone.Name = "btnMasterPhone"
+        Me.btnMasterPhone.Size = New System.Drawing.Size(75, 23)
+        Me.btnMasterPhone.TabIndex = 2
+        Me.btnMasterPhone.Text = "電話マスタ"
+        Me.btnMasterPhone.UseVisualStyleBackColor = False
         '
         'frmAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(229, 261)
+        Me.Controls.Add(Me.btnMasterPhone)
+        Me.Controls.Add(Me.btnMasterStaff)
         Me.Controls.Add(Me.btnMasterCar)
         Me.Name = "frmAdmin"
-        Me.Text = "frmAdmin"
+        Me.Text = "管理メニュー"
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents btnMasterCar As Button
+    Friend WithEvents btnMasterStaff As Button
+    Friend WithEvents btnMasterPhone As Button
 End Class

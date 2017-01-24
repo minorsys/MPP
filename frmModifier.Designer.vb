@@ -192,7 +192,7 @@ Partial Class frmModifier
         'Branch_idLabel
         '
         Branch_idLabel.AutoSize = True
-        Branch_idLabel.Location = New System.Drawing.Point(12, 113)
+        Branch_idLabel.Location = New System.Drawing.Point(12, 112)
         Branch_idLabel.Name = "Branch_idLabel"
         Branch_idLabel.Size = New System.Drawing.Size(29, 12)
         Branch_idLabel.TabIndex = 6
@@ -255,7 +255,7 @@ Partial Class frmModifier
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(11, 161)
+        Label2.Location = New System.Drawing.Point(11, 162)
         Label2.Name = "Label2"
         Label2.Size = New System.Drawing.Size(65, 12)
         Label2.TabIndex = 22
@@ -264,7 +264,7 @@ Partial Class frmModifier
         'Label4
         '
         Label4.AutoSize = True
-        Label4.Location = New System.Drawing.Point(12, 136)
+        Label4.Location = New System.Drawing.Point(12, 140)
         Label4.Name = "Label4"
         Label4.Size = New System.Drawing.Size(65, 12)
         Label4.TabIndex = 24
@@ -272,7 +272,7 @@ Partial Class frmModifier
         '
         'GroupBox3
         '
-        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GroupBox3.BackColor = System.Drawing.Color.LightBlue
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.dtpSyakenLimit)
         Me.GroupBox3.Controls.Add(Label2)
@@ -463,7 +463,7 @@ Partial Class frmModifier
         '
         'GroupBox2
         '
-        Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox2.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.GroupBox2.Controls.Add(Me.dtpMenkyoLimit)
         Me.GroupBox2.Controls.Add(Label4)
         Me.GroupBox2.Controls.Add(Me.txtBikoStaff)
@@ -540,7 +540,7 @@ Partial Class frmModifier
         '
         'GroupBox1
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox1.BackColor = System.Drawing.Color.Bisque
         Me.GroupBox1.Controls.Add(Me.btnClearPhone)
         Me.GroupBox1.Controls.Add(Me.cmbPhonenumChange)
         Me.GroupBox1.Controls.Add(PhonenumLabel)

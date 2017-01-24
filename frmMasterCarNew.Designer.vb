@@ -45,11 +45,11 @@ Partial Class frmMasterCarNew
         Me.txtBiko = New System.Windows.Forms.TextBox()
         Me.Branch_idLabel = New System.Windows.Forms.Label()
         Me.cmbBranch = New System.Windows.Forms.ComboBox()
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
-        Me.PhoneNumDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblbranchBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Tbl_branchTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_branchTableAdapter()
         Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
+        Me.TblbranchBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Tbl_branchTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_branchTableAdapter()
         Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
         Me.txtMaxLoad = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -57,10 +57,10 @@ Partial Class frmMasterCarNew
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.dtpSyaken = New System.Windows.Forms.DateTimePicker()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PhoneNumDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmbTon
@@ -261,29 +261,29 @@ Partial Class frmMasterCarNew
         Me.cmbBranch.TabIndex = 7
         Me.cmbBranch.ValueMember = "id_branch"
         '
+        'TblcarBindingSource
+        '
+        Me.TblcarBindingSource.DataMember = "tbl_car"
+        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
+        '
         'PhoneNumDBDataSet
         '
         Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
         Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PhoneNumDBDataSetBindingSource
-        '
-        Me.PhoneNumDBDataSetBindingSource.DataSource = Me.PhoneNumDBDataSet
-        Me.PhoneNumDBDataSetBindingSource.Position = 0
         '
         'TblbranchBindingSource
         '
         Me.TblbranchBindingSource.DataMember = "tbl_branch"
         Me.TblbranchBindingSource.DataSource = Me.PhoneNumDBDataSetBindingSource
         '
+        'PhoneNumDBDataSetBindingSource
+        '
+        Me.PhoneNumDBDataSetBindingSource.DataSource = Me.PhoneNumDBDataSet
+        Me.PhoneNumDBDataSetBindingSource.Position = 0
+        '
         'Tbl_branchTableAdapter
         '
         Me.Tbl_branchTableAdapter.ClearBeforeFill = True
-        '
-        'TblcarBindingSource
-        '
-        Me.TblcarBindingSource.DataMember = "tbl_car"
-        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
         '
         'Tbl_carTableAdapter
         '
@@ -344,8 +344,8 @@ Partial Class frmMasterCarNew
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(300, 381)
+        Me.BackColor = System.Drawing.Color.LightBlue
+        Me.ClientSize = New System.Drawing.Size(300, 371)
         Me.Controls.Add(Me.dtpSyaken)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -376,10 +376,10 @@ Partial Class frmMasterCarNew
         Me.Controls.Add(Me.cmbBranch)
         Me.Name = "frmMasterCarNew"
         Me.Text = "車両マスタ新規"
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PhoneNumDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
