@@ -227,7 +227,6 @@ Partial Class frmMasterStaffNew
         '
         'cmbStaffPhonenum
         '
-        Me.cmbStaffPhonenum.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.TblstaffBindingSource, "staff_phonenum", True))
         Me.cmbStaffPhonenum.DataSource = Me.TblPhoneNumBindingSource
         Me.cmbStaffPhonenum.DisplayMember = "phonenum"
         Me.cmbStaffPhonenum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -249,7 +248,6 @@ Partial Class frmMasterStaffNew
         '
         'cmbStaffCarnum
         '
-        Me.cmbStaffCarnum.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.TblstaffBindingSource, "staff_carnum", True))
         Me.cmbStaffCarnum.DataSource = Me.TblcarBindingSource
         Me.cmbStaffCarnum.DisplayMember = "carnum1"
         Me.cmbStaffCarnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList

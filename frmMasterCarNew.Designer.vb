@@ -335,6 +335,8 @@ Partial Class frmMasterCarNew
         '
         'dtpSyaken
         '
+        Me.dtpSyaken.CustomFormat = " "
+        Me.dtpSyaken.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpSyaken.Location = New System.Drawing.Point(84, 217)
         Me.dtpSyaken.Name = "dtpSyaken"
         Me.dtpSyaken.Size = New System.Drawing.Size(107, 19)

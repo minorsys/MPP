@@ -6,7 +6,6 @@
 
     End Sub
 
-
     '[閉じる]ボタン
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
@@ -45,6 +44,7 @@
 
         '編集フォームから戻ったら、グリッドを更新する
         Me.Tbl_staffTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_staff)
+
     End Sub
 
     '［選択行の削除］ボタン
