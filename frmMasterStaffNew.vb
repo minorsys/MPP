@@ -1,10 +1,11 @@
-﻿Public Class frmMasterStaffNew
+﻿Imports System.Text.RegularExpressions
+Public Class frmMasterStaffNew
 
     Private Sub frmMasterStaff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_car' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.Tbl_carTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_car)
-        'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_PhoneNum' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.Tbl_PhoneNumTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_PhoneNum)
+        'Me.Tbl_carTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_car)
+        ''TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_PhoneNum' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+        'Me.Tbl_PhoneNumTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_PhoneNum)
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_staff' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
         Me.Tbl_staffTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_staff)
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_branch' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
@@ -24,7 +25,6 @@
 
         '    'データリーダーの定義
         '    Dim dr As SqlClient.SqlDataReader
-
 
         '    'データコマンドの定義
         '    command.CommandText = "SELECT id_staff FROM tbl_staff ORDER BY id_staff"
@@ -57,11 +57,6 @@
         '### 所属コンボボックスの設定###
         cmbBranch.SelectedIndex = -1
 
-        '車両番号コンボボックスの初期値
-        cmbStaffCarnum.SelectedIndex = -1
-
-        '電話番号コンボボックスの初期値
-        cmbStaffPhonenum.SelectedIndex = -1
 
         '免許証期限の初期値はオブジェクトのプロパティで設定した
 
@@ -144,8 +139,6 @@
                     newrecord.staff_name = txtStaffName.Text
                     newrecord.staff_kana = txtStaffKana.Text
                     newrecord.branch_id = cmbBranch.SelectedValue
-                    newrecord.staff_phonenum = cmbStaffPhonenum.Text
-                    newrecord.staff_carnum = cmbStaffCarnum.Text
                     newrecord.biko = txtBiko.Text
 
                     '新規行をデータテーブルに追加する
@@ -220,21 +213,6 @@
             End If
         End With
 
-        'データの検査(電話番号)
-        '同じ電話番号を使っている人がいないかチェック
-        '同じ番号を使っている人がいた場合、上書きするかたずねる
-        If Not cmbStaffPhonenum.Text = "" Then
-            CheckPhoneOverlap(cmbStaffPhonenum.Text)
-
-        End If
-
-        'データの検査(車両番号)
-        '同じ車両に乗っている人がいないかチェック
-        '同じ車両に乗っている人がいた場合、上書きするかたずねる
-        If Not cmbStaffCarnum.Text = "" Then
-            CheckCarOverlap(cmbStaffCarnum.Text)
-
-        End If
 
         'データの検査(免許証期限)
 
@@ -298,45 +276,18 @@
         Return True
     End Function
 
-    '重複チェック－－電話番号
-    Private Sub CheckPhoneOverlap(ByVal staffphonenum As String)
-        Dim dbNum As String
-        Dim inputNum As String
-
-        inputNum = staffphonenum
-        For Each drw As DataRow In PhoneNumDBDataSet.tbl_staff.Rows()
-            If drw.RowState <> DataRowState.Deleted Then
-                dbNum = drw("staff_phonenum").ToString
+    '氏名ｶﾅ用半角カタカナチェック
+    Private Function CheckKana(ByVal value As String)
 
 
-                If dbNum = inputNum Then
-                    MsgBox(drw("staff_phonenum").ToString & vbCrLf & "この番号は次の人に使用されています：" & drw("staff_name") & vbCrLf & "登録すると使用者は上書きされます。")
+        If Not Regex.IsMatch(value, "^[0-9]{1,5}$") Then
+            Return False
 
-                End If
-            End If
-        Next
+        Else
+            Return True
+        End If
 
-
-    End Sub
-
-    '重複チェック－－車両番号
-    Private Sub CheckCarOverlap(ByVal staffcarnum As String)
-        Dim dbCarnum As String
-        Dim inputCarnum As String
-
-        inputCarnum = staffcarnum
-        For Each drw As DataRow In PhoneNumDBDataSet.tbl_staff.Rows()
-            If drw.RowState <> DataRowState.Deleted Then
-                dbCarnum = drw("staff_carnum").ToString
-
-                If dbCarnum = inputCarnum Then
-                    MsgBox(drw("staff_carnum").ToString & vbCrLf & "この車両は次の人に使用されています：" & drw("staff_name") & vbCrLf & "登録すると使用者は上書きされます。")
-
-                End If
-            End If
-        Next
-
-    End Sub
+    End Function
 
     'キーボードショートカット
     Private Sub frmMasterStaffNew_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown

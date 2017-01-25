@@ -45,21 +45,13 @@ Partial Class frmMasterStaffEdit
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtBiko = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.cmbStaffPhonenum = New System.Windows.Forms.ComboBox()
         Me.TblPhoneNumBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.cmbStaffCarnum = New System.Windows.Forms.ComboBox()
         Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_PhoneNumTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter()
         Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblLimitMenkyo = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.lblStaff_Carnum = New System.Windows.Forms.Label()
-        Me.lblStaff_phonenum = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.TblstaffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,7 +102,7 @@ Partial Class frmMasterStaffEdit
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(208, 324)
+        Me.btnClose.Location = New System.Drawing.Point(208, 256)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(55, 23)
         Me.btnClose.TabIndex = 25
@@ -119,7 +111,7 @@ Partial Class frmMasterStaffEdit
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(145, 324)
+        Me.btnOK.Location = New System.Drawing.Point(145, 256)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(57, 23)
         Me.btnOK.TabIndex = 24
@@ -166,7 +158,6 @@ Partial Class frmMasterStaffEdit
         'txtStaffKana
         '
         Me.txtStaffKana.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_kana", True))
-        Me.txtStaffKana.Enabled = False
         Me.txtStaffKana.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf
         Me.txtStaffKana.Location = New System.Drawing.Point(90, 53)
         Me.txtStaffKana.Name = "txtStaffKana"
@@ -217,7 +208,7 @@ Partial Class frmMasterStaffEdit
         '
         Me.dtpMenkyoLimit.CustomFormat = " "
         Me.dtpMenkyoLimit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "limit_menkyo", True))
-        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(90, 174)
+        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(90, 106)
         Me.dtpMenkyoLimit.Name = "dtpMenkyoLimit"
         Me.dtpMenkyoLimit.Size = New System.Drawing.Size(121, 19)
         Me.dtpMenkyoLimit.TabIndex = 7
@@ -225,7 +216,7 @@ Partial Class frmMasterStaffEdit
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(21, 203)
+        Me.Label4.Location = New System.Drawing.Point(24, 136)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(29, 12)
         Me.Label4.TabIndex = 38
@@ -234,7 +225,7 @@ Partial Class frmMasterStaffEdit
         'txtBiko
         '
         Me.txtBiko.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "biko", True))
-        Me.txtBiko.Location = New System.Drawing.Point(90, 200)
+        Me.txtBiko.Location = New System.Drawing.Point(90, 132)
         Me.txtBiko.Multiline = True
         Me.txtBiko.Name = "txtBiko"
         Me.txtBiko.Size = New System.Drawing.Size(173, 118)
@@ -243,60 +234,16 @@ Partial Class frmMasterStaffEdit
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 178)
+        Me.Label3.Location = New System.Drawing.Point(10, 111)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(65, 12)
         Me.Label3.TabIndex = 34
         Me.Label3.Text = "免許証期限"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 153)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 12)
-        Me.Label2.TabIndex = 33
-        Me.Label2.Text = "車両番号"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 128)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(53, 12)
-        Me.Label5.TabIndex = 32
-        Me.Label5.Text = "電話番号"
-        '
-        'cmbStaffPhonenum
-        '
-        Me.cmbStaffPhonenum.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.TblstaffBindingSource, "staff_phonenum", True))
-        Me.cmbStaffPhonenum.DataSource = Me.TblPhoneNumBindingSource
-        Me.cmbStaffPhonenum.DisplayMember = "phonenum"
-        Me.cmbStaffPhonenum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbStaffPhonenum.FormattingEnabled = True
-        Me.cmbStaffPhonenum.Location = New System.Drawing.Point(90, 125)
-        Me.cmbStaffPhonenum.Name = "cmbStaffPhonenum"
-        Me.cmbStaffPhonenum.Size = New System.Drawing.Size(121, 20)
-        Me.cmbStaffPhonenum.TabIndex = 39
-        Me.cmbStaffPhonenum.ValueMember = "phonenum"
-        '
         'TblPhoneNumBindingSource
         '
         Me.TblPhoneNumBindingSource.DataMember = "tbl_PhoneNum"
         Me.TblPhoneNumBindingSource.DataSource = Me.PhoneNumDBDataSetBindingSource
-        '
-        'cmbStaffCarnum
-        '
-        Me.cmbStaffCarnum.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.TblstaffBindingSource, "staff_carnum", True))
-        Me.cmbStaffCarnum.DataSource = Me.TblcarBindingSource
-        Me.cmbStaffCarnum.DisplayMember = "carnum1"
-        Me.cmbStaffCarnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbStaffCarnum.FormattingEnabled = True
-        Me.cmbStaffCarnum.Location = New System.Drawing.Point(90, 150)
-        Me.cmbStaffCarnum.Name = "cmbStaffCarnum"
-        Me.cmbStaffCarnum.Size = New System.Drawing.Size(121, 20)
-        Me.cmbStaffCarnum.TabIndex = 40
-        Me.cmbStaffCarnum.ValueMember = "carnum1"
         '
         'TblcarBindingSource
         '
@@ -315,15 +262,11 @@ Partial Class frmMasterStaffEdit
         '
         Me.GroupBox1.Controls.Add(Me.lblLimitMenkyo)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.lblStaff_Carnum)
-        Me.GroupBox1.Controls.Add(Me.lblStaff_phonenum)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.lblStaffBranch)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 363)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 285)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(211, 76)
+        Me.GroupBox1.Size = New System.Drawing.Size(211, 45)
         Me.GroupBox1.TabIndex = 41
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "temp data"
@@ -332,7 +275,7 @@ Partial Class frmMasterStaffEdit
         '
         Me.lblLimitMenkyo.AutoSize = True
         Me.lblLimitMenkyo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "limit_menkyo", True))
-        Me.lblLimitMenkyo.Location = New System.Drawing.Point(97, 51)
+        Me.lblLimitMenkyo.Location = New System.Drawing.Point(97, 27)
         Me.lblLimitMenkyo.Name = "lblLimitMenkyo"
         Me.lblLimitMenkyo.Size = New System.Drawing.Size(70, 12)
         Me.lblLimitMenkyo.TabIndex = 37
@@ -341,65 +284,23 @@ Partial Class frmMasterStaffEdit
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(10, 51)
+        Me.Label8.Location = New System.Drawing.Point(10, 27)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(72, 12)
         Me.Label8.TabIndex = 36
         Me.Label8.Text = "limit_menkyo:"
-        '
-        'lblStaff_Carnum
-        '
-        Me.lblStaff_Carnum.AutoSize = True
-        Me.lblStaff_Carnum.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_carnum", True))
-        Me.lblStaff_Carnum.Location = New System.Drawing.Point(97, 39)
-        Me.lblStaff_Carnum.Name = "lblStaff_Carnum"
-        Me.lblStaff_Carnum.Size = New System.Drawing.Size(83, 12)
-        Me.lblStaff_Carnum.TabIndex = 35
-        Me.lblStaff_Carnum.Text = "lblStaff_carnum"
-        '
-        'lblStaff_phonenum
-        '
-        Me.lblStaff_phonenum.AutoSize = True
-        Me.lblStaff_phonenum.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "staff_phonenum", True))
-        Me.lblStaff_phonenum.Location = New System.Drawing.Point(97, 27)
-        Me.lblStaff_phonenum.Name = "lblStaff_phonenum"
-        Me.lblStaff_phonenum.Size = New System.Drawing.Size(97, 12)
-        Me.lblStaff_phonenum.TabIndex = 34
-        Me.lblStaff_phonenum.Text = "lblStaff_phonenum"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(9, 39)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(72, 12)
-        Me.Label7.TabIndex = 33
-        Me.Label7.Text = "staff_carnum:"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(9, 27)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(86, 12)
-        Me.Label6.TabIndex = 32
-        Me.Label6.Text = "staff_phonenum:"
         '
         'frmMasterStaffEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(278, 469)
+        Me.ClientSize = New System.Drawing.Size(278, 285)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.cmbStaffCarnum)
-        Me.Controls.Add(Me.cmbStaffPhonenum)
         Me.Controls.Add(Me.dtpMenkyoLimit)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtBiko)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lblStaffID)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnOK)
@@ -410,6 +311,7 @@ Partial Class frmMasterStaffEdit
         Me.Controls.Add(Me.txtStaffKana)
         Me.Controls.Add(Me.Branch_idLabel)
         Me.Controls.Add(Me.cmbBranch)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMasterStaffEdit"
         Me.Text = "社員マスタ編集"
         CType(Me.TblstaffBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -447,19 +349,11 @@ Partial Class frmMasterStaffEdit
     Friend WithEvents Label4 As Label
     Friend WithEvents txtBiko As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents cmbStaffPhonenum As ComboBox
-    Friend WithEvents cmbStaffCarnum As ComboBox
     Friend WithEvents TblPhoneNumBindingSource As BindingSource
     Friend WithEvents Tbl_PhoneNumTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter
     Friend WithEvents TblcarBindingSource As BindingSource
     Friend WithEvents Tbl_carTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents lblStaff_Carnum As Label
-    Friend WithEvents lblStaff_phonenum As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label6 As Label
     Friend WithEvents lblLimitMenkyo As Label
     Friend WithEvents Label8 As Label
 End Class

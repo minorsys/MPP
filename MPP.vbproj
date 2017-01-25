@@ -127,6 +127,24 @@
     <Compile Include="frmMasterCarNew.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMasterPhone.Designer.vb">
+      <DependentUpon>frmMasterPhone.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasterPhone.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMasterPhoneEdit.Designer.vb">
+      <DependentUpon>frmMasterPhoneEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasterPhoneEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMasterPhoneNew.Designer.vb">
+      <DependentUpon>frmMasterPhoneNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasterPhoneNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMasterStaff.Designer.vb">
       <DependentUpon>frmMasterStaff.vb</DependentUpon>
     </Compile>
@@ -190,6 +208,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMasterCarNew.resx">
       <DependentUpon>frmMasterCarNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasterPhone.resx">
+      <DependentUpon>frmMasterPhone.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasterPhoneEdit.resx">
+      <DependentUpon>frmMasterPhoneEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasterPhoneNew.resx">
+      <DependentUpon>frmMasterPhoneNew.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMasterStaff.resx">
       <DependentUpon>frmMasterStaff.vb</DependentUpon>

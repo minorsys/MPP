@@ -38,16 +38,12 @@ Partial Class frmMasterStaffNew
         Me.TblbranchBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_branchTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_branchTableAdapter()
         Me.Tbl_staffTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_staffTableAdapter()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtBiko = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dtpMenkyoLimit = New System.Windows.Forms.DateTimePicker()
-        Me.cmbStaffPhonenum = New System.Windows.Forms.ComboBox()
         Me.TblPhoneNumBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_PhoneNumTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter()
-        Me.cmbStaffCarnum = New System.Windows.Forms.ComboBox()
         Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
         CType(Me.TblstaffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,7 +64,7 @@ Partial Class frmMasterStaffNew
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(210, 308)
+        Me.btnCancel.Location = New System.Drawing.Point(210, 258)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(55, 23)
         Me.btnCancel.TabIndex = 10
@@ -77,7 +73,7 @@ Partial Class frmMasterStaffNew
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(147, 308)
+        Me.btnRegister.Location = New System.Drawing.Point(147, 258)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(57, 23)
         Me.btnRegister.TabIndex = 9
@@ -172,28 +168,10 @@ Partial Class frmMasterStaffNew
         '
         Me.Tbl_staffTableAdapter.ClearBeforeFill = True
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 110)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 12)
-        Me.Label1.TabIndex = 18
-        Me.Label1.Text = "電話番号"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 135)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 12)
-        Me.Label2.TabIndex = 19
-        Me.Label2.Text = "車両番号"
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 160)
+        Me.Label3.Location = New System.Drawing.Point(9, 110)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(65, 12)
         Me.Label3.TabIndex = 20
@@ -201,7 +179,7 @@ Partial Class frmMasterStaffNew
         '
         'txtBiko
         '
-        Me.txtBiko.Location = New System.Drawing.Point(92, 184)
+        Me.txtBiko.Location = New System.Drawing.Point(92, 134)
         Me.txtBiko.Multiline = True
         Me.txtBiko.Name = "txtBiko"
         Me.txtBiko.Size = New System.Drawing.Size(173, 118)
@@ -210,7 +188,7 @@ Partial Class frmMasterStaffNew
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(23, 187)
+        Me.Label4.Location = New System.Drawing.Point(23, 137)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(29, 12)
         Me.Label4.TabIndex = 24
@@ -220,22 +198,10 @@ Partial Class frmMasterStaffNew
         '
         Me.dtpMenkyoLimit.CustomFormat = " "
         Me.dtpMenkyoLimit.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(93, 159)
+        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(93, 109)
         Me.dtpMenkyoLimit.Name = "dtpMenkyoLimit"
         Me.dtpMenkyoLimit.Size = New System.Drawing.Size(121, 19)
         Me.dtpMenkyoLimit.TabIndex = 7
-        '
-        'cmbStaffPhonenum
-        '
-        Me.cmbStaffPhonenum.DataSource = Me.TblPhoneNumBindingSource
-        Me.cmbStaffPhonenum.DisplayMember = "phonenum"
-        Me.cmbStaffPhonenum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbStaffPhonenum.FormattingEnabled = True
-        Me.cmbStaffPhonenum.Location = New System.Drawing.Point(93, 107)
-        Me.cmbStaffPhonenum.Name = "cmbStaffPhonenum"
-        Me.cmbStaffPhonenum.Size = New System.Drawing.Size(121, 20)
-        Me.cmbStaffPhonenum.TabIndex = 25
-        Me.cmbStaffPhonenum.ValueMember = "phonenum"
         '
         'TblPhoneNumBindingSource
         '
@@ -245,18 +211,6 @@ Partial Class frmMasterStaffNew
         'Tbl_PhoneNumTableAdapter
         '
         Me.Tbl_PhoneNumTableAdapter.ClearBeforeFill = True
-        '
-        'cmbStaffCarnum
-        '
-        Me.cmbStaffCarnum.DataSource = Me.TblcarBindingSource
-        Me.cmbStaffCarnum.DisplayMember = "carnum1"
-        Me.cmbStaffCarnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbStaffCarnum.FormattingEnabled = True
-        Me.cmbStaffCarnum.Location = New System.Drawing.Point(93, 133)
-        Me.cmbStaffCarnum.Name = "cmbStaffCarnum"
-        Me.cmbStaffCarnum.Size = New System.Drawing.Size(121, 20)
-        Me.cmbStaffCarnum.TabIndex = 26
-        Me.cmbStaffCarnum.ValueMember = "carnum1"
         '
         'TblcarBindingSource
         '
@@ -272,15 +226,11 @@ Partial Class frmMasterStaffNew
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(277, 343)
-        Me.Controls.Add(Me.cmbStaffCarnum)
-        Me.Controls.Add(Me.cmbStaffPhonenum)
+        Me.ClientSize = New System.Drawing.Size(277, 291)
         Me.Controls.Add(Me.dtpMenkyoLimit)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtBiko)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblStaffID)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnRegister)
@@ -318,16 +268,12 @@ Partial Class frmMasterStaffNew
     Friend WithEvents Tbl_branchTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_branchTableAdapter
     Friend WithEvents TblstaffBindingSource As BindingSource
     Friend WithEvents Tbl_staffTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_staffTableAdapter
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents txtBiko As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents dtpMenkyoLimit As DateTimePicker
-    Friend WithEvents cmbStaffPhonenum As ComboBox
     Friend WithEvents TblPhoneNumBindingSource As BindingSource
     Friend WithEvents Tbl_PhoneNumTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter
-    Friend WithEvents cmbStaffCarnum As ComboBox
     Friend WithEvents TblcarBindingSource As BindingSource
     Friend WithEvents Tbl_carTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter
 End Class

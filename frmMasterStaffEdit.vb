@@ -2,9 +2,9 @@
 
     Private Sub frmMasterEditStaff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_car' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.Tbl_carTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_car)
-        'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_PhoneNum' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.Tbl_PhoneNumTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_PhoneNum)
+        'Me.Tbl_carTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_car)
+        ''TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_PhoneNum' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+        'Me.Tbl_PhoneNumTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_PhoneNum)
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_branch' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
         Me.Tbl_branchTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_branch)
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_staff' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
@@ -12,8 +12,7 @@
 
         'フォーム開始時、コンボボックスの値が自動でセットされないでindex = 0になってしまうので苦肉の策
         cmbBranch.SelectedValue = lblStaffBranch.Text
-        cmbStaffCarnum.SelectedValue = lblStaff_Carnum.Text
-        cmbStaffPhonenum.SelectedValue = lblStaff_phonenum.Text
+
 
         'フォーム開始時、免許証期限のDatetimePickerの初期値をセット
         If lblLimitMenkyo.Text = "" Then
@@ -66,22 +65,22 @@
 
     Private Function CheckEditData() As Boolean
 
+        'データの検査(氏名ｶﾅ)
+        With txtStaffKana
+            '空白でない
+            If .Text = "" Then
+                MsgBox("氏名ｶﾅは必ず入力してください")
+                .Select()
+                Return False
+            End If
+            '文字数チェック
+            If Not CheckMaxLengthStaff("staff_kana", .Text) Then
 
-        'データの検査(電話番号)
-        '同じ電話番号を使っている人がいないかチェック
-        '同じ番号を使っている人がいた場合、上書きするかたずねる
-        If Not cmbStaffPhonenum.Text = "" Then
-            CheckPhoneOverlap(cmbStaffPhonenum.Text)
+                .Select()
+                Return False
+            End If
+        End With
 
-        End If
-
-        'データの検査(車両番号)
-        '同じ車両に乗っている人がいないかチェック
-        '同じ車両に乗っている人がいた場合、上書きするかたずねる
-        If Not cmbStaffCarnum.Text = "" Then
-            CheckCarOverlap(cmbStaffCarnum.Text)
-
-        End If
 
         'データの検査(免許証期限)
 
@@ -102,7 +101,7 @@
 
     End Function
 
-    '桁数チェック-車両番号(指定された列のサイズと文字列の比較) 
+    '桁数チェック-社員(指定された列のサイズと文字列の比較) 
     Private Function CheckMaxLengthStaff(ByVal fieldname As String, ByVal value As String) As Boolean
         'データセットから列の情報を読み取る
         Dim column As DataColumn = PhoneNumDBDataSet.tbl_staff.Columns(fieldname)
@@ -145,45 +144,7 @@
         Return True
     End Function
 
-    '重複チェック－－電話番号
-    Private Sub CheckPhoneOverlap(ByVal staffphonenum As String)
-        Dim dbNum As String
-        Dim inputNum As String
 
-        inputNum = staffphonenum
-        For Each drw As DataRow In PhoneNumDBDataSet.tbl_staff.Rows()
-            If drw.RowState <> DataRowState.Deleted Then
-                dbNum = drw("staff_phonenum").ToString
-
-
-                If dbNum = inputNum Then
-                    MsgBox(drw("staff_phonenum").ToString & vbCrLf & "この番号は次の人に使用されています：" & drw("staff_name") & vbCrLf & "登録すると使用者は上書きされます。")
-
-                End If
-            End If
-        Next
-
-
-    End Sub
-
-    '重複チェック－－車両番号
-    Private Sub CheckCarOverlap(ByVal staffcarnum As String)
-        Dim dbCarnum As String
-        Dim inputCarnum As String
-
-        inputCarnum = staffcarnum
-        For Each drw As DataRow In PhoneNumDBDataSet.tbl_staff.Rows()
-            If drw.RowState <> DataRowState.Deleted Then
-                dbCarnum = drw("staff_carnum").ToString
-
-                If dbCarnum = inputCarnum Then
-                    MsgBox(drw("staff_carnum").ToString & vbCrLf & "この車両は次の人に使用されています：" & drw("staff_name") & vbCrLf & "登録すると使用者は上書きされます。")
-
-                End If
-            End If
-        Next
-
-    End Sub
 
     'キーボードショートカット
     Private Sub frmMasterEditStaff_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown

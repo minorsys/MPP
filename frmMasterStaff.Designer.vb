@@ -35,9 +35,7 @@ Partial Class frmMasterStaff
         Me.StaffnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StaffkanaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BranchidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StaffphonenumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BikoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StaffcarnumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LimitmenkyoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grdStaff, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,7 +44,7 @@ Partial Class frmMasterStaff
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(642, 532)
+        Me.btnClose.Location = New System.Drawing.Point(488, 532)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(75, 23)
         Me.btnClose.TabIndex = 10
@@ -86,13 +84,13 @@ Partial Class frmMasterStaff
         Me.grdStaff.AllowUserToDeleteRows = False
         Me.grdStaff.AutoGenerateColumns = False
         Me.grdStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdStaff.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdstaffDataGridViewTextBoxColumn, Me.StaffnameDataGridViewTextBoxColumn, Me.StaffkanaDataGridViewTextBoxColumn, Me.BranchidDataGridViewTextBoxColumn, Me.StaffphonenumDataGridViewTextBoxColumn, Me.BikoDataGridViewTextBoxColumn, Me.StaffcarnumDataGridViewTextBoxColumn, Me.LimitmenkyoDataGridViewTextBoxColumn})
+        Me.grdStaff.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdstaffDataGridViewTextBoxColumn, Me.StaffnameDataGridViewTextBoxColumn, Me.StaffkanaDataGridViewTextBoxColumn, Me.BranchidDataGridViewTextBoxColumn, Me.BikoDataGridViewTextBoxColumn, Me.LimitmenkyoDataGridViewTextBoxColumn})
         Me.grdStaff.DataSource = Me.TblstaffBindingSource
         Me.grdStaff.Location = New System.Drawing.Point(12, 41)
         Me.grdStaff.Name = "grdStaff"
         Me.grdStaff.ReadOnly = True
         Me.grdStaff.RowTemplate.Height = 21
-        Me.grdStaff.Size = New System.Drawing.Size(705, 485)
+        Me.grdStaff.Size = New System.Drawing.Size(551, 485)
         Me.grdStaff.TabIndex = 6
         '
         'PhoneNumDBDataSet
@@ -139,27 +137,12 @@ Partial Class frmMasterStaff
         Me.BranchidDataGridViewTextBoxColumn.ReadOnly = True
         Me.BranchidDataGridViewTextBoxColumn.Width = 50
         '
-        'StaffphonenumDataGridViewTextBoxColumn
-        '
-        Me.StaffphonenumDataGridViewTextBoxColumn.DataPropertyName = "staff_phonenum"
-        Me.StaffphonenumDataGridViewTextBoxColumn.HeaderText = "電話番号"
-        Me.StaffphonenumDataGridViewTextBoxColumn.Name = "StaffphonenumDataGridViewTextBoxColumn"
-        Me.StaffphonenumDataGridViewTextBoxColumn.ReadOnly = True
-        '
         'BikoDataGridViewTextBoxColumn
         '
         Me.BikoDataGridViewTextBoxColumn.DataPropertyName = "biko"
         Me.BikoDataGridViewTextBoxColumn.HeaderText = "備考"
         Me.BikoDataGridViewTextBoxColumn.Name = "BikoDataGridViewTextBoxColumn"
         Me.BikoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'StaffcarnumDataGridViewTextBoxColumn
-        '
-        Me.StaffcarnumDataGridViewTextBoxColumn.DataPropertyName = "staff_carnum"
-        Me.StaffcarnumDataGridViewTextBoxColumn.HeaderText = "車番"
-        Me.StaffcarnumDataGridViewTextBoxColumn.Name = "StaffcarnumDataGridViewTextBoxColumn"
-        Me.StaffcarnumDataGridViewTextBoxColumn.ReadOnly = True
-        Me.StaffcarnumDataGridViewTextBoxColumn.Width = 50
         '
         'LimitmenkyoDataGridViewTextBoxColumn
         '
@@ -173,7 +156,7 @@ Partial Class frmMasterStaff
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(728, 563)
+        Me.ClientSize = New System.Drawing.Size(576, 563)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
@@ -200,8 +183,6 @@ Partial Class frmMasterStaff
     Friend WithEvents StaffnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents StaffkanaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BranchidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StaffphonenumDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BikoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StaffcarnumDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents LimitmenkyoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
