@@ -28,18 +28,20 @@ Partial Class frmMasterStaff
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.grdStaff = New System.Windows.Forms.DataGridView()
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
-        Me.TblstaffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Tbl_staffTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_staffTableAdapter()
         Me.IdstaffDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StaffnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StaffkanaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BranchidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BikoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LimitmenkyoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TblstaffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
+        Me.Tbl_staffTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_staffTableAdapter()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         CType(Me.grdStaff, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblstaffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnClose
@@ -93,20 +95,6 @@ Partial Class frmMasterStaff
         Me.grdStaff.Size = New System.Drawing.Size(551, 485)
         Me.grdStaff.TabIndex = 6
         '
-        'PhoneNumDBDataSet
-        '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TblstaffBindingSource
-        '
-        Me.TblstaffBindingSource.DataMember = "tbl_staff"
-        Me.TblstaffBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
-        'Tbl_staffTableAdapter
-        '
-        Me.Tbl_staffTableAdapter.ClearBeforeFill = True
-        '
         'IdstaffDataGridViewTextBoxColumn
         '
         Me.IdstaffDataGridViewTextBoxColumn.DataPropertyName = "id_staff"
@@ -151,23 +139,58 @@ Partial Class frmMasterStaff
         Me.LimitmenkyoDataGridViewTextBoxColumn.Name = "LimitmenkyoDataGridViewTextBoxColumn"
         Me.LimitmenkyoDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'TblstaffBindingSource
+        '
+        Me.TblstaffBindingSource.DataMember = "tbl_staff"
+        Me.TblstaffBindingSource.DataSource = Me.PhoneNumDBDataSet
+        '
+        'PhoneNumDBDataSet
+        '
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Tbl_staffTableAdapter
+        '
+        Me.Tbl_staffTableAdapter.ClearBeforeFill = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(278, 17)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(44, 12)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "ｶﾅ検索"
+        '
+        'txtSearch
+        '
+        Me.txtSearch.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf
+        Me.txtSearch.Location = New System.Drawing.Point(328, 14)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(100, 19)
+        Me.txtSearch.TabIndex = 12
+        '
         'frmMasterStaff
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(576, 563)
+        Me.Controls.Add(Me.txtSearch)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.grdStaff)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMasterStaff"
         Me.Text = "社員マスタ"
         CType(Me.grdStaff, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblstaffBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -185,4 +208,6 @@ Partial Class frmMasterStaff
     Friend WithEvents BranchidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BikoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents LimitmenkyoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtSearch As TextBox
 End Class

@@ -128,16 +128,16 @@ Public Class frmModifier
         cmbStaffBranch.SelectedValue = lblStaffBranch.Text
         cmbCarBranch.SelectedValue = lblCarBranch.Text
 
-        '### 車格コンボボックスに値をセット ###
-        cmbTon.Items.Add("2t平")
-        cmbTon.Items.Add("2t平PG")
-        cmbTon.Items.Add("2tU")
-        cmbTon.Items.Add("3tU")
-        cmbTon.Items.Add("4tU")
-        cmbTon.Items.Add("7tU")
-        cmbTon.Items.Add("10tU")
-        cmbTon.Items.Add("15tU")
-        cmbTon.Items.Add("その他")
+        ''### 車格コンボボックスに値をセット ###
+        'cmbTon.Items.Add("2t平")
+        'cmbTon.Items.Add("2t平PG")
+        'cmbTon.Items.Add("2tU")
+        'cmbTon.Items.Add("3tU")
+        'cmbTon.Items.Add("4tU")
+        'cmbTon.Items.Add("7tU")
+        'cmbTon.Items.Add("10tU")
+        'cmbTon.Items.Add("15tU")
+        'cmbTon.Items.Add("その他")
 
     End Sub
 
@@ -304,7 +304,11 @@ Public Class frmModifier
         '電話番号情報の検査 電話番号が選択されてなければスキップ
         If lblPhonenum.Text <> "" Then
 
-
+            '同じ電話番号を使っている人がいないかチェック
+            '同じ番号を使っている人がいた場合、上書きするかたずねる
+            'If Not lblPhonenum.Text = "" Then
+            '    CheckPhoneOverlap(lblPhonenum.Text)
+            'End If
             ''データの検査(機種名)
             'With txtModel
             '    If Not CheckMaxLengthPhone("model", .Text) Then
@@ -369,6 +373,15 @@ Public Class frmModifier
 
         '車両情報の検査　車両が選択されていなければスキップ
         If lblCarnum.Text <> "" Then
+
+            '同じ車両に乗っている人がいないかチェック
+            '同じ車両に乗っている人がいた場合、上書きするかたずねる
+            'If Not lblCarnum.Text = "" Then
+            '    CheckCarOverlap(lblCarnum.Text)
+
+            'End If
+
+
             ''データの検査(車番2)
             'With txtCarnum2
             '    If Not CheckMaxLengthCar("carnum2", .Text) Then
@@ -498,10 +511,50 @@ Public Class frmModifier
         End If
     End Function
 
-    '車格コンボボックスの値が変更されたら、車格テキストボックスに代入
-    Private Sub cmbTon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTon.SelectedIndexChanged
-        txtTon.Text = cmbTon.SelectedItem
-    End Sub
+    ''車格コンボボックスの値が変更されたら、車格テキストボックスに代入
+    'Private Sub cmbTon_SelectedIndexChanged(sender As Object, e As EventArgs)
+    '    txtTon.Text = cmbTon.SelectedItem
+    'End Sub
+
+    ''重複チェック－－電話番号
+    'Private Sub CheckPhoneOverlap(ByVal staffphonenum As String)
+    '    Dim dbNum As String
+    '    Dim inputNum As String
+
+    '    inputNum = staffphonenum
+    '    For Each drw As DataRow In PhoneNumDBDataSet.tbl_staff.Rows()
+    '        If drw.RowState <> DataRowState.Deleted Then
+    '            dbNum = drw("staff_phonenum").ToString
+
+    '            If dbNum = inputNum Then
+    '                MsgBox(drw("staff_phonenum").ToString & vbCrLf & "この番号は次の人に使用されています：" & drw("staff_name") & vbCrLf & "登録すると使用者は上書きされます。")
+
+    '            End If
+    '        End If
+    '    Next
+
+
+    'End Sub
+
+    ''重複チェック－－車両番号
+    'Private Sub CheckCarOverlap(ByVal staffcarnum As String)
+    '    Dim dbCarnum As String
+    '    Dim inputCarnum As String
+
+    '    inputCarnum = staffcarnum
+    '    For Each drw As DataRow In PhoneNumDBDataSet.tbl_staff.Rows()
+    '        If drw.RowState <> DataRowState.Deleted Then
+    '            dbCarnum = drw("staff_carnum").ToString
+
+    '            If dbCarnum = inputCarnum Then
+    '                MsgBox(drw("staff_carnum").ToString & vbCrLf & "この車両は次の人に使用されています：" & drw("staff_name") & vbCrLf & "登録すると使用者は上書きされます。")
+
+    '            End If
+    '        End If
+    '    Next
+
+    'End Sub
+
 
     'キーボードショートカット
     Private Sub frmModifier_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown

@@ -171,6 +171,7 @@ Partial Class frmMasterPhoneNew
         Me.Controls.Add(Me.txtBiko)
         Me.Controls.Add(ModelLabel)
         Me.Controls.Add(Me.txtModel)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMasterPhoneNew"
         Me.Text = "電話番号マスタ新規"
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()

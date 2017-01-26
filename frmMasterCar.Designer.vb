@@ -28,6 +28,8 @@ Partial Class frmMasterCar
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.grdCar = New System.Windows.Forms.DataGridView()
+        Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Carnum1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Carnum2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Carnum3DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -37,11 +39,11 @@ Partial Class frmMasterCar
         Me.BikoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BranchidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StaffidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         CType(Me.grdCar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,6 +99,18 @@ Partial Class frmMasterCar
         Me.grdCar.RowTemplate.Height = 21
         Me.grdCar.Size = New System.Drawing.Size(1059, 392)
         Me.grdCar.TabIndex = 6
+        '
+        'max_load
+        '
+        Me.max_load.DataPropertyName = "max_load"
+        Me.max_load.HeaderText = "最大積載量"
+        Me.max_load.Name = "max_load"
+        '
+        'limit_syaken
+        '
+        Me.limit_syaken.DataPropertyName = "limit_syaken"
+        Me.limit_syaken.HeaderText = "車検証期限"
+        Me.limit_syaken.Name = "limit_syaken"
         '
         'Carnum1DataGridViewTextBoxColumn
         '
@@ -162,18 +176,6 @@ Partial Class frmMasterCar
         Me.StaffidDataGridViewTextBoxColumn.ReadOnly = True
         Me.StaffidDataGridViewTextBoxColumn.Visible = False
         '
-        'max_load
-        '
-        Me.max_load.DataPropertyName = "max_load"
-        Me.max_load.HeaderText = "最大積載量"
-        Me.max_load.Name = "max_load"
-        '
-        'limit_syaken
-        '
-        Me.limit_syaken.DataPropertyName = "limit_syaken"
-        Me.limit_syaken.HeaderText = "車検証期限"
-        Me.limit_syaken.Name = "limit_syaken"
-        '
         'TblcarBindingSource
         '
         Me.TblcarBindingSource.DataMember = "tbl_car"
@@ -188,23 +190,44 @@ Partial Class frmMasterCar
         '
         Me.Tbl_carTableAdapter.ClearBeforeFill = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(300, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 12)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "車番検索"
+        '
+        'txtSearch
+        '
+        Me.txtSearch.ImeMode = System.Windows.Forms.ImeMode.Off
+        Me.txtSearch.Location = New System.Drawing.Point(359, 16)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(100, 19)
+        Me.txtSearch.TabIndex = 12
+        '
         'frmMasterCar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1091, 472)
+        Me.Controls.Add(Me.txtSearch)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.grdCar)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMasterCar"
         Me.Text = "車両マスタ"
         CType(Me.grdCar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -227,4 +250,6 @@ Partial Class frmMasterCar
     Friend WithEvents StaffidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents max_load As DataGridViewTextBoxColumn
     Friend WithEvents limit_syaken As DataGridViewTextBoxColumn
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtSearch As TextBox
 End Class

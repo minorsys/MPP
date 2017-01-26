@@ -128,4 +128,8 @@
 
         End Select
     End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        Me.Tbl_staffTableAdapter.FillBySearch(Me.PhoneNumDBDataSet.tbl_staff, "%" & txtSearch.Text & "%")
+    End Sub
 End Class

@@ -241,6 +241,7 @@ Partial Class frmMasterStaffNew
         Me.Controls.Add(Me.txtStaffKana)
         Me.Controls.Add(Me.Branch_idLabel)
         Me.Controls.Add(Me.cmbBranch)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMasterStaffNew"
         Me.Text = "社員マスタ新規"
         CType(Me.TblstaffBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

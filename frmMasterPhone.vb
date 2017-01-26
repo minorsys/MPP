@@ -139,4 +139,10 @@
 
         End Select
     End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        Dim pcode As String
+        pcode = txtSearch.Text
+        Me.Tbl_PhoneNumTableAdapter.FillBySearch(Me.PhoneNumDBDataSet.tbl_PhoneNum, "%" & txtSearch.Text & "%")
+    End Sub
 End Class

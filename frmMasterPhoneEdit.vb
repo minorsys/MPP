@@ -99,9 +99,5 @@
         End Select
     End Sub
 
-    Private Sub frmMasterPhoneEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_PhoneNum' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.Tbl_PhoneNumTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_PhoneNum)
 
-    End Sub
 End Class

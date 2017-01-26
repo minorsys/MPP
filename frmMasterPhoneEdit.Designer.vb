@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMasterPhoneEdit
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmMasterPhoneEdit
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim PhonenumLabel As System.Windows.Forms.Label
@@ -30,18 +30,18 @@ Partial Class frmMasterPhoneEdit
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnOK = New System.Windows.Forms.Button()
         Me.txtPhonenum = New System.Windows.Forms.TextBox()
+        Me.TblPhoneNumBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.txtMail = New System.Windows.Forms.TextBox()
         Me.txtBiko = New System.Windows.Forms.TextBox()
         Me.txtModel = New System.Windows.Forms.TextBox()
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
-        Me.TblPhoneNumBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_PhoneNumTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter()
         PhonenumLabel = New System.Windows.Forms.Label()
         MailLabel = New System.Windows.Forms.Label()
         BikoLabel = New System.Windows.Forms.Label()
         ModelLabel = New System.Windows.Forms.Label()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblPhoneNumBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PhonenumLabel
@@ -107,6 +107,16 @@ Partial Class frmMasterPhoneEdit
         Me.txtPhonenum.Size = New System.Drawing.Size(100, 19)
         Me.txtPhonenum.TabIndex = 9
         '
+        'TblPhoneNumBindingSource
+        '
+        Me.TblPhoneNumBindingSource.DataMember = "tbl_PhoneNum"
+        Me.TblPhoneNumBindingSource.DataSource = Me.PhoneNumDBDataSet
+        '
+        'PhoneNumDBDataSet
+        '
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'txtMail
         '
         Me.txtMail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblPhoneNumBindingSource, "mail", True))
@@ -132,16 +142,6 @@ Partial Class frmMasterPhoneEdit
         Me.txtModel.Size = New System.Drawing.Size(100, 19)
         Me.txtModel.TabIndex = 12
         '
-        'PhoneNumDBDataSet
-        '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TblPhoneNumBindingSource
-        '
-        Me.TblPhoneNumBindingSource.DataMember = "tbl_PhoneNum"
-        Me.TblPhoneNumBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
         'Tbl_PhoneNumTableAdapter
         '
         Me.Tbl_PhoneNumTableAdapter.ClearBeforeFill = True
@@ -162,10 +162,11 @@ Partial Class frmMasterPhoneEdit
         Me.Controls.Add(Me.txtBiko)
         Me.Controls.Add(ModelLabel)
         Me.Controls.Add(Me.txtModel)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMasterPhoneEdit"
         Me.Text = "電話番号マスタ編集"
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblPhoneNumBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

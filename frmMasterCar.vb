@@ -124,4 +124,8 @@
 
         End Select
     End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        Me.Tbl_carTableAdapter.FillBySearch(Me.PhoneNumDBDataSet.tbl_car, "%" & txtSearch.Text & "%")
+    End Sub
 End Class

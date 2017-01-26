@@ -63,10 +63,11 @@ Partial Class frmAdmin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(229, 261)
+        Me.ClientSize = New System.Drawing.Size(120, 127)
         Me.Controls.Add(Me.btnMasterPhone)
         Me.Controls.Add(Me.btnMasterStaff)
         Me.Controls.Add(Me.btnMasterCar)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAdmin"
         Me.Text = "管理メニュー"
         Me.ResumeLayout(False)

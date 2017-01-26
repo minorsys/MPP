@@ -9,5 +9,16 @@
         frm.ShowDialog(Me)
     End Sub
 
+    Private Sub btnMasterPhone_Click(sender As Object, e As EventArgs) Handles btnMasterPhone.Click
+        Dim frm As New frmMasterPhone
+        frm.ShowDialog(Me)
+    End Sub
 
+    Private Sub frmAdmin_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Escape
+                Me.Close()
+
+        End Select
+    End Sub
 End Class

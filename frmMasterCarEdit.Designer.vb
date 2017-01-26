@@ -25,6 +25,8 @@ Partial Class frmMasterCarEdit
         Me.components = New System.ComponentModel.Container()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblCarBranch = New System.Windows.Forms.Label()
+        Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.txtTon = New System.Windows.Forms.TextBox()
         Me.cmbTon = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -47,8 +49,6 @@ Partial Class frmMasterCarEdit
         Me.txtBiko = New System.Windows.Forms.TextBox()
         Me.Branch_idLabel = New System.Windows.Forms.Label()
         Me.cmbBranch = New System.Windows.Forms.ComboBox()
-        Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.TblbranchBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_branchTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_branchTableAdapter()
         Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
@@ -81,6 +81,16 @@ Partial Class frmMasterCarEdit
         Me.lblCarBranch.Size = New System.Drawing.Size(71, 12)
         Me.lblCarBranch.TabIndex = 90
         Me.lblCarBranch.Text = "lblCarBranch"
+        '
+        'TblcarBindingSource
+        '
+        Me.TblcarBindingSource.DataMember = "tbl_car"
+        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
+        '
+        'PhoneNumDBDataSet
+        '
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtTon
         '
@@ -289,16 +299,6 @@ Partial Class frmMasterCarEdit
         Me.cmbBranch.TabIndex = 8
         Me.cmbBranch.ValueMember = "id_branch"
         '
-        'TblcarBindingSource
-        '
-        Me.TblcarBindingSource.DataMember = "tbl_car"
-        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
-        'PhoneNumDBDataSet
-        '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'TblbranchBindingSource
         '
         Me.TblbranchBindingSource.DataMember = "tbl_branch"
@@ -401,6 +401,7 @@ Partial Class frmMasterCarEdit
         Me.Controls.Add(Me.txtBiko)
         Me.Controls.Add(Me.Branch_idLabel)
         Me.Controls.Add(Me.cmbBranch)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMasterCarEdit"
         Me.Text = "車両マスタ編集"
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

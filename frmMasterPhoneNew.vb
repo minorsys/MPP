@@ -15,6 +15,41 @@
     '[登録]ボタン
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
 
+
+        '登録するデータのチェック　不備があればキャンセルになる
+        If Not CheckEditData() Then
+            Return
+        End If
+
+        '保存確認と保存処理
+        If MsgBox("この内容で新規登録してよろしいですか？", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+            '行の定義
+            Dim newrecord As PhoneNumDBDataSet.tbl_PhoneNumRow = Me.PhoneNumDBDataSet.tbl_PhoneNum.Newtbl_PhoneNumRow
+
+            Try
+                '行にデータをセットする
+                newrecord.phonenum = txtPhonenum.Text
+                newrecord.mail = txtMail.Text
+                newrecord.model = txtModel.Text
+                newrecord.biko = txtBiko.Text
+
+                '新規行をデータテーブルに追加する
+                Me.PhoneNumDBDataSet.tbl_PhoneNum.Addtbl_PhoneNumRow(newrecord)
+
+                'テーブルアダプタを介して、tbl_integrateテーブルを更新する
+                Me.Tbl_PhoneNumTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_PhoneNum)
+
+            Catch ex As Exception
+                'エラーメッセージを表示する
+                MsgBox(ex.Message, MsgBoxStyle.OkOnly, Me.Text)
+                Return
+
+            End Try
+
+            'フォームを閉じる
+            Me.Close()
+        End If
     End Sub
 
     Private Function CheckEditData() As Boolean

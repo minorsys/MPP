@@ -35,6 +35,8 @@ Partial Class frmMasterPhone
         Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Tbl_PhoneNumTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.grdPhone, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblPhoneNumBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -133,23 +135,43 @@ Partial Class frmMasterPhone
         '
         Me.Tbl_PhoneNumTableAdapter.ClearBeforeFill = True
         '
+        'txtSearch
+        '
+        Me.txtSearch.Location = New System.Drawing.Point(373, 12)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(100, 19)
+        Me.txtSearch.TabIndex = 10
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(314, 15)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 12)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "番号検索"
+        '
         'frmMasterPhone
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Bisque
         Me.ClientSize = New System.Drawing.Size(485, 517)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.grdPhone)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMasterPhone"
         Me.Text = "電話番号マスタ"
         CType(Me.grdPhone, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblPhoneNumBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -165,4 +187,6 @@ Partial Class frmMasterPhone
     Friend WithEvents MailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BikoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents Label1 As Label
 End Class

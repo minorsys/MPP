@@ -376,6 +376,7 @@ Partial Class frmMasterCarNew
         Me.Controls.Add(Me.txtBiko)
         Me.Controls.Add(Me.Branch_idLabel)
         Me.Controls.Add(Me.cmbBranch)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMasterCarNew"
         Me.Text = "車両マスタ新規"
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
