@@ -140,6 +140,7 @@ Public Class frmMasterStaffNew
                     newrecord.staff_kana = txtStaffKana.Text
                     newrecord.branch_id = cmbBranch.SelectedValue
                     newrecord.biko = txtBiko.Text
+                    newrecord.limit_menkyo = dtpMenkyoLimit.Value
 
                     '新規行をデータテーブルに追加する
                     Me.PhoneNumDBDataSet.tbl_staff.Addtbl_staffRow(newrecord)
@@ -298,5 +299,8 @@ Public Class frmMasterStaffNew
         End Select
     End Sub
 
+    Private Sub dtpMenkyoLimit_ValueChanged(sender As Object, e As EventArgs) Handles dtpMenkyoLimit.ValueChanged
+        dtpMenkyoLimit.Format = DateTimePickerFormat.Long
 
+    End Sub
 End Class

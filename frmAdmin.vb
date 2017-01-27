@@ -21,4 +21,9 @@
 
         End Select
     End Sub
+
+    '閉じるボタン
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
 End Class

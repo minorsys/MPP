@@ -13,15 +13,19 @@
         'フォーム開始時、コンボボックスの値が自動でセットされないでindex = 0になってしまうので苦肉の策
         cmbBranch.SelectedValue = lblStaffBranch.Text
 
-
         'フォーム開始時、免許証期限のDatetimePickerの初期値をセット
-        If lblLimitMenkyo.Text = "" Then
-            dtpMenkyoLimit.Format = DateTimePickerFormat.Custom
-            dtpMenkyoLimit.CustomFormat = " "
-        Else
-            dtpMenkyoLimit.Format = DateTimePickerFormat.Long
-        End If
+        'If lblLimitMenkyo.Text = "" Then
+        '    dtpMenkyoLimit.Format = DateTimePickerFormat.Custom
+        '    dtpMenkyoLimit.CustomFormat = " "
+        'Else
+
+        '    dtpMenkyoLimit.Format = DateTimePickerFormat.Long
+        'End If
+
     End Sub
+
+    'ピッカーの値を変更したら、フォーマットを変えて日付が表示されるようにする
+
 
     Private frm_MasterStaff
 
@@ -154,4 +158,14 @@
 
         End Select
     End Sub
+
+    Private Sub dtpMenkyoLimit_ValueChanged(sender As Object, e As EventArgs) Handles dtpMenkyoLimit.ValueChanged
+
+        '    dtpMenkyoLimit.Format = DateTimePickerFormat.Long
+
+    End Sub
+
+    'Private Sub dtpMenkyoLimit_TextChanged(sender As Object, e As EventArgs) Handles dtpMenkyoLimit.TextChanged
+
+    'End Sub
 End Class

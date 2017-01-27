@@ -27,16 +27,16 @@ Partial Class frmMasterPhone
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.grdPhone = New System.Windows.Forms.DataGridView()
-        Me.PhonenumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BikoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TblPhoneNumBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Tbl_PhoneNumTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.PhonenumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BikoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grdPhone, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblPhoneNumBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,34 +84,6 @@ Partial Class frmMasterPhone
         Me.grdPhone.Size = New System.Drawing.Size(461, 435)
         Me.grdPhone.TabIndex = 5
         '
-        'PhonenumDataGridViewTextBoxColumn
-        '
-        Me.PhonenumDataGridViewTextBoxColumn.DataPropertyName = "phonenum"
-        Me.PhonenumDataGridViewTextBoxColumn.HeaderText = "phonenum"
-        Me.PhonenumDataGridViewTextBoxColumn.Name = "PhonenumDataGridViewTextBoxColumn"
-        Me.PhonenumDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'MailDataGridViewTextBoxColumn
-        '
-        Me.MailDataGridViewTextBoxColumn.DataPropertyName = "mail"
-        Me.MailDataGridViewTextBoxColumn.HeaderText = "mail"
-        Me.MailDataGridViewTextBoxColumn.Name = "MailDataGridViewTextBoxColumn"
-        Me.MailDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'BikoDataGridViewTextBoxColumn
-        '
-        Me.BikoDataGridViewTextBoxColumn.DataPropertyName = "biko"
-        Me.BikoDataGridViewTextBoxColumn.HeaderText = "biko"
-        Me.BikoDataGridViewTextBoxColumn.Name = "BikoDataGridViewTextBoxColumn"
-        Me.BikoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ModelDataGridViewTextBoxColumn
-        '
-        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "model"
-        Me.ModelDataGridViewTextBoxColumn.HeaderText = "model"
-        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
-        Me.ModelDataGridViewTextBoxColumn.ReadOnly = True
-        '
         'TblPhoneNumBindingSource
         '
         Me.TblPhoneNumBindingSource.DataMember = "tbl_PhoneNum"
@@ -151,6 +123,34 @@ Partial Class frmMasterPhone
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "番号検索"
         '
+        'PhonenumDataGridViewTextBoxColumn
+        '
+        Me.PhonenumDataGridViewTextBoxColumn.DataPropertyName = "phonenum"
+        Me.PhonenumDataGridViewTextBoxColumn.HeaderText = "電話番号"
+        Me.PhonenumDataGridViewTextBoxColumn.Name = "PhonenumDataGridViewTextBoxColumn"
+        Me.PhonenumDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'MailDataGridViewTextBoxColumn
+        '
+        Me.MailDataGridViewTextBoxColumn.DataPropertyName = "mail"
+        Me.MailDataGridViewTextBoxColumn.HeaderText = "ﾒｰﾙｱﾄﾞﾚｽ"
+        Me.MailDataGridViewTextBoxColumn.Name = "MailDataGridViewTextBoxColumn"
+        Me.MailDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'BikoDataGridViewTextBoxColumn
+        '
+        Me.BikoDataGridViewTextBoxColumn.DataPropertyName = "biko"
+        Me.BikoDataGridViewTextBoxColumn.HeaderText = "備考"
+        Me.BikoDataGridViewTextBoxColumn.Name = "BikoDataGridViewTextBoxColumn"
+        Me.BikoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ModelDataGridViewTextBoxColumn
+        '
+        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "model"
+        Me.ModelDataGridViewTextBoxColumn.HeaderText = "機種"
+        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
+        Me.ModelDataGridViewTextBoxColumn.ReadOnly = True
+        '
         'frmMasterPhone
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -183,10 +183,10 @@ Partial Class frmMasterPhone
     Friend WithEvents PhoneNumDBDataSet As PhoneNumDBDataSet
     Friend WithEvents TblPhoneNumBindingSource As BindingSource
     Friend WithEvents Tbl_PhoneNumTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents Label1 As Label
     Friend WithEvents PhonenumDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents MailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BikoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents txtSearch As TextBox
-    Friend WithEvents Label1 As Label
 End Class

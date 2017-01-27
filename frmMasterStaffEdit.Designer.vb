@@ -206,7 +206,9 @@ Partial Class frmMasterStaffEdit
         '
         'dtpMenkyoLimit
         '
+        Me.dtpMenkyoLimit.Checked = False
         Me.dtpMenkyoLimit.CustomFormat = " "
+        Me.dtpMenkyoLimit.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TblstaffBindingSource, "limit_menkyo", True))
         Me.dtpMenkyoLimit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "limit_menkyo", True))
         Me.dtpMenkyoLimit.Location = New System.Drawing.Point(90, 106)
         Me.dtpMenkyoLimit.Name = "dtpMenkyoLimit"
@@ -274,7 +276,6 @@ Partial Class frmMasterStaffEdit
         'lblLimitMenkyo
         '
         Me.lblLimitMenkyo.AutoSize = True
-        Me.lblLimitMenkyo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "limit_menkyo", True))
         Me.lblLimitMenkyo.Location = New System.Drawing.Point(97, 27)
         Me.lblLimitMenkyo.Name = "lblLimitMenkyo"
         Me.lblLimitMenkyo.Size = New System.Drawing.Size(70, 12)
@@ -295,7 +296,7 @@ Partial Class frmMasterStaffEdit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(278, 285)
+        Me.ClientSize = New System.Drawing.Size(273, 372)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dtpMenkyoLimit)
         Me.Controls.Add(Me.Label4)

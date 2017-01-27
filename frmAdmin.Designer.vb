@@ -25,6 +25,7 @@ Partial Class frmAdmin
         Me.btnMasterCar = New System.Windows.Forms.Button()
         Me.btnMasterStaff = New System.Windows.Forms.Button()
         Me.btnMasterPhone = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnMasterCar
@@ -58,12 +59,23 @@ Partial Class frmAdmin
         Me.btnMasterPhone.Text = "電話マスタ"
         Me.btnMasterPhone.UseVisualStyleBackColor = False
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(116, 109)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(75, 23)
+        Me.btnClose.TabIndex = 3
+        Me.btnClose.Text = "閉じる"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(120, 127)
+        Me.ClientSize = New System.Drawing.Size(203, 144)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnMasterPhone)
         Me.Controls.Add(Me.btnMasterStaff)
         Me.Controls.Add(Me.btnMasterCar)
@@ -77,4 +89,5 @@ Partial Class frmAdmin
     Friend WithEvents btnMasterCar As Button
     Friend WithEvents btnMasterStaff As Button
     Friend WithEvents btnMasterPhone As Button
+    Friend WithEvents btnClose As Button
 End Class
