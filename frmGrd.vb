@@ -607,6 +607,7 @@
                     errmsg += vbCrLf & selectedCarnum
                 Else
 
+
                     '該当ファイルをコピーする
                     For Each f As String In files
                         System.IO.File.Copy(f, "C:\MPP\Exports\" & folderpath & "\車検証\" & selectedCarnum & ".pdf")

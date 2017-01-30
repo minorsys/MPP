@@ -192,6 +192,12 @@
     <Compile Include="frmModifier.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmProgressBar.Designer.vb">
+      <DependentUpon>frmProgressBar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProgressBar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSyakenUpload.Designer.vb">
       <DependentUpon>frmSyakenUpload.vb</DependentUpon>
     </Compile>
@@ -261,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifier.resx">
       <DependentUpon>frmModifier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProgressBar.resx">
+      <DependentUpon>frmProgressBar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSyakenUpload.resx">
       <DependentUpon>frmSyakenUpload.vb</DependentUpon>

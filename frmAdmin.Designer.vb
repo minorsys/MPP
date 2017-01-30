@@ -28,6 +28,7 @@ Partial Class frmAdmin
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnSyakenUpload = New System.Windows.Forms.Button()
         Me.btnMenkyoUpload = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnMasterCar
@@ -90,6 +91,15 @@ Partial Class frmAdmin
         Me.btnMenkyoUpload.Text = "免許証pdf更新"
         Me.btnMenkyoUpload.UseVisualStyleBackColor = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(13, 103)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -97,6 +107,7 @@ Partial Class frmAdmin
         Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(231, 157)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnMenkyoUpload)
         Me.Controls.Add(Me.btnSyakenUpload)
         Me.Controls.Add(Me.btnClose)
@@ -116,4 +127,5 @@ Partial Class frmAdmin
     Friend WithEvents btnClose As Button
     Friend WithEvents btnSyakenUpload As Button
     Friend WithEvents btnMenkyoUpload As Button
+    Friend WithEvents Button1 As Button
 End Class
