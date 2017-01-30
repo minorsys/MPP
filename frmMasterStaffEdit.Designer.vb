@@ -296,7 +296,7 @@ Partial Class frmMasterStaffEdit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(273, 372)
+        Me.ClientSize = New System.Drawing.Size(273, 285)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dtpMenkyoLimit)
         Me.Controls.Add(Me.Label4)

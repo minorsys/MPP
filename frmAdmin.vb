@@ -26,4 +26,18 @@
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
     End Sub
+
+    '車検証アップロードボタン
+    Private Sub btnSyakenUpload_Click(sender As Object, e As EventArgs) Handles btnSyakenUpload.Click
+        Dim frm As New frmSyakenUpload
+        frm.ShowDialog(Me)
+
+    End Sub
+
+    '免許証アップロードボタン
+    Private Sub btnMenkyoUpload_Click(sender As Object, e As EventArgs) Handles btnMenkyoUpload.Click
+        Dim frm As New frmMenkyoUpload
+        frm.ShowDialog(Me)
+
+    End Sub
 End Class

@@ -91,6 +91,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -179,10 +180,22 @@
     <Compile Include="frmMasterStaffNew.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMenkyoUpload.Designer.vb">
+      <DependentUpon>frmMenkyoUpload.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenkyoUpload.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmModifier.Designer.vb">
       <DependentUpon>frmModifier.vb</DependentUpon>
     </Compile>
     <Compile Include="frmModifier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSyakenUpload.Designer.vb">
+      <DependentUpon>frmSyakenUpload.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSyakenUpload.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -243,8 +256,14 @@
     <EmbeddedResource Include="frmMasterStaffNew.resx">
       <DependentUpon>frmMasterStaffNew.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMenkyoUpload.resx">
+      <DependentUpon>frmMenkyoUpload.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModifier.resx">
       <DependentUpon>frmModifier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSyakenUpload.resx">
+      <DependentUpon>frmSyakenUpload.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
