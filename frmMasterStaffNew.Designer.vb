@@ -46,6 +46,9 @@ Partial Class frmMasterStaffNew
         Me.Tbl_PhoneNumTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter()
         Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
+        Me.txtFilePath = New System.Windows.Forms.TextBox()
+        Me.btnFileSelect = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.TblstaffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,7 +67,7 @@ Partial Class frmMasterStaffNew
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(210, 258)
+        Me.btnCancel.Location = New System.Drawing.Point(233, 277)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(55, 23)
         Me.btnCancel.TabIndex = 10
@@ -73,7 +76,7 @@ Partial Class frmMasterStaffNew
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(147, 258)
+        Me.btnRegister.Location = New System.Drawing.Point(170, 277)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(57, 23)
         Me.btnRegister.TabIndex = 9
@@ -171,7 +174,7 @@ Partial Class frmMasterStaffNew
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 110)
+        Me.Label3.Location = New System.Drawing.Point(9, 129)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(65, 12)
         Me.Label3.TabIndex = 20
@@ -179,16 +182,16 @@ Partial Class frmMasterStaffNew
         '
         'txtBiko
         '
-        Me.txtBiko.Location = New System.Drawing.Point(92, 134)
+        Me.txtBiko.Location = New System.Drawing.Point(92, 153)
         Me.txtBiko.Multiline = True
         Me.txtBiko.Name = "txtBiko"
-        Me.txtBiko.Size = New System.Drawing.Size(173, 118)
+        Me.txtBiko.Size = New System.Drawing.Size(196, 118)
         Me.txtBiko.TabIndex = 8
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(23, 137)
+        Me.Label4.Location = New System.Drawing.Point(23, 156)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(29, 12)
         Me.Label4.TabIndex = 24
@@ -196,9 +199,9 @@ Partial Class frmMasterStaffNew
         '
         'dtpMenkyoLimit
         '
-        Me.dtpMenkyoLimit.CustomFormat = " "
+        Me.dtpMenkyoLimit.CustomFormat = "yyyyMMdd"
         Me.dtpMenkyoLimit.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(93, 109)
+        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(93, 128)
         Me.dtpMenkyoLimit.Name = "dtpMenkyoLimit"
         Me.dtpMenkyoLimit.Size = New System.Drawing.Size(121, 19)
         Me.dtpMenkyoLimit.TabIndex = 7
@@ -221,12 +224,41 @@ Partial Class frmMasterStaffNew
         '
         Me.Tbl_carTableAdapter.ClearBeforeFill = True
         '
+        'txtFilePath
+        '
+        Me.txtFilePath.Enabled = False
+        Me.txtFilePath.Location = New System.Drawing.Point(94, 104)
+        Me.txtFilePath.Name = "txtFilePath"
+        Me.txtFilePath.Size = New System.Drawing.Size(120, 19)
+        Me.txtFilePath.TabIndex = 26
+        '
+        'btnFileSelect
+        '
+        Me.btnFileSelect.Location = New System.Drawing.Point(220, 102)
+        Me.btnFileSelect.Name = "btnFileSelect"
+        Me.btnFileSelect.Size = New System.Drawing.Size(75, 23)
+        Me.btnFileSelect.TabIndex = 25
+        Me.btnFileSelect.Text = "ファイル選択"
+        Me.btnFileSelect.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(9, 107)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(75, 12)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Text = "免許証ファイル"
+        '
         'frmMasterStaffNew
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(277, 291)
+        Me.ClientSize = New System.Drawing.Size(300, 306)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtFilePath)
+        Me.Controls.Add(Me.btnFileSelect)
         Me.Controls.Add(Me.dtpMenkyoLimit)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtBiko)
@@ -277,4 +309,7 @@ Partial Class frmMasterStaffNew
     Friend WithEvents Tbl_PhoneNumTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter
     Friend WithEvents TblcarBindingSource As BindingSource
     Friend WithEvents Tbl_carTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter
+    Friend WithEvents txtFilePath As TextBox
+    Friend WithEvents btnFileSelect As Button
+    Friend WithEvents Label1 As Label
 End Class

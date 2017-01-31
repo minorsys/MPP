@@ -140,7 +140,10 @@ Public Class frmMasterStaffNew
                     newrecord.staff_kana = txtStaffKana.Text
                     newrecord.branch_id = cmbBranch.SelectedValue
                     newrecord.biko = txtBiko.Text
-                    newrecord.limit_menkyo = dtpMenkyoLimit.Value
+
+                    If Not txtFilePath.Text = "" Then
+                        newrecord.limit_menkyo = dtpMenkyoLimit.Value
+                    End If
 
                     '新規行をデータテーブルに追加する
                     Me.PhoneNumDBDataSet.tbl_staff.Addtbl_staffRow(newrecord)
@@ -165,11 +168,18 @@ Public Class frmMasterStaffNew
             'テーブルアダプタを介して、tbl_carテーブルを更新する
             Me.Tbl_staffTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_staff)
 
+            If Not txtFilePath.Text = "" Then
+                '免許証ファイルアップロード処理
+                '選択された社員の新しい免許証をmenkyoフォルダにコピー＆リネーム　例：岩田　久彌_免許証_20170101.pdf
+                Dim newMenkyoFilePath As String
+                newMenkyoFilePath = "\\192.168.8.190\share\system\menkyo\" & txtStaffName.Text & "_免許証_" & dtpMenkyoLimit.Text.ToString & ".pdf"
 
+                System.IO.File.Copy(txtFilePath.Text, newMenkyoFilePath)
 
+            End If
             'フォームを閉じる
             Me.Close()
-        End If
+            End If
     End Sub
 
     Private Function CheckEditData() As Boolean
@@ -215,7 +225,6 @@ Public Class frmMasterStaffNew
         End With
 
 
-        'データの検査(免許証期限)
 
         'データの検査(備考)
         With txtBiko
@@ -303,4 +312,42 @@ Public Class frmMasterStaffNew
         dtpMenkyoLimit.Format = DateTimePickerFormat.Long
 
     End Sub
+
+    'ファイル選択ボタン
+    Private Sub btnFileSelect_Click(sender As Object, e As EventArgs) Handles btnFileSelect.Click
+        'OpenFileDialogクラスのインスタンスを作成
+        Dim ofd As New OpenFileDialog()
+
+        'はじめのファイル名を指定する
+        'はじめに「ファイル名」で表示される文字列を指定する
+        ofd.FileName = "XXXX.pdf"
+        'はじめに表示されるフォルダを指定する
+        '指定しない（空の文字列）の時は、現在のディレクトリが表示される
+        ofd.InitialDirectory = "\\192.168.8.190\share\★★個人用フォルダ★★\菅原\scan"
+        '[ファイルの種類]に表示される選択肢を指定する
+        '指定しないとすべてのファイルが表示される
+        ofd.Filter = "pdfファイル(*.pdf)|*.pdf|すべてのファイル(*.*)|*.*"
+        '[ファイルの種類]ではじめに選択されるものを指定する
+        '2番目の「すべてのファイル」が選択されているようにする
+        ofd.FilterIndex = 1
+        'タイトルを設定する
+        ofd.Title = "車検証ファイルを選択してください"
+        'ダイアログボックスを閉じる前に現在のディレクトリを復元するようにする
+        ofd.RestoreDirectory = True
+        '存在しないファイルの名前が指定されたとき警告を表示する
+        'デフォルトでTrueなので指定する必要はない
+        ofd.CheckFileExists = True
+        '存在しないパスが指定されたとき警告を表示する
+        'デフォルトでTrueなので指定する必要はない
+        ofd.CheckPathExists = True
+
+        'ダイアログを表示する
+        If ofd.ShowDialog() = DialogResult.OK Then
+            'OKボタンがクリックされたとき、選択されたファイル名を表示する
+            Console.WriteLine(ofd.FileName)
+            txtFilePath.Text = ofd.FileName.ToString
+        End If
+    End Sub
+
+
 End Class

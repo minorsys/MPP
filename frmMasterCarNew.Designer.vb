@@ -57,6 +57,10 @@ Partial Class frmMasterCarNew
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.dtpSyaken = New System.Windows.Forms.DateTimePicker()
+        Me.btnFileSelect = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtFilePath = New System.Windows.Forms.TextBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,7 +114,7 @@ Partial Class frmMasterCarNew
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(221, 341)
+        Me.btnCancel.Location = New System.Drawing.Point(223, 368)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(55, 23)
         Me.btnCancel.TabIndex = 12
@@ -119,7 +123,7 @@ Partial Class frmMasterCarNew
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(158, 341)
+        Me.btnRegister.Location = New System.Drawing.Point(160, 368)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(57, 23)
         Me.btnRegister.TabIndex = 11
@@ -232,7 +236,7 @@ Partial Class frmMasterCarNew
         'txtBiko
         '
         Me.txtBiko.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtBiko.Location = New System.Drawing.Point(85, 245)
+        Me.txtBiko.Location = New System.Drawing.Point(84, 272)
         Me.txtBiko.Multiline = True
         Me.txtBiko.Name = "txtBiko"
         Me.txtBiko.Size = New System.Drawing.Size(194, 90)
@@ -300,7 +304,7 @@ Partial Class frmMasterCarNew
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(13, 195)
+        Me.Label5.Location = New System.Drawing.Point(12, 195)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(65, 12)
         Me.Label5.TabIndex = 68
@@ -309,7 +313,7 @@ Partial Class frmMasterCarNew
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(13, 220)
+        Me.Label6.Location = New System.Drawing.Point(13, 222)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(65, 12)
         Me.Label6.TabIndex = 70
@@ -318,7 +322,7 @@ Partial Class frmMasterCarNew
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(39, 245)
+        Me.Label7.Location = New System.Drawing.Point(38, 272)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(29, 12)
         Me.Label7.TabIndex = 71
@@ -335,19 +339,51 @@ Partial Class frmMasterCarNew
         '
         'dtpSyaken
         '
-        Me.dtpSyaken.CustomFormat = " "
+        Me.dtpSyaken.CustomFormat = "yyyyMMdd"
         Me.dtpSyaken.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpSyaken.Location = New System.Drawing.Point(84, 217)
         Me.dtpSyaken.Name = "dtpSyaken"
         Me.dtpSyaken.Size = New System.Drawing.Size(107, 19)
         Me.dtpSyaken.TabIndex = 9
         '
+        'btnFileSelect
+        '
+        Me.btnFileSelect.Location = New System.Drawing.Point(198, 241)
+        Me.btnFileSelect.Name = "btnFileSelect"
+        Me.btnFileSelect.Size = New System.Drawing.Size(75, 23)
+        Me.btnFileSelect.TabIndex = 73
+        Me.btnFileSelect.Text = "ファイル選択"
+        Me.btnFileSelect.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(3, 246)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(75, 12)
+        Me.Label9.TabIndex = 74
+        Me.Label9.Text = "車検証ファイル"
+        '
+        'txtFilePath
+        '
+        Me.txtFilePath.Location = New System.Drawing.Point(85, 243)
+        Me.txtFilePath.Name = "txtFilePath"
+        Me.txtFilePath.Size = New System.Drawing.Size(107, 19)
+        Me.txtFilePath.TabIndex = 75
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'frmMasterCarNew
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(300, 371)
+        Me.ClientSize = New System.Drawing.Size(300, 401)
+        Me.Controls.Add(Me.txtFilePath)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.btnFileSelect)
         Me.Controls.Add(Me.dtpSyaken)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -422,4 +458,8 @@ Partial Class frmMasterCarNew
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents dtpSyaken As DateTimePicker
+    Friend WithEvents btnFileSelect As Button
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtFilePath As TextBox
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

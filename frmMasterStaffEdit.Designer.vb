@@ -41,10 +41,8 @@ Partial Class frmMasterStaffEdit
         Me.Tbl_staffTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_staffTableAdapter()
         Me.PhoneNumDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_branchTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_branchTableAdapter()
-        Me.dtpMenkyoLimit = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtBiko = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.TblPhoneNumBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_PhoneNumTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter()
@@ -102,7 +100,7 @@ Partial Class frmMasterStaffEdit
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(208, 256)
+        Me.btnClose.Location = New System.Drawing.Point(206, 231)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(55, 23)
         Me.btnClose.TabIndex = 25
@@ -111,7 +109,7 @@ Partial Class frmMasterStaffEdit
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(145, 256)
+        Me.btnOK.Location = New System.Drawing.Point(143, 231)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(57, 23)
         Me.btnOK.TabIndex = 24
@@ -204,21 +202,10 @@ Partial Class frmMasterStaffEdit
         '
         Me.Tbl_branchTableAdapter.ClearBeforeFill = True
         '
-        'dtpMenkyoLimit
-        '
-        Me.dtpMenkyoLimit.Checked = False
-        Me.dtpMenkyoLimit.CustomFormat = " "
-        Me.dtpMenkyoLimit.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TblstaffBindingSource, "limit_menkyo", True))
-        Me.dtpMenkyoLimit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "limit_menkyo", True))
-        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(90, 106)
-        Me.dtpMenkyoLimit.Name = "dtpMenkyoLimit"
-        Me.dtpMenkyoLimit.Size = New System.Drawing.Size(121, 19)
-        Me.dtpMenkyoLimit.TabIndex = 7
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(24, 136)
+        Me.Label4.Location = New System.Drawing.Point(22, 107)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(29, 12)
         Me.Label4.TabIndex = 38
@@ -227,20 +214,11 @@ Partial Class frmMasterStaffEdit
         'txtBiko
         '
         Me.txtBiko.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblstaffBindingSource, "biko", True))
-        Me.txtBiko.Location = New System.Drawing.Point(90, 132)
+        Me.txtBiko.Location = New System.Drawing.Point(90, 104)
         Me.txtBiko.Multiline = True
         Me.txtBiko.Name = "txtBiko"
         Me.txtBiko.Size = New System.Drawing.Size(173, 118)
         Me.txtBiko.TabIndex = 8
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(10, 111)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(65, 12)
-        Me.Label3.TabIndex = 34
-        Me.Label3.Text = "免許証期限"
         '
         'TblPhoneNumBindingSource
         '
@@ -296,12 +274,10 @@ Partial Class frmMasterStaffEdit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(273, 285)
+        Me.ClientSize = New System.Drawing.Size(273, 264)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.dtpMenkyoLimit)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtBiko)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblStaffID)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnOK)
@@ -346,10 +322,8 @@ Partial Class frmMasterStaffEdit
     Friend WithEvents PhoneNumDBDataSetBindingSource As BindingSource
     Friend WithEvents TblbranchBindingSource As BindingSource
     Friend WithEvents Tbl_branchTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_branchTableAdapter
-    Friend WithEvents dtpMenkyoLimit As DateTimePicker
     Friend WithEvents Label4 As Label
     Friend WithEvents txtBiko As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents TblPhoneNumBindingSource As BindingSource
     Friend WithEvents Tbl_PhoneNumTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_PhoneNumTableAdapter
     Friend WithEvents TblcarBindingSource As BindingSource

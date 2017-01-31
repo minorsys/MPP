@@ -52,12 +52,9 @@ Partial Class frmMasterCarEdit
         Me.TblbranchBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_branchTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_branchTableAdapter()
         Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
-        Me.dtpSyaken = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtMaxLoad = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,7 +138,7 @@ Partial Class frmMasterCarEdit
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(221, 389)
+        Me.btnClose.Location = New System.Drawing.Point(221, 365)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(55, 23)
         Me.btnClose.TabIndex = 13
@@ -150,7 +147,7 @@ Partial Class frmMasterCarEdit
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(158, 389)
+        Me.btnOK.Location = New System.Drawing.Point(158, 365)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(57, 23)
         Me.btnOK.TabIndex = 12
@@ -260,7 +257,7 @@ Partial Class frmMasterCarEdit
         'BikoLabel
         '
         Me.BikoLabel.AutoSize = True
-        Me.BikoLabel.Location = New System.Drawing.Point(38, 237)
+        Me.BikoLabel.Location = New System.Drawing.Point(38, 213)
         Me.BikoLabel.Name = "BikoLabel"
         Me.BikoLabel.Size = New System.Drawing.Size(29, 12)
         Me.BikoLabel.TabIndex = 85
@@ -270,7 +267,7 @@ Partial Class frmMasterCarEdit
         '
         Me.txtBiko.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "biko", True))
         Me.txtBiko.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtBiko.Location = New System.Drawing.Point(84, 234)
+        Me.txtBiko.Location = New System.Drawing.Point(84, 210)
         Me.txtBiko.Multiline = True
         Me.txtBiko.Name = "txtBiko"
         Me.txtBiko.Size = New System.Drawing.Size(192, 149)
@@ -312,14 +309,6 @@ Partial Class frmMasterCarEdit
         '
         Me.Tbl_carTableAdapter.ClearBeforeFill = True
         '
-        'dtpSyaken
-        '
-        Me.dtpSyaken.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "limit_syaken", True))
-        Me.dtpSyaken.Location = New System.Drawing.Point(84, 210)
-        Me.dtpSyaken.Name = "dtpSyaken"
-        Me.dtpSyaken.Size = New System.Drawing.Size(107, 19)
-        Me.dtpSyaken.TabIndex = 10
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -328,15 +317,6 @@ Partial Class frmMasterCarEdit
         Me.Label8.Size = New System.Drawing.Size(17, 12)
         Me.Label8.TabIndex = 97
         Me.Label8.Text = "kg"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(13, 213)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(65, 12)
-        Me.Label6.TabIndex = 96
-        Me.Label6.Text = "車検証期限"
         '
         'Label5
         '
@@ -356,27 +336,15 @@ Partial Class frmMasterCarEdit
         Me.txtMaxLoad.Size = New System.Drawing.Size(100, 19)
         Me.txtMaxLoad.TabIndex = 9
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(156, 215)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(29, 12)
-        Me.Label7.TabIndex = 94
-        Me.Label7.Text = "備考"
-        '
         'frmMasterCarEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(301, 421)
-        Me.Controls.Add(Me.dtpSyaken)
+        Me.ClientSize = New System.Drawing.Size(301, 394)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtMaxLoad)
-        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.lblCarBranch)
         Me.Controls.Add(Me.txtTon)
@@ -441,10 +409,7 @@ Partial Class frmMasterCarEdit
     Friend WithEvents Tbl_branchTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_branchTableAdapter
     Friend WithEvents TblcarBindingSource As BindingSource
     Friend WithEvents Tbl_carTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter
-    Friend WithEvents dtpSyaken As DateTimePicker
     Friend WithEvents Label8 As Label
-    Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents txtMaxLoad As TextBox
-    Friend WithEvents Label7 As Label
 End Class

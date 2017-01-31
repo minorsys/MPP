@@ -1,4 +1,5 @@
-﻿Public Class frmMasterCarEdit
+﻿Imports System.Text.RegularExpressions
+Public Class frmMasterCarEdit
     Private Sub frmMasterEditCar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_car' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
 
@@ -24,7 +25,7 @@
 
     '車格コンボボックスの値が変更されたら、車格テキストボックスに代入
     Private Sub cmbTon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTon.SelectedIndexChanged
-
+        txtTon.Text = cmbTon.SelectedItem
     End Sub
 
     Private frm_MasterCar
@@ -48,7 +49,23 @@
 
     '[決定]ボタン
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
+        '登録する内容がデータ型と一致しているかチェック
+        If Not CheckEditData() Then
+            Return
+        End If
 
+        '保存確認と保存処理
+        If MsgBox("これまでの修正内容をデータベースに保存しますか？", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+            '編集状態を確定する
+            Me.TblcarBindingSource.EndEdit()
+
+            'テーブルアダプタを介して、レコードを更新する
+            Me.Tbl_carTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_car)
+
+            'フォームを閉じる
+            Me.Close()
+        End If
     End Sub
 
     Private Function CheckEditData() As Boolean
@@ -81,11 +98,13 @@
 
         'データの検査(無線)
         With txtMusen
-            If Not CheckMaxLengthCar("musen", .Text) Then
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
 
-                MsgBox("無線番号は半角4字以内で入力してください")
-                .Select()
-                Return False
+                    MsgBox("無線番号は半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
             End If
         End With
 
@@ -135,6 +154,19 @@
         Else
             Return True
         End If
+    End Function
+
+    'musen用integerチェック
+    Private Function CheckInteger(ByVal value As String)
+
+
+        If Not Regex.IsMatch(value, "^[0-9]{1,5}$") Then
+            Return False
+
+        Else
+            Return True
+        End If
+
     End Function
 
     'キーボードショートカット

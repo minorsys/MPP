@@ -159,7 +159,7 @@
         End Select
     End Sub
 
-    Private Sub dtpMenkyoLimit_ValueChanged(sender As Object, e As EventArgs) Handles dtpMenkyoLimit.ValueChanged
+    Private Sub dtpMenkyoLimit_ValueChanged(sender As Object, e As EventArgs)
 
         '    dtpMenkyoLimit.Format = DateTimePickerFormat.Long
 

@@ -901,9 +901,9 @@ Partial Class frmGrd
         Me.GroupBox2.BackColor = System.Drawing.Color.Gainsboro
         Me.GroupBox2.Controls.Add(Me.btnModify)
         Me.GroupBox2.Controls.Add(Me.btnExportSyakenMenkyo)
-        Me.GroupBox2.Location = New System.Drawing.Point(167, 8)
+        Me.GroupBox2.Location = New System.Drawing.Point(93, 8)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(420, 37)
+        Me.GroupBox2.Size = New System.Drawing.Size(439, 37)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "選択した行に対する操作"
