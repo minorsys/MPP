@@ -756,6 +756,8 @@ Partial Public Class PhoneNumDBDataSet
         
         Private columnlimit_syaken As Global.System.Data.DataColumn
         
+        Private columnemergency As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -880,6 +882,14 @@ Partial Public Class PhoneNumDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property emergencyColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnemergency
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -916,9 +926,9 @@ Partial Public Class PhoneNumDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addtbl_carRow(ByVal carnum1 As String, ByVal carnum2 As String, ByVal carnum3 As String, ByVal carnum4 As String, ByVal musen As Integer, ByVal ton As String, ByVal biko As String, ByVal branch_id As String, ByVal staff_id As String, ByVal max_load As Integer, ByVal limit_syaken As Date) As tbl_carRow
+        Public Overloads Function Addtbl_carRow(ByVal carnum1 As String, ByVal carnum2 As String, ByVal carnum3 As String, ByVal carnum4 As String, ByVal musen As Integer, ByVal ton As String, ByVal biko As String, ByVal branch_id As String, ByVal staff_id As String, ByVal max_load As Integer, ByVal limit_syaken As Date, ByVal emergency As Boolean) As tbl_carRow
             Dim rowtbl_carRow As tbl_carRow = CType(Me.NewRow,tbl_carRow)
-            Dim columnValuesArray() As Object = New Object() {carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syaken}
+            Dim columnValuesArray() As Object = New Object() {carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syaken, emergency}
             rowtbl_carRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtbl_carRow)
             Return rowtbl_carRow
@@ -958,6 +968,7 @@ Partial Public Class PhoneNumDBDataSet
             Me.columnstaff_id = MyBase.Columns("staff_id")
             Me.columnmax_load = MyBase.Columns("max_load")
             Me.columnlimit_syaken = MyBase.Columns("limit_syaken")
+            Me.columnemergency = MyBase.Columns("emergency")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -985,6 +996,8 @@ Partial Public Class PhoneNumDBDataSet
             MyBase.Columns.Add(Me.columnmax_load)
             Me.columnlimit_syaken = New Global.System.Data.DataColumn("limit_syaken", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnlimit_syaken)
+            Me.columnemergency = New Global.System.Data.DataColumn("emergency", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnemergency)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columncarnum1}, true))
             Me.columncarnum1.AllowDBNull = false
             Me.columncarnum1.Unique = true
@@ -2171,6 +2184,16 @@ Partial Public Class PhoneNumDBDataSet
         
         Private columnstaff_id1 As Global.System.Data.DataColumn
         
+        Private columncar_length As Global.System.Data.DataColumn
+        
+        Private columncar_width As Global.System.Data.DataColumn
+        
+        Private columncar_height As Global.System.Data.DataColumn
+        
+        Private columntotal_weight As Global.System.Data.DataColumn
+        
+        Private columnemergency As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -2431,6 +2454,46 @@ Partial Public Class PhoneNumDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property car_lengthColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncar_length
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property car_widthColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncar_width
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property car_heightColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncar_height
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property total_weightColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntotal_weight
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property emergencyColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnemergency
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2495,9 +2558,14 @@ Partial Public Class PhoneNumDBDataSet
                     ByVal mail As String,  _
                     ByVal biko2 As String,  _
                     ByVal model As String,  _
-                    ByVal staff_id1 As String) As dtMainRow
+                    ByVal staff_id1 As String,  _
+                    ByVal car_length As Integer,  _
+                    ByVal car_width As Integer,  _
+                    ByVal car_height As Integer,  _
+                    ByVal total_weight As Integer,  _
+                    ByVal emergency As Boolean) As dtMainRow
             Dim rowdtMainRow As dtMainRow = CType(Me.NewRow,dtMainRow)
-            Dim columnValuesArray() As Object = New Object() {id_staff, staff_name, staff_kana, branch_id, staff_phonenum, biko, staff_carnum, id_branch, branch_name, carnum1, carnum2, carnum3, carnum4, musen, ton, biko1, branch_id1, staff_id, max_load, limit_syaken, limit_menkyo, id_branch1, branch_name1, phonenum, mail, biko2, model, staff_id1}
+            Dim columnValuesArray() As Object = New Object() {id_staff, staff_name, staff_kana, branch_id, staff_phonenum, biko, staff_carnum, id_branch, branch_name, carnum1, carnum2, carnum3, carnum4, musen, ton, biko1, branch_id1, staff_id, max_load, limit_syaken, limit_menkyo, id_branch1, branch_name1, phonenum, mail, biko2, model, staff_id1, car_length, car_width, car_height, total_weight, emergency}
             rowdtMainRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtMainRow)
             Return rowdtMainRow
@@ -2548,6 +2616,11 @@ Partial Public Class PhoneNumDBDataSet
             Me.columnbiko2 = MyBase.Columns("biko2")
             Me.columnmodel = MyBase.Columns("model")
             Me.columnstaff_id1 = MyBase.Columns("staff_id1")
+            Me.columncar_length = MyBase.Columns("car_length")
+            Me.columncar_width = MyBase.Columns("car_width")
+            Me.columncar_height = MyBase.Columns("car_height")
+            Me.columntotal_weight = MyBase.Columns("total_weight")
+            Me.columnemergency = MyBase.Columns("emergency")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2609,6 +2682,16 @@ Partial Public Class PhoneNumDBDataSet
             MyBase.Columns.Add(Me.columnmodel)
             Me.columnstaff_id1 = New Global.System.Data.DataColumn("staff_id1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstaff_id1)
+            Me.columncar_length = New Global.System.Data.DataColumn("car_length", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncar_length)
+            Me.columncar_width = New Global.System.Data.DataColumn("car_width", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncar_width)
+            Me.columncar_height = New Global.System.Data.DataColumn("car_height", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncar_height)
+            Me.columntotal_weight = New Global.System.Data.DataColumn("total_weight", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntotal_weight)
+            Me.columnemergency = New Global.System.Data.DataColumn("emergency", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnemergency)
             Me.columnid_staff.MaxLength = 5
             Me.columnstaff_name.MaxLength = 20
             Me.columnstaff_kana.MaxLength = 20
@@ -2994,6 +3077,21 @@ Partial Public Class PhoneNumDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property emergency() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_car.emergencyColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("テーブル 'tbl_car' にある列 'emergency' の値は DBNull です。", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_car.emergencyColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function Iscarnum2Null() As Boolean
             Return Me.IsNull(Me.tabletbl_car.carnum2Column)
         End Function
@@ -3110,6 +3208,18 @@ Partial Public Class PhoneNumDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub Setlimit_syakenNull()
             Me(Me.tabletbl_car.limit_syakenColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsemergencyNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_car.emergencyColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetemergencyNull()
+            Me(Me.tabletbl_car.emergencyColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3961,6 +4071,81 @@ Partial Public Class PhoneNumDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property car_length() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtMain.car_lengthColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("テーブル 'dtMain' にある列 'car_length' の値は DBNull です。", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtMain.car_lengthColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property car_width() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtMain.car_widthColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("テーブル 'dtMain' にある列 'car_width' の値は DBNull です。", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtMain.car_widthColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property car_height() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtMain.car_heightColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("テーブル 'dtMain' にある列 'car_height' の値は DBNull です。", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtMain.car_heightColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property total_weight() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtMain.total_weightColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("テーブル 'dtMain' にある列 'total_weight' の値は DBNull です。", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtMain.total_weightColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property emergency() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtMain.emergencyColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("テーブル 'dtMain' にある列 'emergency' の値は DBNull です。", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtMain.emergencyColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function Isid_staffNull() As Boolean
             Return Me.IsNull(Me.tabledtMain.id_staffColumn)
         End Function
@@ -4293,6 +4478,66 @@ Partial Public Class PhoneNumDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub Setstaff_id1Null()
             Me(Me.tabledtMain.staff_id1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Iscar_lengthNull() As Boolean
+            Return Me.IsNull(Me.tabledtMain.car_lengthColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setcar_lengthNull()
+            Me(Me.tabledtMain.car_lengthColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Iscar_widthNull() As Boolean
+            Return Me.IsNull(Me.tabledtMain.car_widthColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setcar_widthNull()
+            Me(Me.tabledtMain.car_widthColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Iscar_heightNull() As Boolean
+            Return Me.IsNull(Me.tabledtMain.car_heightColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setcar_heightNull()
+            Me(Me.tabledtMain.car_heightColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Istotal_weightNull() As Boolean
+            Return Me.IsNull(Me.tabledtMain.total_weightColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Settotal_weightNull()
+            Me(Me.tabledtMain.total_weightColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsemergencyNull() As Boolean
+            Return Me.IsNull(Me.tabledtMain.emergencyColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetemergencyNull()
+            Me(Me.tabledtMain.emergencyColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4996,6 +5241,7 @@ Namespace PhoneNumDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("staff_id", "staff_id")
             tableMapping.ColumnMappings.Add("max_load", "max_load")
             tableMapping.ColumnMappings.Add("limit_syaken", "limit_syaken")
+            tableMapping.ColumnMappings.Add("emergency", "emergency")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -5010,7 +5256,8 @@ Namespace PhoneNumDBDataSetTableAdapters
                 "_staff_id = 1 AND [staff_id] IS NULL) OR ([staff_id] = @Original_staff_id)) AND "& _ 
                 "((@IsNull_max_load = 1 AND [max_load] IS NULL) OR ([max_load] = @Original_max_lo"& _ 
                 "ad)) AND ((@IsNull_limit_syaken = 1 AND [limit_syaken] IS NULL) OR ([limit_syake"& _ 
-                "n] = @Original_limit_syaken)))"
+                "n] = @Original_limit_syaken)) AND ((@IsNull_emergency = 1 AND [emergency] IS NUL"& _ 
+                "L) OR ([emergency] = @Original_emergency)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_carnum1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_carnum2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -5033,14 +5280,16 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_max_load", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "max_load", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_limit_syaken", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "limit_syaken", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_limit_syaken", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "limit_syaken", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_emergency", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "emergency", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_emergency", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "emergency", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [tbl_car] ([carnum1], [carnum2], [carnum3], [carnum4], [musen], [ton]"& _ 
-                ", [biko], [branch_id], [staff_id], [max_load], [limit_syaken]) VALUES (@carnum1,"& _ 
-                " @carnum2, @carnum3, @carnum4, @musen, @ton, @biko, @branch_id, @staff_id, @max_"& _ 
-                "load, @limit_syaken);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT carnum1, carnum2, carnum3, carnum4, musen, ton, bi"& _ 
-                "ko, branch_id, staff_id, max_load, limit_syaken FROM tbl_car WHERE (carnum1 = @c"& _ 
-                "arnum1)"
+                ", [biko], [branch_id], [staff_id], [max_load], [limit_syaken], [emergency]) VALU"& _ 
+                "ES (@carnum1, @carnum2, @carnum3, @carnum4, @musen, @ton, @biko, @branch_id, @st"& _ 
+                "aff_id, @max_load, @limit_syaken, @emergency);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT carnum1, carnum2, carnum3"& _ 
+                ", carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syaken, emerge"& _ 
+                "ncy FROM tbl_car WHERE (carnum1 = @carnum1)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@carnum1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@carnum2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5053,25 +5302,27 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_id", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@max_load", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "max_load", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@limit_syaken", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "limit_syaken", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@emergency", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "emergency", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [tbl_car] SET [carnum1] = @carnum1, [carnum2] = @carnum2, [carnum3] = @car"& _ 
                 "num3, [carnum4] = @carnum4, [musen] = @musen, [ton] = @ton, [biko] = @biko, [bra"& _ 
                 "nch_id] = @branch_id, [staff_id] = @staff_id, [max_load] = @max_load, [limit_sya"& _ 
-                "ken] = @limit_syaken WHERE (([carnum1] = @Original_carnum1) AND ((@IsNull_carnum"& _ 
-                "2 = 1 AND [carnum2] IS NULL) OR ([carnum2] = @Original_carnum2)) AND ((@IsNull_c"& _ 
-                "arnum3 = 1 AND [carnum3] IS NULL) OR ([carnum3] = @Original_carnum3)) AND ((@IsN"& _ 
-                "ull_carnum4 = 1 AND [carnum4] IS NULL) OR ([carnum4] = @Original_carnum4)) AND ("& _ 
-                "(@IsNull_musen = 1 AND [musen] IS NULL) OR ([musen] = @Original_musen)) AND ((@I"& _ 
-                "sNull_ton = 1 AND [ton] IS NULL) OR ([ton] = @Original_ton)) AND ((@IsNull_biko "& _ 
-                "= 1 AND [biko] IS NULL) OR ([biko] = @Original_biko)) AND ((@IsNull_branch_id = "& _ 
-                "1 AND [branch_id] IS NULL) OR ([branch_id] = @Original_branch_id)) AND ((@IsNull"& _ 
-                "_staff_id = 1 AND [staff_id] IS NULL) OR ([staff_id] = @Original_staff_id)) AND "& _ 
-                "((@IsNull_max_load = 1 AND [max_load] IS NULL) OR ([max_load] = @Original_max_lo"& _ 
-                "ad)) AND ((@IsNull_limit_syaken = 1 AND [limit_syaken] IS NULL) OR ([limit_syake"& _ 
-                "n] = @Original_limit_syaken)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT carnum1, carnum2, carnum3, carnum4, muse"& _ 
-                "n, ton, biko, branch_id, staff_id, max_load, limit_syaken FROM tbl_car WHERE (ca"& _ 
-                "rnum1 = @carnum1)"
+                "ken] = @limit_syaken, [emergency] = @emergency WHERE (([carnum1] = @Original_car"& _ 
+                "num1) AND ((@IsNull_carnum2 = 1 AND [carnum2] IS NULL) OR ([carnum2] = @Original"& _ 
+                "_carnum2)) AND ((@IsNull_carnum3 = 1 AND [carnum3] IS NULL) OR ([carnum3] = @Ori"& _ 
+                "ginal_carnum3)) AND ((@IsNull_carnum4 = 1 AND [carnum4] IS NULL) OR ([carnum4] ="& _ 
+                " @Original_carnum4)) AND ((@IsNull_musen = 1 AND [musen] IS NULL) OR ([musen] = "& _ 
+                "@Original_musen)) AND ((@IsNull_ton = 1 AND [ton] IS NULL) OR ([ton] = @Original"& _ 
+                "_ton)) AND ((@IsNull_biko = 1 AND [biko] IS NULL) OR ([biko] = @Original_biko)) "& _ 
+                "AND ((@IsNull_branch_id = 1 AND [branch_id] IS NULL) OR ([branch_id] = @Original"& _ 
+                "_branch_id)) AND ((@IsNull_staff_id = 1 AND [staff_id] IS NULL) OR ([staff_id] ="& _ 
+                " @Original_staff_id)) AND ((@IsNull_max_load = 1 AND [max_load] IS NULL) OR ([ma"& _ 
+                "x_load] = @Original_max_load)) AND ((@IsNull_limit_syaken = 1 AND [limit_syaken]"& _ 
+                " IS NULL) OR ([limit_syaken] = @Original_limit_syaken)) AND ((@IsNull_emergency "& _ 
+                "= 1 AND [emergency] IS NULL) OR ([emergency] = @Original_emergency)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT c"& _ 
+                "arnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_lo"& _ 
+                "ad, limit_syaken, emergency FROM tbl_car WHERE (carnum1 = @carnum1)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@carnum1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@carnum2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5084,6 +5335,7 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_id", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@max_load", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "max_load", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@limit_syaken", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "limit_syaken", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@emergency", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "emergency", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_carnum1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_carnum2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_carnum2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -5105,6 +5357,8 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_max_load", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "max_load", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_limit_syaken", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "limit_syaken", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_limit_syaken", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "limit_syaken", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_emergency", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "emergency", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_emergency", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "emergency", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5121,17 +5375,19 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id,"& _ 
-                " max_load, limit_syaken FROM tbl_car"
+                " max_load, limit_syaken , emergency FROM tbl_car"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT biko, branch_id, carnum1, carnum2, carnum3, carnum4, limit_syaken, max_loa"& _ 
-                "d, musen, staff_id, ton FROM tbl_car WHERE (carnum1 = @filtercode)"
+            Me._commandCollection(1).CommandText = "SELECT biko, branch_id, carnum1, carnum2, carnum3, carnum4, emergency, limit_syak"& _ 
+                "en, max_load, musen, staff_id, ton FROM tbl_car WHERE (carnum1 = @filtercode)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@filtercode", Global.System.Data.SqlDbType.VarChar, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT * FROM tbl_car WHERE carnum1 like @filtername"
+            Me._commandCollection(2).CommandText = "SELECT biko, branch_id, carnum1, carnum2, carnum3, carnum4, emergency, limit_syak"& _ 
+                "en, max_load, musen, staff_id, ton FROM tbl_car WHERE (carnum1 LIKE @filtername)"& _ 
+                ""
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@filtername", Global.System.Data.SqlDbType.VarChar, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
@@ -5249,7 +5505,7 @@ Namespace PhoneNumDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_carnum1 As String, ByVal Original_carnum2 As String, ByVal Original_carnum3 As String, ByVal Original_carnum4 As String, ByVal Original_musen As Global.System.Nullable(Of Integer), ByVal Original_ton As String, ByVal Original_biko As String, ByVal Original_branch_id As String, ByVal Original_staff_id As String, ByVal Original_max_load As Global.System.Nullable(Of Integer), ByVal Original_limit_syaken As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_carnum1 As String, ByVal Original_carnum2 As String, ByVal Original_carnum3 As String, ByVal Original_carnum4 As String, ByVal Original_musen As Global.System.Nullable(Of Integer), ByVal Original_ton As String, ByVal Original_biko As String, ByVal Original_branch_id As String, ByVal Original_staff_id As String, ByVal Original_max_load As Global.System.Nullable(Of Integer), ByVal Original_limit_syaken As Global.System.Nullable(Of Date), ByVal Original_emergency As Global.System.Nullable(Of Boolean)) As Integer
             If (Original_carnum1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_carnum1")
             Else
@@ -5325,6 +5581,13 @@ Namespace PhoneNumDBDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
+            If (Original_emergency.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_emergency.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5344,7 +5607,7 @@ Namespace PhoneNumDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal carnum1 As String, ByVal carnum2 As String, ByVal carnum3 As String, ByVal carnum4 As String, ByVal musen As Global.System.Nullable(Of Integer), ByVal ton As String, ByVal biko As String, ByVal branch_id As String, ByVal staff_id As String, ByVal max_load As Global.System.Nullable(Of Integer), ByVal limit_syaken As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Insert(ByVal carnum1 As String, ByVal carnum2 As String, ByVal carnum3 As String, ByVal carnum4 As String, ByVal musen As Global.System.Nullable(Of Integer), ByVal ton As String, ByVal biko As String, ByVal branch_id As String, ByVal staff_id As String, ByVal max_load As Global.System.Nullable(Of Integer), ByVal limit_syaken As Global.System.Nullable(Of Date), ByVal emergency As Global.System.Nullable(Of Boolean)) As Integer
             If (carnum1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("carnum1")
             Else
@@ -5400,6 +5663,11 @@ Namespace PhoneNumDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
+            If (emergency.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(emergency.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5431,6 +5699,7 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal staff_id As String,  _
                     ByVal max_load As Global.System.Nullable(Of Integer),  _
                     ByVal limit_syaken As Global.System.Nullable(Of Date),  _
+                    ByVal emergency As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_carnum1 As String,  _
                     ByVal Original_carnum2 As String,  _
                     ByVal Original_carnum3 As String,  _
@@ -5441,7 +5710,8 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal Original_branch_id As String,  _
                     ByVal Original_staff_id As String,  _
                     ByVal Original_max_load As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_limit_syaken As Global.System.Nullable(Of Date)) As Integer
+                    ByVal Original_limit_syaken As Global.System.Nullable(Of Date),  _
+                    ByVal Original_emergency As Global.System.Nullable(Of Boolean)) As Integer
             If (carnum1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("carnum1")
             Else
@@ -5497,80 +5767,92 @@ Namespace PhoneNumDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
+            If (emergency.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(emergency.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
             If (Original_carnum1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_carnum1")
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_carnum1,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_carnum1,String)
             End If
             If (Original_carnum2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_carnum2,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_carnum2,String)
             End If
             If (Original_carnum3 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_carnum3,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_carnum3,String)
             End If
             If (Original_carnum4 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_carnum4,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_carnum4,String)
             End If
             If (Original_musen.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_musen.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_musen.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
             If (Original_ton Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_ton,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_ton,String)
             End If
             If (Original_biko Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_biko,String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_biko,String)
             End If
             If (Original_branch_id Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_branch_id,String)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_branch_id,String)
             End If
             If (Original_staff_id Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_staff_id,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_staff_id,String)
             End If
             If (Original_max_load.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_max_load.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_max_load.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
             If (Original_limit_syaken.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_limit_syaken.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_limit_syaken.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            End If
+            If (Original_emergency.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_emergency.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5602,6 +5884,7 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal staff_id As String,  _
                     ByVal max_load As Global.System.Nullable(Of Integer),  _
                     ByVal limit_syaken As Global.System.Nullable(Of Date),  _
+                    ByVal emergency As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_carnum1 As String,  _
                     ByVal Original_carnum2 As String,  _
                     ByVal Original_carnum3 As String,  _
@@ -5612,8 +5895,9 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal Original_branch_id As String,  _
                     ByVal Original_staff_id As String,  _
                     ByVal Original_max_load As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_limit_syaken As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(Original_carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syaken, Original_carnum1, Original_carnum2, Original_carnum3, Original_carnum4, Original_musen, Original_ton, Original_biko, Original_branch_id, Original_staff_id, Original_max_load, Original_limit_syaken)
+                    ByVal Original_limit_syaken As Global.System.Nullable(Of Date),  _
+                    ByVal Original_emergency As Global.System.Nullable(Of Boolean)) As Integer
+            Return Me.Update(Original_carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syaken, emergency, Original_carnum1, Original_carnum2, Original_carnum3, Original_carnum4, Original_musen, Original_ton, Original_biko, Original_branch_id, Original_staff_id, Original_max_load, Original_limit_syaken, Original_emergency)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6857,651 +7141,651 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(10) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT                      tbl_staff.*" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM                         tbl_staff"
+            Me._commandCollection(0).CommandText = "SELECT                      tbl_staff.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM                         tbl_staff"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "UPDATE                    tbl_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SET                              staff_carnu" &
-                "m = ''" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE                       id_staff IN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " &
-                "           (SELECT                      id_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " &
-                "                  FROM                         tbl_staff AS tbl_staff_1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " &
-                "                                         WHERE                       staff_carnu" &
+            Me._commandCollection(1).CommandText = "UPDATE                    tbl_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                              staff_carnu"& _ 
+                "m = ''"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE                       id_staff IN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               "& _ 
+                "           (SELECT                      id_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                              "& _ 
+                "                  FROM                         tbl_staff AS tbl_staff_1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                                         WHERE                       staff_carnu"& _ 
                 "m = @staff_carnum)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_carnum", Global.System.Data.SqlDbType.VarChar, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_carnum", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_carnum", Global.System.Data.SqlDbType.VarChar, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_carnum", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "UPDATE                    tbl_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SET                              staff_phone" &
-                "num = ''" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE                       (id_staff IN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                            " &
-                "              (SELECT                      id_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                           " &
-                "                     FROM                         tbl_staff AS tbl_staff_1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    " &
-                "                                            WHERE                       (staff_p" &
+            Me._commandCollection(2).CommandText = "UPDATE                    tbl_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                              staff_phone"& _ 
+                "num = ''"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE                       (id_staff IN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                            "& _ 
+                "              (SELECT                      id_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                           "& _ 
+                "                     FROM                         tbl_staff AS tbl_staff_1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                                            WHERE                       (staff_p"& _ 
                 "honenum = @staff_phonenum)))"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_phonenum", Global.System.Data.SqlDbType.VarChar, 13, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_phonenum", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_phonenum", Global.System.Data.SqlDbType.VarChar, 13, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_phonenum", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT                      tbl_staff.*" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM                         tbl_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) &
+            Me._commandCollection(3).CommandText = "SELECT                      tbl_staff.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM                         tbl_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
                 "ORDER by staff_kana"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT biko, branch_id, id_staff, limit_menkyo, staff_carnum, staff_kana, staff_n" &
+            Me._commandCollection(4).CommandText = "SELECT biko, branch_id, id_staff, limit_menkyo, staff_carnum, staff_kana, staff_n"& _ 
                 "ame, staff_phonenum FROM tbl_staff WHERE (id_staff = @filtercode)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@filtercode", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@filtercode", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
             Me._commandCollection(5).CommandText = "SELECT * FROM tbl_staff WHERE staff_kana like @filtername"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@filtername", Global.System.Data.SqlDbType.VarChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_kana", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@filtername", Global.System.Data.SqlDbType.VarChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_kana", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT biko, branch_id, id_staff, limit_menkyo, staff_carnum, staff_kana, staff_n" &
+            Me._commandCollection(6).CommandText = "SELECT biko, branch_id, id_staff, limit_menkyo, staff_carnum, staff_kana, staff_n"& _ 
                 "ame, staff_phonenum FROM tbl_staff WHERE (staff_phonenum = @staff_phonenum)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_phonenum", Global.System.Data.SqlDbType.VarChar, 13, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_phonenum", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_phonenum", Global.System.Data.SqlDbType.VarChar, 13, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_phonenum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(7).Connection = Me.Connection
-            Me._commandCollection(7).CommandText = "UPDATE                    tbl_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SET                              limit_menky" &
-                "o = @limit_menkyo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE                       id_staff = @id_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " &
+            Me._commandCollection(7).CommandText = "UPDATE                    tbl_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                              limit_menky"& _ 
+                "o = @limit_menkyo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE                       id_staff = @id_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
                 "                           "
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@limit_menkyo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "limit_menkyo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_staff", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@limit_menkyo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "limit_menkyo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_staff", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(8).Connection = Me.Connection
-            Me._commandCollection(8).CommandText = "UPDATE                    tbl_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SET                              biko = @bik" &
-                "o" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE                       id_staff = @id_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                           " &
+            Me._commandCollection(8).CommandText = "UPDATE                    tbl_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                              biko = @bik"& _ 
+                "o"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE                       id_staff = @id_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                           "& _ 
                 "           "
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@biko", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "biko", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_staff", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@biko", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "biko", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_staff", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(9).Connection = Me.Connection
-            Me._commandCollection(9).CommandText = "UPDATE                    tbl_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SET                              staff_carnu" &
-                "m = @staff_carnum" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE                       (id_staff = @Original_id_staff)"
+            Me._commandCollection(9).CommandText = "UPDATE                    tbl_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                              staff_carnu"& _ 
+                "m = @staff_carnum"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE                       (id_staff = @Original_id_staff)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_carnum", Global.System.Data.SqlDbType.VarChar, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_carnum", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_staff", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_carnum", Global.System.Data.SqlDbType.VarChar, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_carnum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_staff", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "UPDATE                    tbl_staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SET                              staff_phone" &
-                "num = @staff_phonenum" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE                       (id_staff = @Original_id_staf" &
+            Me._commandCollection(10).CommandText = "UPDATE                    tbl_staff"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                              staff_phone"& _ 
+                "num = @staff_phonenum"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE                       (id_staff = @Original_id_staf"& _ 
                 "f)"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_phonenum", Global.System.Data.SqlDbType.VarChar, 13, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_phonenum", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_staff", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@staff_phonenum", Global.System.Data.SqlDbType.VarChar, 13, Global.System.Data.ParameterDirection.Input, 0, 0, "staff_phonenum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_staff", Global.System.Data.SqlDbType.[Char], 5, Global.System.Data.ParameterDirection.Input, 0, 0, "id_staff", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)>
-        Public Overridable Overloads Function Fill(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)>
-        Public Overridable Overloads Function GetData() As PhoneNumDBDataSet.tbl_staffDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As PhoneNumDBDataSet.tbl_staffDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As PhoneNumDBDataSet.tbl_staffDataTable = New PhoneNumDBDataSet.tbl_staffDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)>
-        Public Overridable Overloads Function FillBykana(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBykana(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)>
-        Public Overridable Overloads Function FillByScode(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable, ByVal filtercode As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByScode(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable, ByVal filtercode As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
             If (filtercode Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("filtercode")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(filtercode, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(filtercode,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)>
-        Public Overridable Overloads Function FillBySearch(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable, ByVal filtername As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBySearch(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable, ByVal filtername As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (filtername Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(filtername, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(filtername,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)>
-        Public Overridable Overloads Function FillByStaff_Phonenum(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable, ByVal staff_phonenum As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByStaff_Phonenum(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable, ByVal staff_phonenum As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
             If (staff_phonenum Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(staff_phonenum, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(staff_phonenum,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>
-        Public Overridable Overloads Function Update(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As PhoneNumDBDataSet.tbl_staffDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>
-        Public Overridable Overloads Function Update(ByVal dataSet As PhoneNumDBDataSet) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As PhoneNumDBDataSet) As Integer
             Return Me.Adapter.Update(dataSet, "tbl_staff")
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>
-        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>
-        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)>
-        Public Overridable Overloads Function Delete(ByVal Original_id_staff As String, ByVal Original_staff_name As String, ByVal Original_staff_kana As String, ByVal Original_branch_id As String, ByVal Original_staff_phonenum As String, ByVal Original_biko As String, ByVal Original_staff_carnum As String, ByVal Original_limit_menkyo As Global.System.Nullable(Of Date)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_id_staff As String, ByVal Original_staff_name As String, ByVal Original_staff_kana As String, ByVal Original_branch_id As String, ByVal Original_staff_phonenum As String, ByVal Original_biko As String, ByVal Original_staff_carnum As String, ByVal Original_limit_menkyo As Global.System.Nullable(Of Date)) As Integer
             If (Original_id_staff Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_id_staff")
             Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id_staff, String)
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id_staff,String)
             End If
             If (Original_staff_name Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_staff_name, String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_staff_name,String)
             End If
             If (Original_staff_kana Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_staff_kana, String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_staff_kana,String)
             End If
             If (Original_branch_id Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_branch_id, String)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_branch_id,String)
             End If
             If (Original_staff_phonenum Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_staff_phonenum, String)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_staff_phonenum,String)
             End If
             If (Original_biko Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_biko, String)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_biko,String)
             End If
             If (Original_staff_carnum Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_staff_carnum, String)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_staff_carnum,String)
             End If
-            If (Original_limit_menkyo.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_limit_menkyo.Value, Date)
+            If (Original_limit_menkyo.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_limit_menkyo.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open()
+                Me.Adapter.DeleteCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close()
+                    Me.Adapter.DeleteCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)>
-        Public Overridable Overloads Function Insert(ByVal id_staff As String, ByVal staff_name As String, ByVal staff_kana As String, ByVal branch_id As String, ByVal staff_phonenum As String, ByVal biko As String, ByVal staff_carnum As String, ByVal limit_menkyo As Global.System.Nullable(Of Date)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal id_staff As String, ByVal staff_name As String, ByVal staff_kana As String, ByVal branch_id As String, ByVal staff_phonenum As String, ByVal biko As String, ByVal staff_carnum As String, ByVal limit_menkyo As Global.System.Nullable(Of Date)) As Integer
             If (id_staff Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("id_staff")
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(id_staff, String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(id_staff,String)
             End If
             If (staff_name Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(staff_name, String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(staff_name,String)
             End If
             If (staff_kana Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(staff_kana, String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(staff_kana,String)
             End If
             If (branch_id Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(branch_id, String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(branch_id,String)
             End If
             If (staff_phonenum Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(staff_phonenum, String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(staff_phonenum,String)
             End If
             If (biko Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(biko, String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(biko,String)
             End If
             If (staff_carnum Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(staff_carnum, String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(staff_carnum,String)
             End If
-            If (limit_menkyo.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(limit_menkyo.Value, Date)
+            If (limit_menkyo.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(limit_menkyo.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open()
+                Me.Adapter.InsertCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close()
+                    Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)>
-        Public Overridable Overloads Function Update(
-                    ByVal id_staff As String,
-                    ByVal staff_name As String,
-                    ByVal staff_kana As String,
-                    ByVal branch_id As String,
-                    ByVal staff_phonenum As String,
-                    ByVal biko As String,
-                    ByVal staff_carnum As String,
-                    ByVal limit_menkyo As Global.System.Nullable(Of Date),
-                    ByVal Original_id_staff As String,
-                    ByVal Original_staff_name As String,
-                    ByVal Original_staff_kana As String,
-                    ByVal Original_branch_id As String,
-                    ByVal Original_staff_phonenum As String,
-                    ByVal Original_biko As String,
-                    ByVal Original_staff_carnum As String,
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal id_staff As String,  _
+                    ByVal staff_name As String,  _
+                    ByVal staff_kana As String,  _
+                    ByVal branch_id As String,  _
+                    ByVal staff_phonenum As String,  _
+                    ByVal biko As String,  _
+                    ByVal staff_carnum As String,  _
+                    ByVal limit_menkyo As Global.System.Nullable(Of Date),  _
+                    ByVal Original_id_staff As String,  _
+                    ByVal Original_staff_name As String,  _
+                    ByVal Original_staff_kana As String,  _
+                    ByVal Original_branch_id As String,  _
+                    ByVal Original_staff_phonenum As String,  _
+                    ByVal Original_biko As String,  _
+                    ByVal Original_staff_carnum As String,  _
                     ByVal Original_limit_menkyo As Global.System.Nullable(Of Date)) As Integer
             If (id_staff Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("id_staff")
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(id_staff, String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(id_staff,String)
             End If
             If (staff_name Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(staff_name, String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(staff_name,String)
             End If
             If (staff_kana Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(staff_kana, String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(staff_kana,String)
             End If
             If (branch_id Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(branch_id, String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(branch_id,String)
             End If
             If (staff_phonenum Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(staff_phonenum, String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(staff_phonenum,String)
             End If
             If (biko Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(biko, String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(biko,String)
             End If
             If (staff_carnum Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(staff_carnum, String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(staff_carnum,String)
             End If
-            If (limit_menkyo.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(limit_menkyo.Value, Date)
+            If (limit_menkyo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(limit_menkyo.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (Original_id_staff Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_id_staff")
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_id_staff, String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_id_staff,String)
             End If
             If (Original_staff_name Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_staff_name, String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_staff_name,String)
             End If
             If (Original_staff_kana Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_staff_kana, String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_staff_kana,String)
             End If
             If (Original_branch_id Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_branch_id, String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_branch_id,String)
             End If
             If (Original_staff_phonenum Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_staff_phonenum, String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_staff_phonenum,String)
             End If
             If (Original_biko Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_biko, String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_biko,String)
             End If
             If (Original_staff_carnum Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_staff_carnum, String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_staff_carnum,String)
             End If
-            If (Original_limit_menkyo.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_limit_menkyo.Value, Date)
+            If (Original_limit_menkyo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_limit_menkyo.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open()
+                Me.Adapter.UpdateCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close()
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)>
-        Public Overridable Overloads Function Update(ByVal staff_name As String, ByVal staff_kana As String, ByVal branch_id As String, ByVal staff_phonenum As String, ByVal biko As String, ByVal staff_carnum As String, ByVal limit_menkyo As Global.System.Nullable(Of Date), ByVal Original_id_staff As String, ByVal Original_staff_name As String, ByVal Original_staff_kana As String, ByVal Original_branch_id As String, ByVal Original_staff_phonenum As String, ByVal Original_biko As String, ByVal Original_staff_carnum As String, ByVal Original_limit_menkyo As Global.System.Nullable(Of Date)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal staff_name As String, ByVal staff_kana As String, ByVal branch_id As String, ByVal staff_phonenum As String, ByVal biko As String, ByVal staff_carnum As String, ByVal limit_menkyo As Global.System.Nullable(Of Date), ByVal Original_id_staff As String, ByVal Original_staff_name As String, ByVal Original_staff_kana As String, ByVal Original_branch_id As String, ByVal Original_staff_phonenum As String, ByVal Original_biko As String, ByVal Original_staff_carnum As String, ByVal Original_limit_menkyo As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_id_staff, staff_name, staff_kana, branch_id, staff_phonenum, biko, staff_carnum, limit_menkyo, Original_id_staff, Original_staff_name, Original_staff_kana, Original_branch_id, Original_staff_phonenum, Original_biko, Original_staff_carnum, Original_limit_menkyo)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)>
-        Public Overridable Overloads Function ClearPreviousStaffCarnum(ByVal staff_carnum As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function ClearPreviousStaffCarnum(ByVal staff_carnum As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
             If (staff_carnum Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(0).Value = CType(staff_carnum, String)
+                command.Parameters(0).Value = CType(staff_carnum,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)>
-        Public Overridable Overloads Function ClearPreviousStaffPhonenum(ByVal staff_phonenum As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function ClearPreviousStaffPhonenum(ByVal staff_phonenum As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
             If (staff_phonenum Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(0).Value = CType(staff_phonenum, String)
+                command.Parameters(0).Value = CType(staff_phonenum,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)>
-        Public Overridable Overloads Function UpdateLimitMenkyo(ByVal limit_menkyo As String, ByVal id_staff As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateLimitMenkyo(ByVal limit_menkyo As String, ByVal id_staff As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(7)
             If (limit_menkyo Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(0).Value = CType(limit_menkyo, String)
+                command.Parameters(0).Value = CType(limit_menkyo,String)
             End If
             If (id_staff Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("id_staff")
             Else
-                command.Parameters(1).Value = CType(id_staff, String)
+                command.Parameters(1).Value = CType(id_staff,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)>
-        Public Overridable Overloads Function UpdateStaffBiko(ByVal biko As String, ByVal id_staff As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateStaffBiko(ByVal biko As String, ByVal id_staff As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(8)
             If (biko Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(0).Value = CType(biko, String)
+                command.Parameters(0).Value = CType(biko,String)
             End If
             If (id_staff Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("id_staff")
             Else
-                command.Parameters(1).Value = CType(id_staff, String)
+                command.Parameters(1).Value = CType(id_staff,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)>
-        Public Overridable Overloads Function UpdateStaffCarnum(ByVal staff_carnum As String, ByVal Original_id_staff As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateStaffCarnum(ByVal staff_carnum As String, ByVal Original_id_staff As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(9)
             If (staff_carnum Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(0).Value = CType(staff_carnum, String)
+                command.Parameters(0).Value = CType(staff_carnum,String)
             End If
             If (Original_id_staff Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_id_staff")
             Else
-                command.Parameters(1).Value = CType(Original_id_staff, String)
+                command.Parameters(1).Value = CType(Original_id_staff,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)>
-        Public Overridable Overloads Function UpdateStaffPhonenum(ByVal staff_phonenum As String, ByVal Original_id_staff As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateStaffPhonenum(ByVal staff_phonenum As String, ByVal Original_id_staff As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(10)
             If (staff_phonenum Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(0).Value = CType(staff_phonenum, String)
+                command.Parameters(0).Value = CType(staff_phonenum,String)
             End If
             If (Original_id_staff Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_id_staff")
             Else
-                command.Parameters(1).Value = CType(Original_id_staff, String)
+                command.Parameters(1).Value = CType(Original_id_staff,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
@@ -7663,6 +7947,11 @@ Namespace PhoneNumDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("biko2", "biko2")
             tableMapping.ColumnMappings.Add("model", "model")
             tableMapping.ColumnMappings.Add("staff_id1", "staff_id1")
+            tableMapping.ColumnMappings.Add("car_length", "car_length")
+            tableMapping.ColumnMappings.Add("car_width", "car_width")
+            tableMapping.ColumnMappings.Add("car_height", "car_height")
+            tableMapping.ColumnMappings.Add("total_weight", "total_weight")
+            tableMapping.ColumnMappings.Add("emergency", "emergency")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         

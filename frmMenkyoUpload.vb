@@ -101,6 +101,7 @@
 
         'フォームを閉じる
         Me.Close()
+
     End Sub
 
 

@@ -2,6 +2,47 @@
 
 
     Private Sub frmGrd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'grdMainの列順を呼び出す
+
+        grdMain.Columns("phonenum").DisplayIndex = My.Settings.grdMain_phonenum_DisplayIndex
+        grdMain.Columns("carnum1").DisplayIndex = My.Settings.grdMain_carnum1_DisplayIndex
+        grdMain.Columns("branch_name").DisplayIndex = My.Settings.grdMain_branch_name_DisplayIndex
+        grdMain.Columns("musen").DisplayIndex = My.Settings.grdMain_musen_DisplayIndex
+        grdMain.Columns("ton").DisplayIndex = My.Settings.grdMain_ton_DisplayIndex
+        grdMain.Columns("car_branch").DisplayIndex = My.Settings.grdMain_car_branch_DisplayIndex
+        grdMain.Columns("max_load").DisplayIndex = My.Settings.grdMain_max_load_DisplayIndex
+        grdMain.Columns("limit_menkyo").DisplayIndex = My.Settings.grdMain_limit_menkyo_DisplayIndex
+        grdMain.Columns("limit_syaken").DisplayIndex = My.Settings.grdMain_limit_syaken_DisplayIndex
+
+        'grdMain.Columns("DataGridViewTextBoxColumn2").DisplayIndex = My.Settings.grdMain_Column2_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn3").DisplayIndex = My.Settings.grdMain_Column3_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn4").DisplayIndex = My.Settings.grdMain_Column4_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn5").DisplayIndex = My.Settings.grdMain_Column5_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn6").DisplayIndex = My.Settings.grdMain_Column6_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn7").DisplayIndex = My.Settings.grdMain_Column7_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn8").DisplayIndex = My.Settings.grdMain_Column8_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn9").DisplayIndex = My.Settings.grdMain_Column9_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn10").DisplayIndex = My.Settings.grdMain_Column10_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn11").DisplayIndex = My.Settings.grdMain_Column11_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn12").DisplayIndex = My.Settings.grdMain_Column12_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn13").DisplayIndex = My.Settings.grdMain_Column13_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn14").DisplayIndex = My.Settings.grdMain_Column14_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn15").DisplayIndex = My.Settings.grdMain_Column15_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn16").DisplayIndex = My.Settings.grdMain_Column16_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn17").DisplayIndex = My.Settings.grdMain_Column17_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn18").DisplayIndex = My.Settings.grdMain_Column18_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn19").DisplayIndex = My.Settings.grdMain_Column19_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn20").DisplayIndex = My.Settings.grdMain_Column20_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn21").DisplayIndex = My.Settings.grdMain_Column21_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn22").DisplayIndex = My.Settings.grdMain_Column22_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn23").DisplayIndex = My.Settings.grdMain_Column23_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn24").DisplayIndex = My.Settings.grdMain_Column24_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn25").DisplayIndex = My.Settings.grdMain_Column25_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn26").DisplayIndex = My.Settings.grdMain_Column26_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn27").DisplayIndex = My.Settings.grdMain_Column27_DisplayIndex
+        'grdMain.Columns("DataGridViewTextBoxColumn28").DisplayIndex = My.Settings.grdMain_Column28_DisplayIndex
+
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.dtInteg' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
         'Me.DtIntegTableAdapter.FillIntegTable(Me.PhoneNumDBDataSet.dtInteg)
 
@@ -146,10 +187,7 @@
         'データグリッドビューのソート（列名をクリックすると△ボタン表示されるやつ）が効いていると、そっちが優先されてしまうので、解除する。
         DtMainBindingSource.Sort = ""
 
-
         Dim sql As String
-
-
 
         'SQLステートメントの定義
         sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
@@ -360,6 +398,10 @@
         fs = "tbl_car.carnum1 like '9___' ORDER BY tbl_car.carnum1"
 
         shiboriDatabase(fs)
+
+
+
+
     End Sub
 
     '[解除]ボタンを押すとフィルタを解除して全レコードを表示する
@@ -650,5 +692,24 @@
 
         'エクスポートしたフォルダを表示する
         System.Diagnostics.Process.Start("C:\MPP\Exports\" & folderpath & "")
+    End Sub
+
+    '緊急車両ボタン
+    Private Sub btnEmergency_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    'アプリの終了時、grdMainの列順を記憶する
+    Private Sub frmGrd_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+
+        My.Settings.grdMain_phonenum_DisplayIndex = grdMain.Columns("phonenum").DisplayIndex
+        My.Settings.grdMain_carnum1_DisplayIndex = grdMain.Columns("carnum1").DisplayIndex
+        My.Settings.grdMain_branch_name_DisplayIndex = grdMain.Columns("branch_name").DisplayIndex
+        My.Settings.grdMain_musen_DisplayIndex = grdMain.Columns("musen").DisplayIndex
+        My.Settings.grdMain_ton_DisplayIndex = grdMain.Columns("ton").DisplayIndex
+        My.Settings.grdMain_car_branch_DisplayIndex = grdMain.Columns("car_branch").DisplayIndex
+        My.Settings.grdMain_max_load_DisplayIndex = grdMain.Columns("max_load").DisplayIndex
+        My.Settings.grdMain_limit_menkyo_DisplayIndex = grdMain.Columns("limit_menkyo").DisplayIndex
+        My.Settings.grdMain_limit_syaken_DisplayIndex = grdMain.Columns("limit_syaken").DisplayIndex
     End Sub
 End Class
