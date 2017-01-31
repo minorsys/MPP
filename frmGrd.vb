@@ -633,6 +633,7 @@
                     '該当ファイルをコピーする
                     For Each f As String In files
                         System.IO.File.Copy(f, "C:\MPP\Exports\" & folderpath & "\免許証\" & selectedStaff & ".pdf")
+
                     Next
 
                 End If

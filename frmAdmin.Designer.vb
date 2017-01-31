@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAdmin
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -26,9 +26,6 @@ Partial Class frmAdmin
         Me.btnMasterStaff = New System.Windows.Forms.Button()
         Me.btnMasterPhone = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnSyakenUpload = New System.Windows.Forms.Button()
-        Me.btnMenkyoUpload = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnMasterCar
@@ -71,35 +68,6 @@ Partial Class frmAdmin
         Me.btnClose.Text = "閉じる"
         Me.btnClose.UseVisualStyleBackColor = True
         '
-        'btnSyakenUpload
-        '
-        Me.btnSyakenUpload.BackColor = System.Drawing.Color.LightBlue
-        Me.btnSyakenUpload.Location = New System.Drawing.Point(111, 13)
-        Me.btnSyakenUpload.Name = "btnSyakenUpload"
-        Me.btnSyakenUpload.Size = New System.Drawing.Size(92, 23)
-        Me.btnSyakenUpload.TabIndex = 4
-        Me.btnSyakenUpload.Text = "車検証pdf更新"
-        Me.btnSyakenUpload.UseVisualStyleBackColor = False
-        '
-        'btnMenkyoUpload
-        '
-        Me.btnMenkyoUpload.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.btnMenkyoUpload.Location = New System.Drawing.Point(110, 43)
-        Me.btnMenkyoUpload.Name = "btnMenkyoUpload"
-        Me.btnMenkyoUpload.Size = New System.Drawing.Size(93, 23)
-        Me.btnMenkyoUpload.TabIndex = 5
-        Me.btnMenkyoUpload.Text = "免許証pdf更新"
-        Me.btnMenkyoUpload.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(13, 103)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'frmAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -107,9 +75,6 @@ Partial Class frmAdmin
         Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(231, 157)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.btnMenkyoUpload)
-        Me.Controls.Add(Me.btnSyakenUpload)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnMasterPhone)
         Me.Controls.Add(Me.btnMasterStaff)
@@ -125,7 +90,4 @@ Partial Class frmAdmin
     Friend WithEvents btnMasterStaff As Button
     Friend WithEvents btnMasterPhone As Button
     Friend WithEvents btnClose As Button
-    Friend WithEvents btnSyakenUpload As Button
-    Friend WithEvents btnMenkyoUpload As Button
-    Friend WithEvents Button1 As Button
 End Class

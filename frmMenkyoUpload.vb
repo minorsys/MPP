@@ -1,7 +1,16 @@
 ﻿Public Class frmMenkyoUpload
     Private Sub frmMenkyoUpload_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_staff' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.Tbl_staffTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_staff)
+        'Me.Tbl_staffTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_staff)
+
+    End Sub
+
+    Public Sub SetSelectedStaff(ByVal scode As String, ByVal f As frmModifier)
+        '呼び出し元フォームを格納する
+        'frm_Modifier = f
+
+        '受け取ったコードを利用して、該当するテーブルのデータをデータソースにセット
+        Me.Tbl_staffTableAdapter.FillByScode(Me.PhoneNumDBDataSet.tbl_staff, scode)
 
     End Sub
 
@@ -40,12 +49,7 @@
 
     End Sub
 
-    Private Sub frmSyakenUpload_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_car' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.Tbl_staffTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_staff)
 
-
-    End Sub
 
     'アップロードボタン
     Private Sub btnUpload_Click(sender As Object, e As EventArgs) Handles btnUpload.Click
@@ -92,6 +96,12 @@
 
         System.IO.File.Copy(txtFilePath.Text, newMenkyoFilePath)
 
+        'データベース上の免許証期限を更新する
+        Me.Tbl_staffTableAdapter.UpdateLimitMenkyo(dtpMenkyoLimit.Value, cmbStaff.SelectedValue)
+
+        'フォームを閉じる
         Me.Close()
     End Sub
+
+
 End Class

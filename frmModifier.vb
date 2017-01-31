@@ -565,5 +565,32 @@ Public Class frmModifier
         End Select
     End Sub
 
+    '免許更新ボタン
+    Private Sub btnMenkyoUpdate_Click(sender As Object, e As EventArgs) Handles btnMenkyoUpdate.Click
+        If lblstaffID.Text = "" Then
+            Return
+        End If
 
+        Dim frm As New frmMenkyoUpload
+        '[選択行の編集]フォームのSetSelectedRecordプロシージャを呼び出し、
+        '指定した電話番号のデータを表示する
+        frm.SetSelectedStaff(lblstaffID.Text, Me)
+        '[選択行の編集]フォームを表示する
+        frm.ShowDialog(Me)
+    End Sub
+
+    '車検証更新ボタン
+    Private Sub btnSyakenUpdate_Click(sender As Object, e As EventArgs) Handles btnSyakenUpdate.Click
+        '車両レコードがなかったら戻る
+        If lblCarnum.Text = "" Then
+            Return
+        End If
+
+        Dim frm As New frmSyakenUpload
+        '[選択行の編集]フォームのSetSelectedRecordプロシージャを呼び出し、
+        '指定した電話番号のデータを表示する
+        frm.SetSelectedCar(lblCarnum.Text, Me)
+        '[選択行の編集]フォームを表示する
+        frm.ShowDialog(Me)
+    End Sub
 End Class

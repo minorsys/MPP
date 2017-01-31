@@ -22,6 +22,7 @@ Public Class frmProgressBar
         'DoWorkで取得できるパラメータ(10)を指定して、処理を開始する
         'パラメータが必要なければ省略できる
         BackgroundWorker1.RunWorkerAsync(10)
+
     End Sub
 
     'BackgroundWorker1のDoWorkイベントハンドラ
@@ -39,6 +40,8 @@ Public Class frmProgressBar
         For i = 1 To maxLoops
             '1秒間待機する（時間のかかる処理があるものとする）
             System.Threading.Thread.Sleep(1000)
+
+
 
             'ProgressChangedイベントハンドラを呼び出し、
             'コントロールの表示を変更する

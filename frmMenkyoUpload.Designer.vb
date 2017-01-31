@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMenkyoUpload
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmMenkyoUpload
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.btnUpload = New System.Windows.Forms.Button()
@@ -39,7 +39,7 @@ Partial Class frmMenkyoUpload
         '
         'btnUpload
         '
-        Me.btnUpload.Location = New System.Drawing.Point(169, 95)
+        Me.btnUpload.Location = New System.Drawing.Point(169, 93)
         Me.btnUpload.Name = "btnUpload"
         Me.btnUpload.Size = New System.Drawing.Size(75, 23)
         Me.btnUpload.TabIndex = 13
@@ -49,7 +49,7 @@ Partial Class frmMenkyoUpload
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(111, 44)
+        Me.Label2.Location = New System.Drawing.Point(98, 43)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(29, 12)
         Me.Label2.TabIndex = 12
@@ -58,7 +58,7 @@ Partial Class frmMenkyoUpload
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(34, 72)
+        Me.Label1.Location = New System.Drawing.Point(21, 71)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(106, 12)
         Me.Label1.TabIndex = 11
@@ -68,9 +68,9 @@ Partial Class frmMenkyoUpload
         '
         Me.dtpMenkyoLimit.CustomFormat = "yyyyMMdd"
         Me.dtpMenkyoLimit.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(146, 67)
+        Me.dtpMenkyoLimit.Location = New System.Drawing.Point(133, 66)
         Me.dtpMenkyoLimit.Name = "dtpMenkyoLimit"
-        Me.dtpMenkyoLimit.Size = New System.Drawing.Size(98, 19)
+        Me.dtpMenkyoLimit.Size = New System.Drawing.Size(111, 19)
         Me.dtpMenkyoLimit.TabIndex = 10
         '
         'cmbStaff
@@ -79,11 +79,11 @@ Partial Class frmMenkyoUpload
         Me.cmbStaff.DisplayMember = "staff_name"
         Me.cmbStaff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbStaff.FormattingEnabled = True
-        Me.cmbStaff.Location = New System.Drawing.Point(146, 41)
+        Me.cmbStaff.Location = New System.Drawing.Point(133, 40)
         Me.cmbStaff.Name = "cmbStaff"
-        Me.cmbStaff.Size = New System.Drawing.Size(98, 20)
+        Me.cmbStaff.Size = New System.Drawing.Size(111, 20)
         Me.cmbStaff.TabIndex = 9
-        Me.cmbStaff.ValueMember = "staff_name"
+        Me.cmbStaff.ValueMember = "id_staff"
         '
         'TblstaffBindingSource
         '
@@ -121,7 +121,7 @@ Partial Class frmMenkyoUpload
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(262, 129)
+        Me.ClientSize = New System.Drawing.Size(264, 136)
         Me.Controls.Add(Me.btnUpload)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)

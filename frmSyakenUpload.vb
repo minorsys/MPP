@@ -34,9 +34,18 @@
         End If
     End Sub
 
+    Public Sub SetSelectedCar(ByVal ccode As String, ByVal f As frmModifier)
+        '呼び出し元フォームを格納する
+        'frm_Modifier = f
+
+        '受け取ったコードを利用して、該当するテーブルのデータをデータソースにセット
+        Me.Tbl_carTableAdapter.FillByCcode(Me.PhoneNumDBDataSet.tbl_car, ccode)
+
+    End Sub
+
     Private Sub frmSyakenUpload_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.tbl_car' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.Tbl_carTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_car)
+        'Me.Tbl_carTableAdapter.Fill(Me.PhoneNumDBDataSet.tbl_car)
 
 
     End Sub
@@ -79,13 +88,17 @@
             End If
         End If
 
-
         '選択された車番の新しい車検証をsyakenフォルダにコピー＆リネーム　例：1467_車検証_20170101.pdf
         Dim newSyakenFilePath As String
         newSyakenFilePath = "\\192.168.8.190\share\system\syaken\" & cmbCarnum.Text & "_車検証_" & dtpSyakenLimit.Text.ToString & ".pdf"
-
         System.IO.File.Copy(txtFilePath.Text, newSyakenFilePath)
 
+        'データベース上の車検証期限を更新する
+        Tbl_carTableAdapter.UpdateLimitSyaken(dtpSyakenLimit.Value.ToString, cmbCarnum.Text)
+
+        'フォームを閉じる
         Me.Close()
+
+
     End Sub
 End Class

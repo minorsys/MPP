@@ -87,6 +87,8 @@ Partial Class frmModifier
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.btnMenkyoUpdate = New System.Windows.Forms.Button()
+        Me.btnSyakenUpdate = New System.Windows.Forms.Button()
         Branch_idLabel2 = New System.Windows.Forms.Label()
         Carnum1Label = New System.Windows.Forms.Label()
         MusenLabel = New System.Windows.Forms.Label()
@@ -272,6 +274,7 @@ Partial Class frmModifier
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.LightBlue
+        Me.GroupBox3.Controls.Add(Me.btnSyakenUpdate)
         Me.GroupBox3.Controls.Add(Me.lblSyakenLimit)
         Me.GroupBox3.Controls.Add(Me.lblMasLoad)
         Me.GroupBox3.Controls.Add(Me.Label5)
@@ -451,6 +454,7 @@ Partial Class frmModifier
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.GroupBox2.Controls.Add(Me.btnMenkyoUpdate)
         Me.GroupBox2.Controls.Add(Me.lblMenkyoLimit)
         Me.GroupBox2.Controls.Add(Me.lblStaffKana)
         Me.GroupBox2.Controls.Add(Label4)
@@ -737,6 +741,24 @@ Partial Class frmModifier
         Me.Label7.TabIndex = 41
         Me.Label7.Text = "tblStaff-branchID"
         '
+        'btnMenkyoUpdate
+        '
+        Me.btnMenkyoUpdate.Location = New System.Drawing.Point(193, 135)
+        Me.btnMenkyoUpdate.Name = "btnMenkyoUpdate"
+        Me.btnMenkyoUpdate.Size = New System.Drawing.Size(59, 23)
+        Me.btnMenkyoUpdate.TabIndex = 45
+        Me.btnMenkyoUpdate.Text = "更新"
+        Me.btnMenkyoUpdate.UseVisualStyleBackColor = True
+        '
+        'btnSyakenUpdate
+        '
+        Me.btnSyakenUpdate.Location = New System.Drawing.Point(185, 164)
+        Me.btnSyakenUpdate.Name = "btnSyakenUpdate"
+        Me.btnSyakenUpdate.Size = New System.Drawing.Size(59, 23)
+        Me.btnSyakenUpdate.TabIndex = 46
+        Me.btnSyakenUpdate.Text = "更新"
+        Me.btnSyakenUpdate.UseVisualStyleBackColor = True
+        '
         'frmModifier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -814,4 +836,6 @@ Partial Class frmModifier
     Friend WithEvents lblMasLoad As Label
     Friend WithEvents lblSyakenLimit As Label
     Friend WithEvents lblMenkyoLimit As Label
+    Friend WithEvents btnSyakenUpdate As Button
+    Friend WithEvents btnMenkyoUpdate As Button
 End Class

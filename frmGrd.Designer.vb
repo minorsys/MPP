@@ -111,12 +111,14 @@ Partial Class frmGrd
         Me.btnExportSyakenMenkyo = New System.Windows.Forms.Button()
         Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
         Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DtMainBindingNavigator.SuspendLayout()
         CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'DtMainBindingNavigator
@@ -250,7 +252,7 @@ Partial Class frmGrd
         Me.grdMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.max_load, Me.limit_syaken, Me.limit_menkyo})
         Me.grdMain.DataSource = Me.DtMainBindingSource
-        Me.grdMain.Location = New System.Drawing.Point(172, 36)
+        Me.grdMain.Location = New System.Drawing.Point(167, 51)
         Me.grdMain.Name = "grdMain"
         Me.grdMain.ReadOnly = True
         Me.grdMain.RowHeadersWidth = 30
@@ -471,7 +473,7 @@ Partial Class frmGrd
         '
         'btnAdmin
         '
-        Me.btnAdmin.Location = New System.Drawing.Point(13, 7)
+        Me.btnAdmin.Location = New System.Drawing.Point(7, 8)
         Me.btnAdmin.Name = "btnAdmin"
         Me.btnAdmin.Size = New System.Drawing.Size(80, 23)
         Me.btnAdmin.TabIndex = 2
@@ -518,7 +520,7 @@ Partial Class frmGrd
         Me.GroupBox1.Controls.Add(Me.txtFilterKana)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.txtFilterPhonenum)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 36)
+        Me.GroupBox1.Location = New System.Drawing.Point(8, 51)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(153, 478)
         Me.GroupBox1.TabIndex = 3
@@ -527,7 +529,7 @@ Partial Class frmGrd
         '
         'btnFilterClear
         '
-        Me.btnFilterClear.Location = New System.Drawing.Point(63, 447)
+        Me.btnFilterClear.Location = New System.Drawing.Point(38, 449)
         Me.btnFilterClear.Name = "btnFilterClear"
         Me.btnFilterClear.Size = New System.Drawing.Size(84, 23)
         Me.btnFilterClear.TabIndex = 36
@@ -599,11 +601,11 @@ Partial Class frmGrd
         '
         'btnAllCar
         '
-        Me.btnAllCar.Location = New System.Drawing.Point(82, 121)
+        Me.btnAllCar.Location = New System.Drawing.Point(38, 121)
         Me.btnAllCar.Name = "btnAllCar"
-        Me.btnAllCar.Size = New System.Drawing.Size(65, 23)
+        Me.btnAllCar.Size = New System.Drawing.Size(84, 23)
         Me.btnAllCar.TabIndex = 28
-        Me.btnAllCar.Text = "車両のみ"
+        Me.btnAllCar.Text = "車両のみ表示"
         Me.btnAllCar.UseVisualStyleBackColor = True
         '
         'btn8000
@@ -855,7 +857,7 @@ Partial Class frmGrd
         'lblHowManyRecords
         '
         Me.lblHowManyRecords.AutoSize = True
-        Me.lblHowManyRecords.Location = New System.Drawing.Point(170, 517)
+        Me.lblHowManyRecords.Location = New System.Drawing.Point(165, 532)
         Me.lblHowManyRecords.Name = "lblHowManyRecords"
         Me.lblHowManyRecords.Size = New System.Drawing.Size(108, 12)
         Me.lblHowManyRecords.TabIndex = 4
@@ -863,20 +865,20 @@ Partial Class frmGrd
         '
         'btnModify
         '
-        Me.btnModify.Location = New System.Drawing.Point(172, 7)
+        Me.btnModify.Location = New System.Drawing.Point(137, 8)
         Me.btnModify.Name = "btnModify"
-        Me.btnModify.Size = New System.Drawing.Size(143, 23)
+        Me.btnModify.Size = New System.Drawing.Size(132, 23)
         Me.btnModify.TabIndex = 5
-        Me.btnModify.Text = "選択行の詳細表示/編集"
+        Me.btnModify.Text = "詳細表示/編集"
         Me.btnModify.UseVisualStyleBackColor = True
         '
         'btnExportSyakenMenkyo
         '
-        Me.btnExportSyakenMenkyo.Location = New System.Drawing.Point(321, 7)
+        Me.btnExportSyakenMenkyo.Location = New System.Drawing.Point(275, 8)
         Me.btnExportSyakenMenkyo.Name = "btnExportSyakenMenkyo"
-        Me.btnExportSyakenMenkyo.Size = New System.Drawing.Size(183, 23)
+        Me.btnExportSyakenMenkyo.Size = New System.Drawing.Size(132, 23)
         Me.btnExportSyakenMenkyo.TabIndex = 6
-        Me.btnExportSyakenMenkyo.Text = "選択行の車検/免許証ｴｸｽﾎﾟｰﾄ"
+        Me.btnExportSyakenMenkyo.Text = "車検/免許証ｴｸｽﾎﾟｰﾄ"
         Me.btnExportSyakenMenkyo.UseVisualStyleBackColor = True
         '
         'DtMainTableAdapter
@@ -894,14 +896,25 @@ Partial Class frmGrd
         Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.Gainsboro
+        Me.GroupBox2.Controls.Add(Me.btnModify)
+        Me.GroupBox2.Controls.Add(Me.btnExportSyakenMenkyo)
+        Me.GroupBox2.Location = New System.Drawing.Point(167, 8)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(420, 37)
+        Me.GroupBox2.TabIndex = 7
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "選択した行に対する操作"
+        '
         'frmGrd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(969, 538)
-        Me.Controls.Add(Me.btnExportSyakenMenkyo)
-        Me.Controls.Add(Me.btnModify)
+        Me.ClientSize = New System.Drawing.Size(969, 550)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.lblHowManyRecords)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnAdmin)
@@ -919,6 +932,7 @@ Partial Class frmGrd
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1011,4 +1025,5 @@ Partial Class frmGrd
     Friend WithEvents limit_syaken As DataGridViewTextBoxColumn
     Friend WithEvents limit_menkyo As DataGridViewTextBoxColumn
     Friend WithEvents btnExportSyakenMenkyo As Button
+    Friend WithEvents GroupBox2 As GroupBox
 End Class
