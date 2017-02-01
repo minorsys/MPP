@@ -2,6 +2,8 @@
 
 
     Private Sub frmGrd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         'frmMainの位置とウィンドウサイズを呼び出す
         Me.Top = My.Settings.frmMain_Top
         Me.Left = My.Settings.frmMain_Left
@@ -20,6 +22,12 @@
         grdMain.Columns("max_load").DisplayIndex = My.Settings.grdMain_max_load_DisplayIndex
         grdMain.Columns("limit_menkyo").DisplayIndex = My.Settings.grdMain_limit_menkyo_DisplayIndex
         grdMain.Columns("limit_syaken").DisplayIndex = My.Settings.grdMain_limit_syaken_DisplayIndex
+        grdMain.Columns("car_length").DisplayIndex = My.Settings.grdMain_car_length_DisplayIndex
+        grdMain.Columns("car_width").DisplayIndex = My.Settings.grdMain_car_width_DisplayIndex
+        grdMain.Columns("car_height").DisplayIndex = My.Settings.grdMain_car_height_DisplayIndex
+        grdMain.Columns("bed_length").DisplayIndex = My.Settings.grdMain_bed_length_DisplayIndex
+        grdMain.Columns("bed_width").DisplayIndex = My.Settings.grdMain_bed_width_DisplayIndex
+        grdMain.Columns("bed_height").DisplayIndex = My.Settings.grdMain_bed_height_DisplayIndex
 
 
 
@@ -585,6 +593,14 @@
         shiboriDatabase(fs)
     End Sub
 
+
+    '緊急車両ボタン
+    Private Sub btnEmergency_Click_1(sender As Object, e As EventArgs) Handles btnEmergency.Click
+        Dim fs As String
+        fs = "tbl_car.emergency = 1"
+        shiboriDatabase(fs)
+    End Sub
+
     '選択行の車検証・免許証エクスポートボタン
     Private Sub btnExportSyakenMenkyo_Click(sender As Object, e As EventArgs) Handles btnExportSyakenMenkyo.Click
         'データグリッドビューが空のときは終了する
@@ -692,6 +708,12 @@
         My.Settings.grdMain_max_load_DisplayIndex = grdMain.Columns("max_load").DisplayIndex
         My.Settings.grdMain_limit_menkyo_DisplayIndex = grdMain.Columns("limit_menkyo").DisplayIndex
         My.Settings.grdMain_limit_syaken_DisplayIndex = grdMain.Columns("limit_syaken").DisplayIndex
+        My.Settings.grdMain_car_length_DisplayIndex = grdMain.Columns("car_length").DisplayIndex
+        My.Settings.grdMain_car_width_DisplayIndex = grdMain.Columns("car_width").DisplayIndex
+        My.Settings.grdMain_car_height_DisplayIndex = grdMain.Columns("car_height").DisplayIndex
+        My.Settings.grdMain_bed_length_DisplayIndex = grdMain.Columns("bed_length").DisplayIndex
+        My.Settings.grdMain_bed_width_DisplayIndex = grdMain.Columns("bed_width").DisplayIndex
+        My.Settings.grdMain_bed_height_DisplayIndex = grdMain.Columns("bed_height").DisplayIndex
 
         'frmMainの位置を記憶する
         My.Settings.frmMain_Top = Me.Top

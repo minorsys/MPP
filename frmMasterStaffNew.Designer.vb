@@ -199,8 +199,7 @@ Partial Class frmMasterStaffNew
         '
         'dtpMenkyoLimit
         '
-        Me.dtpMenkyoLimit.CustomFormat = "yyyyMMdd"
-        Me.dtpMenkyoLimit.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpMenkyoLimit.CustomFormat = "gyMMdd"
         Me.dtpMenkyoLimit.Location = New System.Drawing.Point(93, 128)
         Me.dtpMenkyoLimit.Name = "dtpMenkyoLimit"
         Me.dtpMenkyoLimit.Size = New System.Drawing.Size(121, 19)

@@ -61,9 +61,9 @@ Partial Class frmSyakenUpload
         Me.cmbCarnum.DisplayMember = "carnum1"
         Me.cmbCarnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCarnum.FormattingEnabled = True
-        Me.cmbCarnum.Location = New System.Drawing.Point(151, 45)
+        Me.cmbCarnum.Location = New System.Drawing.Point(133, 42)
         Me.cmbCarnum.Name = "cmbCarnum"
-        Me.cmbCarnum.Size = New System.Drawing.Size(94, 20)
+        Me.cmbCarnum.Size = New System.Drawing.Size(109, 20)
         Me.cmbCarnum.TabIndex = 2
         Me.cmbCarnum.ValueMember = "carnum1"
         '
@@ -80,16 +80,15 @@ Partial Class frmSyakenUpload
         'dtpSyakenLimit
         '
         Me.dtpSyakenLimit.CustomFormat = "yyyyMMdd"
-        Me.dtpSyakenLimit.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpSyakenLimit.Location = New System.Drawing.Point(151, 71)
+        Me.dtpSyakenLimit.Location = New System.Drawing.Point(133, 68)
         Me.dtpSyakenLimit.Name = "dtpSyakenLimit"
-        Me.dtpSyakenLimit.Size = New System.Drawing.Size(94, 19)
+        Me.dtpSyakenLimit.Size = New System.Drawing.Size(109, 19)
         Me.dtpSyakenLimit.TabIndex = 3
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(30, 76)
+        Me.Label1.Location = New System.Drawing.Point(12, 73)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(106, 12)
         Me.Label1.TabIndex = 4
@@ -98,7 +97,7 @@ Partial Class frmSyakenUpload
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(83, 48)
+        Me.Label2.Location = New System.Drawing.Point(65, 45)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 12)
         Me.Label2.TabIndex = 5
@@ -106,7 +105,7 @@ Partial Class frmSyakenUpload
         '
         'btnUpload
         '
-        Me.btnUpload.Location = New System.Drawing.Point(170, 96)
+        Me.btnUpload.Location = New System.Drawing.Point(167, 93)
         Me.btnUpload.Name = "btnUpload"
         Me.btnUpload.Size = New System.Drawing.Size(75, 23)
         Me.btnUpload.TabIndex = 6
@@ -126,7 +125,7 @@ Partial Class frmSyakenUpload
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(257, 131)
+        Me.ClientSize = New System.Drawing.Size(257, 128)
         Me.Controls.Add(Me.btnUpload)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)

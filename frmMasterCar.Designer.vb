@@ -28,8 +28,11 @@ Partial Class frmMasterCar
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.grdCar = New System.Windows.Forms.DataGridView()
-        Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
+        Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Carnum1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Carnum2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Carnum3DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -39,14 +42,17 @@ Partial Class frmMasterCar
         Me.BikoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BranchidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StaffidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
-        Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.car_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.car_width = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.car_height = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bed_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bed_width = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bed_height = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grdCar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnClose
@@ -92,25 +98,45 @@ Partial Class frmMasterCar
         Me.grdCar.AllowUserToOrderColumns = True
         Me.grdCar.AutoGenerateColumns = False
         Me.grdCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCar.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Carnum1DataGridViewTextBoxColumn, Me.Carnum2DataGridViewTextBoxColumn, Me.Carnum3DataGridViewTextBoxColumn, Me.Carnum4DataGridViewTextBoxColumn, Me.MusenDataGridViewTextBoxColumn, Me.TonDataGridViewTextBoxColumn, Me.BikoDataGridViewTextBoxColumn, Me.BranchidDataGridViewTextBoxColumn, Me.StaffidDataGridViewTextBoxColumn, Me.max_load, Me.limit_syaken})
+        Me.grdCar.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Carnum1DataGridViewTextBoxColumn, Me.Carnum2DataGridViewTextBoxColumn, Me.Carnum3DataGridViewTextBoxColumn, Me.Carnum4DataGridViewTextBoxColumn, Me.MusenDataGridViewTextBoxColumn, Me.TonDataGridViewTextBoxColumn, Me.BikoDataGridViewTextBoxColumn, Me.BranchidDataGridViewTextBoxColumn, Me.StaffidDataGridViewTextBoxColumn, Me.max_load, Me.limit_syaken, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height})
         Me.grdCar.DataSource = Me.TblcarBindingSource
         Me.grdCar.Location = New System.Drawing.Point(12, 41)
         Me.grdCar.Name = "grdCar"
+        Me.grdCar.ReadOnly = True
         Me.grdCar.RowTemplate.Height = 21
         Me.grdCar.Size = New System.Drawing.Size(1059, 392)
         Me.grdCar.TabIndex = 6
         '
-        'max_load
+        'PhoneNumDBDataSet
         '
-        Me.max_load.DataPropertyName = "max_load"
-        Me.max_load.HeaderText = "最大積載量"
-        Me.max_load.Name = "max_load"
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'limit_syaken
+        'Tbl_carTableAdapter
         '
-        Me.limit_syaken.DataPropertyName = "limit_syaken"
-        Me.limit_syaken.HeaderText = "車検証期限"
-        Me.limit_syaken.Name = "limit_syaken"
+        Me.Tbl_carTableAdapter.ClearBeforeFill = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(300, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 12)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "車番検索"
+        '
+        'txtSearch
+        '
+        Me.txtSearch.ImeMode = System.Windows.Forms.ImeMode.Off
+        Me.txtSearch.Location = New System.Drawing.Point(359, 16)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(100, 19)
+        Me.txtSearch.TabIndex = 12
+        '
+        'TblcarBindingSource
+        '
+        Me.TblcarBindingSource.DataMember = "tbl_car"
+        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
         '
         'Carnum1DataGridViewTextBoxColumn
         '
@@ -176,36 +202,61 @@ Partial Class frmMasterCar
         Me.StaffidDataGridViewTextBoxColumn.ReadOnly = True
         Me.StaffidDataGridViewTextBoxColumn.Visible = False
         '
-        'TblcarBindingSource
+        'max_load
         '
-        Me.TblcarBindingSource.DataMember = "tbl_car"
-        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
+        Me.max_load.DataPropertyName = "max_load"
+        Me.max_load.HeaderText = "最大積載量"
+        Me.max_load.Name = "max_load"
+        Me.max_load.ReadOnly = True
         '
-        'PhoneNumDBDataSet
+        'limit_syaken
         '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.limit_syaken.DataPropertyName = "limit_syaken"
+        Me.limit_syaken.HeaderText = "車検証期限"
+        Me.limit_syaken.Name = "limit_syaken"
+        Me.limit_syaken.ReadOnly = True
         '
-        'Tbl_carTableAdapter
+        'car_length
         '
-        Me.Tbl_carTableAdapter.ClearBeforeFill = True
+        Me.car_length.DataPropertyName = "car_length"
+        Me.car_length.HeaderText = "長さ"
+        Me.car_length.Name = "car_length"
+        Me.car_length.ReadOnly = True
         '
-        'Label1
+        'car_width
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(300, 19)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 12)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "車番検索"
+        Me.car_width.DataPropertyName = "car_width"
+        Me.car_width.HeaderText = "幅"
+        Me.car_width.Name = "car_width"
+        Me.car_width.ReadOnly = True
         '
-        'txtSearch
+        'car_height
         '
-        Me.txtSearch.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txtSearch.Location = New System.Drawing.Point(359, 16)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(100, 19)
-        Me.txtSearch.TabIndex = 12
+        Me.car_height.DataPropertyName = "car_height"
+        Me.car_height.HeaderText = "高さ"
+        Me.car_height.Name = "car_height"
+        Me.car_height.ReadOnly = True
+        '
+        'bed_length
+        '
+        Me.bed_length.DataPropertyName = "bed_length"
+        Me.bed_length.HeaderText = "荷台長"
+        Me.bed_length.Name = "bed_length"
+        Me.bed_length.ReadOnly = True
+        '
+        'bed_width
+        '
+        Me.bed_width.DataPropertyName = "bed_width"
+        Me.bed_width.HeaderText = "荷台幅"
+        Me.bed_width.Name = "bed_width"
+        Me.bed_width.ReadOnly = True
+        '
+        'bed_height
+        '
+        Me.bed_height.DataPropertyName = "bed_height"
+        Me.bed_height.HeaderText = "荷台高"
+        Me.bed_height.Name = "bed_height"
+        Me.bed_height.ReadOnly = True
         '
         'frmMasterCar
         '
@@ -224,8 +275,8 @@ Partial Class frmMasterCar
         Me.Name = "frmMasterCar"
         Me.Text = "車両マスタ"
         CType(Me.grdCar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -239,6 +290,8 @@ Partial Class frmMasterCar
     Friend WithEvents PhoneNumDBDataSet As PhoneNumDBDataSet
     Friend WithEvents TblcarBindingSource As BindingSource
     Friend WithEvents Tbl_carTableAdapter As PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtSearch As TextBox
     Friend WithEvents Carnum1DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Carnum2DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Carnum3DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -250,6 +303,10 @@ Partial Class frmMasterCar
     Friend WithEvents StaffidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents max_load As DataGridViewTextBoxColumn
     Friend WithEvents limit_syaken As DataGridViewTextBoxColumn
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents car_length As DataGridViewTextBoxColumn
+    Friend WithEvents car_width As DataGridViewTextBoxColumn
+    Friend WithEvents car_height As DataGridViewTextBoxColumn
+    Friend WithEvents bed_length As DataGridViewTextBoxColumn
+    Friend WithEvents bed_width As DataGridViewTextBoxColumn
+    Friend WithEvents bed_height As DataGridViewTextBoxColumn
 End Class

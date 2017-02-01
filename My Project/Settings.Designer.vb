@@ -187,7 +187,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("12")>  _
         Public Property frmMain_Top() As Integer
             Get
                 Return CType(Me("frmMain_Top"),Integer)
@@ -199,7 +199,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("593")>  _
         Public Property frmMain_Left() As Integer
             Get
                 Return CType(Me("frmMain_Left"),Integer)
@@ -211,7 +211,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1138")>  _
         Public Property frmMain_Width() As Integer
             Get
                 Return CType(Me("frmMain_Width"),Integer)
@@ -223,13 +223,85 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("655")>  _
         Public Property frmMain_Height() As Integer
             Get
                 Return CType(Me("frmMain_Height"),Integer)
             End Get
             Set
                 Me("frmMain_Height") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("10")>  _
+        Public Property grdMain_car_length_DisplayIndex() As Integer
+            Get
+                Return CType(Me("grdMain_car_length_DisplayIndex"),Integer)
+            End Get
+            Set
+                Me("grdMain_car_length_DisplayIndex") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("11")>  _
+        Public Property grdMain_car_width_DisplayIndex() As Integer
+            Get
+                Return CType(Me("grdMain_car_width_DisplayIndex"),Integer)
+            End Get
+            Set
+                Me("grdMain_car_width_DisplayIndex") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("12")>  _
+        Public Property grdMain_car_height_DisplayIndex() As Integer
+            Get
+                Return CType(Me("grdMain_car_height_DisplayIndex"),Integer)
+            End Get
+            Set
+                Me("grdMain_car_height_DisplayIndex") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("13")>  _
+        Public Property grdMain_bed_length_DisplayIndex() As Integer
+            Get
+                Return CType(Me("grdMain_bed_length_DisplayIndex"),Integer)
+            End Get
+            Set
+                Me("grdMain_bed_length_DisplayIndex") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("14")>  _
+        Public Property grdMain_bed_width_DisplayIndex() As Integer
+            Get
+                Return CType(Me("grdMain_bed_width_DisplayIndex"),Integer)
+            End Get
+            Set
+                Me("grdMain_bed_width_DisplayIndex") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
+        Public Property grdMain_bed_height_DisplayIndex() As Integer
+            Get
+                Return CType(Me("grdMain_bed_height_DisplayIndex"),Integer)
+            End Get
+            Set
+                Me("grdMain_bed_height_DisplayIndex") = value
             End Set
         End Property
     End Class

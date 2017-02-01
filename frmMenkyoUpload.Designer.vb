@@ -67,7 +67,6 @@ Partial Class frmMenkyoUpload
         'dtpMenkyoLimit
         '
         Me.dtpMenkyoLimit.CustomFormat = "yyyyMMdd"
-        Me.dtpMenkyoLimit.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpMenkyoLimit.Location = New System.Drawing.Point(133, 66)
         Me.dtpMenkyoLimit.Name = "dtpMenkyoLimit"
         Me.dtpMenkyoLimit.Size = New System.Drawing.Size(111, 19)

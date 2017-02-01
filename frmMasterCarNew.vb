@@ -49,17 +49,46 @@ Public Class frmMasterCarNew
                 newrecord.carnum3 = txtCarnum3.Text
                 newrecord.carnum4 = txtCarnum4.Text
                 'txtMusenを空欄のまま処理すると、string→intの変換ができないと言われるので…
-                'If Not txtMusen.Text = "" Then
-                newrecord.musen = CInt(txtMusen.Text)
-                'End If
+                If Not txtMusen.Text = "" Then
+                    newrecord.musen = CInt(txtMusen.Text)
+                End If
                 newrecord.ton = cmbTon.SelectedItem
                 newrecord.branch_id = cmbBranch.SelectedValue
-                newrecord.max_load = txtMaxLoad.Text
+
+                If Not txtMaxLoad.Text = "" Then
+                    newrecord.max_load = txtMaxLoad.Text
+                End If
+
                 newrecord.limit_syaken = dtpSyaken.Value.Date
                 newrecord.biko = txtBiko.Text
 
-                '新規行をデータテーブルに追加する
-                Me.PhoneNumDBDataSet.tbl_car.Addtbl_carRow(newrecord)
+                If Not txtCar_length.Text = "" Then
+                    newrecord.car_length = CInt(txtCar_length.Text)
+                End If
+
+                If Not txtCar_width.Text = "" Then
+                    newrecord.car_width = CInt(txtCar_width.Text)
+                End If
+                If Not txtCar_height.Text = "" Then
+                    newrecord.car_height = CInt(txtCar_height.Text)
+                End If
+
+                If Not txtBed_length.Text = "" Then
+                    newrecord.bed_length = CInt(txtBed_length.Text)
+                End If
+                If Not txtBed_width.Text = "" Then
+                    newrecord.bed_width = CInt(txtBed_width.Text)
+                End If
+                If Not txtBed_height.Text = "" Then
+                    newrecord.bed_height = CInt(txtBed_height.Text)
+                End If
+
+                newrecord.emergency = cbxEmergency.Checked
+
+
+
+                    '新規行をデータテーブルに追加する
+                    Me.PhoneNumDBDataSet.tbl_car.Addtbl_carRow(newrecord)
 
                 'テーブルアダプタを介して、tbl_carテーブルを更新する
                 Me.Tbl_carTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_car)
@@ -214,6 +243,74 @@ Public Class frmMasterCarNew
             MsgBox("車検証ファイルを選択してください")
             Return False
         End If
+
+
+        'データの検査(長さ)
+        With txtCar_length
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("長さは半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(幅)
+        With txtCar_width
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("幅は半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(高さ)
+        With txtCar_height
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("高さは半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(荷台長)
+        With txtBed_length
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("荷台長は半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(荷台幅)
+        With txtBed_width
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("荷台幅は半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(荷台高)
+        With txtBed_height
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("荷台高は半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
 
         '全ての検査を通過した
         Return True
