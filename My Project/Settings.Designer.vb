@@ -100,88 +100,136 @@ Namespace My
                 Me("grdMain_staff_name_DisplayIndex") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("3")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
         Public Property grdMain_carnum1_DisplayIndex() As Integer
             Get
-                Return CType(Me("grdMain_carnum1_DisplayIndex"), Integer)
+                Return CType(Me("grdMain_carnum1_DisplayIndex"),Integer)
             End Get
             Set
-                Me("grdMain_carnum1_DisplayIndex") = Value
+                Me("grdMain_carnum1_DisplayIndex") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("4")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("4")>  _
         Public Property grdMain_musen_DisplayIndex() As Integer
             Get
-                Return CType(Me("grdMain_musen_DisplayIndex"), Integer)
+                Return CType(Me("grdMain_musen_DisplayIndex"),Integer)
             End Get
             Set
-                Me("grdMain_musen_DisplayIndex") = Value
+                Me("grdMain_musen_DisplayIndex") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property grdMain_ton_DisplayIndex() As Integer
             Get
-                Return CType(Me("grdMain_ton_DisplayIndex"), Integer)
+                Return CType(Me("grdMain_ton_DisplayIndex"),Integer)
             End Get
             Set
-                Me("grdMain_ton_DisplayIndex") = Value
+                Me("grdMain_ton_DisplayIndex") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("6")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("6")>  _
         Public Property grdMain_car_branch_DisplayIndex() As Integer
             Get
-                Return CType(Me("grdMain_car_branch_DisplayIndex"), Integer)
+                Return CType(Me("grdMain_car_branch_DisplayIndex"),Integer)
             End Get
             Set
-                Me("grdMain_car_branch_DisplayIndex") = Value
+                Me("grdMain_car_branch_DisplayIndex") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("7")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("7")>  _
         Public Property grdMain_max_load_DisplayIndex() As Integer
             Get
-                Return CType(Me("grdMain_max_load_DisplayIndex"), Integer)
+                Return CType(Me("grdMain_max_load_DisplayIndex"),Integer)
             End Get
             Set
-                Me("grdMain_max_load_DisplayIndex") = Value
+                Me("grdMain_max_load_DisplayIndex") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("8")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("8")>  _
         Public Property grdMain_limit_menkyo_DisplayIndex() As Integer
             Get
-                Return CType(Me("grdMain_limit_menkyo_DisplayIndex"), Integer)
+                Return CType(Me("grdMain_limit_menkyo_DisplayIndex"),Integer)
             End Get
             Set
-                Me("grdMain_limit_menkyo_DisplayIndex") = Value
+                Me("grdMain_limit_menkyo_DisplayIndex") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("9")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("9")>  _
         Public Property grdMain_limit_syaken_DisplayIndex() As Integer
             Get
-                Return CType(Me("grdMain_limit_syaken_DisplayIndex"), Integer)
+                Return CType(Me("grdMain_limit_syaken_DisplayIndex"),Integer)
             End Get
             Set
-                Me("grdMain_limit_syaken_DisplayIndex") = Value
+                Me("grdMain_limit_syaken_DisplayIndex") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property frmMain_Top() As Integer
+            Get
+                Return CType(Me("frmMain_Top"),Integer)
+            End Get
+            Set
+                Me("frmMain_Top") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property frmMain_Left() As Integer
+            Get
+                Return CType(Me("frmMain_Left"),Integer)
+            End Get
+            Set
+                Me("frmMain_Left") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property frmMain_Width() As Integer
+            Get
+                Return CType(Me("frmMain_Width"),Integer)
+            End Get
+            Set
+                Me("frmMain_Width") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property frmMain_Height() As Integer
+            Get
+                Return CType(Me("frmMain_Height"),Integer)
+            End Get
+            Set
+                Me("frmMain_Height") = value
             End Set
         End Property
     End Class

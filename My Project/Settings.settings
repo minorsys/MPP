@@ -40,5 +40,17 @@
     <Setting Name="grdMain_limit_syaken_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">9</Value>
     </Setting>
+    <Setting Name="frmMain_Top" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="frmMain_Left" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="frmMain_Width" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="frmMain_Height" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
