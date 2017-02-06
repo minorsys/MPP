@@ -28,11 +28,11 @@ Partial Class frmMasterCar
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.grdCar = New System.Windows.Forms.DataGridView()
+        Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.Tbl_carTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.tbl_carTableAdapter()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Carnum1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Carnum2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Carnum3DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -40,8 +40,6 @@ Partial Class frmMasterCar
         Me.MusenDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TonDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BikoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BranchidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StaffidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.car_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,9 +48,11 @@ Partial Class frmMasterCar
         Me.bed_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bed_width = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bed_height = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BranchidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StaffidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grdCar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnClose
@@ -98,7 +98,7 @@ Partial Class frmMasterCar
         Me.grdCar.AllowUserToOrderColumns = True
         Me.grdCar.AutoGenerateColumns = False
         Me.grdCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCar.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Carnum1DataGridViewTextBoxColumn, Me.Carnum2DataGridViewTextBoxColumn, Me.Carnum3DataGridViewTextBoxColumn, Me.Carnum4DataGridViewTextBoxColumn, Me.MusenDataGridViewTextBoxColumn, Me.TonDataGridViewTextBoxColumn, Me.BikoDataGridViewTextBoxColumn, Me.BranchidDataGridViewTextBoxColumn, Me.StaffidDataGridViewTextBoxColumn, Me.max_load, Me.limit_syaken, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height})
+        Me.grdCar.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Carnum1DataGridViewTextBoxColumn, Me.Carnum2DataGridViewTextBoxColumn, Me.Carnum3DataGridViewTextBoxColumn, Me.Carnum4DataGridViewTextBoxColumn, Me.MusenDataGridViewTextBoxColumn, Me.TonDataGridViewTextBoxColumn, Me.BikoDataGridViewTextBoxColumn, Me.max_load, Me.limit_syaken, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height, Me.BranchidDataGridViewTextBoxColumn, Me.StaffidDataGridViewTextBoxColumn})
         Me.grdCar.DataSource = Me.TblcarBindingSource
         Me.grdCar.Location = New System.Drawing.Point(12, 41)
         Me.grdCar.Name = "grdCar"
@@ -106,6 +106,11 @@ Partial Class frmMasterCar
         Me.grdCar.RowTemplate.Height = 21
         Me.grdCar.Size = New System.Drawing.Size(1059, 392)
         Me.grdCar.TabIndex = 6
+        '
+        'TblcarBindingSource
+        '
+        Me.TblcarBindingSource.DataMember = "tbl_car"
+        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
         '
         'PhoneNumDBDataSet
         '
@@ -132,11 +137,6 @@ Partial Class frmMasterCar
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(100, 19)
         Me.txtSearch.TabIndex = 12
-        '
-        'TblcarBindingSource
-        '
-        Me.TblcarBindingSource.DataMember = "tbl_car"
-        Me.TblcarBindingSource.DataSource = Me.PhoneNumDBDataSet
         '
         'Carnum1DataGridViewTextBoxColumn
         '
@@ -186,21 +186,6 @@ Partial Class frmMasterCar
         Me.BikoDataGridViewTextBoxColumn.HeaderText = "備考"
         Me.BikoDataGridViewTextBoxColumn.Name = "BikoDataGridViewTextBoxColumn"
         Me.BikoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'BranchidDataGridViewTextBoxColumn
-        '
-        Me.BranchidDataGridViewTextBoxColumn.DataPropertyName = "branch_id"
-        Me.BranchidDataGridViewTextBoxColumn.HeaderText = "branch_id"
-        Me.BranchidDataGridViewTextBoxColumn.Name = "BranchidDataGridViewTextBoxColumn"
-        Me.BranchidDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'StaffidDataGridViewTextBoxColumn
-        '
-        Me.StaffidDataGridViewTextBoxColumn.DataPropertyName = "staff_id"
-        Me.StaffidDataGridViewTextBoxColumn.HeaderText = "staff_id"
-        Me.StaffidDataGridViewTextBoxColumn.Name = "StaffidDataGridViewTextBoxColumn"
-        Me.StaffidDataGridViewTextBoxColumn.ReadOnly = True
-        Me.StaffidDataGridViewTextBoxColumn.Visible = False
         '
         'max_load
         '
@@ -258,6 +243,21 @@ Partial Class frmMasterCar
         Me.bed_height.Name = "bed_height"
         Me.bed_height.ReadOnly = True
         '
+        'BranchidDataGridViewTextBoxColumn
+        '
+        Me.BranchidDataGridViewTextBoxColumn.DataPropertyName = "branch_id"
+        Me.BranchidDataGridViewTextBoxColumn.HeaderText = "branch_id"
+        Me.BranchidDataGridViewTextBoxColumn.Name = "BranchidDataGridViewTextBoxColumn"
+        Me.BranchidDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StaffidDataGridViewTextBoxColumn
+        '
+        Me.StaffidDataGridViewTextBoxColumn.DataPropertyName = "staff_id"
+        Me.StaffidDataGridViewTextBoxColumn.HeaderText = "staff_id"
+        Me.StaffidDataGridViewTextBoxColumn.Name = "StaffidDataGridViewTextBoxColumn"
+        Me.StaffidDataGridViewTextBoxColumn.ReadOnly = True
+        Me.StaffidDataGridViewTextBoxColumn.Visible = False
+        '
         'frmMasterCar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -275,8 +275,8 @@ Partial Class frmMasterCar
         Me.Name = "frmMasterCar"
         Me.Text = "車両マスタ"
         CType(Me.grdCar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -299,8 +299,6 @@ Partial Class frmMasterCar
     Friend WithEvents MusenDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TonDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BikoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents BranchidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StaffidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents max_load As DataGridViewTextBoxColumn
     Friend WithEvents limit_syaken As DataGridViewTextBoxColumn
     Friend WithEvents car_length As DataGridViewTextBoxColumn
@@ -309,4 +307,6 @@ Partial Class frmMasterCar
     Friend WithEvents bed_length As DataGridViewTextBoxColumn
     Friend WithEvents bed_width As DataGridViewTextBoxColumn
     Friend WithEvents bed_height As DataGridViewTextBoxColumn
+    Friend WithEvents BranchidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StaffidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

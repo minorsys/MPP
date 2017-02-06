@@ -1,8 +1,16 @@
-﻿Public Class frmGrd
+﻿
+Imports System
+Imports System.Globalization
+
+
+Public Class frmGrd
 
 
     Private Sub frmGrd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        '日付を和暦で表示する
+        Dim culture As CultureInfo = New CultureInfo("ja-JP", True)
+        culture.DateTimeFormat.Calendar = New JapaneseCalendar()
+        Application.CurrentCulture = culture
 
         'frmMainの位置とウィンドウサイズを呼び出す
         Me.Top = My.Settings.frmMain_Top
@@ -11,9 +19,12 @@
         Me.Height = My.Settings.frmMain_Height
 
 
+        grdMain.AutoGenerateColumns = False
+
         'grdMainの列順を呼び出す
 
         grdMain.Columns("phonenum").DisplayIndex = My.Settings.grdMain_phonenum_DisplayIndex
+        grdMain.Columns("staff_name").DisplayIndex = My.Settings.grdMain_staff_name_DisplayIndex
         grdMain.Columns("carnum1").DisplayIndex = My.Settings.grdMain_carnum1_DisplayIndex
         grdMain.Columns("branch_name").DisplayIndex = My.Settings.grdMain_branch_name_DisplayIndex
         grdMain.Columns("musen").DisplayIndex = My.Settings.grdMain_musen_DisplayIndex
@@ -415,9 +426,9 @@
         'データグリッドビューの行番号を取得する
         row = grdMain.CurrentRow.Index
         '行番号から電話番号を取得する
-        pcode = grdMain.Item(0, row).Value.ToString
-        scode = grdMain.Item(7, row).Value.ToString
-        ccode = grdMain.Item(13, row).Value.ToString
+        pcode = grdMain.Item(5, row).Value.ToString
+        scode = grdMain.Item(16, row).Value.ToString
+        ccode = grdMain.Item(2, row).Value.ToString
 
         Dim frm As New frmModifier
         '[選択行の編集]フォームのSetSelectedRecordプロシージャを呼び出し、
@@ -626,11 +637,11 @@
 
             '選択されている行の車番を取得する
             Dim selectedCarnum As String
-            selectedCarnum = grdMain.Item(13, c.RowIndex).Value.ToString()
+            selectedCarnum = grdMain.Item(2, c.RowIndex).Value.ToString()
 
             '選択されている行の氏名を取得する
             Dim selectedStaff As String
-            selectedStaff = grdMain.Item(8, c.RowIndex).Value.ToString
+            selectedStaff = grdMain.Item(4, c.RowIndex).Value.ToString
 
             If Not selectedCarnum = "" Then
                 '取得した車番からはじまるファイル名をもつファイルを検索する
@@ -700,6 +711,7 @@
 
         'grdMainの列順を記憶する
         My.Settings.grdMain_phonenum_DisplayIndex = grdMain.Columns("phonenum").DisplayIndex
+        My.Settings.grdMain_staff_name_DisplayIndex = grdMain.Columns("staff_name").DisplayIndex
         My.Settings.grdMain_carnum1_DisplayIndex = grdMain.Columns("carnum1").DisplayIndex
         My.Settings.grdMain_branch_name_DisplayIndex = grdMain.Columns("branch_name").DisplayIndex
         My.Settings.grdMain_musen_DisplayIndex = grdMain.Columns("musen").DisplayIndex

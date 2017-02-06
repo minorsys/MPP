@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MSTECH2\SQLEXPRESS;Initial Catalog=PhoneNumDB;Persist Security Info=T"& _ 
-            "rue;User ID=sa;Password=mstech2016")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.194\SQLEXPRESS;Initial Catalog=PhoneNumDB;Persist Security "& _ 
+            "Info=True;User ID=sa;Password=mstech2016")>  _
         Public ReadOnly Property PhoneNumDBConnectionString() As String
             Get
                 Return CType(Me("PhoneNumDBConnectionString"),String)
@@ -67,7 +67,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("6")>  _
         Public Property grdMain_phonenum_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_phonenum_DisplayIndex"),Integer)
@@ -79,7 +79,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("7")>  _
         Public Property grdMain_branch_name_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_branch_name_DisplayIndex"),Integer)
@@ -91,7 +91,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property grdMain_staff_name_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_staff_name_DisplayIndex"),Integer)
@@ -115,7 +115,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("4")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
         Public Property grdMain_musen_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_musen_DisplayIndex"),Integer)
@@ -127,7 +127,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("4")>  _
         Public Property grdMain_ton_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_ton_DisplayIndex"),Integer)
@@ -139,7 +139,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("6")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
         Public Property grdMain_car_branch_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_car_branch_DisplayIndex"),Integer)
@@ -151,7 +151,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("7")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("8")>  _
         Public Property grdMain_max_load_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_max_load_DisplayIndex"),Integer)
@@ -163,7 +163,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("8")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("9")>  _
         Public Property grdMain_limit_menkyo_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_limit_menkyo_DisplayIndex"),Integer)
@@ -175,7 +175,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("9")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("10")>  _
         Public Property grdMain_limit_syaken_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_limit_syaken_DisplayIndex"),Integer)
@@ -235,7 +235,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("10")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("11")>  _
         Public Property grdMain_car_length_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_car_length_DisplayIndex"),Integer)
@@ -247,7 +247,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("11")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("12")>  _
         Public Property grdMain_car_width_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_car_width_DisplayIndex"),Integer)
@@ -259,7 +259,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("12")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("13")>  _
         Public Property grdMain_car_height_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_car_height_DisplayIndex"),Integer)
@@ -271,7 +271,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("13")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("14")>  _
         Public Property grdMain_bed_length_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_bed_length_DisplayIndex"),Integer)
@@ -283,7 +283,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("14")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
         Public Property grdMain_bed_width_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_bed_width_DisplayIndex"),Integer)
@@ -295,7 +295,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("16")>  _
         Public Property grdMain_bed_height_DisplayIndex() As Integer
             Get
                 Return CType(Me("grdMain_bed_height_DisplayIndex"),Integer)

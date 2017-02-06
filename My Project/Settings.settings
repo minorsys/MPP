@@ -5,40 +5,40 @@
     <Setting Name="PhoneNumDBConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=MSTECH2\SQLEXPRESS;Initial Catalog=PhoneNumDB;Persist Security Info=True;User ID=sa;Password=mstech2016&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.2.194\SQLEXPRESS;Initial Catalog=PhoneNumDB;Persist Security Info=True;User ID=sa;Password=mstech2016&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=MSTECH2\SQLEXPRESS;Initial Catalog=PhoneNumDB;Persist Security Info=True;User ID=sa;Password=mstech2016</Value>
+      <Value Profile="(Default)">Data Source=192.168.2.194\SQLEXPRESS;Initial Catalog=PhoneNumDB;Persist Security Info=True;User ID=sa;Password=mstech2016</Value>
     </Setting>
     <Setting Name="grdMain_phonenum_DisplayIndex" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">6</Value>
     </Setting>
     <Setting Name="grdMain_branch_name_DisplayIndex" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">7</Value>
     </Setting>
     <Setting Name="grdMain_staff_name_DisplayIndex" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="grdMain_carnum1_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>
     </Setting>
     <Setting Name="grdMain_musen_DisplayIndex" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">4</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="grdMain_ton_DisplayIndex" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="grdMain_car_branch_DisplayIndex" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">6</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="grdMain_max_load_DisplayIndex" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">7</Value>
-    </Setting>
-    <Setting Name="grdMain_limit_menkyo_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">8</Value>
     </Setting>
-    <Setting Name="grdMain_limit_syaken_DisplayIndex" Type="System.Int32" Scope="User">
+    <Setting Name="grdMain_limit_menkyo_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">9</Value>
+    </Setting>
+    <Setting Name="grdMain_limit_syaken_DisplayIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="frmMain_Top" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">12</Value>
@@ -53,22 +53,22 @@
       <Value Profile="(Default)">655</Value>
     </Setting>
     <Setting Name="grdMain_car_length_DisplayIndex" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
-    </Setting>
-    <Setting Name="grdMain_car_width_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">11</Value>
     </Setting>
-    <Setting Name="grdMain_car_height_DisplayIndex" Type="System.Int32" Scope="User">
+    <Setting Name="grdMain_car_width_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">12</Value>
     </Setting>
-    <Setting Name="grdMain_bed_length_DisplayIndex" Type="System.Int32" Scope="User">
+    <Setting Name="grdMain_car_height_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">13</Value>
     </Setting>
-    <Setting Name="grdMain_bed_width_DisplayIndex" Type="System.Int32" Scope="User">
+    <Setting Name="grdMain_bed_length_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">14</Value>
     </Setting>
-    <Setting Name="grdMain_bed_height_DisplayIndex" Type="System.Int32" Scope="User">
+    <Setting Name="grdMain_bed_width_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="grdMain_bed_height_DisplayIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">16</Value>
     </Setting>
   </Settings>
 </SettingsFile>

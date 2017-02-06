@@ -26,6 +26,8 @@ Partial Class frmGrd
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGrd))
         Me.DtMainBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -40,6 +42,7 @@ Partial Class frmGrd
         Me.grdMain = New System.Windows.Forms.DataGridView()
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnEmergency = New System.Windows.Forms.Button()
         Me.btnFilterClear = New System.Windows.Forms.Button()
         Me.btn15tU = New System.Windows.Forms.Button()
         Me.btn10tU = New System.Windows.Forms.Button()
@@ -82,47 +85,32 @@ Partial Class frmGrd
         Me.btnExportSyakenMenkyo = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
+        Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
+        Me.car_branch = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.musen = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.carnum1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ton = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.staff_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.phonenum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.branch_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.limit_menkyo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.car_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.car_width = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.car_height = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bed_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bed_width = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bed_height = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.phonenum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.branch_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.staff_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.carnum1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.musen = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ton = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.car_branch = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
-        Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
-        Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
-        Me.btnEmergency = New System.Windows.Forms.Button()
+        Me.id_staff = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.staff_kana = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.mail = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.model = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DtMainBindingNavigator.SuspendLayout()
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -130,8 +118,6 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DtMainBindingNavigator
@@ -161,6 +147,16 @@ Partial Class frmGrd
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "新規追加"
+        '
+        'DtMainBindingSource
+        '
+        Me.DtMainBindingSource.DataMember = "dtMain"
+        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
+        '
+        'PhoneNumDBDataSet
+        '
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -254,7 +250,7 @@ Partial Class frmGrd
         Me.grdMain.AllowUserToOrderColumns = True
         Me.grdMain.AutoGenerateColumns = False
         Me.grdMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.phonenum, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.branch_name, Me.DataGridViewTextBoxColumn8, Me.staff_name, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.carnum1, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.musen, Me.ton, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.car_branch, Me.max_load, Me.limit_syaken, Me.limit_menkyo, Me.DataGridViewTextBoxColumn28, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height})
+        Me.grdMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.car_branch, Me.musen, Me.carnum1, Me.ton, Me.staff_name, Me.phonenum, Me.branch_name, Me.max_load, Me.limit_syaken, Me.limit_menkyo, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height, Me.id_staff, Me.staff_kana, Me.mail, Me.model})
         Me.grdMain.DataSource = Me.DtMainBindingSource
         Me.grdMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdMain.Location = New System.Drawing.Point(0, 0)
@@ -321,6 +317,15 @@ Partial Class frmGrd
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "絞り込み"
+        '
+        'btnEmergency
+        '
+        Me.btnEmergency.Location = New System.Drawing.Point(95, 355)
+        Me.btnEmergency.Name = "btnEmergency"
+        Me.btnEmergency.Size = New System.Drawing.Size(52, 23)
+        Me.btnEmergency.TabIndex = 37
+        Me.btnEmergency.Text = "緊急"
+        Me.btnEmergency.UseVisualStyleBackColor = True
         '
         'btnFilterClear
         '
@@ -709,6 +714,75 @@ Partial Class frmGrd
         Me.SplitContainer1.SplitterDistance = 170
         Me.SplitContainer1.TabIndex = 8
         '
+        'DtMainTableAdapter
+        '
+        Me.DtMainTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.tbl_branchTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_carTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_feeTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_PhoneNumTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'car_branch
+        '
+        Me.car_branch.DataPropertyName = "branch_name1"
+        Me.car_branch.HeaderText = "車庫"
+        Me.car_branch.Name = "car_branch"
+        Me.car_branch.ReadOnly = True
+        Me.car_branch.Width = 50
+        '
+        'musen
+        '
+        Me.musen.DataPropertyName = "musen"
+        Me.musen.HeaderText = "無線"
+        Me.musen.Name = "musen"
+        Me.musen.ReadOnly = True
+        Me.musen.Width = 50
+        '
+        'carnum1
+        '
+        Me.carnum1.DataPropertyName = "carnum1"
+        Me.carnum1.HeaderText = "車番"
+        Me.carnum1.Name = "carnum1"
+        Me.carnum1.ReadOnly = True
+        Me.carnum1.Width = 50
+        '
+        'ton
+        '
+        Me.ton.DataPropertyName = "ton"
+        Me.ton.HeaderText = "車格"
+        Me.ton.Name = "ton"
+        Me.ton.ReadOnly = True
+        Me.ton.Width = 50
+        '
+        'staff_name
+        '
+        Me.staff_name.DataPropertyName = "staff_name"
+        Me.staff_name.HeaderText = "氏名"
+        Me.staff_name.Name = "staff_name"
+        Me.staff_name.ReadOnly = True
+        '
+        'phonenum
+        '
+        Me.phonenum.DataPropertyName = "phonenum"
+        Me.phonenum.HeaderText = "電話番号"
+        Me.phonenum.Name = "phonenum"
+        Me.phonenum.ReadOnly = True
+        '
+        'branch_name
+        '
+        Me.branch_name.DataPropertyName = "branch_name"
+        Me.branch_name.HeaderText = "所属"
+        Me.branch_name.Name = "branch_name"
+        Me.branch_name.ReadOnly = True
+        Me.branch_name.Width = 50
+        '
         'max_load
         '
         Me.max_load.DataPropertyName = "max_load"
@@ -729,14 +803,6 @@ Partial Class frmGrd
         Me.limit_menkyo.HeaderText = "免許証期限"
         Me.limit_menkyo.Name = "limit_menkyo"
         Me.limit_menkyo.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn28
-        '
-        Me.DataGridViewTextBoxColumn28.DataPropertyName = "emergency"
-        Me.DataGridViewTextBoxColumn28.HeaderText = "emergency"
-        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
-        Me.DataGridViewTextBoxColumn28.ReadOnly = True
-        Me.DataGridViewTextBoxColumn28.Visible = False
         '
         'car_length
         '
@@ -780,229 +846,37 @@ Partial Class frmGrd
         Me.bed_height.Name = "bed_height"
         Me.bed_height.ReadOnly = True
         '
-        'phonenum
+        'id_staff
         '
-        Me.phonenum.DataPropertyName = "phonenum"
-        Me.phonenum.HeaderText = "電話番号"
-        Me.phonenum.Name = "phonenum"
-        Me.phonenum.ReadOnly = True
+        Me.id_staff.DataPropertyName = "id_staff"
+        Me.id_staff.HeaderText = "id_staff"
+        Me.id_staff.Name = "id_staff"
+        Me.id_staff.ReadOnly = True
+        Me.id_staff.Visible = False
         '
-        'DataGridViewTextBoxColumn2
+        'staff_kana
         '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "mail"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "mail"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Visible = False
+        Me.staff_kana.DataPropertyName = "staff_kana"
+        Me.staff_kana.HeaderText = "staff_kana"
+        Me.staff_kana.Name = "staff_kana"
+        Me.staff_kana.ReadOnly = True
+        Me.staff_kana.Visible = False
         '
-        'DataGridViewTextBoxColumn3
+        'mail
         '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "biko"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "biko"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Visible = False
+        Me.mail.DataPropertyName = "mail"
+        Me.mail.HeaderText = "mail"
+        Me.mail.Name = "mail"
+        Me.mail.ReadOnly = True
+        Me.mail.Visible = False
         '
-        'DataGridViewTextBoxColumn4
+        'model
         '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "model"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "model"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "staff_id"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "staff_id"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Visible = False
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "id_branch"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "id_branch"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Visible = False
-        '
-        'branch_name
-        '
-        Me.branch_name.DataPropertyName = "branch_name"
-        Me.branch_name.HeaderText = "所属"
-        Me.branch_name.Name = "branch_name"
-        Me.branch_name.ReadOnly = True
-        Me.branch_name.Width = 50
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "id_staff"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "id_staff"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Visible = False
-        '
-        'staff_name
-        '
-        Me.staff_name.DataPropertyName = "staff_name"
-        Me.staff_name.HeaderText = "氏名"
-        Me.staff_name.Name = "staff_name"
-        Me.staff_name.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "staff_kana"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "staff_kana"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Visible = False
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "branch_id"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "branch_id"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        Me.DataGridViewTextBoxColumn11.Visible = False
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "staff_phonenum"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "staff_phonenum"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Visible = False
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "biko1"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "biko1"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Visible = False
-        '
-        'carnum1
-        '
-        Me.carnum1.DataPropertyName = "carnum1"
-        Me.carnum1.HeaderText = "車番"
-        Me.carnum1.Name = "carnum1"
-        Me.carnum1.ReadOnly = True
-        Me.carnum1.Width = 50
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "carnum2"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "carnum2"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.ReadOnly = True
-        Me.DataGridViewTextBoxColumn15.Visible = False
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "carnum3"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "carnum3"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.ReadOnly = True
-        Me.DataGridViewTextBoxColumn16.Visible = False
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "carnum4"
-        Me.DataGridViewTextBoxColumn17.HeaderText = "carnum4"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        Me.DataGridViewTextBoxColumn17.ReadOnly = True
-        Me.DataGridViewTextBoxColumn17.Visible = False
-        '
-        'musen
-        '
-        Me.musen.DataPropertyName = "musen"
-        Me.musen.HeaderText = "無線"
-        Me.musen.Name = "musen"
-        Me.musen.ReadOnly = True
-        Me.musen.Width = 50
-        '
-        'ton
-        '
-        Me.ton.DataPropertyName = "ton"
-        Me.ton.HeaderText = "車格"
-        Me.ton.Name = "ton"
-        Me.ton.ReadOnly = True
-        Me.ton.Width = 50
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.DataPropertyName = "biko2"
-        Me.DataGridViewTextBoxColumn20.HeaderText = "biko2"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        Me.DataGridViewTextBoxColumn20.ReadOnly = True
-        Me.DataGridViewTextBoxColumn20.Visible = False
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "branch_id1"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "branch_id1"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        Me.DataGridViewTextBoxColumn21.ReadOnly = True
-        Me.DataGridViewTextBoxColumn21.Visible = False
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "staff_id1"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "staff_id1"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        Me.DataGridViewTextBoxColumn22.ReadOnly = True
-        Me.DataGridViewTextBoxColumn22.Visible = False
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.DataPropertyName = "id_branch1"
-        Me.DataGridViewTextBoxColumn23.HeaderText = "id_branch1"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        Me.DataGridViewTextBoxColumn23.ReadOnly = True
-        Me.DataGridViewTextBoxColumn23.Visible = False
-        '
-        'car_branch
-        '
-        Me.car_branch.DataPropertyName = "branch_name1"
-        Me.car_branch.HeaderText = "車庫"
-        Me.car_branch.Name = "car_branch"
-        Me.car_branch.ReadOnly = True
-        Me.car_branch.Width = 50
-        '
-        'DtMainBindingSource
-        '
-        Me.DtMainBindingSource.DataMember = "dtMain"
-        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
-        'PhoneNumDBDataSet
-        '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DtMainTableAdapter
-        '
-        Me.DtMainTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.tbl_branchTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_carTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_feeTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_PhoneNumTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'btnEmergency
-        '
-        Me.btnEmergency.Location = New System.Drawing.Point(95, 355)
-        Me.btnEmergency.Name = "btnEmergency"
-        Me.btnEmergency.Size = New System.Drawing.Size(52, 23)
-        Me.btnEmergency.TabIndex = 37
-        Me.btnEmergency.Text = "緊急"
-        Me.btnEmergency.UseVisualStyleBackColor = True
+        Me.model.DataPropertyName = "model"
+        Me.model.HeaderText = "model"
+        Me.model.Name = "model"
+        Me.model.ReadOnly = True
+        Me.model.Visible = False
         '
         'frmGrd
         '
@@ -1018,6 +892,8 @@ Partial Class frmGrd
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DtMainBindingNavigator.ResumeLayout(False)
         Me.DtMainBindingNavigator.PerformLayout()
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -1027,8 +903,6 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1096,39 +970,25 @@ Partial Class frmGrd
     Friend WithEvents btnExportSyakenMenkyo As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents SplitContainer1 As SplitContainer
-    Friend WithEvents phonenum As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents branch_name As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents staff_name As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
-    Friend WithEvents carnum1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
-    Friend WithEvents musen As DataGridViewTextBoxColumn
-    Friend WithEvents ton As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
+    Friend WithEvents btnEmergency As Button
     Friend WithEvents car_branch As DataGridViewTextBoxColumn
+    Friend WithEvents musen As DataGridViewTextBoxColumn
+    Friend WithEvents carnum1 As DataGridViewTextBoxColumn
+    Friend WithEvents ton As DataGridViewTextBoxColumn
+    Friend WithEvents staff_name As DataGridViewTextBoxColumn
+    Friend WithEvents phonenum As DataGridViewTextBoxColumn
+    Friend WithEvents branch_name As DataGridViewTextBoxColumn
     Friend WithEvents max_load As DataGridViewTextBoxColumn
     Friend WithEvents limit_syaken As DataGridViewTextBoxColumn
     Friend WithEvents limit_menkyo As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewCheckBoxColumn
     Friend WithEvents car_length As DataGridViewTextBoxColumn
     Friend WithEvents car_width As DataGridViewTextBoxColumn
     Friend WithEvents car_height As DataGridViewTextBoxColumn
     Friend WithEvents bed_length As DataGridViewTextBoxColumn
     Friend WithEvents bed_width As DataGridViewTextBoxColumn
     Friend WithEvents bed_height As DataGridViewTextBoxColumn
-    Friend WithEvents btnEmergency As Button
+    Friend WithEvents id_staff As DataGridViewTextBoxColumn
+    Friend WithEvents staff_kana As DataGridViewTextBoxColumn
+    Friend WithEvents mail As DataGridViewTextBoxColumn
+    Friend WithEvents model As DataGridViewTextBoxColumn
 End Class
