@@ -304,6 +304,30 @@ Namespace My
                 Me("grdMain_bed_height_DisplayIndex") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("17")>  _
+        Public Property grdMain_maker_DisplayIndex() As Integer
+            Get
+                Return CType(Me("grdMain_maker_DisplayIndex"),Integer)
+            End Get
+            Set
+                Me("grdMain_maker_DisplayIndex") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("18")>  _
+        Public Property grdMain_car_type_DisplayIndex() As Integer
+            Get
+                Return CType(Me("grdMain_car_type_DisplayIndex"),Integer)
+            End Get
+            Set
+                Me("grdMain_car_type_DisplayIndex") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

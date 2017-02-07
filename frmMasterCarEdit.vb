@@ -21,6 +21,20 @@ Public Class frmMasterCarEdit
 
         '所属コンボボックスの規定値をレコードに合わせる
         cmbBranch.SelectedValue = lblCarBranch.Text
+
+        'メーカーコンボボックスにデータをフィル
+        cmbMaker.Items.Add("日野")
+        cmbMaker.Items.Add("いすゞ")
+        cmbMaker.Items.Add("三菱")
+        cmbMaker.Items.Add("トヨタ")
+
+        '車種コンボボックスにデータをフィル
+        cmbCarType.Items.Add("平４段クレーン")
+        cmbCarType.Items.Add("平３段クレーン")
+        cmbCarType.Items.Add("平３段クレーンPG")
+        cmbCarType.Items.Add("平格納クレーン")
+        cmbCarType.Items.Add("平パワーゲート")
+
     End Sub
 
     '車格コンボボックスの値が変更されたら、車格テキストボックスに代入
@@ -130,6 +144,93 @@ Public Class frmMasterCarEdit
         With cmbBranch
             If .SelectedIndex = -1 Then
                 MsgBox("車両の所属が選択されていません")
+                .Select()
+                Return False
+
+            End If
+        End With
+
+        'データの検査(長さ)
+        With txtCar_length
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("長さは半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(幅)
+        With txtCar_width
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("幅は半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(高さ)
+        With txtCar_height
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("高さは半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(荷台長)
+        With txtBed_length
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("荷台長は半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(荷台幅)
+        With txtBed_width
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("荷台幅は半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+        'データの検査(荷台高)
+        With txtBed_height
+            If Not .Text = "" Then
+                If Not CheckInteger(.Text) Then
+
+                    MsgBox("荷台高は半角数字のみで入力してください")
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+
+        'データの検査(メーカー)
+        With cmbMaker
+            If Not CheckMaxLengthCar("maker", .Text) Then
+                MsgBox("メーカー名は全角７字以内で入力してください")
+                .Select()
+                Return False
+
+            End If
+        End With
+
+        'データの検査(車種)
+        With cmbCarType
+            If Not CheckMaxLengthCar("car_type", .Text) Then
+                MsgBox("メーカー名は全角15字以内で入力してください")
                 .Select()
                 Return False
 

@@ -77,6 +77,10 @@ Partial Class frmMasterCarEdit
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cbxEmergency = New System.Windows.Forms.CheckBox()
         Me.Label20 = New System.Windows.Forms.Label()
+        Me.cmbCarType = New System.Windows.Forms.ComboBox()
+        Me.cmbMaker = New System.Windows.Forms.ComboBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -161,7 +165,7 @@ Partial Class frmMasterCarEdit
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(497, 391)
+        Me.btnClose.Location = New System.Drawing.Point(497, 443)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(55, 23)
         Me.btnClose.TabIndex = 19
@@ -170,7 +174,7 @@ Partial Class frmMasterCarEdit
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(434, 391)
+        Me.btnOK.Location = New System.Drawing.Point(434, 443)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(57, 23)
         Me.btnOK.TabIndex = 18
@@ -280,7 +284,7 @@ Partial Class frmMasterCarEdit
         'BikoLabel
         '
         Me.BikoLabel.AutoSize = True
-        Me.BikoLabel.Location = New System.Drawing.Point(38, 239)
+        Me.BikoLabel.Location = New System.Drawing.Point(38, 291)
         Me.BikoLabel.Name = "BikoLabel"
         Me.BikoLabel.Size = New System.Drawing.Size(29, 12)
         Me.BikoLabel.TabIndex = 85
@@ -290,7 +294,7 @@ Partial Class frmMasterCarEdit
         '
         Me.txtBiko.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "biko", True))
         Me.txtBiko.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtBiko.Location = New System.Drawing.Point(84, 236)
+        Me.txtBiko.Location = New System.Drawing.Point(84, 288)
         Me.txtBiko.Multiline = True
         Me.txtBiko.Name = "txtBiko"
         Me.txtBiko.Size = New System.Drawing.Size(468, 149)
@@ -557,7 +561,7 @@ Partial Class frmMasterCarEdit
         '
         Me.cbxEmergency.AutoSize = True
         Me.cbxEmergency.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TblcarBindingSource, "emergency", True))
-        Me.cbxEmergency.Location = New System.Drawing.Point(84, 209)
+        Me.cbxEmergency.Location = New System.Drawing.Point(84, 261)
         Me.cbxEmergency.Name = "cbxEmergency"
         Me.cbxEmergency.Size = New System.Drawing.Size(15, 14)
         Me.cbxEmergency.TabIndex = 9
@@ -566,18 +570,58 @@ Partial Class frmMasterCarEdit
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(25, 209)
+        Me.Label20.Location = New System.Drawing.Point(25, 261)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(53, 12)
         Me.Label20.TabIndex = 101
         Me.Label20.Text = "緊急車両"
+        '
+        'cmbCarType
+        '
+        Me.cmbCarType.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "car_type", True))
+        Me.cmbCarType.FormattingEnabled = True
+        Me.cmbCarType.Location = New System.Drawing.Point(84, 228)
+        Me.cmbCarType.Name = "cmbCarType"
+        Me.cmbCarType.Size = New System.Drawing.Size(92, 20)
+        Me.cmbCarType.TabIndex = 118
+        '
+        'cmbMaker
+        '
+        Me.cmbMaker.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "maker", True))
+        Me.cmbMaker.FormattingEnabled = True
+        Me.cmbMaker.Location = New System.Drawing.Point(84, 204)
+        Me.cmbMaker.Name = "cmbMaker"
+        Me.cmbMaker.Size = New System.Drawing.Size(92, 20)
+        Me.cmbMaker.TabIndex = 117
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(38, 231)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(29, 12)
+        Me.Label28.TabIndex = 116
+        Me.Label28.Text = "車種"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(33, 207)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(42, 12)
+        Me.Label27.TabIndex = 115
+        Me.Label27.Text = "メーカー"
         '
         'frmMasterCarEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(577, 426)
+        Me.ClientSize = New System.Drawing.Size(574, 475)
+        Me.Controls.Add(Me.cmbCarType)
+        Me.Controls.Add(Me.cmbMaker)
+        Me.Controls.Add(Me.Label28)
+        Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.cbxEmergency)
         Me.Controls.Add(Me.GroupBox1)
@@ -673,4 +717,8 @@ Partial Class frmMasterCarEdit
     Friend WithEvents Label7 As Label
     Friend WithEvents cbxEmergency As CheckBox
     Friend WithEvents Label20 As Label
+    Friend WithEvents cmbCarType As ComboBox
+    Friend WithEvents cmbMaker As ComboBox
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label27 As Label
 End Class

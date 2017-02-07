@@ -87,6 +87,10 @@ Partial Class frmMasterCarNew
         Me.txtDay = New System.Windows.Forms.TextBox()
         Me.txtMonth = New System.Windows.Forms.TextBox()
         Me.txtYear = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.cmbMaker = New System.Windows.Forms.ComboBox()
+        Me.cmbCarType = New System.Windows.Forms.ComboBox()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,7 +145,7 @@ Partial Class frmMasterCarNew
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(510, 376)
+        Me.btnCancel.Location = New System.Drawing.Point(510, 431)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(55, 23)
         Me.btnCancel.TabIndex = 23
@@ -150,7 +154,7 @@ Partial Class frmMasterCarNew
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(447, 376)
+        Me.btnRegister.Location = New System.Drawing.Point(447, 431)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(57, 23)
         Me.btnRegister.TabIndex = 22
@@ -254,7 +258,7 @@ Partial Class frmMasterCarNew
         'txtBiko
         '
         Me.txtBiko.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtBiko.Location = New System.Drawing.Point(84, 280)
+        Me.txtBiko.Location = New System.Drawing.Point(84, 335)
         Me.txtBiko.Multiline = True
         Me.txtBiko.Name = "txtBiko"
         Me.txtBiko.Size = New System.Drawing.Size(481, 90)
@@ -331,7 +335,7 @@ Partial Class frmMasterCarNew
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(13, 200)
+        Me.Label6.Location = New System.Drawing.Point(13, 247)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(65, 12)
         Me.Label6.TabIndex = 70
@@ -340,7 +344,7 @@ Partial Class frmMasterCarNew
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(38, 280)
+        Me.Label7.Location = New System.Drawing.Point(38, 335)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(29, 12)
         Me.Label7.TabIndex = 71
@@ -357,7 +361,7 @@ Partial Class frmMasterCarNew
         '
         'btnFileSelect
         '
-        Me.btnFileSelect.Location = New System.Drawing.Point(215, 222)
+        Me.btnFileSelect.Location = New System.Drawing.Point(215, 269)
         Me.btnFileSelect.Name = "btnFileSelect"
         Me.btnFileSelect.Size = New System.Drawing.Size(75, 23)
         Me.btnFileSelect.TabIndex = 12
@@ -367,7 +371,7 @@ Partial Class frmMasterCarNew
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(3, 227)
+        Me.Label9.Location = New System.Drawing.Point(3, 274)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(75, 12)
         Me.Label9.TabIndex = 74
@@ -375,7 +379,7 @@ Partial Class frmMasterCarNew
         '
         'txtFilePath
         '
-        Me.txtFilePath.Location = New System.Drawing.Point(85, 224)
+        Me.txtFilePath.Location = New System.Drawing.Point(85, 271)
         Me.txtFilePath.Name = "txtFilePath"
         Me.txtFilePath.Size = New System.Drawing.Size(124, 19)
         Me.txtFilePath.TabIndex = 75
@@ -567,7 +571,7 @@ Partial Class frmMasterCarNew
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(25, 252)
+        Me.Label22.Location = New System.Drawing.Point(25, 299)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(53, 12)
         Me.Label22.TabIndex = 103
@@ -577,7 +581,7 @@ Partial Class frmMasterCarNew
         '
         Me.cbxEmergency.AutoSize = True
         Me.cbxEmergency.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TblcarBindingSource, "emergency", True))
-        Me.cbxEmergency.Location = New System.Drawing.Point(84, 252)
+        Me.cbxEmergency.Location = New System.Drawing.Point(84, 299)
         Me.cbxEmergency.Name = "cbxEmergency"
         Me.cbxEmergency.Size = New System.Drawing.Size(15, 14)
         Me.cbxEmergency.TabIndex = 13
@@ -586,7 +590,7 @@ Partial Class frmMasterCarNew
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(263, 200)
+        Me.Label23.Location = New System.Drawing.Point(263, 247)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(17, 12)
         Me.Label23.TabIndex = 110
@@ -595,7 +599,7 @@ Partial Class frmMasterCarNew
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(209, 200)
+        Me.Label24.Location = New System.Drawing.Point(209, 247)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(17, 12)
         Me.Label24.TabIndex = 109
@@ -604,7 +608,7 @@ Partial Class frmMasterCarNew
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(155, 200)
+        Me.Label25.Location = New System.Drawing.Point(155, 247)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(17, 12)
         Me.Label25.TabIndex = 108
@@ -613,7 +617,7 @@ Partial Class frmMasterCarNew
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(89, 200)
+        Me.Label26.Location = New System.Drawing.Point(89, 247)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(29, 12)
         Me.Label26.TabIndex = 107
@@ -622,7 +626,7 @@ Partial Class frmMasterCarNew
         'txtDay
         '
         Me.txtDay.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txtDay.Location = New System.Drawing.Point(227, 197)
+        Me.txtDay.Location = New System.Drawing.Point(227, 244)
         Me.txtDay.Name = "txtDay"
         Me.txtDay.Size = New System.Drawing.Size(34, 19)
         Me.txtDay.TabIndex = 11
@@ -630,7 +634,7 @@ Partial Class frmMasterCarNew
         'txtMonth
         '
         Me.txtMonth.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txtMonth.Location = New System.Drawing.Point(174, 197)
+        Me.txtMonth.Location = New System.Drawing.Point(174, 244)
         Me.txtMonth.Name = "txtMonth"
         Me.txtMonth.Size = New System.Drawing.Size(33, 19)
         Me.txtMonth.TabIndex = 10
@@ -638,17 +642,55 @@ Partial Class frmMasterCarNew
         'txtYear
         '
         Me.txtYear.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txtYear.Location = New System.Drawing.Point(120, 197)
+        Me.txtYear.Location = New System.Drawing.Point(120, 244)
         Me.txtYear.Name = "txtYear"
         Me.txtYear.Size = New System.Drawing.Size(33, 19)
         Me.txtYear.TabIndex = 9
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(34, 193)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(42, 12)
+        Me.Label27.TabIndex = 111
+        Me.Label27.Text = "メーカー"
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(39, 217)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(29, 12)
+        Me.Label28.TabIndex = 112
+        Me.Label28.Text = "車種"
+        '
+        'cmbMaker
+        '
+        Me.cmbMaker.FormattingEnabled = True
+        Me.cmbMaker.Location = New System.Drawing.Point(85, 190)
+        Me.cmbMaker.Name = "cmbMaker"
+        Me.cmbMaker.Size = New System.Drawing.Size(92, 20)
+        Me.cmbMaker.TabIndex = 113
+        '
+        'cmbCarType
+        '
+        Me.cmbCarType.FormattingEnabled = True
+        Me.cmbCarType.Location = New System.Drawing.Point(85, 214)
+        Me.cmbCarType.Name = "cmbCarType"
+        Me.cmbCarType.Size = New System.Drawing.Size(92, 20)
+        Me.cmbCarType.TabIndex = 114
         '
         'frmMasterCarNew
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(577, 406)
+        Me.ClientSize = New System.Drawing.Size(577, 466)
+        Me.Controls.Add(Me.cmbCarType)
+        Me.Controls.Add(Me.cmbMaker)
+        Me.Controls.Add(Me.Label28)
+        Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label25)
@@ -763,4 +805,8 @@ Partial Class frmMasterCarNew
     Friend WithEvents txtDay As TextBox
     Friend WithEvents txtMonth As TextBox
     Friend WithEvents txtYear As TextBox
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents cmbMaker As ComboBox
+    Friend WithEvents cmbCarType As ComboBox
 End Class

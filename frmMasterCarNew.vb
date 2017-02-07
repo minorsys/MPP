@@ -21,6 +21,19 @@ Public Class frmMasterCarNew
         cmbTon.Items.Add("15tU")
         cmbTon.Items.Add("その他")
 
+        'メーカーコンボボックスにデータをフィル
+        cmbMaker.Items.Add("日野")
+        cmbMaker.Items.Add("いすゞ")
+        cmbMaker.Items.Add("三菱")
+        cmbMaker.Items.Add("トヨタ")
+
+        '車種コンボボックスにデータをフィル
+        cmbCarType.Items.Add("平４段クレーン")
+        cmbCarType.Items.Add("平３段クレーン")
+        cmbCarType.Items.Add("平３段クレーンPG")
+        cmbCarType.Items.Add("平格納クレーン")
+        cmbCarType.Items.Add("平パワーゲート")
+
     End Sub
 
     'キャンセルボタン
@@ -101,11 +114,12 @@ Public Class frmMasterCarNew
                 End If
 
                 newrecord.emergency = cbxEmergency.Checked
+                newrecord.maker = cmbMaker.Text
+                newrecord.car_type = cmbCarType.Text
 
 
-
-                    '新規行をデータテーブルに追加する
-                    Me.PhoneNumDBDataSet.tbl_car.Addtbl_carRow(newrecord)
+                '新規行をデータテーブルに追加する
+                Me.PhoneNumDBDataSet.tbl_car.Addtbl_carRow(newrecord)
 
                 'テーブルアダプタを介して、tbl_carテーブルを更新する
                 Me.Tbl_carTableAdapter.Update(Me.PhoneNumDBDataSet.tbl_car)
@@ -326,6 +340,26 @@ Public Class frmMasterCarNew
                     .Select()
                     Return False
                 End If
+            End If
+        End With
+
+        'データの検査(メーカー)
+        With cmbMaker
+            If Not CheckMaxLengthCar("maker", .Text) Then
+                MsgBox("メーカー名は全角７字以内で入力してください")
+                .Select()
+                Return False
+
+            End If
+        End With
+
+        'データの検査(車種)
+        With cmbCarType
+            If Not CheckMaxLengthCar("car_type", .Text) Then
+                MsgBox("メーカー名は全角15字以内で入力してください")
+                .Select()
+                Return False
+
             End If
         End With
 

@@ -26,8 +26,6 @@ Partial Class frmGrd
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGrd))
         Me.DtMainBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -85,6 +83,8 @@ Partial Class frmGrd
         Me.btnExportSyakenMenkyo = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
         Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
         Me.car_branch = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -107,10 +107,10 @@ Partial Class frmGrd
         Me.staff_kana = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mail = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.model = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.maker = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.car_type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DtMainBindingNavigator.SuspendLayout()
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -118,6 +118,8 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DtMainBindingNavigator
@@ -147,16 +149,6 @@ Partial Class frmGrd
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "新規追加"
-        '
-        'DtMainBindingSource
-        '
-        Me.DtMainBindingSource.DataMember = "dtMain"
-        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
-        'PhoneNumDBDataSet
-        '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -251,7 +243,7 @@ Partial Class frmGrd
         Me.grdMain.AutoGenerateColumns = False
         Me.grdMain.BackgroundColor = System.Drawing.SystemColors.Control
         Me.grdMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.car_branch, Me.musen, Me.carnum1, Me.ton, Me.staff_name, Me.phonenum, Me.branch_name, Me.max_load, Me.limit_syaken, Me.limit_menkyo, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height, Me.id_staff, Me.staff_kana, Me.mail, Me.model})
+        Me.grdMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.car_branch, Me.musen, Me.carnum1, Me.ton, Me.staff_name, Me.phonenum, Me.branch_name, Me.max_load, Me.limit_syaken, Me.limit_menkyo, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height, Me.id_staff, Me.staff_kana, Me.mail, Me.model, Me.maker, Me.car_type})
         Me.grdMain.DataSource = Me.DtMainBindingSource
         Me.grdMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdMain.Location = New System.Drawing.Point(0, 0)
@@ -715,6 +707,16 @@ Partial Class frmGrd
         Me.SplitContainer1.SplitterDistance = 170
         Me.SplitContainer1.TabIndex = 8
         '
+        'DtMainBindingSource
+        '
+        Me.DtMainBindingSource.DataMember = "dtMain"
+        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
+        '
+        'PhoneNumDBDataSet
+        '
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'DtMainTableAdapter
         '
         Me.DtMainTableAdapter.ClearBeforeFill = True
@@ -879,6 +881,21 @@ Partial Class frmGrd
         Me.model.ReadOnly = True
         Me.model.Visible = False
         '
+        'maker
+        '
+        Me.maker.DataPropertyName = "maker"
+        Me.maker.HeaderText = "メーカー"
+        Me.maker.Name = "maker"
+        Me.maker.ReadOnly = True
+        Me.maker.Width = 50
+        '
+        'car_type
+        '
+        Me.car_type.DataPropertyName = "car_type"
+        Me.car_type.HeaderText = "車種"
+        Me.car_type.Name = "car_type"
+        Me.car_type.ReadOnly = True
+        '
         'frmGrd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -893,8 +910,6 @@ Partial Class frmGrd
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DtMainBindingNavigator.ResumeLayout(False)
         Me.DtMainBindingNavigator.PerformLayout()
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -904,6 +919,8 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -992,4 +1009,6 @@ Partial Class frmGrd
     Friend WithEvents staff_kana As DataGridViewTextBoxColumn
     Friend WithEvents mail As DataGridViewTextBoxColumn
     Friend WithEvents model As DataGridViewTextBoxColumn
+    Friend WithEvents maker As DataGridViewTextBoxColumn
+    Friend WithEvents car_type As DataGridViewTextBoxColumn
 End Class

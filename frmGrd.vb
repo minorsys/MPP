@@ -39,7 +39,8 @@ Public Class frmGrd
         grdMain.Columns("bed_length").DisplayIndex = My.Settings.grdMain_bed_length_DisplayIndex
         grdMain.Columns("bed_width").DisplayIndex = My.Settings.grdMain_bed_width_DisplayIndex
         grdMain.Columns("bed_height").DisplayIndex = My.Settings.grdMain_bed_height_DisplayIndex
-
+        grdMain.Columns("maker").DisplayIndex = My.Settings.grdMain_maker_DisplayIndex
+        grdMain.Columns("car_type").DisplayIndex = My.Settings.grdMain_car_type_DisplayIndex
 
 
         'TODO: このコード行はデータを 'PhoneNumDBDataSet.dtInteg' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
@@ -656,7 +657,6 @@ Public Class frmGrd
                     errmsg += vbCrLf & selectedCarnum
                 Else
 
-
                     '該当ファイルをコピーする
                     For Each f As String In files
                         System.IO.File.Copy(f, "C:\MPP\Exports\" & folderpath & "\車検証\" & selectedCarnum & ".pdf")
@@ -678,11 +678,9 @@ Public Class frmGrd
                 If files.Count = 0 Then
                     errmsg += vbCrLf & selectedStaff
                 Else
-
                     '該当ファイルをコピーする
                     For Each f As String In files
                         System.IO.File.Copy(f, "C:\MPP\Exports\" & folderpath & "\免許証\" & selectedStaff & ".pdf")
-
                     Next
 
                 End If
@@ -726,6 +724,8 @@ Public Class frmGrd
         My.Settings.grdMain_bed_length_DisplayIndex = grdMain.Columns("bed_length").DisplayIndex
         My.Settings.grdMain_bed_width_DisplayIndex = grdMain.Columns("bed_width").DisplayIndex
         My.Settings.grdMain_bed_height_DisplayIndex = grdMain.Columns("bed_height").DisplayIndex
+        My.Settings.grdMain_maker_DisplayIndex = grdMain.Columns("maker").DisplayIndex
+        My.Settings.grdMain_car_type_DisplayIndex = grdMain.Columns("car_type").DisplayIndex
 
         'frmMainの位置を記憶する
         My.Settings.frmMain_Top = Me.Top

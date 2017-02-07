@@ -70,5 +70,11 @@
     <Setting Name="grdMain_bed_height_DisplayIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">16</Value>
     </Setting>
+    <Setting Name="grdMain_maker_DisplayIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">17</Value>
+    </Setting>
+    <Setting Name="grdMain_car_type_DisplayIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">18</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
