@@ -593,4 +593,5 @@ Public Class frmModifier
         '[選択行の編集]フォームを表示する
         frm.ShowDialog(Me)
     End Sub
+
 End Class

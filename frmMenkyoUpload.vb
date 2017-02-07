@@ -112,7 +112,7 @@ Public Class frmMenkyoUpload
 
         '選択された社員の新しい免許証をmenkyoフォルダにコピー＆リネーム　例：岩田　久彌_免許証_20170101.pdf
         Dim newMenkyoFilePath As String
-        newMenkyoFilePath = "\\192.168.8.190\share\system\menkyo\" & cmbStaff.Text & "_免許証_" & menkyoLimit.ToString & ".pdf"
+        newMenkyoFilePath = "\\192.168.8.190\share\system\menkyo\" & cmbStaff.Text & "_免許証_" & menkyoLimit.ToLongDateString & ".pdf"
 
         System.IO.File.Copy(txtFilePath.Text, newMenkyoFilePath)
 

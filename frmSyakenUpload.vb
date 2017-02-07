@@ -110,7 +110,7 @@ Public Class frmSyakenUpload
 
         '選択された車番の新しい車検証をsyakenフォルダにコピー＆リネーム　例：1467_車検証_20170101.pdf
         Dim newSyakenFilePath As String
-        newSyakenFilePath = "\\192.168.8.190\share\system\syaken\" & cmbCarnum.Text & "_車検証_" & syakenLimit.ToString & ".pdf"
+        newSyakenFilePath = "\\192.168.8.190\share\system\syaken\" & cmbCarnum.Text & "_車検証_" & syakenLimit.ToLongDateString & ".pdf"
         System.IO.File.Copy(txtFilePath.Text, newSyakenFilePath)
 
         'データベース上の車検証期限を更新する

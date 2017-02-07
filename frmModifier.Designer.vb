@@ -37,15 +37,31 @@ Partial Class frmModifier
         Dim BikoLabel As System.Windows.Forms.Label
         Dim ModelLabel As System.Windows.Forms.Label
         Dim Label3 As System.Windows.Forms.Label
-        Dim Label1 As System.Windows.Forms.Label
         Dim Label2 As System.Windows.Forms.Label
         Dim Label4 As System.Windows.Forms.Label
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.lblSyakenLimit = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.lblCar_width = New System.Windows.Forms.Label()
         Me.TblcarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
+        Me.lblCarLength = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.lblMasLoad = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.btnSyakenUpdate = New System.Windows.Forms.Button()
+        Me.lblSyakenLimit = New System.Windows.Forms.Label()
         Me.lblTon = New System.Windows.Forms.Label()
         Me.lblmusen = New System.Windows.Forms.Label()
         Me.lblCarnum4 = New System.Windows.Forms.Label()
@@ -58,6 +74,7 @@ Partial Class frmModifier
         Me.lblCarnum = New System.Windows.Forms.Label()
         Me.txtBikoCar = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnMenkyoUpdate = New System.Windows.Forms.Button()
         Me.lblMenkyoLimit = New System.Windows.Forms.Label()
         Me.TblstaffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.lblStaffKana = New System.Windows.Forms.Label()
@@ -87,8 +104,10 @@ Partial Class frmModifier
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.btnMenkyoUpdate = New System.Windows.Forms.Button()
-        Me.btnSyakenUpdate = New System.Windows.Forms.Button()
+        Me.lblCarHeight = New System.Windows.Forms.Label()
+        Me.lblBedLength = New System.Windows.Forms.Label()
+        Me.lblBedWidth = New System.Windows.Forms.Label()
+        Me.lblBedHeight = New System.Windows.Forms.Label()
         Branch_idLabel2 = New System.Windows.Forms.Label()
         Carnum1Label = New System.Windows.Forms.Label()
         MusenLabel = New System.Windows.Forms.Label()
@@ -103,10 +122,10 @@ Partial Class frmModifier
         BikoLabel = New System.Windows.Forms.Label()
         ModelLabel = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
-        Label1 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
         Label4 = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblbranchBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,7 +176,7 @@ Partial Class frmModifier
         'BikoLabel1
         '
         BikoLabel1.AutoSize = True
-        BikoLabel1.Location = New System.Drawing.Point(12, 193)
+        BikoLabel1.Location = New System.Drawing.Point(12, 179)
         BikoLabel1.Name = "BikoLabel1"
         BikoLabel1.Size = New System.Drawing.Size(29, 12)
         BikoLabel1.TabIndex = 12
@@ -244,19 +263,10 @@ Partial Class frmModifier
         Label3.TabIndex = 20
         Label3.Text = "備考"
         '
-        'Label1
-        '
-        Label1.AutoSize = True
-        Label1.Location = New System.Drawing.Point(12, 147)
-        Label1.Name = "Label1"
-        Label1.Size = New System.Drawing.Size(65, 12)
-        Label1.TabIndex = 20
-        Label1.Text = "最大積載量"
-        '
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(12, 171)
+        Label2.Location = New System.Drawing.Point(12, 148)
         Label2.Name = "Label2"
         Label2.Size = New System.Drawing.Size(65, 12)
         Label2.TabIndex = 22
@@ -274,16 +284,14 @@ Partial Class frmModifier
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.LightBlue
+        Me.GroupBox3.Controls.Add(Me.GroupBox5)
         Me.GroupBox3.Controls.Add(Me.btnSyakenUpdate)
         Me.GroupBox3.Controls.Add(Me.lblSyakenLimit)
-        Me.GroupBox3.Controls.Add(Me.lblMasLoad)
-        Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.lblTon)
         Me.GroupBox3.Controls.Add(Me.lblmusen)
         Me.GroupBox3.Controls.Add(Label2)
         Me.GroupBox3.Controls.Add(Me.lblCarnum4)
         Me.GroupBox3.Controls.Add(Me.lblCarnum3)
-        Me.GroupBox3.Controls.Add(Label1)
         Me.GroupBox3.Controls.Add(Me.lblCarnum2)
         Me.GroupBox3.Controls.Add(Me.btnClearCar)
         Me.GroupBox3.Controls.Add(Branch_idLabel2)
@@ -297,20 +305,50 @@ Partial Class frmModifier
         Me.GroupBox3.Controls.Add(Me.txtBikoCar)
         Me.GroupBox3.Location = New System.Drawing.Point(542, 12)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(284, 352)
+        Me.GroupBox3.Size = New System.Drawing.Size(440, 352)
         Me.GroupBox3.TabIndex = 25
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "車両情報"
         '
-        'lblSyakenLimit
+        'GroupBox5
         '
-        Me.lblSyakenLimit.AutoSize = True
-        Me.lblSyakenLimit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "limit_syaken", True))
-        Me.lblSyakenLimit.Location = New System.Drawing.Point(87, 171)
-        Me.lblSyakenLimit.Name = "lblSyakenLimit"
-        Me.lblSyakenLimit.Size = New System.Drawing.Size(67, 12)
-        Me.lblSyakenLimit.TabIndex = 38
-        Me.lblSyakenLimit.Text = "SyakenLimit"
+        Me.GroupBox5.Controls.Add(Me.lblBedHeight)
+        Me.GroupBox5.Controls.Add(Me.lblBedWidth)
+        Me.GroupBox5.Controls.Add(Me.lblBedLength)
+        Me.GroupBox5.Controls.Add(Me.lblCarHeight)
+        Me.GroupBox5.Controls.Add(Me.lblCar_width)
+        Me.GroupBox5.Controls.Add(Me.lblCarLength)
+        Me.GroupBox5.Controls.Add(Me.Label19)
+        Me.GroupBox5.Controls.Add(Me.Label18)
+        Me.GroupBox5.Controls.Add(Me.Label17)
+        Me.GroupBox5.Controls.Add(Me.lblMasLoad)
+        Me.GroupBox5.Controls.Add(Me.Label16)
+        Me.GroupBox5.Controls.Add(Me.Label15)
+        Me.GroupBox5.Controls.Add(Me.Label14)
+        Me.GroupBox5.Controls.Add(Me.Label13)
+        Me.GroupBox5.Controls.Add(Me.Label12)
+        Me.GroupBox5.Controls.Add(Me.Label11)
+        Me.GroupBox5.Controls.Add(Me.Label10)
+        Me.GroupBox5.Controls.Add(Me.Label6)
+        Me.GroupBox5.Controls.Add(Me.Label8)
+        Me.GroupBox5.Controls.Add(Me.Label20)
+        Me.GroupBox5.Controls.Add(Me.Label21)
+        Me.GroupBox5.Location = New System.Drawing.Point(264, 30)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(166, 200)
+        Me.GroupBox5.TabIndex = 100
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "車両寸法"
+        '
+        'lblCar_width
+        '
+        Me.lblCar_width.AutoSize = True
+        Me.lblCar_width.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "car_width", True))
+        Me.lblCar_width.Location = New System.Drawing.Point(73, 47)
+        Me.lblCar_width.Name = "lblCar_width"
+        Me.lblCar_width.Size = New System.Drawing.Size(52, 12)
+        Me.lblCar_width.TabIndex = 117
+        Me.lblCar_width.Text = "car_width"
         '
         'TblcarBindingSource
         '
@@ -322,24 +360,170 @@ Partial Class frmModifier
         Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
         Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'lblCarLength
+        '
+        Me.lblCarLength.AutoSize = True
+        Me.lblCarLength.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "car_length", True))
+        Me.lblCarLength.Location = New System.Drawing.Point(73, 22)
+        Me.lblCarLength.Name = "lblCarLength"
+        Me.lblCarLength.Size = New System.Drawing.Size(56, 12)
+        Me.lblCarLength.TabIndex = 116
+        Me.lblCarLength.Text = "car_length"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(129, 172)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(23, 12)
+        Me.Label19.TabIndex = 115
+        Me.Label19.Text = "mm"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(129, 148)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(23, 12)
+        Me.Label18.TabIndex = 114
+        Me.Label18.Text = "mm"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(129, 123)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(23, 12)
+        Me.Label17.TabIndex = 113
+        Me.Label17.Text = "mm"
+        '
         'lblMasLoad
         '
         Me.lblMasLoad.AutoSize = True
         Me.lblMasLoad.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "max_load", True))
-        Me.lblMasLoad.Location = New System.Drawing.Point(87, 147)
+        Me.lblMasLoad.Location = New System.Drawing.Point(72, 97)
         Me.lblMasLoad.Name = "lblMasLoad"
         Me.lblMasLoad.Size = New System.Drawing.Size(50, 12)
         Me.lblMasLoad.TabIndex = 43
         Me.lblMasLoad.Text = "maxLoad"
         '
-        'Label5
+        'Label16
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(143, 147)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(17, 12)
-        Me.Label5.TabIndex = 24
-        Me.Label5.Text = "kg"
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(129, 72)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(20, 12)
+        Me.Label16.TabIndex = 112
+        Me.Label16.Text = "cm"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(129, 47)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(20, 12)
+        Me.Label15.TabIndex = 111
+        Me.Label15.Text = "cm"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(129, 22)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(20, 12)
+        Me.Label14.TabIndex = 110
+        Me.Label14.Text = "cm"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(15, 172)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(41, 12)
+        Me.Label13.TabIndex = 103
+        Me.Label13.Text = "荷台高"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(15, 147)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(41, 12)
+        Me.Label12.TabIndex = 102
+        Me.Label12.Text = "荷台幅"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(15, 122)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(41, 12)
+        Me.Label11.TabIndex = 101
+        Me.Label11.Text = "荷台長"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(23, 72)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(25, 12)
+        Me.Label10.TabIndex = 100
+        Me.Label10.Text = "高さ"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(27, 47)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(17, 12)
+        Me.Label6.TabIndex = 99
+        Me.Label6.Text = "幅"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(23, 22)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(25, 12)
+        Me.Label8.TabIndex = 98
+        Me.Label8.Text = "長さ"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(3, 97)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(65, 12)
+        Me.Label20.TabIndex = 95
+        Me.Label20.Text = "最大積載量"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(130, 97)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(17, 12)
+        Me.Label21.TabIndex = 97
+        Me.Label21.Text = "kg"
+        '
+        'btnSyakenUpdate
+        '
+        Me.btnSyakenUpdate.Location = New System.Drawing.Point(185, 141)
+        Me.btnSyakenUpdate.Name = "btnSyakenUpdate"
+        Me.btnSyakenUpdate.Size = New System.Drawing.Size(59, 23)
+        Me.btnSyakenUpdate.TabIndex = 46
+        Me.btnSyakenUpdate.Text = "更新"
+        Me.btnSyakenUpdate.UseVisualStyleBackColor = True
+        '
+        'lblSyakenLimit
+        '
+        Me.lblSyakenLimit.AutoSize = True
+        Me.lblSyakenLimit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "limit_syaken", True))
+        Me.lblSyakenLimit.Location = New System.Drawing.Point(87, 148)
+        Me.lblSyakenLimit.Name = "lblSyakenLimit"
+        Me.lblSyakenLimit.Size = New System.Drawing.Size(67, 12)
+        Me.lblSyakenLimit.TabIndex = 38
+        Me.lblSyakenLimit.Text = "SyakenLimit"
         '
         'lblTon
         '
@@ -445,7 +629,7 @@ Partial Class frmModifier
         '
         Me.txtBikoCar.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "biko", True))
         Me.txtBikoCar.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtBikoCar.Location = New System.Drawing.Point(89, 192)
+        Me.txtBikoCar.Location = New System.Drawing.Point(89, 178)
         Me.txtBikoCar.Multiline = True
         Me.txtBikoCar.Name = "txtBikoCar"
         Me.txtBikoCar.Size = New System.Drawing.Size(155, 143)
@@ -476,6 +660,15 @@ Partial Class frmModifier
         Me.GroupBox2.TabIndex = 24
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "社員情報"
+        '
+        'btnMenkyoUpdate
+        '
+        Me.btnMenkyoUpdate.Location = New System.Drawing.Point(193, 135)
+        Me.btnMenkyoUpdate.Name = "btnMenkyoUpdate"
+        Me.btnMenkyoUpdate.Size = New System.Drawing.Size(59, 23)
+        Me.btnMenkyoUpdate.TabIndex = 45
+        Me.btnMenkyoUpdate.Text = "更新"
+        Me.btnMenkyoUpdate.UseVisualStyleBackColor = True
         '
         'lblMenkyoLimit
         '
@@ -660,7 +853,7 @@ Partial Class frmModifier
         'btnCancel
         '
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(751, 370)
+        Me.btnCancel.Location = New System.Drawing.Point(907, 370)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 30
@@ -669,7 +862,7 @@ Partial Class frmModifier
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(670, 370)
+        Me.btnOK.Location = New System.Drawing.Point(826, 370)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 23)
         Me.btnOK.TabIndex = 28
@@ -741,29 +934,51 @@ Partial Class frmModifier
         Me.Label7.TabIndex = 41
         Me.Label7.Text = "tblStaff-branchID"
         '
-        'btnMenkyoUpdate
+        'lblCarHeight
         '
-        Me.btnMenkyoUpdate.Location = New System.Drawing.Point(193, 135)
-        Me.btnMenkyoUpdate.Name = "btnMenkyoUpdate"
-        Me.btnMenkyoUpdate.Size = New System.Drawing.Size(59, 23)
-        Me.btnMenkyoUpdate.TabIndex = 45
-        Me.btnMenkyoUpdate.Text = "更新"
-        Me.btnMenkyoUpdate.UseVisualStyleBackColor = True
+        Me.lblCarHeight.AutoSize = True
+        Me.lblCarHeight.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "car_height", True))
+        Me.lblCarHeight.Location = New System.Drawing.Point(73, 72)
+        Me.lblCarHeight.Name = "lblCarHeight"
+        Me.lblCarHeight.Size = New System.Drawing.Size(56, 12)
+        Me.lblCarHeight.TabIndex = 118
+        Me.lblCarHeight.Text = "car_height"
         '
-        'btnSyakenUpdate
+        'lblBedLength
         '
-        Me.btnSyakenUpdate.Location = New System.Drawing.Point(185, 164)
-        Me.btnSyakenUpdate.Name = "btnSyakenUpdate"
-        Me.btnSyakenUpdate.Size = New System.Drawing.Size(59, 23)
-        Me.btnSyakenUpdate.TabIndex = 46
-        Me.btnSyakenUpdate.Text = "更新"
-        Me.btnSyakenUpdate.UseVisualStyleBackColor = True
+        Me.lblBedLength.AutoSize = True
+        Me.lblBedLength.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "bed_length", True))
+        Me.lblBedLength.Location = New System.Drawing.Point(73, 123)
+        Me.lblBedLength.Name = "lblBedLength"
+        Me.lblBedLength.Size = New System.Drawing.Size(58, 12)
+        Me.lblBedLength.TabIndex = 119
+        Me.lblBedLength.Text = "bed_length"
+        '
+        'lblBedWidth
+        '
+        Me.lblBedWidth.AutoSize = True
+        Me.lblBedWidth.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "bed_width", True))
+        Me.lblBedWidth.Location = New System.Drawing.Point(73, 148)
+        Me.lblBedWidth.Name = "lblBedWidth"
+        Me.lblBedWidth.Size = New System.Drawing.Size(54, 12)
+        Me.lblBedWidth.TabIndex = 120
+        Me.lblBedWidth.Text = "bed_width"
+        '
+        'lblBedHeight
+        '
+        Me.lblBedHeight.AutoSize = True
+        Me.lblBedHeight.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "bed_height", True))
+        Me.lblBedHeight.Location = New System.Drawing.Point(73, 173)
+        Me.lblBedHeight.Name = "lblBedHeight"
+        Me.lblBedHeight.Size = New System.Drawing.Size(58, 12)
+        Me.lblBedHeight.TabIndex = 121
+        Me.lblBedHeight.Text = "bed_height"
         '
         'frmModifier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(838, 400)
+        Me.ClientSize = New System.Drawing.Size(994, 400)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -774,6 +989,8 @@ Partial Class frmModifier
         Me.Text = "選択行の詳細/編集"
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblbranchBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -824,7 +1041,6 @@ Partial Class frmModifier
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Label5 As Label
     Friend WithEvents lblStaffKana As Label
     Friend WithEvents lblMail As Label
     Friend WithEvents lblModel As Label
@@ -838,4 +1054,25 @@ Partial Class frmModifier
     Friend WithEvents lblMenkyoLimit As Label
     Friend WithEvents btnSyakenUpdate As Button
     Friend WithEvents btnMenkyoUpdate As Button
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents lblCar_width As Label
+    Friend WithEvents lblCarLength As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents lblBedHeight As Label
+    Friend WithEvents lblBedWidth As Label
+    Friend WithEvents lblBedLength As Label
+    Friend WithEvents lblCarHeight As Label
 End Class

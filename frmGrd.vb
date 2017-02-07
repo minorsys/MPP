@@ -738,4 +738,53 @@ Public Class frmGrd
 
     End Sub
 
+
+    'セルの色を変える
+    Private Sub grdMain_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles grdMain.CellFormatting
+        'ヘッダー以外のセル
+        If e.ColumnIndex >= 0 And e.RowIndex >= 0 Then
+            Dim dgv As DataGridView = CType(sender, DataGridView)
+            '車庫ごとに色分け
+            If dgv(0, e.RowIndex).Value.ToString = "三郷" Then
+                dgv.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Khaki
+
+            ElseIf dgv(0, e.RowIndex).Value.ToString = "横浜" Then
+                dgv.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PaleGreen
+
+            ElseIf dgv(0, e.RowIndex).Value.ToString = "ﾄﾗﾝｽﾎﾟｰﾄｼﾞｬｺ" Then
+                dgv.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Salmon
+
+            ElseIf dgv(0, e.RowIndex).Value.ToString = "石井運送" Then
+                dgv.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.SkyBlue
+
+            ElseIf dgv(0, e.RowIndex).Value.ToString = "船橋" Then
+                dgv.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.White
+            Else
+                dgv.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Gray
+            End If
+
+            '免許証・車検証の期限が切れていたら赤く塗る
+            '車検
+            If Not IsDBNull(dgv(8, e.RowIndex).Value) Then
+                Dim result_datecompare1 As Integer = DateTime.Compare(dgv(8, e.RowIndex).Value, Today)
+                If result_datecompare1 < 0 Then
+                    dgv(8, e.RowIndex).Style.BackColor = Color.Red
+
+
+                End If
+            End If
+            '免許
+            If Not IsDBNull(dgv(9, e.RowIndex).Value) Then
+                Dim result_datecompare2 As Integer = DateTime.Compare(dgv(9, e.RowIndex).Value, Today)
+                If result_datecompare2 < 0 Then
+                    dgv(9, e.RowIndex).Style.BackColor = Color.Red
+
+
+                End If
+            End If
+        End If
+
+
+
+    End Sub
 End Class

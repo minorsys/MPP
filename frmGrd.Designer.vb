@@ -249,6 +249,7 @@ Partial Class frmGrd
         Me.grdMain.AllowUserToDeleteRows = False
         Me.grdMain.AllowUserToOrderColumns = True
         Me.grdMain.AutoGenerateColumns = False
+        Me.grdMain.BackgroundColor = System.Drawing.SystemColors.Control
         Me.grdMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.car_branch, Me.musen, Me.carnum1, Me.ton, Me.staff_name, Me.phonenum, Me.branch_name, Me.max_load, Me.limit_syaken, Me.limit_menkyo, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height, Me.id_staff, Me.staff_kana, Me.mail, Me.model})
         Me.grdMain.DataSource = Me.DtMainBindingSource
@@ -807,42 +808,42 @@ Partial Class frmGrd
         'car_length
         '
         Me.car_length.DataPropertyName = "car_length"
-        Me.car_length.HeaderText = "車両_長さ"
+        Me.car_length.HeaderText = "車両_長さ(cm)"
         Me.car_length.Name = "car_length"
         Me.car_length.ReadOnly = True
         '
         'car_width
         '
         Me.car_width.DataPropertyName = "car_width"
-        Me.car_width.HeaderText = "車両_幅"
+        Me.car_width.HeaderText = "車両_幅(cm)"
         Me.car_width.Name = "car_width"
         Me.car_width.ReadOnly = True
         '
         'car_height
         '
         Me.car_height.DataPropertyName = "car_height"
-        Me.car_height.HeaderText = "車両_高さ"
+        Me.car_height.HeaderText = "車両_高さ(cm)"
         Me.car_height.Name = "car_height"
         Me.car_height.ReadOnly = True
         '
         'bed_length
         '
         Me.bed_length.DataPropertyName = "bed_length"
-        Me.bed_length.HeaderText = "荷台長"
+        Me.bed_length.HeaderText = "荷台長(mm)"
         Me.bed_length.Name = "bed_length"
         Me.bed_length.ReadOnly = True
         '
         'bed_width
         '
         Me.bed_width.DataPropertyName = "bed_width"
-        Me.bed_width.HeaderText = "荷台幅"
+        Me.bed_width.HeaderText = "荷台幅(mm)"
         Me.bed_width.Name = "bed_width"
         Me.bed_width.ReadOnly = True
         '
         'bed_height
         '
         Me.bed_height.DataPropertyName = "bed_height"
-        Me.bed_height.HeaderText = "荷台高"
+        Me.bed_height.HeaderText = "荷台高(mm)"
         Me.bed_height.Name = "bed_height"
         Me.bed_height.ReadOnly = True
         '
