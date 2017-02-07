@@ -27,7 +27,7 @@
     <PublisherName>minorsys</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -192,10 +192,10 @@
     <Compile Include="frmModifier.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProgressBar.Designer.vb">
-      <DependentUpon>frmProgressBar.vb</DependentUpon>
+    <Compile Include="frmProgressSyakenMenkyo.Designer.vb">
+      <DependentUpon>frmProgressSyakenMenkyo.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmProgressBar.vb">
+    <Compile Include="frmProgressSyakenMenkyo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSyakenUpload.Designer.vb">
@@ -269,8 +269,8 @@
     <EmbeddedResource Include="frmModifier.resx">
       <DependentUpon>frmModifier.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProgressBar.resx">
-      <DependentUpon>frmProgressBar.vb</DependentUpon>
+    <EmbeddedResource Include="frmProgressSyakenMenkyo.resx">
+      <DependentUpon>frmProgressSyakenMenkyo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSyakenUpload.resx">
       <DependentUpon>frmSyakenUpload.vb</DependentUpon>
