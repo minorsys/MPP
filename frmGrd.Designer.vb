@@ -24,8 +24,9 @@ Partial Class frmGrd
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGrd))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim GroupBox3 As System.Windows.Forms.GroupBox
         Me.DtMainBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -42,6 +43,28 @@ Partial Class frmGrd
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.DtMainBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.grdMain = New System.Windows.Forms.DataGridView()
+        Me.car_branch = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.musen = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.carnum1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ton = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.staff_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.phonenum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.branch_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.limit_menkyo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.car_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.car_width = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.car_height = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bed_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bed_width = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bed_height = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_staff = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.staff_kana = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.mail = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.model = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.maker = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.car_type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnEmergency = New System.Windows.Forms.Button()
@@ -84,33 +107,15 @@ Partial Class frmGrd
         Me.txtFilterPhonenum = New System.Windows.Forms.TextBox()
         Me.lblHowManyRecords = New System.Windows.Forms.Label()
         Me.btnModify = New System.Windows.Forms.Button()
-        Me.btnExportSyakenMenkyo = New System.Windows.Forms.Button()
+        Me.btnExportSyaken = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
         Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
-        Me.car_branch = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.musen = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.carnum1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ton = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.staff_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.phonenum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.branch_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.max_load = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.limit_syaken = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.limit_menkyo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.car_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.car_width = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.car_height = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.bed_length = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.bed_width = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.bed_height = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_staff = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.staff_kana = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.mail = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.model = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.maker = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.car_type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnExportMenkyo = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        GroupBox3 = New System.Windows.Forms.GroupBox()
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DtMainBindingNavigator.SuspendLayout()
         CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,6 +127,7 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'DtMainBindingNavigator
@@ -254,40 +260,204 @@ Partial Class frmGrd
         Me.grdMain.AllowUserToOrderColumns = True
         Me.grdMain.AutoGenerateColumns = False
         Me.grdMain.BackgroundColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.grdMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.car_branch, Me.musen, Me.carnum1, Me.ton, Me.staff_name, Me.phonenum, Me.branch_name, Me.max_load, Me.limit_syaken, Me.limit_menkyo, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height, Me.id_staff, Me.staff_kana, Me.mail, Me.model, Me.maker, Me.car_type})
         Me.grdMain.DataSource = Me.DtMainBindingSource
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.NullValue = Nothing
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdMain.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.NullValue = Nothing
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdMain.DefaultCellStyle = DataGridViewCellStyle6
         Me.grdMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdMain.Location = New System.Drawing.Point(0, 0)
         Me.grdMain.Name = "grdMain"
         Me.grdMain.ReadOnly = True
         Me.grdMain.RowHeadersWidth = 30
         Me.grdMain.RowTemplate.Height = 21
-        Me.grdMain.Size = New System.Drawing.Size(1073, 616)
+        Me.grdMain.Size = New System.Drawing.Size(1073, 661)
         Me.grdMain.TabIndex = 1
+        '
+        'car_branch
+        '
+        Me.car_branch.DataPropertyName = "branch_name1"
+        Me.car_branch.HeaderText = "車庫"
+        Me.car_branch.Name = "car_branch"
+        Me.car_branch.ReadOnly = True
+        Me.car_branch.Width = 50
+        '
+        'musen
+        '
+        Me.musen.DataPropertyName = "musen"
+        Me.musen.HeaderText = "無線"
+        Me.musen.Name = "musen"
+        Me.musen.ReadOnly = True
+        Me.musen.Width = 50
+        '
+        'carnum1
+        '
+        Me.carnum1.DataPropertyName = "carnum1"
+        Me.carnum1.HeaderText = "車番"
+        Me.carnum1.Name = "carnum1"
+        Me.carnum1.ReadOnly = True
+        Me.carnum1.Width = 50
+        '
+        'ton
+        '
+        Me.ton.DataPropertyName = "ton"
+        Me.ton.HeaderText = "車格"
+        Me.ton.Name = "ton"
+        Me.ton.ReadOnly = True
+        Me.ton.Width = 50
+        '
+        'staff_name
+        '
+        Me.staff_name.DataPropertyName = "staff_name"
+        Me.staff_name.HeaderText = "氏名"
+        Me.staff_name.Name = "staff_name"
+        Me.staff_name.ReadOnly = True
+        '
+        'phonenum
+        '
+        Me.phonenum.DataPropertyName = "phonenum"
+        Me.phonenum.HeaderText = "電話番号"
+        Me.phonenum.Name = "phonenum"
+        Me.phonenum.ReadOnly = True
+        '
+        'branch_name
+        '
+        Me.branch_name.DataPropertyName = "branch_name"
+        Me.branch_name.HeaderText = "所属"
+        Me.branch_name.Name = "branch_name"
+        Me.branch_name.ReadOnly = True
+        Me.branch_name.Width = 50
+        '
+        'max_load
+        '
+        Me.max_load.DataPropertyName = "max_load"
+        Me.max_load.HeaderText = "最大積載量(kg)"
+        Me.max_load.Name = "max_load"
+        Me.max_load.ReadOnly = True
+        '
+        'limit_syaken
+        '
+        Me.limit_syaken.DataPropertyName = "limit_syaken"
+        Me.limit_syaken.HeaderText = "車検証期限"
+        Me.limit_syaken.Name = "limit_syaken"
+        Me.limit_syaken.ReadOnly = True
+        '
+        'limit_menkyo
+        '
+        Me.limit_menkyo.DataPropertyName = "limit_menkyo"
+        Me.limit_menkyo.HeaderText = "免許証期限"
+        Me.limit_menkyo.Name = "limit_menkyo"
+        Me.limit_menkyo.ReadOnly = True
+        '
+        'car_length
+        '
+        Me.car_length.DataPropertyName = "car_length"
+        Me.car_length.HeaderText = "車両_長さ(cm)"
+        Me.car_length.Name = "car_length"
+        Me.car_length.ReadOnly = True
+        '
+        'car_width
+        '
+        Me.car_width.DataPropertyName = "car_width"
+        Me.car_width.HeaderText = "車両_幅(cm)"
+        Me.car_width.Name = "car_width"
+        Me.car_width.ReadOnly = True
+        '
+        'car_height
+        '
+        Me.car_height.DataPropertyName = "car_height"
+        Me.car_height.HeaderText = "車両_高さ(cm)"
+        Me.car_height.Name = "car_height"
+        Me.car_height.ReadOnly = True
+        '
+        'bed_length
+        '
+        Me.bed_length.DataPropertyName = "bed_length"
+        Me.bed_length.HeaderText = "荷台長(cm)"
+        Me.bed_length.Name = "bed_length"
+        Me.bed_length.ReadOnly = True
+        '
+        'bed_width
+        '
+        Me.bed_width.DataPropertyName = "bed_width"
+        Me.bed_width.HeaderText = "荷台幅(cm)"
+        Me.bed_width.Name = "bed_width"
+        Me.bed_width.ReadOnly = True
+        '
+        'bed_height
+        '
+        Me.bed_height.DataPropertyName = "bed_height"
+        Me.bed_height.HeaderText = "荷台高(cm)"
+        Me.bed_height.Name = "bed_height"
+        Me.bed_height.ReadOnly = True
+        '
+        'id_staff
+        '
+        Me.id_staff.DataPropertyName = "id_staff"
+        Me.id_staff.HeaderText = "id_staff"
+        Me.id_staff.Name = "id_staff"
+        Me.id_staff.ReadOnly = True
+        Me.id_staff.Visible = False
+        '
+        'staff_kana
+        '
+        Me.staff_kana.DataPropertyName = "staff_kana"
+        Me.staff_kana.HeaderText = "staff_kana"
+        Me.staff_kana.Name = "staff_kana"
+        Me.staff_kana.ReadOnly = True
+        Me.staff_kana.Visible = False
+        '
+        'mail
+        '
+        Me.mail.DataPropertyName = "mail"
+        Me.mail.HeaderText = "mail"
+        Me.mail.Name = "mail"
+        Me.mail.ReadOnly = True
+        Me.mail.Visible = False
+        '
+        'model
+        '
+        Me.model.DataPropertyName = "model"
+        Me.model.HeaderText = "model"
+        Me.model.Name = "model"
+        Me.model.ReadOnly = True
+        Me.model.Visible = False
+        '
+        'maker
+        '
+        Me.maker.DataPropertyName = "maker"
+        Me.maker.HeaderText = "メーカー"
+        Me.maker.Name = "maker"
+        Me.maker.ReadOnly = True
+        Me.maker.Width = 50
+        '
+        'car_type
+        '
+        Me.car_type.DataPropertyName = "car_type"
+        Me.car_type.HeaderText = "車種"
+        Me.car_type.Name = "car_type"
+        Me.car_type.ReadOnly = True
         '
         'btnAdmin
         '
         Me.btnAdmin.Location = New System.Drawing.Point(9, 3)
         Me.btnAdmin.Name = "btnAdmin"
-        Me.btnAdmin.Size = New System.Drawing.Size(80, 23)
+        Me.btnAdmin.Size = New System.Drawing.Size(79, 23)
         Me.btnAdmin.TabIndex = 2
         Me.btnAdmin.Text = "管理メニュー"
         Me.btnAdmin.UseVisualStyleBackColor = True
@@ -333,9 +503,9 @@ Partial Class frmGrd
         Me.GroupBox1.Controls.Add(Me.txtFilterKana)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.txtFilterPhonenum)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 113)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 161)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(153, 475)
+        Me.GroupBox1.Size = New System.Drawing.Size(153, 476)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "絞り込み"
@@ -679,7 +849,7 @@ Partial Class frmGrd
         'lblHowManyRecords
         '
         Me.lblHowManyRecords.AutoSize = True
-        Me.lblHowManyRecords.Location = New System.Drawing.Point(12, 595)
+        Me.lblHowManyRecords.Location = New System.Drawing.Point(12, 640)
         Me.lblHowManyRecords.Name = "lblHowManyRecords"
         Me.lblHowManyRecords.Size = New System.Drawing.Size(108, 12)
         Me.lblHowManyRecords.TabIndex = 4
@@ -694,23 +864,23 @@ Partial Class frmGrd
         Me.btnModify.Text = "詳細表示/編集"
         Me.btnModify.UseVisualStyleBackColor = True
         '
-        'btnExportSyakenMenkyo
+        'btnExportSyaken
         '
-        Me.btnExportSyakenMenkyo.Location = New System.Drawing.Point(17, 47)
-        Me.btnExportSyakenMenkyo.Name = "btnExportSyakenMenkyo"
-        Me.btnExportSyakenMenkyo.Size = New System.Drawing.Size(125, 23)
-        Me.btnExportSyakenMenkyo.TabIndex = 6
-        Me.btnExportSyakenMenkyo.Text = "車検/免許ﾌｧｲﾙ出力"
-        Me.btnExportSyakenMenkyo.UseVisualStyleBackColor = True
+        Me.btnExportSyaken.Location = New System.Drawing.Point(11, 18)
+        Me.btnExportSyaken.Name = "btnExportSyaken"
+        Me.btnExportSyaken.Size = New System.Drawing.Size(56, 23)
+        Me.btnExportSyaken.TabIndex = 6
+        Me.btnExportSyaken.Text = "車検証"
+        Me.btnExportSyaken.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Gainsboro
+        Me.GroupBox2.Controls.Add(GroupBox3)
         Me.GroupBox2.Controls.Add(Me.btnModify)
-        Me.GroupBox2.Controls.Add(Me.btnExportSyakenMenkyo)
-        Me.GroupBox2.Location = New System.Drawing.Point(9, 30)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 30)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(153, 77)
+        Me.GroupBox2.Size = New System.Drawing.Size(153, 125)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "選択した行の操作"
@@ -732,7 +902,7 @@ Partial Class frmGrd
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.grdMain)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1247, 616)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1247, 661)
         Me.SplitContainer1.SplitterDistance = 170
         Me.SplitContainer1.TabIndex = 8
         '
@@ -751,176 +921,54 @@ Partial Class frmGrd
         Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'car_branch
+        'btnExportMenkyo
         '
-        Me.car_branch.DataPropertyName = "branch_name1"
-        Me.car_branch.HeaderText = "車庫"
-        Me.car_branch.Name = "car_branch"
-        Me.car_branch.ReadOnly = True
-        Me.car_branch.Width = 50
+        Me.btnExportMenkyo.Location = New System.Drawing.Point(11, 42)
+        Me.btnExportMenkyo.Name = "btnExportMenkyo"
+        Me.btnExportMenkyo.Size = New System.Drawing.Size(56, 23)
+        Me.btnExportMenkyo.TabIndex = 7
+        Me.btnExportMenkyo.Text = "免許証"
+        Me.btnExportMenkyo.UseVisualStyleBackColor = True
         '
-        'musen
+        'GroupBox3
         '
-        Me.musen.DataPropertyName = "musen"
-        Me.musen.HeaderText = "無線"
-        Me.musen.Name = "musen"
-        Me.musen.ReadOnly = True
-        Me.musen.Width = 50
+        GroupBox3.BackColor = System.Drawing.SystemColors.ControlDark
+        GroupBox3.Controls.Add(Me.Button2)
+        GroupBox3.Controls.Add(Me.Button1)
+        GroupBox3.Controls.Add(Me.btnExportMenkyo)
+        GroupBox3.Controls.Add(Me.btnExportSyaken)
+        GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        GroupBox3.Location = New System.Drawing.Point(9, 48)
+        GroupBox3.Name = "GroupBox3"
+        GroupBox3.Size = New System.Drawing.Size(138, 71)
+        GroupBox3.TabIndex = 8
+        GroupBox3.TabStop = False
+        GroupBox3.Text = "ファイル出力"
         '
-        'carnum1
+        'Button1
         '
-        Me.carnum1.DataPropertyName = "carnum1"
-        Me.carnum1.HeaderText = "車番"
-        Me.carnum1.Name = "carnum1"
-        Me.carnum1.ReadOnly = True
-        Me.carnum1.Width = 50
+        Me.Button1.Location = New System.Drawing.Point(73, 18)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(56, 23)
+        Me.Button1.TabIndex = 8
+        Me.Button1.Text = "自賠責"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'ton
+        'Button2
         '
-        Me.ton.DataPropertyName = "ton"
-        Me.ton.HeaderText = "車格"
-        Me.ton.Name = "ton"
-        Me.ton.ReadOnly = True
-        Me.ton.Width = 50
-        '
-        'staff_name
-        '
-        Me.staff_name.DataPropertyName = "staff_name"
-        Me.staff_name.HeaderText = "氏名"
-        Me.staff_name.Name = "staff_name"
-        Me.staff_name.ReadOnly = True
-        '
-        'phonenum
-        '
-        Me.phonenum.DataPropertyName = "phonenum"
-        Me.phonenum.HeaderText = "電話番号"
-        Me.phonenum.Name = "phonenum"
-        Me.phonenum.ReadOnly = True
-        '
-        'branch_name
-        '
-        Me.branch_name.DataPropertyName = "branch_name"
-        Me.branch_name.HeaderText = "所属"
-        Me.branch_name.Name = "branch_name"
-        Me.branch_name.ReadOnly = True
-        Me.branch_name.Width = 50
-        '
-        'max_load
-        '
-        Me.max_load.DataPropertyName = "max_load"
-        Me.max_load.HeaderText = "最大積載量(kg)"
-        Me.max_load.Name = "max_load"
-        Me.max_load.ReadOnly = True
-        '
-        'limit_syaken
-        '
-        Me.limit_syaken.DataPropertyName = "limit_syaken"
-        Me.limit_syaken.HeaderText = "車検証期限"
-        Me.limit_syaken.Name = "limit_syaken"
-        Me.limit_syaken.ReadOnly = True
-        '
-        'limit_menkyo
-        '
-        Me.limit_menkyo.DataPropertyName = "limit_menkyo"
-        Me.limit_menkyo.HeaderText = "免許証期限"
-        Me.limit_menkyo.Name = "limit_menkyo"
-        Me.limit_menkyo.ReadOnly = True
-        '
-        'car_length
-        '
-        Me.car_length.DataPropertyName = "car_length"
-        Me.car_length.HeaderText = "車両_長さ(cm)"
-        Me.car_length.Name = "car_length"
-        Me.car_length.ReadOnly = True
-        '
-        'car_width
-        '
-        Me.car_width.DataPropertyName = "car_width"
-        Me.car_width.HeaderText = "車両_幅(cm)"
-        Me.car_width.Name = "car_width"
-        Me.car_width.ReadOnly = True
-        '
-        'car_height
-        '
-        Me.car_height.DataPropertyName = "car_height"
-        Me.car_height.HeaderText = "車両_高さ(cm)"
-        Me.car_height.Name = "car_height"
-        Me.car_height.ReadOnly = True
-        '
-        'bed_length
-        '
-        Me.bed_length.DataPropertyName = "bed_length"
-        Me.bed_length.HeaderText = "荷台長(cm)"
-        Me.bed_length.Name = "bed_length"
-        Me.bed_length.ReadOnly = True
-        '
-        'bed_width
-        '
-        Me.bed_width.DataPropertyName = "bed_width"
-        Me.bed_width.HeaderText = "荷台幅(cm)"
-        Me.bed_width.Name = "bed_width"
-        Me.bed_width.ReadOnly = True
-        '
-        'bed_height
-        '
-        Me.bed_height.DataPropertyName = "bed_height"
-        Me.bed_height.HeaderText = "荷台高(cm)"
-        Me.bed_height.Name = "bed_height"
-        Me.bed_height.ReadOnly = True
-        '
-        'id_staff
-        '
-        Me.id_staff.DataPropertyName = "id_staff"
-        Me.id_staff.HeaderText = "id_staff"
-        Me.id_staff.Name = "id_staff"
-        Me.id_staff.ReadOnly = True
-        Me.id_staff.Visible = False
-        '
-        'staff_kana
-        '
-        Me.staff_kana.DataPropertyName = "staff_kana"
-        Me.staff_kana.HeaderText = "staff_kana"
-        Me.staff_kana.Name = "staff_kana"
-        Me.staff_kana.ReadOnly = True
-        Me.staff_kana.Visible = False
-        '
-        'mail
-        '
-        Me.mail.DataPropertyName = "mail"
-        Me.mail.HeaderText = "mail"
-        Me.mail.Name = "mail"
-        Me.mail.ReadOnly = True
-        Me.mail.Visible = False
-        '
-        'model
-        '
-        Me.model.DataPropertyName = "model"
-        Me.model.HeaderText = "model"
-        Me.model.Name = "model"
-        Me.model.ReadOnly = True
-        Me.model.Visible = False
-        '
-        'maker
-        '
-        Me.maker.DataPropertyName = "maker"
-        Me.maker.HeaderText = "メーカー"
-        Me.maker.Name = "maker"
-        Me.maker.ReadOnly = True
-        Me.maker.Width = 50
-        '
-        'car_type
-        '
-        Me.car_type.DataPropertyName = "car_type"
-        Me.car_type.HeaderText = "車種"
-        Me.car_type.Name = "car_type"
-        Me.car_type.ReadOnly = True
+        Me.Button2.Location = New System.Drawing.Point(73, 42)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(56, 23)
+        Me.Button2.TabIndex = 9
+        Me.Button2.Text = "ｸﾚｰﾝ"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'frmGrd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(1247, 616)
+        Me.ClientSize = New System.Drawing.Size(1247, 661)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.DtMainBindingNavigator)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -940,6 +988,7 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1004,7 +1053,7 @@ Partial Class frmGrd
     Friend WithEvents txtFilterPhonenum As TextBox
     Friend WithEvents lblHowManyRecords As Label
     Friend WithEvents btnModify As Button
-    Friend WithEvents btnExportSyakenMenkyo As Button
+    Friend WithEvents btnExportSyaken As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents btnEmergency As Button
@@ -1030,4 +1079,7 @@ Partial Class frmGrd
     Friend WithEvents model As DataGridViewTextBoxColumn
     Friend WithEvents maker As DataGridViewTextBoxColumn
     Friend WithEvents car_type As DataGridViewTextBoxColumn
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnExportMenkyo As Button
 End Class

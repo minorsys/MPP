@@ -607,7 +607,6 @@ Public Class frmGrd
         shiboriDatabase(fs)
     End Sub
 
-
     '緊急車両ボタン
     Private Sub btnEmergency_Click_1(sender As Object, e As EventArgs) Handles btnEmergency.Click
         Dim fs As String
@@ -616,8 +615,7 @@ Public Class frmGrd
     End Sub
 
     '選択行の車検証・免許証エクスポートボタン
-    Private Sub btnExportSyakenMenkyo_Click(sender As Object, e As EventArgs) Handles btnExportSyakenMenkyo.Click
-
+    Private Sub btnExportSyaken_Click(sender As Object, e As EventArgs) Handles btnExportSyaken.Click
 
         'データグリッドビューが空のときは終了する
         If grdMain.Rows.Count = 0 Then Return
@@ -629,82 +627,26 @@ Public Class frmGrd
         End If
 
         Dim frm As New frmProgressSyakenMenkyo
-        frm.Menkyo_Syaken_DownLoad()
+        frm.Syaken_DownLoad()
 
 
-        ''ファイルを出力するためのフォルダを作成する
-        'Dim folderpath As String
-        'folderpath = DateTime.Now.ToString("yyyy-MM-dd HHmmss")
-        'System.IO.Directory.CreateDirectory("C:\MPP\Exports\" & folderpath & "\車検証")
-        'System.IO.Directory.CreateDirectory("C:\MPP\Exports\" & folderpath & "\免許証")
+    End Sub
 
-        ''見つからなかったファイル名をためる用
-        'Dim errmsg As String = ""
+    '免許証ファイル出力ボタン
+    Private Sub btnExportMenkyo_Click(sender As Object, e As EventArgs) Handles btnExportMenkyo.Click
 
-        ''選択されている各行について、
-        'For Each c As DataGridViewCell In grdMain.SelectedCells
+        'データグリッドビューが空のときは終了する
+        If grdMain.Rows.Count = 0 Then Return
 
-        '    '選択されている行の車番を取得する
-        '    Dim selectedCarnum As String
-        '    selectedCarnum = grdMain.Item(2, c.RowIndex).Value.ToString()
+        'セルが選択されていなければ戻る
+        If grdMain.SelectedCells.Count = 0 Then
+            MsgBox("行が選択されていません")
+            Return
+        End If
 
-        '    '選択されている行の氏名を取得する
-        '    Dim selectedStaff As String
-        '    selectedStaff = grdMain.Item(4, c.RowIndex).Value.ToString
-
-        '    If Not selectedCarnum = "" Then
-        '        '取得した車番からはじまるファイル名をもつファイルを検索する
-        '        Dim files As System.Collections.ObjectModel.ReadOnlyCollection(Of String) =
-        '         My.Computer.FileSystem.GetFiles(
-        '         "\\192.168.8.190\share\system\syaken",
-        '          FileIO.SearchOption.SearchTopLevelOnly,
-        '         "" & selectedCarnum & "*")
-
-        '        '見つからなかったら、エラーメッセージに車番を追加する
-        '        If files.Count = 0 Then
-        '            errmsg += vbCrLf & selectedCarnum
-        '        Else
-
-        '            '該当ファイルをコピーする
-        '            For Each f As String In files
-        '                System.IO.File.Copy(f, "C:\MPP\Exports\" & folderpath & "\車検証\" & selectedCarnum & ".pdf")
-
-        '            Next
-
-        '        End If
-
-        '    End If
-
-        '    If Not selectedStaff = "" Then
-        '        '取得した氏名からはじまるファイル名をもつファイルを検索する
-        '        Dim files As System.Collections.ObjectModel.ReadOnlyCollection(Of String) =
-        '         My.Computer.FileSystem.GetFiles(
-        '         "\\192.168.8.190\share\system\menkyo",
-        '          FileIO.SearchOption.SearchTopLevelOnly,
-        '         "" & selectedStaff & "*")
-
-        '        If files.Count = 0 Then
-        '            errmsg += vbCrLf & selectedStaff
-        '        Else
-        '            '該当ファイルをコピーする
-        '            For Each f As String In files
-        '                System.IO.File.Copy(f, "C:\MPP\Exports\" & folderpath & "\免許証\" & selectedStaff & ".pdf")
-        '            Next
-
-        '        End If
-
-        '    End If
-
-        'Next c
-
-        ''見つからなかった免許・車検証があれば、エラーメッセージを表示
-        'If Not errmsg = "" Then
-        '    errmsg = "以下のファイルは見つかりませんでした:" & errmsg
-        '    MsgBox(errmsg)
-        'End If
-
-        ''エクスポートしたフォルダを表示する
-        'System.Diagnostics.Process.Start("C:\MPP\Exports\" & folderpath & "")
+        'パスワード入力フォームを呼び出す
+        Dim frm As New frmPassword
+        frm.ShowDialog(Me)
     End Sub
 
     '緊急車両ボタン
@@ -795,4 +737,5 @@ Public Class frmGrd
 
 
     End Sub
+
 End Class
