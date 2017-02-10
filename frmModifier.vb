@@ -236,7 +236,7 @@ Public Class frmModifier
                 Me.Tbl_staffTableAdapter.UpdateStaffBiko(txtBikoStaff.Text, lblstaffID.Text)
             End If
 
-            If lblCarnum.Text = "" Then
+            If Not lblCarnum.Text = "" Then
                 Me.Tbl_carTableAdapter.UpdateCarBiko(txtBikoCar.Text, lblCarnum.Text)
             End If
 

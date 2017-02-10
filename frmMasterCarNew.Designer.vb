@@ -423,27 +423,27 @@ Partial Class frmMasterCarNew
         Me.Label19.AutoSize = True
         Me.Label19.Location = New System.Drawing.Point(192, 172)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(23, 12)
+        Me.Label19.Size = New System.Drawing.Size(20, 12)
         Me.Label19.TabIndex = 115
-        Me.Label19.Text = "mm"
+        Me.Label19.Text = "cm"
         '
         'Label18
         '
         Me.Label18.AutoSize = True
         Me.Label18.Location = New System.Drawing.Point(192, 148)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(23, 12)
+        Me.Label18.Size = New System.Drawing.Size(20, 12)
         Me.Label18.TabIndex = 114
-        Me.Label18.Text = "mm"
+        Me.Label18.Text = "cm"
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(192, 123)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(23, 12)
+        Me.Label17.Size = New System.Drawing.Size(20, 12)
         Me.Label17.TabIndex = 113
-        Me.Label17.Text = "mm"
+        Me.Label17.Text = "cm"
         '
         'Label16
         '

@@ -10,7 +10,9 @@ Public Class frmGrd
         '日付を和暦で表示する
         Dim culture As CultureInfo = New CultureInfo("ja-JP", True)
         culture.DateTimeFormat.Calendar = New JapaneseCalendar()
+
         Application.CurrentCulture = culture
+        DateTimeFormatInfo.CurrentInfo.ShortDatePattern = "gg yy/MM/dd"
 
         'frmMainの位置とウィンドウサイズを呼び出す
         Me.Top = My.Settings.frmMain_Top
@@ -627,7 +629,6 @@ Public Class frmGrd
         End If
 
         Dim frm As New frmProgressSyakenMenkyo
-
         frm.Menkyo_Syaken_DownLoad()
 
 

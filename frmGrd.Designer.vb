@@ -24,8 +24,12 @@ Partial Class frmGrd
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGrd))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DtMainBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -83,8 +87,6 @@ Partial Class frmGrd
         Me.btnExportSyakenMenkyo = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PhoneNumDBDataSet = New MPP.PhoneNumDBDataSet()
         Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
         Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
         Me.car_branch = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -111,6 +113,8 @@ Partial Class frmGrd
         Me.car_type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DtMainBindingNavigator.SuspendLayout()
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -118,8 +122,6 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DtMainBindingNavigator
@@ -149,6 +151,16 @@ Partial Class frmGrd
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "新規追加"
+        '
+        'DtMainBindingSource
+        '
+        Me.DtMainBindingSource.DataMember = "dtMain"
+        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
+        '
+        'PhoneNumDBDataSet
+        '
+        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
+        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -242,16 +254,33 @@ Partial Class frmGrd
         Me.grdMain.AllowUserToOrderColumns = True
         Me.grdMain.AutoGenerateColumns = False
         Me.grdMain.BackgroundColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.grdMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.car_branch, Me.musen, Me.carnum1, Me.ton, Me.staff_name, Me.phonenum, Me.branch_name, Me.max_load, Me.limit_syaken, Me.limit_menkyo, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height, Me.id_staff, Me.staff_kana, Me.mail, Me.model, Me.maker, Me.car_type})
         Me.grdMain.DataSource = Me.DtMainBindingSource
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.NullValue = Nothing
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdMain.DefaultCellStyle = DataGridViewCellStyle2
         Me.grdMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdMain.Location = New System.Drawing.Point(0, 0)
         Me.grdMain.Name = "grdMain"
         Me.grdMain.ReadOnly = True
         Me.grdMain.RowHeadersWidth = 30
         Me.grdMain.RowTemplate.Height = 21
-        Me.grdMain.Size = New System.Drawing.Size(948, 616)
+        Me.grdMain.Size = New System.Drawing.Size(1073, 616)
         Me.grdMain.TabIndex = 1
         '
         'btnAdmin
@@ -703,19 +732,9 @@ Partial Class frmGrd
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.grdMain)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1122, 616)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1247, 616)
         Me.SplitContainer1.SplitterDistance = 170
         Me.SplitContainer1.TabIndex = 8
-        '
-        'DtMainBindingSource
-        '
-        Me.DtMainBindingSource.DataMember = "dtMain"
-        Me.DtMainBindingSource.DataSource = Me.PhoneNumDBDataSet
-        '
-        'PhoneNumDBDataSet
-        '
-        Me.PhoneNumDBDataSet.DataSetName = "PhoneNumDBDataSet"
-        Me.PhoneNumDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'DtMainTableAdapter
         '
@@ -789,7 +808,7 @@ Partial Class frmGrd
         'max_load
         '
         Me.max_load.DataPropertyName = "max_load"
-        Me.max_load.HeaderText = "最大積載量"
+        Me.max_load.HeaderText = "最大積載量(kg)"
         Me.max_load.Name = "max_load"
         Me.max_load.ReadOnly = True
         '
@@ -831,21 +850,21 @@ Partial Class frmGrd
         'bed_length
         '
         Me.bed_length.DataPropertyName = "bed_length"
-        Me.bed_length.HeaderText = "荷台長(mm)"
+        Me.bed_length.HeaderText = "荷台長(cm)"
         Me.bed_length.Name = "bed_length"
         Me.bed_length.ReadOnly = True
         '
         'bed_width
         '
         Me.bed_width.DataPropertyName = "bed_width"
-        Me.bed_width.HeaderText = "荷台幅(mm)"
+        Me.bed_width.HeaderText = "荷台幅(cm)"
         Me.bed_width.Name = "bed_width"
         Me.bed_width.ReadOnly = True
         '
         'bed_height
         '
         Me.bed_height.DataPropertyName = "bed_height"
-        Me.bed_height.HeaderText = "荷台高(mm)"
+        Me.bed_height.HeaderText = "荷台高(cm)"
         Me.bed_height.Name = "bed_height"
         Me.bed_height.ReadOnly = True
         '
@@ -901,7 +920,7 @@ Partial Class frmGrd
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(1122, 616)
+        Me.ClientSize = New System.Drawing.Size(1247, 616)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.DtMainBindingNavigator)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -910,6 +929,8 @@ Partial Class frmGrd
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DtMainBindingNavigator.ResumeLayout(False)
         Me.DtMainBindingNavigator.PerformLayout()
+        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -919,8 +940,6 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -31,7 +31,7 @@ Partial Class frmProgressSyakenMenkyo
         '
         Me.pgbLoading.Location = New System.Drawing.Point(13, 12)
         Me.pgbLoading.Name = "pgbLoading"
-        Me.pgbLoading.Size = New System.Drawing.Size(243, 23)
+        Me.pgbLoading.Size = New System.Drawing.Size(234, 23)
         Me.pgbLoading.TabIndex = 0
         '
         'btnCancel
@@ -47,22 +47,25 @@ Partial Class frmProgressSyakenMenkyo
         'lblMessage
         '
         Me.lblMessage.AutoSize = True
-        Me.lblMessage.Location = New System.Drawing.Point(14, 41)
+        Me.lblMessage.Location = New System.Drawing.Point(12, 38)
         Me.lblMessage.Name = "lblMessage"
         Me.lblMessage.Size = New System.Drawing.Size(50, 12)
         Me.lblMessage.TabIndex = 2
         Me.lblMessage.Text = "Message"
+        Me.lblMessage.Visible = False
         '
         'frmProgressSyakenMenkyo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(268, 100)
+        Me.ClientSize = New System.Drawing.Size(259, 54)
+        Me.ControlBox = False
         Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.pgbLoading)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmProgressSyakenMenkyo"
-        Me.Text = "データの読み込み中"
+        Me.Text = "ファイルをダウンロードしています"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
