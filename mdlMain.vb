@@ -1,7 +1,15 @@
 ﻿
 Imports System
 Imports System.Globalization
+
+
+
+
 Module mdlMain
+    '管理者ログインフラグ
+    'f=一般ユーザ　t=管理者
+    Public UserIsAdmin As Boolean = False
+
 
     Function AD_to_Wareki(ByVal impoDate As Date) As String
         Dim culture As CultureInfo = New CultureInfo("ja-JP", True)

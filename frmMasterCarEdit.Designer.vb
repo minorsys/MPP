@@ -81,6 +81,8 @@ Partial Class frmMasterCarEdit
         Me.cmbMaker = New System.Windows.Forms.ComboBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
+        Me.cbxRetireFlag = New System.Windows.Forms.CheckBox()
+        Me.Label21 = New System.Windows.Forms.Label()
         CType(Me.TblcarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PhoneNumDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblbranchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,7 +167,7 @@ Partial Class frmMasterCarEdit
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(497, 443)
+        Me.btnClose.Location = New System.Drawing.Point(497, 454)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(55, 23)
         Me.btnClose.TabIndex = 19
@@ -174,7 +176,7 @@ Partial Class frmMasterCarEdit
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(434, 443)
+        Me.btnOK.Location = New System.Drawing.Point(434, 454)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(57, 23)
         Me.btnOK.TabIndex = 18
@@ -284,7 +286,7 @@ Partial Class frmMasterCarEdit
         'BikoLabel
         '
         Me.BikoLabel.AutoSize = True
-        Me.BikoLabel.Location = New System.Drawing.Point(38, 291)
+        Me.BikoLabel.Location = New System.Drawing.Point(38, 302)
         Me.BikoLabel.Name = "BikoLabel"
         Me.BikoLabel.Size = New System.Drawing.Size(29, 12)
         Me.BikoLabel.TabIndex = 85
@@ -294,7 +296,7 @@ Partial Class frmMasterCarEdit
         '
         Me.txtBiko.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblcarBindingSource, "biko", True))
         Me.txtBiko.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.txtBiko.Location = New System.Drawing.Point(84, 288)
+        Me.txtBiko.Location = New System.Drawing.Point(84, 299)
         Me.txtBiko.Multiline = True
         Me.txtBiko.Name = "txtBiko"
         Me.txtBiko.Size = New System.Drawing.Size(468, 149)
@@ -561,7 +563,7 @@ Partial Class frmMasterCarEdit
         '
         Me.cbxEmergency.AutoSize = True
         Me.cbxEmergency.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TblcarBindingSource, "emergency", True))
-        Me.cbxEmergency.Location = New System.Drawing.Point(84, 261)
+        Me.cbxEmergency.Location = New System.Drawing.Point(84, 257)
         Me.cbxEmergency.Name = "cbxEmergency"
         Me.cbxEmergency.Size = New System.Drawing.Size(15, 14)
         Me.cbxEmergency.TabIndex = 9
@@ -570,7 +572,7 @@ Partial Class frmMasterCarEdit
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(25, 261)
+        Me.Label20.Location = New System.Drawing.Point(25, 257)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(53, 12)
         Me.Label20.TabIndex = 101
@@ -612,12 +614,33 @@ Partial Class frmMasterCarEdit
         Me.Label27.TabIndex = 115
         Me.Label27.Text = "メーカー"
         '
+        'cbxRetireFlag
+        '
+        Me.cbxRetireFlag.AutoSize = True
+        Me.cbxRetireFlag.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TblcarBindingSource, "retire_flag", True))
+        Me.cbxRetireFlag.Location = New System.Drawing.Point(84, 278)
+        Me.cbxRetireFlag.Name = "cbxRetireFlag"
+        Me.cbxRetireFlag.Size = New System.Drawing.Size(15, 14)
+        Me.cbxRetireFlag.TabIndex = 119
+        Me.cbxRetireFlag.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(38, 278)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(29, 12)
+        Me.Label21.TabIndex = 120
+        Me.Label21.Text = "廃車"
+        '
         'frmMasterCarEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(574, 475)
+        Me.ClientSize = New System.Drawing.Size(574, 479)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.cbxRetireFlag)
         Me.Controls.Add(Me.cmbCarType)
         Me.Controls.Add(Me.cmbMaker)
         Me.Controls.Add(Me.Label28)
@@ -721,4 +744,6 @@ Partial Class frmMasterCarEdit
     Friend WithEvents cmbMaker As ComboBox
     Friend WithEvents Label28 As Label
     Friend WithEvents Label27 As Label
+    Friend WithEvents cbxRetireFlag As CheckBox
+    Friend WithEvents Label21 As Label
 End Class

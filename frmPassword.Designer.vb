@@ -30,7 +30,7 @@ Partial Class frmPassword
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(15, 53)
+        Me.btnOK.Location = New System.Drawing.Point(163, 56)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(60, 23)
         Me.btnOK.TabIndex = 2
@@ -39,7 +39,7 @@ Partial Class frmPassword
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(81, 53)
+        Me.btnCancel.Location = New System.Drawing.Point(229, 56)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(60, 23)
         Me.btnCancel.TabIndex = 3
@@ -48,25 +48,26 @@ Partial Class frmPassword
         '
         'txtPasswd
         '
-        Me.txtPasswd.Location = New System.Drawing.Point(15, 28)
+        Me.txtPasswd.Location = New System.Drawing.Point(14, 31)
         Me.txtPasswd.Name = "txtPasswd"
-        Me.txtPasswd.Size = New System.Drawing.Size(126, 19)
+        Me.txtPasswd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtPasswd.Size = New System.Drawing.Size(273, 19)
         Me.txtPasswd.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 13)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(136, 12)
+        Me.Label1.Size = New System.Drawing.Size(275, 12)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "パスワードを入力してください"
+        Me.Label1.Text = "管理者として利用する場合はパスワードを入力してください"
         '
         'frmPassword
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(161, 89)
+        Me.ClientSize = New System.Drawing.Size(301, 86)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtPasswd)

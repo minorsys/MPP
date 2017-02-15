@@ -4,9 +4,9 @@ Imports System.Globalization
 
 
 Public Class frmGrd
+    'sender As Object, e As EventArgs
 
-
-    Private Sub frmGrd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmGrd_Load() Handles MyBase.Load
         '日付を和暦で表示する
         Dim culture As CultureInfo = New CultureInfo("ja-JP", True)
         culture.DateTimeFormat.Calendar = New JapaneseCalendar()
@@ -86,6 +86,20 @@ Public Class frmGrd
             cmbBranchStaff.SelectedIndex = 0
             cmbBranchCar.SelectedIndex = 0
 
+
+            '管理者としてログインした場合、免許出力と管理メニューをenableする
+            If mdlMain.UserIsAdmin Then
+                btnAdmin.Enabled = True
+                btnExportMenkyo.Enabled = True
+
+            Else
+                btnAdmin.Enabled = False
+                btnExportMenkyo.Enabled = False
+
+            End If
+
+
+
         End Using
 
         '指定された条件でデータベースを読み込む
@@ -123,26 +137,37 @@ Public Class frmGrd
                 fs &= "AND "
             End If
 
-            fs &= "tbl_car.branch_id = '" & Strings.Left(cmbBranchCar.Text, cmbBranchCar.Text.IndexOf(":")) & "'"
+            fs &= "tbl_car_enabled.branch_id = '" & Strings.Left(cmbBranchCar.Text, cmbBranchCar.Text.IndexOf(":")) & "'"
 
         End If
 
         'SQLステートメントの定義
-        sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
-              "From tbl_car INNER Join tbl_branch On tbl_car.branch_id = tbl_branch.id_branch FULL OUTER Join " &
-              "tbl_staff INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch LEFT OUTER Join " &
-              "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum " &
-              "ON tbl_car.carnum1 = tbl_staff.staff_carnum "
+        'sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
+        '      "From tbl_car INNER Join tbl_branch On tbl_car.branch_id = tbl_branch.id_branch FULL OUTER Join " &
+        '      "tbl_staff INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch LEFT OUTER Join " &
+        '      "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum " &
+        '      "ON tbl_car.carnum1 = tbl_staff.staff_carnum "
+
         'ON tbl_car.staff_id = tbl_staff.id_staff "
+
+        sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car_enabled.*, tbl_branch.* " &
+           " From(select * from tbl_car where retire_flag = 0) As tbl_car_enabled INNER Join tbl_branch On tbl_car_enabled.branch_id = tbl_branch.id_branch " &
+                   " FULL OUTER Join tbl_staff " &
+                   " INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch " &
+                   " Left OUTER Join tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum ON tbl_car_enabled.carnum1 = tbl_staff.staff_carnum "
 
         '条件が指定されているときには、WHERE句を追加する
         If fs <> "" Then
             sql &= " WHERE " & fs
-
+            ' sql &= " WHERE tbl_car.retire_flag <> 1 AND " & fs
         Else
             '条件がなければ、無線番号順にソート（SQL文の末尾にORDER BYを追加）
-            sql &= " ORDER BY tbl_car.musen "
+
+            sql &= " ORDER BY tbl_car_enabled.musen "
+            'sql &= "WHERE tbl_car.retire_flag <> 1 ORDER BY tbl_car.musen "
         End If
+
+        'sql &= " EXCEPT SELECT tbl_car.* FROM tbl_car WHERE tbl_car.retire_flag = 1 "
 
         'データアダプタにSQLステートメントを設定する
         Dim da As New SqlClient.SqlDataAdapter(sql, My.Settings.PhoneNumDBConnectionString)
@@ -184,7 +209,8 @@ Public Class frmGrd
 
     End Sub
 
-
+    '絞り込みボタンから呼び出すプロシージャ
+    '引数fsは必ず値を持つこと。
     Private Sub shiboriDatabase(ByVal fs As String)
         'データグリッドビューのソート（列名をクリックすると△ボタン表示されるやつ）が効いていると、そっちが優先されてしまうので、解除する。
         DtMainBindingSource.Sort = ""
@@ -192,40 +218,53 @@ Public Class frmGrd
         Dim sql As String
 
         'SQLステートメントの定義
-        sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
-              "From tbl_car INNER Join tbl_branch On tbl_car.branch_id = tbl_branch.id_branch FULL OUTER Join " &
-              "tbl_staff INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch LEFT OUTER Join " &
-              "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum " &
-              "ON tbl_car.carnum1 = tbl_staff.staff_carnum "
+        'sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
+        '      "From tbl_car INNER Join tbl_branch On tbl_car.branch_id = tbl_branch.id_branch FULL OUTER Join " &
+        '      "tbl_staff INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch LEFT OUTER Join " &
+        '      "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum " &
+        '      "ON tbl_car.carnum1 = tbl_staff.staff_carnum "
+
         'sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
         '      "From tbl_car INNER Join tbl_branch On tbl_car.branch_id = tbl_branch.id_branch FULL OUTER Join " &
         '      "tbl_staff INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch LEFT OUTER Join " &
         '      "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum ON tbl_car.staff_id = tbl_staff.id_staff "
 
-        sql &= " WHERE "
+
+        'sql &= " WHERE tbl_car.retire_flag = 0 AND "
+
+        sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car_enabled.*, tbl_branch.* " &
+           " From(select * from tbl_car where retire_flag = 0) As tbl_car_enabled INNER Join tbl_branch On tbl_car_enabled.branch_id = tbl_branch.id_branch " &
+                   " FULL OUTER Join tbl_staff " &
+                   " INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch " &
+                   " Left OUTER Join tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum ON tbl_car_enabled.carnum1 = tbl_staff.staff_carnum "
+
+        sql &= "WHERE "
+
 
         '所属コンボボックスの条件指定と条件式の作成
+        '車庫コンボボックスの条件指定と条件式の作成
         If cmbBranchStaff.SelectedIndex > 0 Then
-
-            ' sql &= "And "
-
+            '車庫コンボボックスが値を持つ
             sql &= "tbl_staff.branch_id = '" & Strings.Left(cmbBranchStaff.Text, cmbBranchStaff.Text.IndexOf(":")) & "'"
 
-        End If
-
-        '車庫コンボボックスの条件指定と条件式の作成
-        If cmbBranchCar.SelectedIndex > 0 Then
-            If cmbBranchStaff.SelectedIndex > 0 Then
-                sql &= "AND "
+            '車庫が値をもち、かつ所属も値を持つ
+            If cmbBranchCar.SelectedIndex > 0 Then
+                sql &= " AND tbl_car_enabled.branch_id = '" & Strings.Left(cmbBranchCar.Text, cmbBranchCar.Text.IndexOf(":")) & "'"
+                sql &= " AND "
             End If
-            sql &= "tbl_car.branch_id = '" & Strings.Left(cmbBranchCar.Text, cmbBranchCar.Text.IndexOf(":")) & "'"
+            '車庫が値をもつが、所属は値を持たない
+            sql &= " AND "
+        Else
+            '車庫が値を持たない
+            '車庫が値をもたないが、所属は値を持つ
+            If cmbBranchCar.SelectedIndex > 0 Then
+                sql &= " tbl_car_enabled.branch_id = '" & Strings.Left(cmbBranchCar.Text, cmbBranchCar.Text.IndexOf(":")) & "'"
+                sql &= " AND "
+            End If
+            '車庫も所属も値を持たない
 
         End If
 
-        If cmbBranchCar.SelectedIndex > 0 OrElse cmbBranchStaff.SelectedIndex > 0 Then
-            sql &= "AND "
-
-        End If
 
         sql &= fs
 
@@ -325,7 +364,7 @@ Public Class frmGrd
     '絞り込み1000未満
     Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled_enabled.carnum1 like '___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
     End Sub
@@ -333,7 +372,7 @@ Public Class frmGrd
     '絞り込み1000番台
     Private Sub btn1000_Click(sender As Object, e As EventArgs) Handles btn1000.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '1___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled.carnum1 like '1___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
     End Sub
@@ -341,7 +380,7 @@ Public Class frmGrd
     '絞り込み2000番台
     Private Sub btn2000_Click(sender As Object, e As EventArgs) Handles btn2000.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '2___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled.carnum1 like '2___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
     End Sub
@@ -349,7 +388,7 @@ Public Class frmGrd
     '絞り込み3000番台
     Private Sub btn3000_Click(sender As Object, e As EventArgs) Handles btn3000.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '3___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled.carnum1 like '3___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
     End Sub
@@ -357,7 +396,7 @@ Public Class frmGrd
     '絞り込み4000番台
     Private Sub btn4000_Click(sender As Object, e As EventArgs) Handles btn4000.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '4___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled.carnum1 like '4___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
     End Sub
@@ -365,7 +404,7 @@ Public Class frmGrd
     '絞り込み5000番台
     Private Sub btn5000_Click(sender As Object, e As EventArgs) Handles btn5000.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '5___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled.carnum1 like '5___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
     End Sub
@@ -373,7 +412,7 @@ Public Class frmGrd
     '絞り込み6000番台
     Private Sub btn6000_Click(sender As Object, e As EventArgs) Handles btn6000.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '6___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled.carnum1 like '6___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
     End Sub
@@ -381,7 +420,7 @@ Public Class frmGrd
     '絞り込み7000番台
     Private Sub btn7000_Click(sender As Object, e As EventArgs) Handles btn7000.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '7___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled.carnum1 like '7___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
     End Sub
@@ -389,7 +428,7 @@ Public Class frmGrd
     '絞り込み8000番台
     Private Sub btn8000_Click(sender As Object, e As EventArgs) Handles btn8000.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '8___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled.carnum1 like '8___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
     End Sub
@@ -397,7 +436,7 @@ Public Class frmGrd
     '絞り込み9000番台
     Private Sub btn9000_Click(sender As Object, e As EventArgs) Handles btn9000.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '9___' ORDER BY tbl_car.carnum1"
+        fs = "tbl_car_enabled.carnum1 like '9___' ORDER BY tbl_car_enabled.carnum1"
 
         shiboriDatabase(fs)
 
@@ -545,7 +584,7 @@ Public Class frmGrd
     '[2t平]ボタン
     Private Sub btn2tHira_Click(sender As Object, e As EventArgs) Handles btn2tHira.Click
         Dim fs As String
-        fs = "tbl_car.ton like '2t平%' ORDER BY tbl_car.musen"
+        fs = "tbl_car_enabled.ton like '2t平%' ORDER BY tbl_car_enabled.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -554,7 +593,7 @@ Public Class frmGrd
     '[2tU]ボタン
     Private Sub btn2tU_Click(sender As Object, e As EventArgs) Handles btn2tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '2tU' ORDER BY tbl_car.musen"
+        fs = "tbl_car_enabled.ton = '2tU' ORDER BY tbl_car_enabled.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -562,7 +601,7 @@ Public Class frmGrd
     '[3tu]ボタン
     Private Sub btn3tU_Click(sender As Object, e As EventArgs) Handles btn3tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '3tU' ORDER BY tbl_car.musen"
+        fs = "tbl_car_enabled.ton = '3tU' ORDER BY tbl_car_enabled.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -570,7 +609,7 @@ Public Class frmGrd
     '[4tu]ボタン
     Private Sub btn4tU_Click(sender As Object, e As EventArgs) Handles btn4tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '4tU' ORDER BY tbl_car.musen"
+        fs = "tbl_car_enabled.ton = '4tU' ORDER BY tbl_car_enabled.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -578,7 +617,7 @@ Public Class frmGrd
     '[7tu]ボタン
     Private Sub btn7tU_Click(sender As Object, e As EventArgs) Handles btn7tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '7tU' ORDER BY tbl_car.musen"
+        fs = "tbl_car_enabled.ton = '7tU' ORDER BY tbl_car_enabled.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -586,7 +625,7 @@ Public Class frmGrd
     '[10tU]
     Private Sub btn10tU_Click(sender As Object, e As EventArgs) Handles btn10tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '10tU' ORDER BY tbl_car.musen"
+        fs = "tbl_car_enabled.ton = '10tU' ORDER BY tbl_car_enabled.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -594,7 +633,7 @@ Public Class frmGrd
     '[15tU]ボタン
     Private Sub btn15tU_Click(sender As Object, e As EventArgs) Handles btn15tU.Click
         Dim fs As String
-        fs = "tbl_car.ton = '15tU' ORDER BY tbl_car.musen"
+        fs = "tbl_car_enabled.ton = '15tU' ORDER BY tbl_car_enabled.musen"
 
         shiboriDatabase(fs)
     End Sub
@@ -602,19 +641,19 @@ Public Class frmGrd
     '[全車両]ボタン 
     Private Sub btnAllCar_Click(sender As Object, e As EventArgs) Handles btnAllCar.Click
         Dim fs As String
-        fs = "tbl_car.carnum1 like '%[0-9]%' ORDER BY tbl_car.musen"
+        fs = "tbl_car_enabled.carnum1 like '%[0-9]%' ORDER BY tbl_car_enabled.musen"
 
         shiboriDatabase(fs)
     End Sub
 
     '緊急車両ボタン
-    Private Sub btnEmergency_Click_1(sender As Object, e As EventArgs) Handles btnEmergency.Click
+    Private Sub btnEmergency_Click(sender As Object, e As EventArgs) Handles btnEmergency.Click
         Dim fs As String
-        fs = "tbl_car.emergency = 1"
+        fs = "tbl_car_enabled.emergency = 1"
         shiboriDatabase(fs)
     End Sub
 
-    '選択行の車検証・免許証エクスポートボタン
+    '選択行の車検証エクスポートボタン
     Private Sub btnExportSyaken_Click(sender As Object, e As EventArgs) Handles btnExportSyaken.Click
 
         'データグリッドビューが空のときは終了する
@@ -644,15 +683,13 @@ Public Class frmGrd
             Return
         End If
 
-        'パスワード入力フォームを呼び出す
-        Dim frm As New frmPassword
-        frm.ShowDialog(Me)
-    End Sub
 
-    '緊急車両ボタン
-    Private Sub btnEmergency_Click(sender As Object, e As EventArgs)
+        Dim frm As New frmProgressSyakenMenkyo
+        frm.Menkyo_Download()
 
     End Sub
+
+
 
     'アプリの終了時処理
     Private Sub frmGrd_Closed(sender As Object, e As EventArgs) Handles Me.Closed
@@ -738,4 +775,63 @@ Public Class frmGrd
 
     End Sub
 
+    'ログインボタン
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        Dim frm As New frmPassword
+        frm.ShowDialog(Me)
+        Call frmGrd_Load()
+    End Sub
+
+    Private Sub btnRetire_Click(sender As Object, e As EventArgs) Handles btnRetire.Click
+        ' Dim fs As String
+
+        'データグリッドビューのソート（列名をクリックすると△ボタン表示されるやつ）が効いていると、そっちが優先されてしまうので、解除する。
+        DtMainBindingSource.Sort = ""
+
+        Dim sql As String
+            
+        'SQLステートメントの定義
+        sql = "Select tbl_PhoneNum.*, tbl_branch_1.*, tbl_staff.*, tbl_car.*, tbl_branch.* " &
+              "From tbl_car INNER Join tbl_branch On tbl_car.branch_id = tbl_branch.id_branch FULL OUTER Join " &
+              "tbl_staff INNER Join tbl_branch As tbl_branch_1 On tbl_staff.branch_id = tbl_branch_1.id_branch LEFT OUTER Join " &
+              "tbl_PhoneNum On tbl_staff.staff_phonenum = tbl_PhoneNum.phonenum " &
+              "ON tbl_car.carnum1 = tbl_staff.staff_carnum "
+
+        sql &= " WHERE tbl_car.retire_flag = 1 "
+
+        '所属コンボボックスの条件指定と条件式の作成
+        If cmbBranchStaff.SelectedIndex > 0 Then
+
+            sql &= "AND tbl_staff.branch_id = '" & Strings.Left(cmbBranchStaff.Text, cmbBranchStaff.Text.IndexOf(":")) & "'"
+
+        End If
+
+        '車庫コンボボックスの条件指定と条件式の作成
+        If cmbBranchCar.SelectedIndex > 0 Then
+            'If cmbBranchStaff.SelectedIndex > 0 Then
+            '    sql &= "AND "
+            'End If
+            sql &= "AND tbl_car.branch_id = '" & Strings.Left(cmbBranchCar.Text, cmbBranchCar.Text.IndexOf(":")) & "'"
+
+        End If
+
+        'If cmbBranchCar.SelectedIndex > 0 OrElse cmbBranchStaff.SelectedIndex > 0 Then
+        '    sql &= "AND "
+
+        'End If
+
+        'sql &= fs
+
+        'データアダプタにSQLステートメントを設定する
+        Dim da As New SqlClient.SqlDataAdapter(sql, My.Settings.PhoneNumDBConnectionString)
+
+        'データテーブルをクリアする
+        Me.PhoneNumDBDataSet.dtMain.Clear()
+        'Me.PhoneNumDBDataSet.dtMain.OrderBy(PhoneNumDBDataSet.dtMain.musenColumn)
+        'データテーブルにデータアダプタを介してデータをセットする
+        da.Fill(Me.PhoneNumDBDataSet.dtMain)
+
+        '現在の行数をラベルに表示する
+        lblHowManyRecords.Text = Me.grdMain.RowCount & "件のデータが選択されました"
+    End Sub
 End Class

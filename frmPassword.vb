@@ -23,7 +23,7 @@
             Dim dr As SqlClient.SqlDataReader
 
             'データコマンドの定義
-            command.CommandText = "SELECT passwd FROM tbl_passwd where id = 'menkyo' "
+            command.CommandText = "SELECT passwd FROM tbl_passwd where id = 'admin' "
 
             'データリーダーからのデータの読出し
             dr = command.ExecuteReader()
@@ -39,17 +39,27 @@
 
             '
             If dbPasswd = txtPasswd.Text Then
-                Dim frm As New frmProgressSyakenMenkyo
 
-                frm.Menkyo_Download()
+
+                'Dim frm As New frmProgressSyakenMenkyo
+
+                'frm.Menkyo_Download()
+                'Me.Close()
+
+                mdlMain.UserIsAdmin = True
+
                 Me.Close()
 
             Else
                 MsgBox("パスワードが違います")
+                txtPasswd.Select()
+                Return
+
             End If
         End Using
 
 
 
     End Sub
+
 End Class

@@ -23,10 +23,14 @@ Partial Class frmGrd
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGrd))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim GroupBox3 As System.Windows.Forms.GroupBox
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGrd))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnExportMenkyo = New System.Windows.Forms.Button()
+        Me.btnExportSyaken = New System.Windows.Forms.Button()
         Me.DtMainBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.DtMainBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -67,6 +71,7 @@ Partial Class frmGrd
         Me.car_type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnRetire = New System.Windows.Forms.Button()
         Me.btnEmergency = New System.Windows.Forms.Button()
         Me.btnFilterClear = New System.Windows.Forms.Button()
         Me.btn15tU = New System.Windows.Forms.Button()
@@ -107,15 +112,13 @@ Partial Class frmGrd
         Me.txtFilterPhonenum = New System.Windows.Forms.TextBox()
         Me.lblHowManyRecords = New System.Windows.Forms.Label()
         Me.btnModify = New System.Windows.Forms.Button()
-        Me.btnExportSyaken = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.btnLogin = New System.Windows.Forms.Button()
         Me.DtMainTableAdapter = New MPP.PhoneNumDBDataSetTableAdapters.dtMainTableAdapter()
         Me.TableAdapterManager = New MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager()
-        Me.btnExportMenkyo = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         GroupBox3 = New System.Windows.Forms.GroupBox()
+        GroupBox3.SuspendLayout()
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DtMainBindingNavigator.SuspendLayout()
         CType(Me.DtMainBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -127,8 +130,58 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        GroupBox3.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'GroupBox3
+        '
+        GroupBox3.BackColor = System.Drawing.SystemColors.ControlDark
+        GroupBox3.Controls.Add(Me.Button2)
+        GroupBox3.Controls.Add(Me.Button1)
+        GroupBox3.Controls.Add(Me.btnExportMenkyo)
+        GroupBox3.Controls.Add(Me.btnExportSyaken)
+        GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        GroupBox3.Location = New System.Drawing.Point(9, 48)
+        GroupBox3.Name = "GroupBox3"
+        GroupBox3.Size = New System.Drawing.Size(138, 71)
+        GroupBox3.TabIndex = 8
+        GroupBox3.TabStop = False
+        GroupBox3.Text = "ファイル出力"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(73, 42)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(56, 23)
+        Me.Button2.TabIndex = 9
+        Me.Button2.Text = "ｸﾚｰﾝ"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(73, 18)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(56, 23)
+        Me.Button1.TabIndex = 8
+        Me.Button1.Text = "自賠責"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnExportMenkyo
+        '
+        Me.btnExportMenkyo.Location = New System.Drawing.Point(11, 42)
+        Me.btnExportMenkyo.Name = "btnExportMenkyo"
+        Me.btnExportMenkyo.Size = New System.Drawing.Size(56, 23)
+        Me.btnExportMenkyo.TabIndex = 7
+        Me.btnExportMenkyo.Text = "免許証"
+        Me.btnExportMenkyo.UseVisualStyleBackColor = True
+        '
+        'btnExportSyaken
+        '
+        Me.btnExportSyaken.Location = New System.Drawing.Point(11, 18)
+        Me.btnExportSyaken.Name = "btnExportSyaken"
+        Me.btnExportSyaken.Size = New System.Drawing.Size(56, 23)
+        Me.btnExportSyaken.TabIndex = 6
+        Me.btnExportSyaken.Text = "車検証"
+        Me.btnExportSyaken.UseVisualStyleBackColor = True
         '
         'DtMainBindingNavigator
         '
@@ -260,26 +313,26 @@ Partial Class frmGrd
         Me.grdMain.AllowUserToOrderColumns = True
         Me.grdMain.AutoGenerateColumns = False
         Me.grdMain.BackgroundColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.grdMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.car_branch, Me.musen, Me.carnum1, Me.ton, Me.staff_name, Me.phonenum, Me.branch_name, Me.max_load, Me.limit_syaken, Me.limit_menkyo, Me.car_length, Me.car_width, Me.car_height, Me.bed_length, Me.bed_width, Me.bed_height, Me.id_staff, Me.staff_kana, Me.mail, Me.model, Me.maker, Me.car_type})
         Me.grdMain.DataSource = Me.DtMainBindingSource
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.NullValue = Nothing
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdMain.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.NullValue = Nothing
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdMain.DefaultCellStyle = DataGridViewCellStyle2
         Me.grdMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdMain.Location = New System.Drawing.Point(0, 0)
         Me.grdMain.Name = "grdMain"
@@ -465,6 +518,7 @@ Partial Class frmGrd
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Gainsboro
+        Me.GroupBox1.Controls.Add(Me.btnRetire)
         Me.GroupBox1.Controls.Add(Me.btnEmergency)
         Me.GroupBox1.Controls.Add(Me.btnFilterClear)
         Me.GroupBox1.Controls.Add(Me.btn15tU)
@@ -509,6 +563,15 @@ Partial Class frmGrd
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "絞り込み"
+        '
+        'btnRetire
+        '
+        Me.btnRetire.Location = New System.Drawing.Point(96, 385)
+        Me.btnRetire.Name = "btnRetire"
+        Me.btnRetire.Size = New System.Drawing.Size(51, 23)
+        Me.btnRetire.TabIndex = 38
+        Me.btnRetire.Text = "廃車"
+        Me.btnRetire.UseVisualStyleBackColor = True
         '
         'btnEmergency
         '
@@ -864,15 +927,6 @@ Partial Class frmGrd
         Me.btnModify.Text = "詳細表示/編集"
         Me.btnModify.UseVisualStyleBackColor = True
         '
-        'btnExportSyaken
-        '
-        Me.btnExportSyaken.Location = New System.Drawing.Point(11, 18)
-        Me.btnExportSyaken.Name = "btnExportSyaken"
-        Me.btnExportSyaken.Size = New System.Drawing.Size(56, 23)
-        Me.btnExportSyaken.TabIndex = 6
-        Me.btnExportSyaken.Text = "車検証"
-        Me.btnExportSyaken.UseVisualStyleBackColor = True
-        '
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Gainsboro
@@ -894,6 +948,7 @@ Partial Class frmGrd
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnLogin)
         Me.SplitContainer1.Panel1.Controls.Add(Me.GroupBox1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.GroupBox2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblHowManyRecords)
@@ -905,6 +960,15 @@ Partial Class frmGrd
         Me.SplitContainer1.Size = New System.Drawing.Size(1247, 661)
         Me.SplitContainer1.SplitterDistance = 170
         Me.SplitContainer1.TabIndex = 8
+        '
+        'btnLogin
+        '
+        Me.btnLogin.Location = New System.Drawing.Point(90, 3)
+        Me.btnLogin.Name = "btnLogin"
+        Me.btnLogin.Size = New System.Drawing.Size(75, 23)
+        Me.btnLogin.TabIndex = 8
+        Me.btnLogin.Text = "ログイン"
+        Me.btnLogin.UseVisualStyleBackColor = True
         '
         'DtMainTableAdapter
         '
@@ -921,48 +985,6 @@ Partial Class frmGrd
         Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = MPP.PhoneNumDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'btnExportMenkyo
-        '
-        Me.btnExportMenkyo.Location = New System.Drawing.Point(11, 42)
-        Me.btnExportMenkyo.Name = "btnExportMenkyo"
-        Me.btnExportMenkyo.Size = New System.Drawing.Size(56, 23)
-        Me.btnExportMenkyo.TabIndex = 7
-        Me.btnExportMenkyo.Text = "免許証"
-        Me.btnExportMenkyo.UseVisualStyleBackColor = True
-        '
-        'GroupBox3
-        '
-        GroupBox3.BackColor = System.Drawing.SystemColors.ControlDark
-        GroupBox3.Controls.Add(Me.Button2)
-        GroupBox3.Controls.Add(Me.Button1)
-        GroupBox3.Controls.Add(Me.btnExportMenkyo)
-        GroupBox3.Controls.Add(Me.btnExportSyaken)
-        GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        GroupBox3.Location = New System.Drawing.Point(9, 48)
-        GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New System.Drawing.Size(138, 71)
-        GroupBox3.TabIndex = 8
-        GroupBox3.TabStop = False
-        GroupBox3.Text = "ファイル出力"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(73, 18)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(56, 23)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "自賠責"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(73, 42)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(56, 23)
-        Me.Button2.TabIndex = 9
-        Me.Button2.Text = "ｸﾚｰﾝ"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'frmGrd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -974,6 +996,7 @@ Partial Class frmGrd
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmGrd"
         Me.Text = "Men, Phones, and Plates"
+        GroupBox3.ResumeLayout(False)
         CType(Me.DtMainBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DtMainBindingNavigator.ResumeLayout(False)
         Me.DtMainBindingNavigator.PerformLayout()
@@ -988,7 +1011,6 @@ Partial Class frmGrd
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1082,4 +1104,6 @@ Partial Class frmGrd
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents btnExportMenkyo As Button
+    Friend WithEvents btnLogin As Button
+    Friend WithEvents btnRetire As Button
 End Class

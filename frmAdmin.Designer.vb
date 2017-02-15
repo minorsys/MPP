@@ -22,10 +22,15 @@ Partial Class frmAdmin
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("ノード3")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("ノード2", New System.Windows.Forms.TreeNode() {TreeNode1})
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("ノード4")
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("ノード1", New System.Windows.Forms.TreeNode() {TreeNode2, TreeNode3})
         Me.btnMasterCar = New System.Windows.Forms.Button()
         Me.btnMasterStaff = New System.Windows.Forms.Button()
         Me.btnMasterPhone = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.SuspendLayout()
         '
         'btnMasterCar
@@ -68,13 +73,30 @@ Partial Class frmAdmin
         Me.btnClose.Text = "閉じる"
         Me.btnClose.UseVisualStyleBackColor = True
         '
+        'TreeView1
+        '
+        Me.TreeView1.Location = New System.Drawing.Point(29, 201)
+        Me.TreeView1.Name = "TreeView1"
+        TreeNode1.Name = "ノード3"
+        TreeNode1.Text = "ノード3"
+        TreeNode2.Name = "ノード2"
+        TreeNode2.Text = "ノード2"
+        TreeNode3.Name = "ノード4"
+        TreeNode3.Text = "ノード4"
+        TreeNode4.Name = "ノード1"
+        TreeNode4.Text = "ノード1"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
+        Me.TreeView1.Size = New System.Drawing.Size(121, 97)
+        Me.TreeView1.TabIndex = 4
+        '
         'frmAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(231, 157)
+        Me.ClientSize = New System.Drawing.Size(413, 381)
         Me.ControlBox = False
+        Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnMasterPhone)
         Me.Controls.Add(Me.btnMasterStaff)
@@ -90,4 +112,5 @@ Partial Class frmAdmin
     Friend WithEvents btnMasterStaff As Button
     Friend WithEvents btnMasterPhone As Button
     Friend WithEvents btnClose As Button
+    Friend WithEvents TreeView1 As TreeView
 End Class

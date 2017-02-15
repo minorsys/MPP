@@ -774,6 +774,8 @@ Partial Public Class PhoneNumDBDataSet
         
         Private columncar_type As Global.System.Data.DataColumn
         
+        Private columnretire_flag As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -970,6 +972,14 @@ Partial Public Class PhoneNumDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property retire_flagColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnretire_flag
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1026,9 +1036,10 @@ Partial Public Class PhoneNumDBDataSet
                     ByVal bed_width As Integer,  _
                     ByVal bed_height As Integer,  _
                     ByVal maker As String,  _
-                    ByVal car_type As String) As tbl_carRow
+                    ByVal car_type As String,  _
+                    ByVal retire_flag As Boolean) As tbl_carRow
             Dim rowtbl_carRow As tbl_carRow = CType(Me.NewRow,tbl_carRow)
-            Dim columnValuesArray() As Object = New Object() {carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syaken, emergency, car_length, car_width, car_height, bed_length, bed_width, bed_height, maker, car_type}
+            Dim columnValuesArray() As Object = New Object() {carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syaken, emergency, car_length, car_width, car_height, bed_length, bed_width, bed_height, maker, car_type, retire_flag}
             rowtbl_carRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtbl_carRow)
             Return rowtbl_carRow
@@ -1077,6 +1088,7 @@ Partial Public Class PhoneNumDBDataSet
             Me.columnbed_height = MyBase.Columns("bed_height")
             Me.columnmaker = MyBase.Columns("maker")
             Me.columncar_type = MyBase.Columns("car_type")
+            Me.columnretire_flag = MyBase.Columns("retire_flag")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1122,6 +1134,8 @@ Partial Public Class PhoneNumDBDataSet
             MyBase.Columns.Add(Me.columnmaker)
             Me.columncar_type = New Global.System.Data.DataColumn("car_type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncar_type)
+            Me.columnretire_flag = New Global.System.Data.DataColumn("retire_flag", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnretire_flag)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columncarnum1}, true))
             Me.columncarnum1.AllowDBNull = false
             Me.columncarnum1.Unique = true
@@ -2330,6 +2344,8 @@ Partial Public Class PhoneNumDBDataSet
         
         Private columncar_type As Global.System.Data.DataColumn
         
+        Private columnretire_flag As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -2670,6 +2686,14 @@ Partial Public Class PhoneNumDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property retire_flagColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnretire_flag
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2744,9 +2768,10 @@ Partial Public Class PhoneNumDBDataSet
                     ByVal bed_width As Integer,  _
                     ByVal bed_height As Integer,  _
                     ByVal maker As String,  _
-                    ByVal car_type As String) As dtMainRow
+                    ByVal car_type As String,  _
+                    ByVal retire_flag As Boolean) As dtMainRow
             Dim rowdtMainRow As dtMainRow = CType(Me.NewRow,dtMainRow)
-            Dim columnValuesArray() As Object = New Object() {id_staff, staff_name, staff_kana, branch_id, staff_phonenum, biko, staff_carnum, id_branch, branch_name, carnum1, carnum2, carnum3, carnum4, musen, ton, biko1, branch_id1, staff_id, max_load, limit_syaken, limit_menkyo, id_branch1, branch_name1, phonenum, mail, biko2, model, staff_id1, car_length, car_width, car_height, total_weight, emergency, bed_length, bed_width, bed_height, maker, car_type}
+            Dim columnValuesArray() As Object = New Object() {id_staff, staff_name, staff_kana, branch_id, staff_phonenum, biko, staff_carnum, id_branch, branch_name, carnum1, carnum2, carnum3, carnum4, musen, ton, biko1, branch_id1, staff_id, max_load, limit_syaken, limit_menkyo, id_branch1, branch_name1, phonenum, mail, biko2, model, staff_id1, car_length, car_width, car_height, total_weight, emergency, bed_length, bed_width, bed_height, maker, car_type, retire_flag}
             rowdtMainRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtMainRow)
             Return rowdtMainRow
@@ -2807,6 +2832,7 @@ Partial Public Class PhoneNumDBDataSet
             Me.columnbed_height = MyBase.Columns("bed_height")
             Me.columnmaker = MyBase.Columns("maker")
             Me.columncar_type = MyBase.Columns("car_type")
+            Me.columnretire_flag = MyBase.Columns("retire_flag")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2888,6 +2914,8 @@ Partial Public Class PhoneNumDBDataSet
             MyBase.Columns.Add(Me.columnmaker)
             Me.columncar_type = New Global.System.Data.DataColumn("car_type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncar_type)
+            Me.columnretire_flag = New Global.System.Data.DataColumn("retire_flag", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnretire_flag)
             Me.columnid_staff.MaxLength = 5
             Me.columnstaff_name.MaxLength = 20
             Me.columnstaff_kana.MaxLength = 20
@@ -3410,6 +3438,21 @@ Partial Public Class PhoneNumDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property retire_flag() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_car.retire_flagColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("テーブル 'tbl_car' にある列 'retire_flag' の値は DBNull です。", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_car.retire_flagColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function Iscarnum2Null() As Boolean
             Return Me.IsNull(Me.tabletbl_car.carnum2Column)
         End Function
@@ -3634,6 +3677,18 @@ Partial Public Class PhoneNumDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub Setcar_typeNull()
             Me(Me.tabletbl_car.car_typeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Isretire_flagNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_car.retire_flagColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setretire_flagNull()
+            Me(Me.tabletbl_car.retire_flagColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4635,6 +4690,21 @@ Partial Public Class PhoneNumDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property retire_flag() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtMain.retire_flagColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("テーブル 'dtMain' にある列 'retire_flag' の値は DBNull です。", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtMain.retire_flagColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function Isid_staffNull() As Boolean
             Return Me.IsNull(Me.tabledtMain.id_staffColumn)
         End Function
@@ -5087,6 +5157,18 @@ Partial Public Class PhoneNumDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub Setcar_typeNull()
             Me(Me.tabledtMain.car_typeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Isretire_flagNull() As Boolean
+            Return Me.IsNull(Me.tabledtMain.retire_flagColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setretire_flagNull()
+            Me(Me.tabledtMain.retire_flagColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -5799,6 +5881,7 @@ Namespace PhoneNumDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("bed_height", "bed_height")
             tableMapping.ColumnMappings.Add("maker", "maker")
             tableMapping.ColumnMappings.Add("car_type", "car_type")
+            tableMapping.ColumnMappings.Add("retire_flag", "retire_flag")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -5823,7 +5906,9 @@ Namespace PhoneNumDBDataSetTableAdapters
                 "OR ([bed_width] = @Original_bed_width)) AND ((@IsNull_bed_height = 1 AND [bed_he"& _ 
                 "ight] IS NULL) OR ([bed_height] = @Original_bed_height)) AND ((@IsNull_maker = 1"& _ 
                 " AND [maker] IS NULL) OR ([maker] = @Original_maker)) AND ((@IsNull_car_type = 1"& _ 
-                " AND [car_type] IS NULL) OR ([car_type] = @Original_car_type)))"
+                " AND [car_type] IS NULL) OR ([car_type] = @Original_car_type)) AND ((@IsNull_ret"& _ 
+                "ire_flag = 1 AND [retire_flag] IS NULL) OR ([retire_flag] = @Original_retire_fla"& _ 
+                "g)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_carnum1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_carnum2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -5864,18 +5949,20 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_maker", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "maker", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_car_type", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "car_type", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_car_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "car_type", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_retire_flag", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "retire_flag", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_retire_flag", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "retire_flag", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [tbl_car] ([carnum1], [carnum2], [carnum3], [carnum4], [musen], [ton]"& _ 
                 ", [biko], [branch_id], [staff_id], [max_load], [limit_syaken], [emergency], [car"& _ 
                 "_length], [car_width], [car_height], [bed_length], [bed_width], [bed_height], [m"& _ 
-                "aker], [car_type]) VALUES (@carnum1, @carnum2, @carnum3, @carnum4, @musen, @ton,"& _ 
-                " @biko, @branch_id, @staff_id, @max_load, @limit_syaken, @emergency, @car_length"& _ 
-                ", @car_width, @car_height, @bed_length, @bed_width, @bed_height, @maker, @car_ty"& _ 
-                "pe);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, st"& _ 
-                "aff_id, max_load, limit_syaken, emergency, car_length, car_width, car_height, be"& _ 
-                "d_length, bed_width, bed_height, maker, car_type FROM tbl_car WHERE (carnum1 = @"& _ 
-                "carnum1)"
+                "aker], [car_type], [retire_flag]) VALUES (@carnum1, @carnum2, @carnum3, @carnum4"& _ 
+                ", @musen, @ton, @biko, @branch_id, @staff_id, @max_load, @limit_syaken, @emergen"& _ 
+                "cy, @car_length, @car_width, @car_height, @bed_length, @bed_width, @bed_height, "& _ 
+                "@maker, @car_type, @retire_flag);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT carnum1, carnum2, carnum3, carnum4, mu"& _ 
+                "sen, ton, biko, branch_id, staff_id, max_load, limit_syaken, emergency, car_leng"& _ 
+                "th, car_width, car_height, bed_length, bed_width, bed_height, maker, car_type, r"& _ 
+                "etire_flag FROM tbl_car WHERE (carnum1 = @carnum1)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@carnum1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@carnum2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5897,6 +5984,7 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@bed_height", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "bed_height", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@maker", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "maker", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@car_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "car_type", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@retire_flag", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "retire_flag", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [tbl_car] SET [carnum1] = @carnum1, [carnum2] = @carnum2, [carnum3] = @car"& _ 
@@ -5905,31 +5993,33 @@ Namespace PhoneNumDBDataSetTableAdapters
                 "ken] = @limit_syaken, [emergency] = @emergency, [car_length] = @car_length, [car"& _ 
                 "_width] = @car_width, [car_height] = @car_height, [bed_length] = @bed_length, [b"& _ 
                 "ed_width] = @bed_width, [bed_height] = @bed_height, [maker] = @maker, [car_type]"& _ 
-                " = @car_type WHERE (([carnum1] = @Original_carnum1) AND ((@IsNull_carnum2 = 1 AN"& _ 
-                "D [carnum2] IS NULL) OR ([carnum2] = @Original_carnum2)) AND ((@IsNull_carnum3 ="& _ 
-                " 1 AND [carnum3] IS NULL) OR ([carnum3] = @Original_carnum3)) AND ((@IsNull_carn"& _ 
-                "um4 = 1 AND [carnum4] IS NULL) OR ([carnum4] = @Original_carnum4)) AND ((@IsNull"& _ 
-                "_musen = 1 AND [musen] IS NULL) OR ([musen] = @Original_musen)) AND ((@IsNull_to"& _ 
-                "n = 1 AND [ton] IS NULL) OR ([ton] = @Original_ton)) AND ((@IsNull_biko = 1 AND "& _ 
-                "[biko] IS NULL) OR ([biko] = @Original_biko)) AND ((@IsNull_branch_id = 1 AND [b"& _ 
-                "ranch_id] IS NULL) OR ([branch_id] = @Original_branch_id)) AND ((@IsNull_staff_i"& _ 
-                "d = 1 AND [staff_id] IS NULL) OR ([staff_id] = @Original_staff_id)) AND ((@IsNul"& _ 
-                "l_max_load = 1 AND [max_load] IS NULL) OR ([max_load] = @Original_max_load)) AND"& _ 
-                " ((@IsNull_limit_syaken = 1 AND [limit_syaken] IS NULL) OR ([limit_syaken] = @Or"& _ 
-                "iginal_limit_syaken)) AND ((@IsNull_emergency = 1 AND [emergency] IS NULL) OR (["& _ 
-                "emergency] = @Original_emergency)) AND ((@IsNull_car_length = 1 AND [car_length]"& _ 
-                " IS NULL) OR ([car_length] = @Original_car_length)) AND ((@IsNull_car_width = 1 "& _ 
-                "AND [car_width] IS NULL) OR ([car_width] = @Original_car_width)) AND ((@IsNull_c"& _ 
-                "ar_height = 1 AND [car_height] IS NULL) OR ([car_height] = @Original_car_height)"& _ 
-                ") AND ((@IsNull_bed_length = 1 AND [bed_length] IS NULL) OR ([bed_length] = @Ori"& _ 
-                "ginal_bed_length)) AND ((@IsNull_bed_width = 1 AND [bed_width] IS NULL) OR ([bed"& _ 
-                "_width] = @Original_bed_width)) AND ((@IsNull_bed_height = 1 AND [bed_height] IS"& _ 
-                " NULL) OR ([bed_height] = @Original_bed_height)) AND ((@IsNull_maker = 1 AND [ma"& _ 
-                "ker] IS NULL) OR ([maker] = @Original_maker)) AND ((@IsNull_car_type = 1 AND [ca"& _ 
-                "r_type] IS NULL) OR ([car_type] = @Original_car_type)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT carnum1, carnum"& _ 
-                "2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syak"& _ 
-                "en, emergency, car_length, car_width, car_height, bed_length, bed_width, bed_hei"& _ 
-                "ght, maker, car_type FROM tbl_car WHERE (carnum1 = @carnum1)"
+                " = @car_type, [retire_flag] = @retire_flag WHERE (([carnum1] = @Original_carnum1"& _ 
+                ") AND ((@IsNull_carnum2 = 1 AND [carnum2] IS NULL) OR ([carnum2] = @Original_car"& _ 
+                "num2)) AND ((@IsNull_carnum3 = 1 AND [carnum3] IS NULL) OR ([carnum3] = @Origina"& _ 
+                "l_carnum3)) AND ((@IsNull_carnum4 = 1 AND [carnum4] IS NULL) OR ([carnum4] = @Or"& _ 
+                "iginal_carnum4)) AND ((@IsNull_musen = 1 AND [musen] IS NULL) OR ([musen] = @Ori"& _ 
+                "ginal_musen)) AND ((@IsNull_ton = 1 AND [ton] IS NULL) OR ([ton] = @Original_ton"& _ 
+                ")) AND ((@IsNull_biko = 1 AND [biko] IS NULL) OR ([biko] = @Original_biko)) AND "& _ 
+                "((@IsNull_branch_id = 1 AND [branch_id] IS NULL) OR ([branch_id] = @Original_bra"& _ 
+                "nch_id)) AND ((@IsNull_staff_id = 1 AND [staff_id] IS NULL) OR ([staff_id] = @Or"& _ 
+                "iginal_staff_id)) AND ((@IsNull_max_load = 1 AND [max_load] IS NULL) OR ([max_lo"& _ 
+                "ad] = @Original_max_load)) AND ((@IsNull_limit_syaken = 1 AND [limit_syaken] IS "& _ 
+                "NULL) OR ([limit_syaken] = @Original_limit_syaken)) AND ((@IsNull_emergency = 1 "& _ 
+                "AND [emergency] IS NULL) OR ([emergency] = @Original_emergency)) AND ((@IsNull_c"& _ 
+                "ar_length = 1 AND [car_length] IS NULL) OR ([car_length] = @Original_car_length)"& _ 
+                ") AND ((@IsNull_car_width = 1 AND [car_width] IS NULL) OR ([car_width] = @Origin"& _ 
+                "al_car_width)) AND ((@IsNull_car_height = 1 AND [car_height] IS NULL) OR ([car_h"& _ 
+                "eight] = @Original_car_height)) AND ((@IsNull_bed_length = 1 AND [bed_length] IS"& _ 
+                " NULL) OR ([bed_length] = @Original_bed_length)) AND ((@IsNull_bed_width = 1 AND"& _ 
+                " [bed_width] IS NULL) OR ([bed_width] = @Original_bed_width)) AND ((@IsNull_bed_"& _ 
+                "height = 1 AND [bed_height] IS NULL) OR ([bed_height] = @Original_bed_height)) A"& _ 
+                "ND ((@IsNull_maker = 1 AND [maker] IS NULL) OR ([maker] = @Original_maker)) AND "& _ 
+                "((@IsNull_car_type = 1 AND [car_type] IS NULL) OR ([car_type] = @Original_car_ty"& _ 
+                "pe)) AND ((@IsNull_retire_flag = 1 AND [retire_flag] IS NULL) OR ([retire_flag] "& _ 
+                "= @Original_retire_flag)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT carnum1, carnum2, carnum3, carnum4, musen, t"& _ 
+                "on, biko, branch_id, staff_id, max_load, limit_syaken, emergency, car_length, ca"& _ 
+                "r_width, car_height, bed_length, bed_width, bed_height, maker, car_type, retire_"& _ 
+                "flag FROM tbl_car WHERE (carnum1 = @carnum1)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@carnum1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@carnum2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5951,6 +6041,7 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@bed_height", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "bed_height", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@maker", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "maker", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@car_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "car_type", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@retire_flag", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "retire_flag", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_carnum1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_carnum2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_carnum2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -5990,6 +6081,8 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_maker", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "maker", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_car_type", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "car_type", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_car_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "car_type", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_retire_flag", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "retire_flag", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_retire_flag", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "retire_flag", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6005,24 +6098,25 @@ Namespace PhoneNumDBDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id,"& _ 
-                " max_load, limit_syaken , emergency , car_length, car_width, car_height, bed_len"& _ 
-                "gth, bed_width, bed_height , maker, car_type FROM tbl_car"
+            Me._commandCollection(0).CommandText = "SELECT                      carnum1, carnum2, carnum3, carnum4, musen, ton, biko,"& _ 
+                " branch_id, staff_id, max_load, limit_syaken, emergency, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "                 car_length, car_width, car_height, bed_length, bed_width, bed_h"& _ 
+                "eight, maker, car_type, retire_flag"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM                         tbl_car"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT bed_height, bed_length, bed_width, biko, branch_id, car_height, car_length"& _ 
                 ", car_type, car_width, carnum1, carnum2, carnum3, carnum4, emergency, limit_syak"& _ 
-                "en, maker, max_load, musen, staff_id, ton FROM tbl_car WHERE (carnum1 = @filterc"& _ 
-                "ode)"
+                "en, maker, max_load, musen, retire_flag, staff_id, ton FROM tbl_car WHERE (carnu"& _ 
+                "m1 = @filtercode)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@filtercode", Global.System.Data.SqlDbType.VarChar, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT bed_height, bed_length, bed_width, biko, branch_id, car_height, car_length"& _ 
                 ", car_type, car_width, carnum1, carnum2, carnum3, carnum4, emergency, limit_syak"& _ 
-                "en, maker, max_load, musen, staff_id, ton FROM tbl_car WHERE (carnum1 LIKE @filt"& _ 
-                "ername)"
+                "en, maker, max_load, musen, retire_flag, staff_id, ton FROM tbl_car WHERE (carnu"& _ 
+                "m1 LIKE @filtername)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@filtername", Global.System.Data.SqlDbType.VarChar, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "carnum1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
@@ -6160,7 +6254,8 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal Original_bed_width As Global.System.Nullable(Of Integer),  _
                     ByVal Original_bed_height As Global.System.Nullable(Of Integer),  _
                     ByVal Original_maker As String,  _
-                    ByVal Original_car_type As String) As Integer
+                    ByVal Original_car_type As String,  _
+                    ByVal Original_retire_flag As Global.System.Nullable(Of Boolean)) As Integer
             If (Original_carnum1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_carnum1")
             Else
@@ -6299,6 +6394,13 @@ Namespace PhoneNumDBDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_car_type,String)
             End If
+            If (Original_retire_flag.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_retire_flag.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6338,7 +6440,8 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal bed_width As Global.System.Nullable(Of Integer),  _
                     ByVal bed_height As Global.System.Nullable(Of Integer),  _
                     ByVal maker As String,  _
-                    ByVal car_type As String) As Integer
+                    ByVal car_type As String,  _
+                    ByVal retire_flag As Global.System.Nullable(Of Boolean)) As Integer
             If (carnum1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("carnum1")
             Else
@@ -6439,6 +6542,11 @@ Namespace PhoneNumDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(19).Value = CType(car_type,String)
             End If
+            If (retire_flag.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(retire_flag.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6479,6 +6587,7 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal bed_height As Global.System.Nullable(Of Integer),  _
                     ByVal maker As String,  _
                     ByVal car_type As String,  _
+                    ByVal retire_flag As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_carnum1 As String,  _
                     ByVal Original_carnum2 As String,  _
                     ByVal Original_carnum3 As String,  _
@@ -6498,7 +6607,8 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal Original_bed_width As Global.System.Nullable(Of Integer),  _
                     ByVal Original_bed_height As Global.System.Nullable(Of Integer),  _
                     ByVal Original_maker As String,  _
-                    ByVal Original_car_type As String) As Integer
+                    ByVal Original_car_type As String,  _
+                    ByVal Original_retire_flag As Global.System.Nullable(Of Boolean)) As Integer
             If (carnum1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("carnum1")
             Else
@@ -6599,143 +6709,155 @@ Namespace PhoneNumDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(19).Value = CType(car_type,String)
             End If
+            If (retire_flag.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(retire_flag.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
             If (Original_carnum1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_carnum1")
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_carnum1,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_carnum1,String)
             End If
             If (Original_carnum2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_carnum2,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_carnum2,String)
             End If
             If (Original_carnum3 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_carnum3,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_carnum3,String)
             End If
             If (Original_carnum4 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_carnum4,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_carnum4,String)
             End If
             If (Original_musen.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_musen.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_musen.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             End If
             If (Original_ton Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_ton,String)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_ton,String)
             End If
             If (Original_biko Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_biko,String)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_biko,String)
             End If
             If (Original_branch_id Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_branch_id,String)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_branch_id,String)
             End If
             If (Original_staff_id Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_staff_id,String)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_staff_id,String)
             End If
             If (Original_max_load.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_max_load.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_max_load.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
             End If
             If (Original_limit_syaken.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_limit_syaken.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_limit_syaken.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             End If
             If (Original_emergency.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_emergency.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_emergency.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
             End If
             If (Original_car_length.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_car_length.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_car_length.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             End If
             If (Original_car_width.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_car_width.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_car_width.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
             End If
             If (Original_car_height.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_car_height.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_car_height.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             End If
             If (Original_bed_length.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_bed_length.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_bed_length.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
             End If
             If (Original_bed_width.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_bed_width.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_bed_width.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
             End If
             If (Original_bed_height.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_bed_height.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_bed_height.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
             End If
             If (Original_maker Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_maker,String)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_maker,String)
             End If
             If (Original_car_type Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_car_type,String)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_car_type,String)
+            End If
+            If (Original_retire_flag.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_retire_flag.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6776,6 +6898,7 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal bed_height As Global.System.Nullable(Of Integer),  _
                     ByVal maker As String,  _
                     ByVal car_type As String,  _
+                    ByVal retire_flag As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_carnum1 As String,  _
                     ByVal Original_carnum2 As String,  _
                     ByVal Original_carnum3 As String,  _
@@ -6795,8 +6918,9 @@ Namespace PhoneNumDBDataSetTableAdapters
                     ByVal Original_bed_width As Global.System.Nullable(Of Integer),  _
                     ByVal Original_bed_height As Global.System.Nullable(Of Integer),  _
                     ByVal Original_maker As String,  _
-                    ByVal Original_car_type As String) As Integer
-            Return Me.Update(Original_carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syaken, emergency, car_length, car_width, car_height, bed_length, bed_width, bed_height, maker, car_type, Original_carnum1, Original_carnum2, Original_carnum3, Original_carnum4, Original_musen, Original_ton, Original_biko, Original_branch_id, Original_staff_id, Original_max_load, Original_limit_syaken, Original_emergency, Original_car_length, Original_car_width, Original_car_height, Original_bed_length, Original_bed_width, Original_bed_height, Original_maker, Original_car_type)
+                    ByVal Original_car_type As String,  _
+                    ByVal Original_retire_flag As Global.System.Nullable(Of Boolean)) As Integer
+            Return Me.Update(Original_carnum1, carnum2, carnum3, carnum4, musen, ton, biko, branch_id, staff_id, max_load, limit_syaken, emergency, car_length, car_width, car_height, bed_length, bed_width, bed_height, maker, car_type, retire_flag, Original_carnum1, Original_carnum2, Original_carnum3, Original_carnum4, Original_musen, Original_ton, Original_biko, Original_branch_id, Original_staff_id, Original_max_load, Original_limit_syaken, Original_emergency, Original_car_length, Original_car_width, Original_car_height, Original_bed_length, Original_bed_width, Original_bed_height, Original_maker, Original_car_type, Original_retire_flag)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8856,6 +8980,7 @@ Namespace PhoneNumDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("bed_height", "bed_height")
             tableMapping.ColumnMappings.Add("maker", "maker")
             tableMapping.ColumnMappings.Add("car_type", "car_type")
+            tableMapping.ColumnMappings.Add("retire_flag", "retire_flag")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
